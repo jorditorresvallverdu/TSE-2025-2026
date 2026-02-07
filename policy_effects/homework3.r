@@ -1,6 +1,6 @@
 ##Author: Jordi Torres
 ##Date: 05/11/2025
-##TAKEHOME 3: RDD
+##TAKEHOME 3: RDD,, 
 #-------------------------------------------------------------------------------
 rm(list = ls())
 #0. Introduction, data manipulation. 
