@@ -34,126 +34,325 @@
 
 
 \begin{frame}{Motivation}
-    \begin{itemize}
-        \item Definition: Multiproduct Intermediaries -multiproduct buyers with search costs: strict definition (maybe add a graph)
-        \item Examples: e.g Amazon, Shopping Mall etc\dots (their framework allows for generality) tv platforms etc
-        \item Why study intermediaries: rise of DTC (how should retailers respond), exclusivity etc (setting).
-        
-        \item Main questions: \begin{enumerate}
-            \item How can it exhist? optimal strategy in composition? focus in composition... 
-            \item Fundamental idea of the paper: 1. multiproduct intermediaries (contrary to single product) can exhist just based on search frictions... (even abstracting from prices)->2. mechanism is clear! expand the model. 
-        \end{enumerate}
+\begin{itemize}
+    \item Many intermediaries sell \emph{multiple products}
+    (retailers, malls, platforms, TV platforms).
 
-    \end{itemize}
+    \item A core strategic decision:
+    product assortment and exclusivity.
+
+    \item Two forces reshape this decision:
+    direct-to-consumer (DTC) sales and exclusivity agreements.
+
+    \item Existing theory offers little guidance
+    on optimal assortment choices.
+\end{itemize}
 \end{frame}
 
+
+\begin{frame}{Motivation}
+\begin{itemize}
+    \item \textbf{Question:}
+    how can a multiproduct intermediary create value and earn profits?
+
+    \item Standard models:
+    profits require lower prices or better search.
+
+    \item \textbf{Key result:}
+    a multiproduct intermediary can earn strictly positive profits
+    \emph{without reducing prices or search costs}.
+
+    \item Profits arise from assortment choice
+    and cross-product search incentives.
+\end{itemize}
+\end{frame}
+
+\section{Model}
 \begin{frame}{Related Literature}
-    \begin{itemize}
-        \item Literature on intermediaries focuses: 
-        \begin{itemize}
-            \item search/matching efficiency between buyer/sellers (cite)
-            \item expert certifier (asymmetric information)
-            \item \textbf{This paper: search frictions exhist, but show that int. can exhist even without improving search efficiency. }
-            \end{itemize} 
-        \item Mechanism explored is close to Bundling (cite): \begin{itemize}
-            \item \textbf{$\rightarrow$} focus on which product should be bundled directly.
-        \end{itemize}
-        \item 
-        \item Multiproduct search of consumers (...) -products are exogeneously given.
-        \item This paper: endogeneous product range selection of firms.+ introduce manufacturers (vertical structure is considered)
-        \item Literature on product assortment, but focused on single demand consumers
-        \item \textbf{Contrary: focus on multiproduct demand, search frictions}
-    \end{itemize}
+\small
+
+\textbf{Intermediaries}
+\begin{itemize}\setlength{\itemsep}{1pt}
+    \item Search / matching efficiency 
+    {\footnotesize (Rubinstein--Wolinsky, 1987; Gehrig, 1993; Spulber, 1996)}
+    \item Certification, asymmetric information 
+    {\footnotesize (Biglaiser, 1993; Lizzeri, 1999)}
+\end{itemize}
+
+{\scriptsize $\Rightarrow$ \textbf{This paper:}}
+\small intermediaries earn profits even without improving search efficiency.
+
+\vspace{0.2cm}
+
+\textbf{Bundling}
+\begin{itemize}\setlength{\itemsep}{1pt}
+    \item Classic bundling mechanisms 
+    {\footnotesize (Stigler, 1968; Adams--Yellen, 1976; McAfee et al., 1989)}
+\end{itemize}
+
+{\scriptsize $\Rightarrow$ \textbf{This paper:}}
+\small focuses on which products are bundled via endogenous assortment choice.
+
+\vspace{0.2cm}
+
+\textbf{Multiproduct search}
+\begin{itemize}\setlength{\itemsep}{1pt}
+    \item Consumer search with exogenous product ranges 
+    {\footnotesize (McAfee, 1995; Shelegia, 2012; Zhou, 2014; Rhodes, 2015)}
+\end{itemize}
+
+{\scriptsize $\Rightarrow$ \textbf{This paper:}}
+\small endogenous product range choice with upstream manufacturers and vertical structure.
+
 \end{frame}
 
-\section{Simplified Model}
+
 \begin{frame}{Setting}
-\begin{enumerate}
-    \item  \textbf{M}$\in R[0,1]$ 
-            \begin{itemize}
-                \item \(C_{i}\leq 0\)
-                \item \(\pi_{i}= (P_{i}^{m}-C_{i})Q_{i}(P_{i}^{m})\)
-            \end{itemize}
+\begin{itemize}
+    \item \textbf{Products / Manufacturers}
+    \begin{itemize}
+        \item Continuum of products \(i\in[0,1]\), marginal cost \(c_i\ge0\)
+        \item Demand \(Q_i(p)\), monopoly price \(p_i^m\)
+        \item Per-consumer profit and surplus:
+        \[
+            \pi_i=(p_i^m-c_i)Q_i(p_i^m),\qquad
+            v_i=\int_{p_i^m}^{\infty}Q_i(p)\,dp
+        \]
+    \end{itemize}
 
-    \item \textbf{C}$\in R[0,1]$ interested in buying every product (this must be summarized)
-            \begin{itemize}
-                \item demands $Q_{i}(P_{i})$  (prod independent:)
-                \item surpluss \(v_{i}= \int_{p_{i}^{m}}^{\infty} Q_{i}(P)dP\)
-                 each consumer knows where the product is available, but does not know the price:
-                \item search cost s , cdf: $F(s)$ --> key heterogeneity, consumers differ in this, same demand, different cost. (think of this as distance.)
-            \end{itemize}
+    \item \textbf{Consumers}
+    \begin{itemize}
+        \item Unit mass, additive utility across products
+        \item Identical preferences; heterogeneity only in search cost \(s\sim F\)
+        \item Observe availability, not prices
+    \end{itemize}
 
-    \item \textbf{I}
-            \begin{itemize}
-                \item capacity constrained \(\hat{m}\leq 1\)
-                \item w/ bargaining power: TIOLI $(\tau_{i}, T_{i})$
-                \item may have search efficiencies $h(m)\lesseqqgtr 1$
-                \item $h(m) \times s <s \times n $
-            \end{itemize}
-
-            \textbf{improve notation, clarity and space}
-\end{enumerate}    
+    \item \textbf{Intermediary}
+    \begin{itemize}
+        \item Chooses assortment \(A\subset[0,1]\), \(|A|\le\bar m\)
+        \item TIOLI contracts \((\tau_i,T_i)\), exclusive or not
+        \item Search cost \(h(|A|)\cdot s\)
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
-\begin{frame}{Setup 2: Timing}
-    Use this to explain assumptions on who knows what, and don't mention that in the previous one.
+
+
+\begin{frame}{Timing}
+
+    \textcolor{blue}{\textbf{Add a simple line, that is all, shimplesh}}
+
+\begin{enumerate}
+    \item The intermediary simultaneously makes TIOLI offers
+    \((\tau_i,T_i)\) to manufacturers,
+    specifying exclusivity or non-exclusivity.
+    Manufacturers accept or reject.
+
+    \item All firms that sell to consumers
+    set retail prices for their products.
+
+    \item Consumers observe availability,
+    form rational expectations over prices,
+    then search sequentially and purchase.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Lemma 1 (Pricing and Contracting)}
+\begin{lemma}
+In any equilibrium where product markets are active:
+\begin{enumerate}
+    \item All sellers of product \(i\) charge the monopoly price
+    \(p_i = p_i^m\).
+
+    \item If product \(i\) is stocked by the intermediary,
+    there exists an equilibrium contract with
+    \[
+        \tau_i = c_i,
+        \qquad
+        T_i = \pi_i F(v_i),
+    \]
+    both under exclusivity and non-exclusivity.
+\end{enumerate}
+\end{lemma}
+
+
+\textcolor{blue}{\textbf{Add definition of $\Omega$!!!!!!!!}}
+
+\medskip
+\textbf{Implication:}
+products can be indexed by
+\[
+(\pi_i, v_i)\in\mathbb{R}_+^2,
+\]
+with joint distribution \(G(\pi,v)\).
+\end{frame}
+
+
+\begin{frame}{Simple Case: Consumer Decision}
+
+\textbf{Assumptions:}
+exclusivity, \(h(m)=m\), \(\bar m=1\)
+
+\medskip
+
+Intermediary stocks \(A \subset \Omega\) exclusively.
+
+\[
+\text{Visit } I
+\;\Longleftrightarrow\;
+\underbrace{\int_A v\,dG}_{\text{expected surplus}}
+\;\ge\;
+\underbrace{s \int_A dG}_{\text{search cost}}
+\]
+
+\[
+\Longleftrightarrow
+\quad
+s \le
+\hat v
+\equiv
+\frac{\int_A v\,dG}{\int_A dG}
+\]
+
+\medskip
+
+\centering
+\textit{\scriptsize
+Consumers compare average surplus to their search cost.
+}
+
+\end{frame}
+
+\begin{frame}{Simple Case: Intermediary Problem}
+
+Consumers visiting intermediary: \(F(\hat v)\)
+
+\medskip
+
+Net profit from product \((\pi,v)\):
+\[
+\pi\,[F(\hat v)-F(v)]
+\]
+
+\scriptsize
+(gains from extra consumers
+\(-\)
+lump-sum paid to manufacturer)
+
+\medskip
+
+\[
+\max_{A \subset \Omega}
+\int_A \pi\,[F(\hat v)-F(v)]\, dG
+\]
+
+\medskip
+
+\centering
+\textit{\scriptsize
+Low-\(v\) products earn profits.
+High-\(v\) products attract consumers.
+}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}{Solution: Optimal Product Selection}
+
+\textbf{Reformulation}
+
+Stocking decision:
+\[
+q(\pi,v)=1 \;\Longleftrightarrow\; (\pi,v)\in A
+\]
+
+\medskip
+
+\textbf{Intermediary problem}
+\[
+\max_q \int_{\Omega} q(\pi,v)\,
+\Big[
+\underbrace{\pi(F(\hat v)-F(v))}_{\text{direct profit}}
++
+\underbrace{\lambda (v-\hat v)}_{\text{search externality}}
+\Big] dG
+\]
+
+\medskip
+
+\textbf{Optimal policy: cutoff structure}
+
+\[
+q(\pi,v)=1 \;\Longleftrightarrow\;
+\begin{cases}
+v<\hat v \;\;\text{and}\;\;
+\pi \ge \dfrac{\hat v-v}{F(\hat v)-F(v)} \\
+v>\hat v \;\;\text{and}\;\;
+\pi \le \dfrac{\hat v-v}{F(\hat v)-F(v)}
+\end{cases}
+\]
+
+\medskip
+
+\centering
+\textit{\scriptsize
+High-\(\pi\), low-\(v\) products make money.
+Low-\(\pi\), high-\(v\) products attract consumers.
+}
+
+\textcolor{blue}{\textbf{Clarify the constraint, where does it come from}}
+
+\end{frame}
+
+\begin{frame}{Solution: Optimal Product Selection}
+\textcolor{blue}{\textbf{mention proposition 1?}}
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{io_presentation_pic1.png}
+\end{figure}    
+\end{frame}
+
+
+
+\section{Discussion}
+
+\begin{frame}{Main Model}
+\begin{itemize}
+    \item richer environment
     \begin{enumerate}
-        \item I offers $(\tau_{i}, T_{i})$ to M + (exclusivity/nonexcl). M accept/reject
-        \item M sets $p_{i}$
-        \item C observed who sells what and forms expectations over prices. Then sequential search. 
+        \item \(q(\pi, v)\in \left((0,0), (1,0), (0,1)\right)\), allow for $(q^{e}, q^{ne})$ 
+        \item \(\hat{m}\leq 1\)
+        \item \(h(m)\lesseqqgtr m\)
     \end{enumerate}
-    
+    \item $\rightarrow$ adds one more layer of complexity: firms also find it optimal to  provide high $\pi$, high $v$ goods. 
+    \item Now results endogeneously depend on $h(m), \bar{m}$, this provides scope for richer applications: exclusivity/nonexclusivity margin and caapcity margin. 
+    \item \textbf{Applications}: re
+\end{itemize}
 \end{frame}
 
-\begin{frame}{Lemma 1}
-    This is crucial to simplify a lot the problem at hand. Reduce all the dimensionality of the problem to only a two dimensional space.
 
-        \begin{enumerate}
-            \item \(p_{i}= p_{i}^{m}\) (hold-up) 
-            \item \((\tau_{i}, T_{i})= (c_{i}, \pi_{i}F(v_{i}))\)    
-        \end{enumerate}
-
-    \(\implies\) what matters is \((\pi, v)_{i}\in \mathbf{R}^{2}_{+}\)
-    We will done \(G\) the joint cdf and \(g\) joint pdf. Regular assumptions (differentiabiliy, smoothness). Define \(\Omega\), \(F\)
+\begin{frame}{Summary}
+\begin{itemize}
+\item New framework to study multiproduct intermediaries when consumers face heterogeneous demand and search frictions. 
+\item Main result: show that a multiproduct intermediate is profitable even if it is does not provide search efficiencies.
+\item Mechanism: bundling + effects of technology/exclusivity under more complex contracts
+\item Provide applications to DTCs. 
+\end{itemize}
 \end{frame}
 
-\begin{frame}{Simple Case}
-\begin{enumerate}
-    \item Simplifying assumptions:
-    \begin{itemize}
-        \item only exclusivity
-        \item \(h(m)= m\) no efficiency gains
-        \item \(\hat{m}=1\) no capacity constraints
-    \end{itemize}
-   \item Consumer Problem: suppose \(I: A\in F\) exclusively:
-   \item Visits if: \(\int_{A} v dG - s \int_{A} dG \geq 0 \), underline what each thing is. 
-   \item $\implies$ \(s_{i} \leq \hat{v}= \frac{\int_{A} v dG}{\int_{A} dG}\)
-   \item Intermediary: \(\pi, v\), \(\max \int_{A} \pi(F(\hat{v})- F(v)) dG\), underine consumers attracted vs lump sum given to manufacturers. 
-\end{enumerate} 
 
+\begin{frame}{Critiques/review}
+\begin{itemize}
+\item I would add critique + possible solutions; be nice and fair with them. This is to do. 
+\item Mostly, consumers are passive agents, accept the monopoly price.
+\item Also, absence of price competition among I (only one)->they aknowledge this... and actually is part of their research agenda. How would this look like? 
+\item What else
+\end{itemize}
 \end{frame}
 
-\begin{frame}{Solution}
-    \begin{itemize}
-        \item \(q(\pi, v)\iff (\pi, v)\in A\)
-        \item \(\max_{q}\int_{\Omega} q(\pi, v) \pi(F(\hat{v})- F(v)) dG\) s.t \(\int_{\Omega}q(\pi, v)(v-\hat{v})dG\)
-        \item \(L= \int_{\Omega}q(\pi, v) (\pi(F(\hat{v})- F(v)) + \lambda (v-\hat{v})) dG\); underline the direct and indirect effect. 
-        \item Two regions of interest: \begin{enumerate}
-            \item \(v < \hat{v} \implies?\) \(\pi\geq \frac{\hat{v}-v}{F(\hat{v})-F(v)}\)
-            \item \(v > \hat{v} \implies? \) \(\pi\leq \frac{\hat{v}-v}{F(\hat{v})-F(v)}\)
-        \end{enumerate}
-    \end{itemize}
-    
-\end{frame}
 
-\begin{frame}{Solution 2}
-Here add the graph. 
-    
-\end{frame}
-
-\begin{frame}{General case}
-    Worth summarizing a bit what is new, how the problem becomes more complex, but try at the same time to explain it using the main intuitions of the model. So it should be one slide max. 
-    
-\end{frame}
 
 \end{document}
