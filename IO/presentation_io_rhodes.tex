@@ -1,0 +1,159 @@
+\documentclass{beamer}
+
+\usetheme{AnnArbor} % \!/ change this shit. 
+\usecolortheme{dolphin} % Blue color theme
+
+% Sidebar navigation similar to Frankfurt
+\useoutertheme[subsection=false]{miniframes}
+
+% Packages
+\usepackage{graphicx, booktabs, amsmath, amssymb, hyperref, xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+% Title information
+\title[RWZ (2021)]{Multiproduct intermediaries}
+\author[Rhodes, Wanabe, Zhou]{JPE, 2021 \\Andrew Rhodes, Makoto Wanabe, Jidong Zhou}
+\date{\today}
+
+\begin{document}
+
+% Title Slide
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Outline Slide
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+% Section 1: Introduction
+\section{Introduction}
+
+
+\begin{frame}{Motivation}
+    \begin{itemize}
+        \item Definition: Multiproduct Intermediaries -multiproduct buyers with search costs: strict definition (maybe add a graph)
+        \item Examples: e.g Amazon, Shopping Mall etc\dots (their framework allows for generality) tv platforms etc
+        \item Why study intermediaries: rise of DTC (how should retailers respond), exclusivity etc (setting).
+        
+        \item Main questions: \begin{enumerate}
+            \item How can it exhist? optimal strategy in composition? focus in composition... 
+            \item Fundamental idea of the paper: 1. multiproduct intermediaries (contrary to single product) can exhist just based on search frictions... (even abstracting from prices)->2. mechanism is clear! expand the model. 
+        \end{enumerate}
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Related Literature}
+    \begin{itemize}
+        \item Literature on intermediaries focuses: 
+        \begin{itemize}
+            \item search/matching efficiency between buyer/sellers (cite)
+            \item expert certifier (asymmetric information)
+            \item \textbf{This paper: search frictions exhist, but show that int. can exhist even without improving search efficiency. }
+            \end{itemize} 
+        \item Mechanism explored is close to Bundling (cite): \begin{itemize}
+            \item \textbf{$\rightarrow$} focus on which product should be bundled directly.
+        \end{itemize}
+        \item 
+        \item Multiproduct search of consumers (...) -products are exogeneously given.
+        \item This paper: endogeneous product range selection of firms.+ introduce manufacturers (vertical structure is considered)
+        \item Literature on product assortment, but focused on single demand consumers
+        \item \textbf{Contrary: focus on multiproduct demand, search frictions}
+    \end{itemize}
+\end{frame}
+
+\section{Simplified Model}
+\begin{frame}{Setting}
+\begin{enumerate}
+    \item  \textbf{M}$\in R[0,1]$ 
+            \begin{itemize}
+                \item \(C_{i}\leq 0\)
+                \item \(\pi_{i}= (P_{i}^{m}-C_{i})Q_{i}(P_{i}^{m})\)
+            \end{itemize}
+
+    \item \textbf{C}$\in R[0,1]$ interested in buying every product (this must be summarized)
+            \begin{itemize}
+                \item demands $Q_{i}(P_{i})$  (prod independent:)
+                \item surpluss \(v_{i}= \int_{p_{i}^{m}}^{\infty} Q_{i}(P)dP\)
+                 each consumer knows where the product is available, but does not know the price:
+                \item search cost s , cdf: $F(s)$ --> key heterogeneity, consumers differ in this, same demand, different cost. (think of this as distance.)
+            \end{itemize}
+
+    \item \textbf{I}
+            \begin{itemize}
+                \item capacity constrained \(\hat{m}\leq 1\)
+                \item w/ bargaining power: TIOLI $(\tau_{i}, T_{i})$
+                \item may have search efficiencies $h(m)\lesseqqgtr 1$
+                \item $h(m) \times s <s \times n $
+            \end{itemize}
+
+            \textbf{improve notation, clarity and space}
+\end{enumerate}    
+\end{frame}
+
+\begin{frame}{Setup 2: Timing}
+    Use this to explain assumptions on who knows what, and don't mention that in the previous one.
+    \begin{enumerate}
+        \item I offers $(\tau_{i}, T_{i})$ to M + (exclusivity/nonexcl). M accept/reject
+        \item M sets $p_{i}$
+        \item C observed who sells what and forms expectations over prices. Then sequential search. 
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}{Lemma 1}
+    This is crucial to simplify a lot the problem at hand. Reduce all the dimensionality of the problem to only a two dimensional space.
+
+        \begin{enumerate}
+            \item \(p_{i}= p_{i}^{m}\) (hold-up) 
+            \item \((\tau_{i}, T_{i})= (c_{i}, \pi_{i}F(v_{i}))\)    
+        \end{enumerate}
+
+    \(\implies\) what matters is \((\pi, v)_{i}\in \mathbf{R}^{2}_{+}\)
+    We will done \(G\) the joint cdf and \(g\) joint pdf. Regular assumptions (differentiabiliy, smoothness). Define \(\Omega\), \(F\)
+\end{frame}
+
+\begin{frame}{Simple Case}
+\begin{enumerate}
+    \item Simplifying assumptions:
+    \begin{itemize}
+        \item only exclusivity
+        \item \(h(m)= m\) no efficiency gains
+        \item \(\hat{m}=1\) no capacity constraints
+    \end{itemize}
+   \item Consumer Problem: suppose \(I: A\in F\) exclusively:
+   \item Visits if: \(\int_{A} v dG - s \int_{A} dG \geq 0 \), underline what each thing is. 
+   \item $\implies$ \(s_{i} \leq \hat{v}= \frac{\int_{A} v dG}{\int_{A} dG}\)
+   \item Intermediary: \(\pi, v\), \(\max \int_{A} \pi(F(\hat{v})- F(v)) dG\), underine consumers attracted vs lump sum given to manufacturers. 
+\end{enumerate} 
+
+\end{frame}
+
+\begin{frame}{Solution}
+    \begin{itemize}
+        \item \(q(\pi, v)\iff (\pi, v)\in A\)
+        \item \(\max_{q}\int_{\Omega} q(\pi, v) \pi(F(\hat{v})- F(v)) dG\) s.t \(\int_{\Omega}q(\pi, v)(v-\hat{v})dG\)
+        \item \(L= \int_{\Omega}q(\pi, v) (\pi(F(\hat{v})- F(v)) + \lambda (v-\hat{v})) dG\); underline the direct and indirect effect. 
+        \item Two regions of interest: \begin{enumerate}
+            \item \(v < \hat{v} \implies?\) \(\pi\geq \frac{\hat{v}-v}{F(\hat{v})-F(v)}\)
+            \item \(v > \hat{v} \implies? \) \(\pi\leq \frac{\hat{v}-v}{F(\hat{v})-F(v)}\)
+        \end{enumerate}
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Solution 2}
+Here add the graph. 
+    
+\end{frame}
+
+\begin{frame}{General case}
+    Worth summarizing a bit what is new, how the problem becomes more complex, but try at the same time to explain it using the main intuitions of the model. So it should be one slide max. 
+    
+\end{frame}
+
+\end{document}
