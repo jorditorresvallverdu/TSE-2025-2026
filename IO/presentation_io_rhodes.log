@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.12.15)  10 FEB 2026 15:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.12.15)  11 FEB 2026 15:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -535,7 +535,7 @@ Package: amsthm 2020/05/29 v2.20.6
 ) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerbasethemes.sty)) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerthemedefault.sty (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerfontthemedefault.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamercolorthemedefault.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerinnerthemedefault.sty
 \beamer@dima=\dimen293
 \beamer@dimb=\dimen294
-) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerouterthemedefault.sty))) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerthemeAnnArbor.sty (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerinnerthemerounded.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerouterthemeinfolines.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamercolorthemewolverine.sty)) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamercolorthemedolphin.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerouterthememiniframes.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/booktabs/booktabs.sty
+) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerouterthemedefault.sty))) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerthemeCopenhagen.sty (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerouterthemesplit.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerinnerthemerounded.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamercolorthemewhale.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamercolorthemeorchid.sty)) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamercolorthemedolphin.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerouterthememiniframes.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen295
 \lightrulewidth=\dimen296
@@ -593,14 +593,14 @@ LaTeX Font Info:    ... okay on input line 20.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: includehead includefoot 
-* h-part:(L,W,R)=(10.95003pt, 342.2953pt, 10.95003pt)
+* h-part:(L,W,R)=(28.45274pt, 307.28987pt, 28.45274pt)
 * v-part:(T,H,B)=(0.0pt, 273.14662pt, 0.0pt)
 * \paperwidth=364.19536pt
 * \paperheight=273.14662pt
-* \textwidth=342.2953pt
+* \textwidth=307.28987pt
 * \textheight=244.6939pt
-* \oddsidemargin=-61.31996pt
-* \evensidemargin=-61.31996pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
 * \topmargin=-72.26999pt
 * \headheight=14.22636pt
 * \headsep=0.0pt
@@ -717,27 +717,27 @@ Dictionary: translator-theorem-dictionary, Language: English
 [3
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 87.
- (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
- (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 87.
- (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/sansmathaccent/ot1mathkerncmss.fd
-File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
-)
-Overfull \hbox (6.88939pt too wide) in paragraph at lines 87--87
-[][]  
- []
-
-
 
 [4
 
 ]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 110.
+ (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 110.
+ (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 110.
+ (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
+)
+Overfull \hbox (8.63925pt too wide) in paragraph at lines 110--110
+[][]  
+ []
+
+
 
 [5
 
@@ -758,28 +758,28 @@ Overfull \hbox (6.88939pt too wide) in paragraph at lines 87--87
 [9
 
 ]
-Overfull \vbox (2.24377pt too high) detected at line 289
- []
-
-
 
 [10
 
 ]
-<io_presentation_pic1.png, id=695, 1038.88126pt x 608.2725pt>
-File: io_presentation_pic1.png Graphic file (type png)
-<use io_presentation_pic1.png>
-Package pdftex.def Info: io_presentation_pic1.png  used on input line 297.
-(pdftex.def)             Requested size: 308.06367pt x 180.36697pt.
+Overfull \vbox (2.20787pt too high) detected at line 312
+ []
+
 
 
 [11
 
- <./io_presentation_pic1.png>]
+]
+<io_presentation_pic1.png, id=768, 1038.88126pt x 608.2725pt>
+File: io_presentation_pic1.png Graphic file (type png)
+<use io_presentation_pic1.png>
+Package pdftex.def Info: io_presentation_pic1.png  used on input line 320.
+(pdftex.def)             Requested size: 276.559pt x 161.92468pt.
+
 
 [12
 
-]
+ <./io_presentation_pic1.png>]
 
 [13
 
@@ -790,6 +790,10 @@ Package pdftex.def Info: io_presentation_pic1.png  used on input line 297.
 ]
 
 [15
+
+]
+
+[16
 
 ]
 \tf@nav=\write6
@@ -810,17 +814,17 @@ Package rerunfilecheck Info: File `presentation_io_rhodes.out' has not changed.
 (rerunfilecheck)             Checksum: 02C639CFE59DD20EE586D2335FF8694A;264.
  ) 
 Here is how much of TeX's memory you used:
- 22057 strings out of 473682
- 446899 string characters out of 5703553
- 802316 words of memory out of 5000000
- 44642 multiletter control sequences out of 15000+600000
+ 22033 strings out of 473682
+ 446375 string characters out of 5703553
+ 803398 words of memory out of 5000000
+ 44613 multiletter control sequences out of 15000+600000
  569970 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,19n,123p,459b,843s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,19n,123p,459b,938s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on presentation_io_rhodes.pdf (15 pages, 377810 bytes).
+Output written on presentation_io_rhodes.pdf (16 pages, 387524 bytes).
 PDF statistics:
- 1047 PDF objects out of 1200 (max. 8388607)
- 34 named destinations out of 1000 (max. 500000)
- 132 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1129 PDF objects out of 1200 (max. 8388607)
+ 36 named destinations out of 1000 (max. 500000)
+ 102 words of extra memory for PDF output out of 10000 (max. 10000000)
 
