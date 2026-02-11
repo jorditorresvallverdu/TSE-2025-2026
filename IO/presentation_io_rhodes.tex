@@ -14,7 +14,7 @@
 \usepackage{graphicx}
 % Title information
 \title[RWZ (2021)]{Multiproduct intermediaries}
-\author[Rhodes, Wanabe, Zhou]{JPE, 2021 \\Andrew Rhodes, Makoto Wanabe, Jidong Zhou}
+\author[Rhodes, Watanabe, Zhou]{JPE, 2021 \\Andrew Rhodes, Makoto Watanabe, Jidong Zhou}
 \date{\today}
 
 \begin{document}
@@ -24,34 +24,42 @@
     \titlepage
 \end{frame}
 
-% Outline Slide
-\begin{frame}{Outline}
-    \tableofcontents
-\end{frame}
 
 % Section 1: Introduction
 \section{Introduction}
 
-\begin{frame}{Context and Tension}
+\begin{frame}{Market Trends: An Empirical Tension}
 
 \begin{itemize}
-    \item Intermediaries play a central role in many markets:
-    retailers, platforms, malls, app stores, TV platforms.
 
-    \item They control product assortment and exclusivity,
-    shaping access to consumers.
-
-    \medskip
-
-    \item \textbf{Tension:}
-    DTC sales and disintermediation should weaken intermediaries.
-
-    \item Yet intermediaries remain profitable,
-    expand assortments, and rely increasingly on exclusivity.
-    \item \textbf{ADD some data on context}
+\item \textbf{Direct-to-Consumer (DTC) sales are expanding:}
+\begin{itemize}
+    \item European Commission (2017):
+    In several EU sectors, more than 50\% of manufacturers sell directly online (e.g clothing 85\%)
+    \item OECD (2019): E-commerce has facilitated manufacturers' expansion
+    into direct retail channels.
 \end{itemize}
 
+\medskip
+
+\item \textbf{Yet multiproduct intermediaries remain dominant:}
+\begin{itemize}
+    \item Amazon net sales exceed \$500bn annually (Amazon 10-K).
+    \item Growth of private labels and exclusive products  (e.g., streaming platforms securing exclusive sports and movie rights).
+
+    \item Large retailers continue to operate broad assortments.
+\end{itemize}
+
+\medskip
+
+\item \textbf{Puzzle:}
+If manufacturers can reach consumers directly,
+why do multiproduct intermediaries remain profitable
+and rely increasingly on exclusivity?
+
+\end{itemize}
 \end{frame}
+
 
 
 \begin{frame}{Motivation}
@@ -61,13 +69,17 @@
     and choose assortments strategically.
 
     \item Core question:
-    how can a multiproduct intermediary create value
-    and earn profits in the face of disintermediation? \textbf{wtf does this mean?}
+    How can a multiproduct intermediary remain profitable when manufacturers can sell directly and it does not lower prices?
 
     \medskip
 
-    \item Standard theory:
-    profits require lower prices or improved search.
+    \item Standard models of intermediation:
+    profits arise from
+    \begin{itemize}
+        \item reducing search frictions, or
+        \item lowering prices .
+    \end{itemize}
+
 
     \item \textbf{This paper:}
     intermediaries can earn profits
@@ -81,34 +93,37 @@
 \end{frame}
 
 
-
 \begin{frame}{Related Literature}
 
-\begin{tabular}{p{0.6\textwidth} p{0.35\textwidth}}
+\begin{itemize}
 
-\textbf{Intermediaries:}\\
-search, certification, information\\
-{\scriptsize\textcolor{gray}{(Rubinstein--Wolinsky 1987; Gehrig 1993; Spulber 1996)}}
-&
-\makebox[\linewidth][c]{\textit{Profits without improving search}}
-\\[0.45cm]
+\item \textbf{Intermediation models}
+\begin{itemize}
+    \item Search, certification, information {\scriptsize (Rubinstein--Wolinsky 1987; Gehrig 1993; Spulber 1996)}
+\end{itemize}
+{\color{blue} $\Rightarrow$ Profits without reducing search frictions}
 
-\textbf{Bundling:}\\
-pricing-based mechanisms\\
-{\scriptsize\textcolor{gray}{(Stigler 1968; Adams--Yellen 1976; McAfee et al. 1989)}}
-&
-\makebox[\linewidth][c]{\textit{Assortment-based bundling}}
-\\[0.45cm]
+\medskip
 
-\textbf{Multiproduct search:}\\
-exogenous product ranges\\
-{\scriptsize\textcolor{gray}{(McAfee 1995; Shelegia 2012; Zhou 2014; Rhodes 2015)}}
-&
-\makebox[\linewidth][c]{\textit{Endogenous assortment choice}}
+\item \textbf{Bundling}
+\begin{itemize}
+    \item Pricing-based mechanisms {\scriptsize (Stigler 1968; Adams--Yellen 1976; McAfee et al. 1989)}
+\end{itemize}
+{\color{blue} $\Rightarrow$ Assortment-based bundling}
 
-\end{tabular}
+\medskip
+
+\item \textbf{Multiproduct search}
+\begin{itemize}
+    \item Exogenous product ranges {\scriptsize (McAfee 1995; Shelegia 2012; Zhou 2014; Rhodes 2015)}
+\end{itemize}
+{\color{blue} $\Rightarrow$ Endogenous assortment choice}
+
+\end{itemize}
 
 \end{frame}
+
+
 
 \section{Model}
 
@@ -143,34 +158,26 @@ exogenous product ranges\\
 
 
 
+\begin{frame}{Pricing and Contracting}
 
-\begin{frame}{Lemma 1 (Pricing and Contracting)}
-\begin{lemma}
-In any equilibrium where product markets are active:
-\begin{enumerate}
-    \item All sellers of product \(i\) charge the monopoly price
-    \(p_i = p_i^m\).
-
-    \item If product \(i\) is stocked by the intermediary,
-    there exists an equilibrium contract with
-    \[
-        \tau_i = c_i,
-        \qquad
-        T_i = \pi_i F(v_i),
-    \]
-    both under exclusivity and non-exclusivity.
-\end{enumerate}
-\end{lemma}
-
+\begin{itemize}
+    \item In equilibrium, all sellers charge monopoly prices $p_i^m$.
+    \item Two-part contracts allow the intermediary to extract manufacturer surplus.
+\end{itemize}
 
 \medskip
-\textbf{Implication:}
-products can be indexed by
+
 \[
-(\pi_i, v_i)\in\mathbb{R}_+^2,
+\Rightarrow \text{Products can be indexed by } (\pi_i, v_i)
 \]
-with joint distribution \(G(\pi,v)\).
+
+\medskip
+
+Let $G(\pi,v)$ denote the joint distribution with support $\Omega$.
+
 \end{frame}
+
+
 
 
 \begin{frame}{Simple Case: Consumer Decision}
@@ -266,13 +273,16 @@ q(\pi,v)=1 \;\Longleftrightarrow\; (\pi,v)\in A
 \Big] dG
 \]
 
+\centering
+\textit{\scriptsize
+where $\lambda$ is the multiplier capturing the marginal value of attracting consumers.
+}
 \medskip
 
 
 \end{frame}
 
 \begin{frame}{Solution: Optimal Product Selection}
-\textcolor{blue}{\textbf{mention proposition 1?}}
     \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{io_presentation_pic1.png}
@@ -350,10 +360,7 @@ Low-\(\pi\), high-\(v\) products attract consumers.
 \end{itemize}
 
 \medskip
-\centering
-\textit{\scriptsize
-Applications illustrate the mechanism; the contribution is the framework.
-}
+
 \end{frame}
 
 
@@ -386,25 +393,29 @@ Applications illustrate the mechanism; the contribution is the framework.
 \begin{frame}{Discussion and Limitations}
 
 \begin{itemize}
-    \item \textbf{Scope of the pricing environment}
-    \begin{itemize}
-        \item Prices are fixed at monopoly levels to isolate pure assortment and exclusivity effects.
-        \item The paper establishes profitability under this austere benchmark, but does not quantify how strong these forces are relative to pricing distortions.
-    \end{itemize}
+\item \textbf{Pricing environment}
+\begin{itemize}
+    \item Retail prices are fixed at monopoly levels.
+    \item The intermediary cannot adjust prices or eliminate double marginalization.
+    \item In practice, pricing and assortment decisions interact.
+\end{itemize}
+
 
     \medskip
 
-    \item \textbf{Absence of intermediary competition}
-    \begin{itemize}
-        \item The analysis focuses on a single intermediary.
-        \item With competing intermediaries, exclusivity may be disciplined by consumer switching and differentiation, potentially altering welfare conclusions without eliminating profitability.
-    \end{itemize}
+\item \textbf{No intermediary competition}
+\begin{itemize}
+    \item The model considers a single intermediary.
+    \item With competing intermediaries, platforms may compete for traffic and exclusive products.
+    \item Competition could reduce the profitability of distortionary assortment choices.
+\end{itemize}
+
 
     \medskip
 
     \item \textbf{Consumer search structure}
     \begin{itemize}
-        \item Consumer heterogeneity operates solely through search costs.
+        \item Consumer heterogeneity operates only through search costs.
         \item The sensitivity of the mechanism to alternative forms of consumer search or platform choice is not fully characterized.
     \end{itemize}
 \end{itemize}
