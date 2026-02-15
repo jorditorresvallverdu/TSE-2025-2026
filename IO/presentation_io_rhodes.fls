@@ -394,8 +394,9 @@ INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/inst
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/sansmathaccent/mathkerncmssi10.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssi8.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssbx10.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssbx10.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssi8.tfm
 INPUT ./io_presentation_pic1.png
 INPUT ./io_presentation_pic1.png
 INPUT ./io_presentation_pic1.png
@@ -403,7 +404,6 @@ INPUT ./io_presentation_pic1.png
 INPUT ./io_presentation_pic1.png
 INPUT ./io_presentation_pic1.png
 INPUT ./io_presentation_pic1.png
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssi10.tfm
 OUTPUT presentation_io_rhodes.nav
 OUTPUT presentation_io_rhodes.toc
 OUTPUT presentation_io_rhodes.snm
@@ -440,3 +440,5 @@ INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/inst
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb

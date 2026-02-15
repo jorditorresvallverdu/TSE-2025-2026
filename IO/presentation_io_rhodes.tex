@@ -107,7 +107,7 @@ and rely increasingly on exclusivity?
 
 \item \textbf{Bundling}
 \begin{itemize}
-    \item Pricing-based mechanisms {\scriptsize (Stigler 1968; Adams--Yellen 1976; McAfee et al. 1989)}
+    \item Chore mechanisms {\scriptsize (Stigler 1968; Adams--Yellen 1976; McAfee et al. 1989)}
 \end{itemize}
 {\color{blue} $\Rightarrow$ Assortment-based bundling}
 
@@ -115,7 +115,7 @@ and rely increasingly on exclusivity?
 
 \item \textbf{Multiproduct search}
 \begin{itemize}
-    \item Exogenous product ranges {\scriptsize (McAfee 1995; Shelegia 2012; Zhou 2014; Rhodes 2015)}
+    \item Exogenous product ranges/price decisions {\scriptsize (McAfee 1995; Shelegia 2012; Zhou 2014; Rhodes 2015)}
 \end{itemize}
 {\color{blue} $\Rightarrow$ Endogenous assortment choice}
 
@@ -132,7 +132,6 @@ and rely increasingly on exclusivity?
     \item \textbf{Products / Manufacturers}
     \begin{itemize}
         \item Continuum of products \(i\in[0,1]\), marginal cost \(c_i\ge0\)
-        \item Demand \(Q_i(p)\), monopoly price \(p_i^m\)
         \item Per-consumer profit and surplus:
         \[
             \pi_i=(p_i^m-c_i)Q_i(p_i^m),\qquad
@@ -143,51 +142,84 @@ and rely increasingly on exclusivity?
     \item \textbf{Consumers}
     \begin{itemize}
         \item Unit mass, additive utility across products
-        \item Identical preferences; heterogeneity only in search cost \(s\sim F\)
-        \item Observe availability, not prices
+        \item Identical preferences;
+        \item  Pay a search cost \(s\sim F\)
     \end{itemize}
 
-    \item \textbf{Intermediary}
-    \begin{itemize}
-        \item Chooses assortment \(A\subset[0,1]\), \(|A|\le\bar m\)
-        \item TIOLI contracts \((\tau_i,T_i)\), exclusive or not
-        \item Search cost \(h(|A|)\cdot s\)
-    \end{itemize}
+\item \textbf{Intermediary}
+\begin{itemize}
+    \item Chooses assortment \(A \subset [0,1]\), with \(m = |A|\)
+    \item Capacity constraint: \(m \le \bar m < 1\)
+    \item Search efficiencies \(h(m)\)
+\end{itemize}
+
 \end{itemize}
 \end{frame}
 
 
+\begin{frame}{Timing}
 
-\begin{frame}{Pricing and Contracting}
+\[
+\textbf{1. Contracts (TIOLI)}
+\;\longrightarrow\;
+\textbf{2. Pricing}
+\;\longrightarrow\;
+\textbf{3. Search \& Purchase}
+\]
+
+\vspace{0.5cm}
 
 \begin{itemize}
-    \item In equilibrium, all sellers charge monopoly prices $p_i^m$.
-    \item Two-part contracts allow the intermediary to extract manufacturer surplus.
+    \item \textbf{1.} Intermediary offers $(\tau_i, T_i,$ exclusivity$)$
+    \item \textbf{2.} Active sellers choose retail prices
+    \item \textbf{3.} Consumers observe availability and search
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Pricing and Contracting: Key Implications}
+
+\begin{itemize}
+    \item Consumers do not observe prices before search
+    \item $\Rightarrow$ Each seller charges monopoly price $p_i^m$
 \end{itemize}
 
 \medskip
 
+
+Exclusive contract:
 \[
-\Rightarrow \text{Products can be indexed by } (\pi_i, v_i)
+\tau_i = c_i,
+\qquad
+T_i = \pi_i F(v_i)
 \]
 
 \medskip
 
-Let $G(\pi,v)$ denote the joint distribution with support $\Omega$.
+\[
+\Rightarrow \text{Each product is summarized by } (\pi_i, v_i)
+\]
+
 
 \end{frame}
+
 
 
 
 
 \begin{frame}{Simple Case: Consumer Decision}
 
-\textbf{Assumptions:}
-exclusivity, \(h(m)=m\), \(\bar m=1\)
+Let $\Omega \subset \mathbb{R}_+^2$ denote the set of feasible
+$(\pi,v)$ pairs, with distribution $G(\pi,v)$.
 
 \medskip
 
-Intermediary stocks \(A \subset \Omega\) exclusively.
+\textbf{Assumptions:}
+exclusivity, \(h(m)=m\), \(\bar m=1\)
+\medskip
 
 \[
 \text{Visit } I
@@ -232,7 +264,6 @@ Net profit from product \((\pi,v)\):
 lump-sum paid to manufacturer)
 
 \medskip
-\textbf{define OMEGA!!!}
 \[
 \max_{A \subset \Omega}
 \int_A \pi\,[F(\hat v)-F(v)]\, dG
@@ -264,6 +295,19 @@ q(\pi,v)=1 \;\Longleftrightarrow\; (\pi,v)\in A
 \medskip
 
 \textbf{Intermediary problem}
+
+\[
+\max_q \int_{\Omega} q(\pi,v)\,
+\pi(F(\hat v)-F(v))\, dG
+\quad
+\text{s.t. }
+\hat v = 
+\frac{\int_{\Omega} q(\pi,v)\, v\, dG}
+{\int_{\Omega} q(\pi,v)\, dG}
+\]
+
+\medskip
+
 \[
 \max_q \int_{\Omega} q(\pi,v)\,
 \Big[
@@ -279,8 +323,10 @@ where $\lambda$ is the multiplier capturing the marginal value of attracting con
 }
 \medskip
 
-
 \end{frame}
+
+
+
 
 \begin{frame}{Solution: Optimal Product Selection}
     \begin{figure}[H]
@@ -301,65 +347,66 @@ Low-\(\pi\), high-\(v\) products attract consumers.
 
 \begin{frame}{Beyond the Simple Model}
 
-\begin{itemize}
-    \item The paper extends the benchmark to a richer environment:
-    \begin{itemize}
-        \item endogenous exclusivity vs non-exclusivity
-        \item capacity constraint on assortment size ($\bar m$)
-        \item general search cost technology $h(m)$
-    \end{itemize}
-
-    \medskip
-
-    \item \textbf{Key insight:}
-    the same search-reallocation mechanism survives,
-    but now interacts with:
-    \begin{itemize}
-        \item the exclusivity margin
-        \item the capacity margin
-    \end{itemize}
-
-    \medskip
-
-    \item As a result, the intermediary may optimally stock:
-    \begin{itemize}
-        \item traffic-generating products
-        \item profit-generating products
-        \item \emph{and} products that do both.
-    \end{itemize}
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Applications (Overview)}
+\textbf{Three extensions:}
 
 \begin{itemize}
-    \item \textbf{Retail platforms / malls}
-    \begin{itemize}
-        \item Some products are used to \emph{attract consumers} (anchors),
-        others to \emph{generate profits}.
-        \item Explains subsidies to high-value sellers and cross-store externalities.
-    \end{itemize}
-
-    \medskip
-
-    \item \textbf{Exclusivity and private labels}
-    \begin{itemize}
-        \item Exclusive products optimally have high consumer surplus
-        but low standalone profitability.
-        \item Predicts overuse of exclusivity relative to the social optimum.
-    \end{itemize}
-
-    \medskip
-
-    \item \textbf{Direct-to-consumer (DTC) sales}
-    \begin{itemize}
-        \item Easier DTC weakens the intermediary and shrinks its assortment.
-        \item Intermediaries respond by relying more on exclusivity.
-    \end{itemize}
+    \item Endogenous exclusivity vs. non-exclusivity
+    \item Capacity constraint on assortment ($\bar m$)
+    \item General search technology $h(m)$
 \end{itemize}
 
 \medskip
+
+\textbf{What survives:}
+
+\begin{itemize}
+    \item Same traffic–profit tradeoff
+    \item High-$v$ products attract consumers
+    \item Low-$v$ products generate profit
+\end{itemize}
+
+\medskip
+
+\textbf{What changes:}
+
+\begin{itemize}
+    \item Search technology affects how much exclusivity is needed
+    \item Larger capacity $\Rightarrow$ larger platform, fewer exclusive products
+    \item With strong economies of search, exclusivity becomes less important
+\end{itemize}
+
+\medskip
+
+
+\end{frame}
+
+
+
+\begin{frame}{Applications}
+
+\textbf{Shopping malls}
+
+\begin{itemize}
+    \item Mall acts as a platform (does not set prices).
+    \item Same $\left(\pi,v\right)$ logic applies.
+    \item High-$v$ stores (``anchor stores'') attract consumers.
+    \item Mall may subsidize anchors to extract higher rents from other stores.
+\end{itemize}
+
+\medskip
+
+\textbf{Direct-to-Consumer (DTC) expansion}
+
+\begin{itemize}
+    \item Easier DTC raises manufacturers’ outside option ($\pi F(v/\theta)$).
+    \item Intermediary profits decline.
+    \item Optimal response:
+    \begin{itemize}
+        \item Smaller assortment
+        \item Higher fraction of exclusive products
+        \item More polarized product range
+    \end{itemize}
+\end{itemize}
 
 \end{frame}
 
@@ -367,57 +414,61 @@ Low-\(\pi\), high-\(v\) products attract consumers.
 \begin{frame}{Summary}
 
 \begin{itemize}
-    \item Introduces a new framework to study multiproduct intermediaries
-    with consumer search frictions and endogenous assortment.
-
-    \medskip
-
-    \item Main result:
-    a multiproduct intermediary can earn strictly positive profits
-    \emph{without improving prices or search efficiency}.
+    \item Multiproduct intermediaries can earn positive profits
+    even without lowering prices or reducing search frictions.
 
     \medskip
 
     \item Mechanism:
-    assortment choice reallocates consumer search
-    across products with different roles.
+    assortment reallocates consumer search.
+    \begin{itemize}
+        \item High-$v$ products attract consumers.
+        \item Low-$v$ products generate profit.
+    \end{itemize}
 
     \medskip
 
-    \item The framework provides a unified way to think about
-    exclusivity, capacity, and DTC competition.
+    \item The framework explains:
+    \begin{itemize}
+        \item exclusivity and anchor stores,
+        \item capacity choices,
+        \item and the impact of DTC expansion.
+    \end{itemize}
+
 \end{itemize}
 
 \end{frame}
 
+
+
 \begin{frame}{Discussion and Limitations}
 
 \begin{itemize}
-\item \textbf{Pricing environment}
+
+\item \textbf{Pricing}
 \begin{itemize}
-    \item Retail prices are fixed at monopoly levels.
-    \item The intermediary cannot adjust prices or eliminate double marginalization.
-    \item In practice, pricing and assortment decisions interact.
+    \item Prices remain at monopoly levels (no price competition).
+    \item Assortment, not pricing, drives profits.
 \end{itemize}
 
+\medskip
 
-    \medskip
-
-\item \textbf{No intermediary competition}
+\item \textbf{Market structure}
 \begin{itemize}
-    \item The model considers a single intermediary.
-    \item With competing intermediaries, platforms may compete for traffic and exclusive products.
-    \item Competition could reduce the profitability of distortionary assortment choices.
+    \item Single intermediary.
+    \item Competing platforms could bid for high-$v$ products.
+    \item Traffic-generating products may capture the rents.
 \end{itemize}
 
+\medskip
 
-    \medskip
+\item \textbf{Consumer behavior}
+\begin{itemize}
+    \item Search heterogeneity only.
+    \item No taste heterogeneity or dynamic learning.
+    \item Richer demand could change selection patterns.
+\end{itemize}
 
-    \item \textbf{Consumer search structure}
-    \begin{itemize}
-        \item Consumer heterogeneity operates only through search costs.
-        \item The sensitivity of the mechanism to alternative forms of consumer search or platform choice is not fully characterized.
-    \end{itemize}
 \end{itemize}
 
 \end{frame}
