@@ -6,10 +6,11 @@
 #1. LOAD/MANIPULATE DATA.
 library(data.table)
 
+#Note, update paths manually to run the code:
 data <- fread("/Users/jorditorresvallverdu/Library/Mobile Documents/com~apple~CloudDocs/tse/year2/term2/macro_labor/ln.data.1.AllData.txt")
 series <- fread("/Users/jorditorresvallverdu/Library/Mobile Documents/com~apple~CloudDocs/tse/year2/term2/macro_labor/ln.series.txt")
 
-
+#This is for the output, updtate too.
 setwd("/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/quantitative_econ")
 
 
@@ -68,17 +69,23 @@ wide_data <- wide_data %>%
 #2. EXERCISE 2
 
 wide_data <- wide_data %>%
+  arrange(date) %>%
+  mutate(
+    F_w = UE_w / lag(U_w),
+    S_w = EU_w / lag(E_w),
+    F_m = UE_m / lag(U_m),
+    S_m = EU_m / lag(E_m)
+  )
+
+
+wide_data <- wide_data %>%
   mutate(
     # Women
-    F_w = UE_w / U_w,
-    S_w = EU_w / E_w,
     f_w = -log(1 - F_w),
     s_w = -log(1 - S_w),
     u_w = U_w / (U_w + E_w),
 
     # Men
-    F_m = UE_m / U_m,
-    S_m = EU_m / E_m,
     f_m = -log(1 - F_m),
     s_m = -log(1 - S_m),
     u_m = U_m / (U_m + E_m)
@@ -236,40 +243,50 @@ stargazer(tab_decomp,
 library(mFilter)
 
 #hp
-wide_data_hp <- wide_data[complete.cases(wide_data[, c("f_w","s_w","u_w_ss","f_m","s_m","u_m_ss")]), ]
+wide_data_hp <- wide_data[
+  complete.cases(wide_data[, c("f_w","s_w","u_w_ss","u_w",
+                               "f_m","s_m","u_m_ss","u_m")]), ]
 
 hp_f_w <- hpfilter(log(wide_data_hp$f_w), freq = 129600)
 hp_s_w <- hpfilter(log(wide_data_hp$s_w), freq = 129600)
 hp_u_w <- hpfilter(log(wide_data_hp$u_w_ss), freq = 129600)
+hp_u_w_actual <- hpfilter(log(wide_data_hp$u_w), freq = 129600)
 
 hp_f_m <- hpfilter(log(wide_data_hp$f_m), freq = 129600)
 hp_s_m <- hpfilter(log(wide_data_hp$s_m), freq = 129600)
 hp_u_m <- hpfilter(log(wide_data_hp$u_m_ss), freq = 129600)
+hp_u_m_actual <- hpfilter(log(wide_data_hp$u_m), freq = 129600)
 
 cyc_hp <- data.frame(
   c_f_w = hp_f_w$cycle,
   c_s_w = hp_s_w$cycle,
   c_u_w = hp_u_w$cycle,
+  c_u_w_actual = hp_u_w_actual$cycle,
   c_f_m = hp_f_m$cycle,
   c_s_m = hp_s_m$cycle,
-  c_u_m = hp_u_m$cycle
+  c_u_m = hp_u_m$cycle,
+  c_u_m_actual = hp_u_m_actual$cycle
 )
 cyc_hp <- na.omit(cyc_hp)
 
-#linear detrend
+#linear
+
 t <- 1:nrow(wide_data_hp)
 
 cyc_lin <- data.frame(
   c_f_w = resid(lm(log(wide_data_hp$f_w) ~ t)),
   c_s_w = resid(lm(log(wide_data_hp$s_w) ~ t)),
   c_u_w = resid(lm(log(wide_data_hp$u_w_ss) ~ t)),
+  c_u_w_actual = resid(lm(log(wide_data_hp$u_w) ~ t)),
   c_f_m = resid(lm(log(wide_data_hp$f_m) ~ t)),
   c_s_m = resid(lm(log(wide_data_hp$s_m) ~ t)),
-  c_u_m = resid(lm(log(wide_data_hp$u_m_ss) ~ t))
+  c_u_m = resid(lm(log(wide_data_hp$u_m_ss) ~ t)),
+  c_u_m_actual = resid(lm(log(wide_data_hp$u_m) ~ t))
 )
 cyc_lin <- na.omit(cyc_lin)
 
-# Tabs
+
+#Tabs
 tab_sd <- data.frame(
   Method = rep(c("HP","Linear"), each=2),
   Group  = rep(c("Women","Men"), 2),
@@ -278,7 +295,9 @@ tab_sd <- data.frame(
   SD_s = c(sd(cyc_hp$c_s_w), sd(cyc_hp$c_s_m),
            sd(cyc_lin$c_s_w), sd(cyc_lin$c_s_m)),
   SD_u = c(sd(cyc_hp$c_u_w), sd(cyc_hp$c_u_m),
-           sd(cyc_lin$c_u_w), sd(cyc_lin$c_u_m))
+           sd(cyc_lin$c_u_w), sd(cyc_lin$c_u_m)),
+  SD_u_actual = c(sd(cyc_hp$c_u_w_actual), sd(cyc_hp$c_u_m_actual),
+                  sd(cyc_lin$c_u_w_actual), sd(cyc_lin$c_u_m_actual))
 )
 
 tab_cor <- data.frame(
@@ -291,16 +310,27 @@ tab_cor <- data.frame(
   Corr_s_u = c(cor(cyc_hp$c_s_w, cyc_hp$c_u_w),
                cor(cyc_hp$c_s_m, cyc_hp$c_u_m),
                cor(cyc_lin$c_s_w, cyc_lin$c_u_w),
-               cor(cyc_lin$c_s_m, cyc_lin$c_u_m))
+               cor(cyc_lin$c_s_m, cyc_lin$c_u_m)),
+  Corr_f_u_actual = c(cor(cyc_hp$c_f_w, cyc_hp$c_u_w_actual),
+                      cor(cyc_hp$c_f_m, cyc_hp$c_u_m_actual),
+                      cor(cyc_lin$c_f_w, cyc_lin$c_u_w_actual),
+                      cor(cyc_lin$c_f_m, cyc_lin$c_u_m_actual)),
+  Corr_s_u_actual = c(cor(cyc_hp$c_s_w, cyc_hp$c_u_w_actual),
+                      cor(cyc_hp$c_s_m, cyc_hp$c_u_m_actual),
+                      cor(cyc_lin$c_s_w, cyc_lin$c_u_w_actual),
+                      cor(cyc_lin$c_s_m, cyc_lin$c_u_m_actual))
 )
 
-# round numeric columns only
-tab_sd[, c("SD_f","SD_s","SD_u")] <- round(tab_sd[, c("SD_f","SD_s","SD_u")], 3)
-tab_cor[, c("Corr_f_u","Corr_s_u")] <- round(tab_cor[, c("Corr_f_u","Corr_s_u")], 3)
+#round numeric columns 
+tab_sd[, c("SD_f","SD_s","SD_u","SD_u_actual")] <- 
+  round(tab_sd[, c("SD_f","SD_s","SD_u","SD_u_actual")], 3)
 
+tab_cor[, c("Corr_f_u","Corr_s_u",
+            "Corr_f_u_actual","Corr_s_u_actual")] <- 
+  round(tab_cor[, c("Corr_f_u","Corr_s_u",
+                    "Corr_f_u_actual","Corr_s_u_actual")], 3)
 
-
-#exportts
+#export
 stargazer(tab_sd, summary=FALSE, rownames=FALSE, digits=3,
           title="Cyclical Volatility (SD of Detrended Log Series)",
           label="tab:sd_cycles",
@@ -310,3 +340,5 @@ stargazer(tab_cor, summary=FALSE, rownames=FALSE, digits=3,
           title="Cyclical Co-movement (Correlations with Unemployment Cycle)",
           label="tab:cor_cycles",
           type="latex", out="table_q4_cor.tex")
+
+##########EOF

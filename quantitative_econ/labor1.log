@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.12.15)  15 FEB 2026 12:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.12.15)  16 FEB 2026 13:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -797,70 +797,63 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 44.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-Package natbib Warning: Citation `Shimer2012' on page 1 undefined on input line 47.
-
-
-
 [1
 
 {/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map}] (table_rates.tex)
-<job_finding_rate.png, id=63, 2107.875pt x 1505.625pt>
+<job_finding_rate.png, id=54, 2107.875pt x 1505.625pt>
 File: job_finding_rate.png Graphic file (type png)
 <use job_finding_rate.png>
-Package pdftex.def Info: job_finding_rate.png  used on input line 84.
+Package pdftex.def Info: job_finding_rate.png  used on input line 92.
 (pdftex.def)             Requested size: 364.19667pt x 260.13412pt.
-<job_separation_rate.png, id=65, 2107.875pt x 1505.625pt>
+
+
+[2]
+<job_separation_rate.png, id=63, 2107.875pt x 1505.625pt>
 File: job_separation_rate.png Graphic file (type png)
 <use job_separation_rate.png>
-Package pdftex.def Info: job_separation_rate.png  used on input line 91.
+Package pdftex.def Info: job_separation_rate.png  used on input line 99.
 (pdftex.def)             Requested size: 364.19667pt x 260.13412pt.
-
-
-[2 <./job_finding_rate.png>] (table_decomposition.tex)
-<shimer_w.png, id=74, 2107.875pt x 1505.625pt>
+ (table_decomposition.tex)
+<shimer_w.png, id=64, 2107.875pt x 1505.625pt>
 File: shimer_w.png Graphic file (type png)
 <use shimer_w.png>
-Package pdftex.def Info: shimer_w.png  used on input line 105.
+Package pdftex.def Info: shimer_w.png  used on input line 113.
 (pdftex.def)             Requested size: 364.19667pt x 260.13412pt.
 
 
-[3 <./job_separation_rate.png>]
-<shimer_m.png, id=83, 2107.875pt x 1505.625pt>
+[3 <./job_finding_rate.png> <./job_separation_rate.png>]
+<shimer_m.png, id=72, 2107.875pt x 1505.625pt>
 File: shimer_m.png Graphic file (type png)
 <use shimer_m.png>
-Package pdftex.def Info: shimer_m.png  used on input line 114.
+Package pdftex.def Info: shimer_m.png  used on input line 122.
 (pdftex.def)             Requested size: 364.19667pt x 260.13412pt.
- (table_q4_sd.tex) (table_q4_cor.tex)
-
-Package natbib Warning: There were undefined citations.
 
 
+[4 <./shimer_w.png>] (table_q4_sd.tex) (table_q4_cor.tex)
 
-[4 <./shimer_w.png> <./shimer_m.png>]
-
-[5] (labor1.aux)
+[5 <./shimer_m.png>] (labor1.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
 Package rerunfilecheck Info: File `labor1.out' has not changed.
-(rerunfilecheck)             Checksum: BF33A7134E41E7684CC6ABD7D620B706;559.
+(rerunfilecheck)             Checksum: BE9E01B188C66EF32317892050D3D72B;264.
  ) 
 Here is how much of TeX's memory you used:
- 24659 strings out of 473682
- 496724 string characters out of 5703553
- 875621 words of memory out of 5000000
- 47299 multiletter control sequences out of 15000+600000
- 566285 words of font info for 68 fonts, out of 8000000 for 9000
+ 24650 strings out of 473682
+ 496624 string characters out of 5703553
+ 876560 words of memory out of 5000000
+ 47294 multiletter control sequences out of 15000+600000
+ 565976 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,9n,107p,1081b,445s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,9n,107p,1152b,447s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
-</Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi5.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr6.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on labor1.pdf (5 pages, 1795530 bytes).
+</Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi5.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr6.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti8.pfb>
+Output written on labor1.pdf (5 pages, 1727875 bytes).
 PDF statistics:
- 163 PDF objects out of 1000 (max. 8388607)
- 21 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 155 PDF objects out of 1000 (max. 8388607)
+ 18 named destinations out of 1000 (max. 500000)
+ 57 words of extra memory for PDF output out of 10000 (max. 10000000)
 

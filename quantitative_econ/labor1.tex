@@ -42,9 +42,17 @@
 
 \maketitle
 
-\section{Intro}
-I use monthly CPS gross flow data from the BLS for the period 1990--2019, focusing on men and women separately. The sample restriction ensures me the availability of seasonally adjusted employment, unemployment, and transition flow series. While Shimer (2012) begins in 1948 and uses short-term unemployment to approximate flows, I focus on the post-1990 period for simplicity and direct availability of gross flow data. Despite the shorter sample, the core replication exercise remains valid\footnote{Although Shimer (2012) constructs transition rates using short-term unemployment and other adjustments to extend the sample back to 1948, he notes that alternative measures differ mainly in level and have little effect on the cyclical fluctuations of the job-finding and separation rates. Such alternative constructions yield highly correlated series, supporting the use of CPS gross flows and continuous-time transformation in this exercise. \citep{Shimer2012}
-}.
+\section{Introduction}
+I use monthly CPS gross flow data from the BLS for the period 1990--2019, focusing on men and women separately. The sample restriction ensures me the availability of seasonally adjusted employment, unemployment, and transition flow series. While Shimer (2012) begins in 1948 and uses short-term unemployment to approximate flows, I focus on the post-1990 period for simplicity and for direct availability of gross flow data. Despite the shorter sample, the replication exercise should remain conceptually valid\footnote{Although Shimer (2012) constructs transition rates using short-term unemployment and other adjustments to extend the sample back to 1948, I instead use CPS gross flows directly. Let $UE_t$ denote the number of unemployed workers in $t-1$ who transition to employment in $t$, and $EU_t$ the number of employed workers who transition to unemployment. Let $U_{t-1}$ and $E_{t-1}$ denote the stocks of unemployed and employed workers at $t-1$. The discrete-time job-finding and separation probabilities are computed as
+\[
+F_t = \frac{UE_t}{U_{t-1}}, \qquad S_t = \frac{EU_t}{E_{t-1}}.
+\]
+I convert these into continuous-time hazards assuming Poisson arrival rates:
+\[
+f_t = -\log(1 - F_t), \qquad s_t = -\log(1 - S_t).
+\]
+Shimer (2012) notes that alternative constructions of transition rates differ mainly in levels but yield highly correlated cyclical fluctuations. This supports the use of CPS gross flows and continuous-time transformation in this exercise, as also discussed in the lecture notes.
+}. 
 
 In Section~\ref{sec1}, I present and interpret the main results and compare them to Shimer (2012). Section~\ref{sec2} reports the corresponding tables and figures.
 
@@ -56,17 +64,17 @@ Table~\ref{tab:rates} reports summary statistics for monthly job-finding ($F$) a
 
 Men exhibit higher average job-finding rates (0.311 vs 0.273 in hazard terms), whereas women display higher separation rates (0.033 vs 0.022). This suggests that male workers experience stronger hiring dynamics, while female workers exhibit slightly higher job separation intensity. These differences may reflect heterogeneity in sectoral composition, labor market attachment, or job stability across genders. Nevertheless, the qualitative ranking of flows is consistent with Shimer (2012), who documents that job-finding probabilities are much larger and more volatile than separation probabilities in aggregate U.S.\ data.
 
-Figure~\ref{job_finding} shows the evolution of job-finding hazards over time, while Figure~\ref{job_separation} reports separation hazards. Job-finding rates display strong cyclical fluctuations, particularly during the Great Recession (2007–2009), where a sharp collapse is visible for both genders. In contrast, separation rates remain comparatively smooth and exhibit much smaller cyclical movements.
+Figure~\ref{job_finding} shows the evolution of job-finding hazards over time, while Figure~\ref{job_separation} reports separation hazards. Job-finding rates display strong cyclical fluctuations, particularly during the Great recession (2007–2009), where a sharp collapse is visible for both genders. In contrast, separation rates remain comparatively smooth and exhibit much smaller cyclical movements.
 
 Figures~\ref{shimer_w} and \ref{shimer_m} present the Shimer decomposition for women and men. Table~\ref{tab:decomp} reports the standard deviation of three steady-state unemployment measures: (i) $u^{ss}$, the steady-state unemployment rate implied by the observed hazards; (ii) $u^{f}$, the counterfactual unemployment rate when separations are fixed at their sample mean and only job-finding varies; and (iii) $u^{s}$, the counterfactual unemployment rate when job-finding is fixed and only separations vary.
 
-For women, the standard deviation of steady-state unemployment, $SD(u^{ss})$, is 0.021. When separations are held fixed and only job-finding varies, volatility remains high at 0.024. In contrast, when job-finding is held fixed and only separations vary, volatility drops sharply to 0.007. A similar pattern emerges for men. These results indicate that cyclical unemployment fluctuations are primarily driven by movements in job-finding rates rather than separations, which is one of the main conclusions of Shimer (2012).
+For women, the standard deviation of steady-state unemployment, $SD(u^{ss})$, is 0.021. When separations are held fixed and only job-finding varies, volatility remains high at 0.024. In contrast, when job-finding is held fixed and only separations vary, volatility drops to 0.007. A similar pattern emerges for men. These results indicate that cyclical unemployment fluctuations are primarily driven by movements in job-finding rates rather than separations, which is one of the main conclusions of Shimer (2012).
 
 Interestingly, the relative contribution of job-finding appears slightly stronger for women in this sample, as the gap between $SD(u_f)$ and $SD(u_s)$ is larger for women than for men. This suggests that female unemployment may be even more sensitive to hiring conditions.
 
-Using both HP filtering and linear detrending of log series, I analyze the cyclical components of job-finding rates, separation rates, and unemployment. Tables~\ref{tab:sd_cycles} and \ref{tab:cor_cycles} report cyclical volatility and correlations. Under both detrending methods, job-finding rates are substantially more volatile than separation rates for both men and women. Moreover, job-finding is strongly negatively correlated with unemployment (between $-0.87$ and $-0.95$), whereas separation exhibits weaker and less stable correlations, even changing sign depending on the detrending method.
+Using both HP filtering and linear detrending of log series, I analyze the cyclical components of job-finding rates, separation rates, and unemployment. Tables~\ref{tab:sd_cycles} and \ref{tab:cor_cycles} report cyclical volatility and correlations. Under both detrending methods, job-finding rates are substantially more volatile than separation rates for both men and women. Moreover, job-finding is strongly negatively correlated with unemployment (between $-0.87$ and $-0.95$), while separation exhibits weaker and less stable correlations, even changing the sign depending on the detrending method.
 
-The qualitative conclusions are robust across detrending methods and are similar Shimer (2012): unemployment fluctuations are primarily driven by movements in job-finding rates rather than separations. Although the exact magnitudes differ—partly due to the shorter sample period (1990–2019) and the focus on gender subgroups—the central mechanism remains the same. Cyclical labor market adjustment operates mainly through hiring dynamics, even within demographic groups.
+The qualitative conclusions are robust across detrending methods and are similar Shimer (2012): unemployment fluctuations are primarily driven by movements in job-finding rates rather than separations. Although the exact magnitudes differ—partly due to the shorter sample period (1990–2019), different computation of \(f, s\) and the focus on gender subgroups—the central mechanism remains the same. Cyclical labor market adjustment work mainly through hiring dynamics, even within demographic groups.
 
 
 
@@ -74,7 +82,7 @@ The qualitative conclusions are robust across detrending methods and are similar
 \section{Appendix}
 \label{sec2}
 
-\subsection{Exercise 2}
+\subsection*{Exercise 2}
 \label{ex1}
 
 \input{table_rates.tex}
@@ -94,7 +102,7 @@ The qualitative conclusions are robust across detrending methods and are similar
 
 \end{figure}
 
-\subsection{Exercise 3}
+\subsection*{Exercise 3}
 \label{ex2}
 \input{table_decomposition.tex}
 \noindent {\footnotesize \textit{Note:} $u_t^{ss}=s_t/(s_t+f_t)$. $u^f_t$ fixes separations; $u^s_t$ fixes job-finding.}
@@ -118,7 +126,7 @@ The qualitative conclusions are robust across detrending methods and are similar
 \end{figure}
 
 
-\subsection{Exercise 4}
+\subsection*{Exercise 4}
 \label{ex3}
 
 \input{table_q4_sd.tex}
