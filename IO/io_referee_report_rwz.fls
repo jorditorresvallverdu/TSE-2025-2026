@@ -299,9 +299,6 @@ INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/inst
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmr12.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx12.tfm
-INPUT ./io_referee_report_rwz.bbl
-INPUT ./io_referee_report_rwz.bbl
-INPUT io_referee_report_rwz.bbl
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map
 INPUT io_referee_report_rwz.aux
 INPUT ./io_referee_report_rwz.out

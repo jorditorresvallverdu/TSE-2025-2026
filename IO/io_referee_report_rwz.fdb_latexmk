@@ -1,14 +1,6 @@
 # Fdb version 4
-["bibtex io_referee_report_rwz"] 1771257441.78396 "io_referee_report_rwz.aux" "io_referee_report_rwz.bbl" "io_referee_report_rwz" 1771257447.31547 0
-  "./bibliography.bib" 1769768636.8136 2923 7ca033a40a19e38c1d8c6b6f7872ef10 ""
-  "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/bibtex/bst/bibtex/apalike.bst" 1725915924.06778 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "io_referee_report_rwz.aux" 1771257446.83455 204 cc3d03af2ec2a4d4d052f482e48ad107 "pdflatex"
-  (generated)
-  "io_referee_report_rwz.bbl"
-  "io_referee_report_rwz.blg"
-  (rewritten before read)
-["pdflatex"] 1771257446.25059 "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/io_referee_report_rwz.tex" "io_referee_report_rwz.pdf" "io_referee_report_rwz" 1771257447.31564 0
-  "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/io_referee_report_rwz.tex" 1771257445.79385 1281 28bf458d02937bdcd66601df18e87b88 ""
+["pdflatex"] 1771433166.824 "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/io_referee_report_rwz.tex" "io_referee_report_rwz.pdf" "io_referee_report_rwz" 1771433167.56343 0
+  "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/io_referee_report_rwz.tex" 1771433164.97765 1221 613e7a22a3c2879daa0c0eed1ec67076 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map" 1769790508.61863 339773 a1c68872d3dc0a4bee66a5dedbc28f32 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1734277941.08881 12002472 b582eb731daf2b623c3d30845607ef6c ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1725915917.94285 1004 54797486969f23fa377b128694d548df ""
@@ -174,10 +166,9 @@
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tools/xspace.sty" 1734275015.87431 4545 e3f4de576c914e2000f07f69a891c071 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/url/url.sty" 1725915934.0507 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/xcolor/xcolor.sty" 1734275016.41717 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "io_referee_report_rwz.aux" 1771257446.83455 204 cc3d03af2ec2a4d4d052f482e48ad107 "pdflatex"
-  "io_referee_report_rwz.bbl" 1771257441.96353 49 0eba253fc001332e731e8aba3f23127b "bibtex io_referee_report_rwz"
-  "io_referee_report_rwz.out" 1771257446.81689 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "io_referee_report_rwz.tex" 1771257445.79385 1281 28bf458d02937bdcd66601df18e87b88 ""
+  "io_referee_report_rwz.aux" 1771433167.46142 162 55205a9e8a8eca30d36afb389b0617bf "pdflatex"
+  "io_referee_report_rwz.out" 1771433167.44411 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "io_referee_report_rwz.tex" 1771433164.97765 1221 613e7a22a3c2879daa0c0eed1ec67076 ""
   (generated)
   "io_referee_report_rwz.aux"
   "io_referee_report_rwz.log"

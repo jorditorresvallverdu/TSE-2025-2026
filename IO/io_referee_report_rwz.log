@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.12.15)  16 FEB 2026 16:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.12.15)  18 FEB 2026 17:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -795,10 +795,6 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
  (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (io_referee_report_rwz.bbl
-
-Package natbib Warning: Empty `thebibliography' environment on input line 3.
-
 )
 
 [1
@@ -812,15 +808,15 @@ Package rerunfilecheck Info: File `io_referee_report_rwz.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 24545 strings out of 473682
- 494935 string characters out of 5703553
- 861752 words of memory out of 5000000
- 47217 multiletter control sequences out of 15000+600000
+ 24536 strings out of 473682
+ 494629 string characters out of 5703553
+ 860752 words of memory out of 5000000
+ 47211 multiletter control sequences out of 15000+600000
  563618 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,6n,107p,620b,439s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on io_referee_report_rwz.pdf (1 page, 46199 bytes).
+Output written on io_referee_report_rwz.pdf (1 page, 45573 bytes).
 PDF statistics:
  34 PDF objects out of 1000 (max. 8388607)
  2 named destinations out of 1000 (max. 500000)
