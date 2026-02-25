@@ -45,16 +45,16 @@ After correcting for timing by using lagged mileage, I estimate a probit model o
 I therefore select the log specification as the preferred policy function estimate.
 
 \section*{Exercise 2}
-In table~\ref{tab:transition} I show the results for $\rho$ and $\sigma^{\rho}$. We can see that the mean increase in miles of buses that don't invest is $0.19$ which is $1.900$ miles per bus. The $\sigma^{\rho}$ is  $0.11$, which is also reasonable. 
+In table~\ref{tab:transition} I show the results for $\rho$ and $\sigma^{\rho}$. We can see that the mean increase in miles of buses that don't invest is $0.19$ which is $1.900$ miles per month. The $\sigma^{\rho}$ is  $0.11\sim 1.100$, which is also reasonable. Assuming that the distribution is normal, these two moments are enough to simulate the mileage process in exercise 3.
 
 \section*{Exercise 3}
-In table~\ref{tab:q3} I report the results of \(x_{iY}^{j}\) for \(j \in \{1,2,3\}\) and \(Y \in \{0,1\} \). We can see that the values are also intuitive. The replacement stream costs are higher for buses that replace today, as they assume the fixed cost of replacement. However, we can see that then their mileage stream has a lesser cost if they invest today, reflecting better health of the engine after replacement. Finally, The shock component differs slightly because the probability of future replacement differs across the two initial conditions, which affects the log probability term entering the expected value
+In table~\ref{tab:q3} I report the results of \(x_{iY}^{j}\) for \(j \in \{1,2,3\}\) and \(Y \in \{0,1\} \). We can see that the values are quite intuitive. The average replacement stream costs, $x_1$, are higher for buses that replace today, as they assume the fixed cost of replacement. However, we can see that then their average mileage stream ($x_2$) has a lesser cost if they invest today, reflecting better health of the engine after replacement. This is the key trade-off of this dynamic problem: assume the fixed cost and have better long term endurance or burn out the engine and face higher costs afterwards. Finally, the shock component, $x_3$ differs slightly because the probability of future replacement differs across the two initial conditions (it is higher if not replaced in t1, as more likely to be replaced later), which affects the log probability term entering the expected value.
 
 \section*{Exercise 4}
-Finally, in table~\ref{tab:q4} I show the results of the structural model. We can see that the replacement fixed cost is $9.55$ while the mileage cost $0.007$. Both are precisely estimated. The magnitudes \dots
+Finally, in table~\ref{tab:q4} I show the results of the structural model. We can see that the replacement fixed cost is $9.55$ while the mileage cost $0.007$. Both are precisely estimated. The magnitudes are very similar to Rust \textbf{\textcolor{blue}{add citation}}. Both are also very intuitive: given that $\Delta X_1$ is negative, RC has a negative effect on the probability of replacement ($9.5 \times -0.5 \sim -4.24$); while \(\mu\) has a positive effect,because $\Delta X_2$ is positive; approx: ($0.007 \times 200 \sim 1.4$). Therefore, replacement occurs when accumulated mileage costs are sufficiently large to offset the fixed replacement cost.
 
 \section*{Exercise 5}
-Intuition?
+Intuition? Llegir \textbf{Rust}
 
 
 
