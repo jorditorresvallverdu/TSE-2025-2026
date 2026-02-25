@@ -1,0 +1,140 @@
+\documentclass{article}
+\usepackage{amsmath} 
+\usepackage{amsfonts}
+\usepackage{booktabs}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{float}   % for [H]
+\usepackage{graphicx}   % for \includegraphics
+\usepackage{tabularx}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{blindtext}
+\usepackage{hyperref}
+\usepackage[round]{natbib}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{dcolumn}
+\usepackage{threeparttable}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{pdflscape} % in your preamble
+\usepackage{tabularray}
+\setcounter{secnumdepth}{2}
+\usepackage{amsthm}
+\newtheorem{definition}{Definition}
+
+
+\setlength\parindent{0pt}
+
+\begin{document}
+
+
+\title{PS1- Estimate Dynamic Models with CCP}
+\author{Jordi Torres}
+\date{\today}
+
+
+\maketitle
+
+\section*{Exercise 1}
+After correcting for timing by using lagged mileage, I estimate a probit model of replacement as a function of mileage, which can be seen in Table~\ref{tab:modelprobit}. In the baseline linear specification, the coefficient on mileage is positive and statistically significant, indicating that the probability of replacement increases with accumulated mileage. The replacement probability increases strongly and significantly with mileage in all other specifications. Polynomial specifications introduce curvature, but the cubic term is insignificant and overfits at high mileage. In Table~\ref{tab:modelselect}, I show how the different models compare in terms of information criteria. We can see that the log specification performs well under both criteria. Finally, in Figure~\ref{fig:probit}, I show how the four specifications compare in terms of prediction. We can see again that the log specification appears to be the best, as it provides the smoothest behavior. The cubic specification seems to generate explosive predictions at high mileage, while the quadratic specification becomes non-increasing at some points.
+
+I therefore select the log specification as the preferred policy function estimate.
+
+\section*{Exercise 2}
+In table~\ref{tab:transition} I show the results for $\rho$ and $\sigma^{\rho}$. We can see that the mean increase in miles of buses that don't invest is $0.19$ which is $1.900$ miles per bus. The $\sigma^{\rho}$ is  $0.11$, which is also reasonable. 
+
+\section*{Exercise 3}
+In table~\ref{tab:q3} I report the results of \(x_{iY}^{j}\) for \(j \in \{1,2,3\}\) and \(Y \in \{0,1\} \). We can see that the values are also intuitive. The replacement stream costs are higher for buses that replace today, as they assume the fixed cost of replacement. However, we can see that then their mileage stream has a lesser cost if they invest today, reflecting better health of the engine after replacement. Finally, The shock component differs slightly because the probability of future replacement differs across the two initial conditions, which affects the log probability term entering the expected value
+
+\section*{Exercise 4}
+Finally, in table~\ref{tab:q4} I show the results of the structural model. We can see that the replacement fixed cost is $9.55$ while the mileage cost $0.007$. Both are precisely estimated. The magnitudes \dots
+
+\section*{Exercise 5}
+Intuition?
+
+
+
+
+
+\section{Appendix}
+
+\begin{table}[H]
+\centering
+\input{ps2_probit_op.tex}
+\caption{Model comparison probit specifications.}
+\label{tab:modelprobit}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{r|ccc}
+	& Model & AIC & BIC\\
+	\hline
+	1 & Quadratic & 632.31 & 652.98 \\
+	2 & Cubic & 629.98 & 657.54 \\
+	3 & Log & 630.83 & 644.61 \\
+	4 & Linear & 640.29 & 654.07 \\
+\end{tabular}
+\caption{Model comparison using AIC and BIC.}
+\label{tab:modelselect}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{ps1_probit_probabilities.pdf}
+\caption{Estimated probability of engine replacement as a function of mileage under alternative probit specifications. Mileage is measured in units of 10,000 miles.}
+\label{fig:probit}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l c}
+\toprule
+Parameter & Value \\
+\midrule
+$\rho$ (mean increase) & 0.190387 \\
+$\sigma$ (std. dev.) & 0.113453 \\
+\bottomrule
+\end{tabular}
+\caption{Mean and standard deviation of mileage increases for buses that do not invest.}
+\label{tab:transition}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Component & Invest Today & No Invest Today \\
+\midrule
+$x_1$ (replacement stream) & -1.1757 & -0.5727 \\
+$x_2$ (mileage stream)     & -471.423 & -688.320 \\
+$x_3$ (shock term)         & 37.2352 & 39.0315 \\
+\bottomrule
+\end{tabular}
+\caption{Average simulated value function components over observations.}
+\label{tab:q3}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Parameter & Estimate & Std. Error \\
+\midrule
+$RC$ (replacement cost) & 9.5537 & 0.8303 \\
+$\mu$ (mileage cost)    & 0.007413 & 0.001088 \\
+\bottomrule
+\end{tabular}
+\caption{Structural parameter estimates from the dynamic logit model. The coefficient on $v_3$ is fixed at 1 as implied by the Type I Extreme Value assumption.}
+\label{tab:q4}
+\end{table}
+
+
+
+\end{document}
