@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.12.15)  26 FEB 2026 19:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.12.15)  26 FEB 2026 20:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -697,29 +697,68 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@postskip=\skip64
 \thm@headsep=\skip65
 \dth@everypar=\toks48
-)
-\c@definition=\count388
- (/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.aux)
+) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgfplots/pgfplots.sty (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+ (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplots.code.tex (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks49
+\t@pgfplots@tokb=\toks50
+\t@pgfplots@tokc=\toks51
+\pgfplots@tmpa=\dimen353
+\c@pgfplots@coordindex=\count388
+\c@pgfplots@scanlineindex=\count389
+ (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
+Package pgfplots: loading complementary utilities for your pgf version...
+\t@pgf@toka=\toks52
+\t@pgf@tokb=\toks53
+\t@pgf@tokc=\toks54
+(/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex)) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
+\c@pgfplotsarray@tmp=\count390
+) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
+\c@pgfplotstable@counta=\count391
+\t@pgfplotstable@a=\toks55
+) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count392
+ (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplots.markers.code.tex) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplotsticks.code.tex) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplots.paths.code.tex) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
+\pgfplots@numplots=\count393
+\pgfplots@xmin@reg=\dimen354
+\pgfplots@xmax@reg=\dimen355
+\pgfplots@ymin@reg=\dimen356
+\pgfplots@ymax@reg=\dimen357
+\pgfplots@zmin@reg=\dimen358
+\pgfplots@zmax@reg=\dimen359
+) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/jknappen/mathrsfs.sty
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup6
+) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\arrowsize=\dimen360
+)) (ps1_dynamic_io.aux)
 \openout1 = `ps1_dynamic_io.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -757,69 +796,83 @@ LaTeX Font Info:    ... okay on input line 32.
 
 (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count389
-\scratchdimen=\dimen353
+\scratchcounter=\count394
+\scratchdimen=\dimen361
 \scratchbox=\box105
-\nofMPsegments=\count390
-\nofMParguments=\count391
-\everyMPshowfont=\toks49
-\MPscratchCnt=\count392
-\MPscratchDim=\dimen354
-\MPnumerator=\count393
-\makeMPintoPDFobject=\count394
-\everyMPtoPDFconversion=\toks50
+\nofMPsegments=\count395
+\nofMParguments=\count396
+\everyMPshowfont=\toks56
+\MPscratchCnt=\count397
+\MPscratchDim=\dimen362
+\MPnumerator=\count398
+\makeMPintoPDFobject=\count399
+\everyMPtoPDFconversion=\toks57
 ) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 32.
- (/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.out) (/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.out)
+Package hyperref Info: Link coloring OFF on input line 39.
+ (ps1_dynamic_io.out) (ps1_dynamic_io.out)
 \@outlinefile=\write4
 \openout4 = `ps1_dynamic_io.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
- (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
+
+Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.15).
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
+(/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
  (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 49.
+ (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/jknappen/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 
 [1
 
 {/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map}] (ps2_probit_op.tex)
-<ps1_probit_probabilities.pdf, id=39, 602.25pt x 401.5pt>
+
+[2]
+<ps1_probit_probabilities.pdf, id=43, 602.25pt x 401.5pt>
 File: ps1_probit_probabilities.pdf Graphic file (type pdf)
 <use ps1_probit_probabilities.pdf>
-Package pdftex.def Info: ps1_probit_probabilities.pdf  used on input line 101.
+Package pdftex.def Info: ps1_probit_probabilities.pdf  used on input line 109.
+(pdftex.def)             Requested size: 341.43307pt x 227.6321pt.
+<ps2_probit_probabilities.pdf, id=44, 602.25pt x 401.5pt>
+File: ps2_probit_probabilities.pdf Graphic file (type pdf)
+<use ps2_probit_probabilities.pdf>
+Package pdftex.def Info: ps2_probit_probabilities.pdf  used on input line 161.
 (pdftex.def)             Requested size: 341.43307pt x 227.6321pt.
 
 
-[2]
+[3 <./ps1_probit_probabilities.pdf>]
 
-[3 <./ps1_probit_probabilities.pdf>] (/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.aux)
+[4 <./ps2_probit_probabilities.pdf>] (ps1_dynamic_io.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
 Package rerunfilecheck Info: File `ps1_dynamic_io.out' has not changed.
-(rerunfilecheck)             Checksum: 8AF305D8263DE4F269939CBFC3F9A4B2;83.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 24310 strings out of 473682
- 492061 string characters out of 5703553
- 868548 words of memory out of 5000000
- 46969 multiletter control sequences out of 15000+600000
- 565317 words of font info for 65 fonts, out of 8000000 for 9000
+ 34369 strings out of 473682
+ 834326 string characters out of 5703553
+ 1351685 words of memory out of 5000000
+ 56888 multiletter control sequences out of 15000+600000
+ 566306 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,9n,107p,1088b,445s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,9n,107p,1088b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.pdf (3 pages, 133055 bytes).
+Output written on ps1_dynamic_io.pdf (4 pages, 155225 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 16 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 93 PDF objects out of 1000 (max. 8388607)
+ 18 named destinations out of 1000 (max. 500000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

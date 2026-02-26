@@ -1,7 +1,7 @@
 PWD /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt
 INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/ps1_dynamic_io.tex
-OUTPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.log
+OUTPUT ps1_dynamic_io.log
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/article.cls
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/article.cls
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/size10.clo
@@ -250,10 +250,67 @@ INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/inst
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amscls/amsthm.sty
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amscls/amsthm.sty
-INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.aux
-INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.aux
-INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.aux
-OUTPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.aux
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgfplots/pgfplots.sty
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgfplots/pgfplots.sty
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplots.revision.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplots.revision.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplots.revision.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/systemlayer/pgfsys-luatex.def
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/systemlayer/pgfsys-luatex.def
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplots.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplotscore.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/util/pgfplotsbinary.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/util/pgfplotscolormap.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/util/pgfplotscolor.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplotsstackedplots.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplotsplothandlers.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplots.scaling.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplots.errorbars.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplots.markers.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplotsticks.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/pgfplots.paths.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/jknappen/mathrsfs.sty
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/jknappen/mathrsfs.sty
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+INPUT ./ps1_dynamic_io.aux
+INPUT ./ps1_dynamic_io.aux
+INPUT ps1_dynamic_io.aux
+OUTPUT ps1_dynamic_io.aux
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
@@ -262,14 +319,14 @@ INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/inst
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
-INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.out
-INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.out
-INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.out
-INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.out
-OUTPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.pdf
-INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.out
-INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.out
-OUTPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.out
+INPUT ./ps1_dynamic_io.out
+INPUT ./ps1_dynamic_io.out
+INPUT ps1_dynamic_io.out
+INPUT ps1_dynamic_io.out
+INPUT ./ps1_dynamic_io.out
+INPUT ./ps1_dynamic_io.out
+OUTPUT ps1_dynamic_io.out
+OUTPUT ps1_dynamic_io.pdf
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmr17.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmr12.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmr8.tfm
@@ -295,6 +352,12 @@ INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/inst
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/jknappen/ursfs.fd
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/jknappen/ursfs.fd
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/jknappen/ursfs.fd
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/tfm/public/rsfs/rsfs5.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmr12.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
@@ -305,6 +368,9 @@ INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/inst
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/tfm/public/rsfs/rsfs7.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/tfm/public/rsfs/rsfs5.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map
 INPUT ./ps2_probit_op.tex
 INPUT ./ps2_probit_op.tex
@@ -315,9 +381,15 @@ INPUT ./ps1_probit_probabilities.pdf
 INPUT ./ps1_probit_probabilities.pdf
 INPUT ./ps1_probit_probabilities.pdf
 INPUT ./ps1_probit_probabilities.pdf
-INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.aux
-INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.out
-INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/%OUTDIR%/ps1_dynamic_io.out
+INPUT ./ps2_probit_probabilities.pdf
+INPUT ./ps2_probit_probabilities.pdf
+INPUT ./ps2_probit_probabilities.pdf
+INPUT ./ps2_probit_probabilities.pdf
+INPUT ./ps2_probit_probabilities.pdf
+INPUT ./ps2_probit_probabilities.pdf
+INPUT ps1_dynamic_io.aux
+INPUT ./ps1_dynamic_io.out
+INPUT ./ps1_dynamic_io.out
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb
