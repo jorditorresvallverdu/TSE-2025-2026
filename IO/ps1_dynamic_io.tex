@@ -52,24 +52,28 @@ After correcting for timing by using lagged mileage, I estimate a probit model o
 
 In Table~\ref{tab:modelselect}, I show how the different models compare in terms of information criteria. We can see that the log specification performs well under both criteria. 
 
-Finally, in Figure~\ref{fig:probit}, I show how the four specifications compare in terms of prediction. We can see again that the log specification appears to be the best, as it provides the smoothest behavior. The cubic specification seems to generate explosive predictions at high mileage, while the quadratic specification becomes non-increasing at some points.
+Finally, in Figure~\ref{fig:probit}, I show how the four specifications compare in terms of prediction. We can see again that the log specification appears to be the best, as it provides the smoothest behavior. The cubic specification seems to generate explosive predictions at high mileage (possibly to fit outliers in the data), while the quadratic specification becomes non-increasing at some points.
 
 I therefore select the log specification as the preferred policy function estimate.
 
 \section*{Exercise 2}
-In table~\ref{tab:transition} I show the results for $\rho$ and $\sigma^{\rho}$. We can see that the mean increase in miles of buses that don't invest is $0.19$ which is $1.900$ miles per month. The $\sigma^{\rho}$ is  $0.11\sim 1.100$, which is also reasonable. Assuming that the distribution is normal, these two moments are enough to simulate the mileage process in exercise 3.
+In table~\ref{tab:transition} I show the results for $\rho$ and $\sigma^{\rho}$. We can see that the mean increase in miles of buses that don't invest is $0.19$ which is approximateley $1.900$ miles per month. The $\sigma^{\rho}$ is  $0.11\sim 1.100$, which is also reasonable. Assuming that the distribution is normal, these two moments are enough to simulate the mileage process in exercise 3.
 
 \section*{Exercise 3}
 
-In Table~\ref{tab:q3} I report the results of \( x_{iY}^{j} \) for \( j \in \{1,2,3\} \) and \( Y \in \{0,1\} \). We can see that the values are quite intuitive. The average replacement stream component, \( x_1 \), is more negative for buses that replace today, since they incur a replacement immediately and thus have a larger discounted stream of replacement events. However, their average mileage stream component, \( x_2 \), is less negative if they invest today, reflecting lower future accumulated mileage after resetting the engine. This captures the key trade-off of the dynamic problem: pay the replacement cost today and reduce future operating costs, or delay replacement and face higher mileage-related costs later. Finally, the shock component, \( x_3 \), differs slightly because the probability of future replacement differs across the two initial conditions. This affects the log probability term entering the expected value and therefore changes the continuation value.
+In Table~\ref{tab:q3} I report the results of \( x_{iY}^{j} \) for \( j \in \{1,2,3\} \) and \( Y \in \{0,1\} \). We can see that the values are quite intuitive. The average replacement stream component, \( x_1 \), is more negative for buses that replace today, since they incur a replacement immediately and thus have a larger discounted stream of replacement events.
+
+However, their average mileage stream component, \( x_2 \), is less negative if they invest today, reflecting lower future accumulated mileage after resetting the engine. This captures the key trade-off of the dynamic problem: pay the replacement cost today and reduce future operating costs, or delay replacement and face higher mileage-related costs later. 
+
+Finally, the shock component, \( x_3 \), differs slightly because the probability of future replacement differs across the two initial conditions. This affects the log probability term entering the expected value and therefore changes the continuation value.
 
 \section*{Exercise 4}
 
-In Table~\ref{tab:q4} I report the structural parameter estimates obtained from the dynamic logit model. The estimated replacement cost is $RC = 9.55$, while the mileage cost parameter is $\mu = 0.0074$. Both parameters are precisely estimated.
+In Table~\ref{tab:q4} I report the structural parameter estimates obtained from the dynamic logit model. The estimated replacement cost is $RC = 9.35$, while the mileage cost parameter is $\mu = 0.0068$. Both parameters are precisely estimated.
 
-The magnitude of the replacement cost is very close to the estimate reported in Rust (1987), who finds a replacement cost of approximately $9.77$ for the full sample under $\beta \approx 0.9999$. This similarity suggests that the CCP-based estimation approach recovers structural parameters that are consistent with Rust’s nested fixed point estimation.
+The magnitude of the replacement cost is very close to the estimate reported in Rust (1987), who finds a replacement cost of approximately $9.76$ for the full sample under $\beta \approx 0.9999$. This similarity suggests that the CCP-based estimation approach recovers structural parameters that are consistent with Rust’s nested fixed point estimation.
 
-The signs of the parameters are economically intuitive. Since $\Delta X_1 = x_{1i1} - x_{1i0}$ is negative, a larger $RC$ reduces the probability of replacement. At the same time, because $\Delta X_2$ is positive, a larger $\mu$ increases the probability of replacement by raising the cost of continuing to operate a high mileage engine. The contribution of the replacement cost term to the index is roughly $9.5 \times (-0.5) \approx -4.25$, while the mileage component contributes approximately $0.007 \times 200 \approx 1.4$ at moderate mileage levels. 
+The signs of the parameters are economically intuitive. Since $\Delta X_1 = x_{1i1} - x_{1i0}$ is negative, a larger $RC$ reduces the probability of replacement. At the same time, because $\Delta X_2$ is positive, a larger $\mu$ increases the probability of replacement by raising the cost of continuing to operate a high-mileage engine. Using the estimated coefficients, the contribution of the replacement cost term to the index is roughly $9.35 \times (-0.5) \approx -4.7$, while the mileage component contributes approximately $0.0068 \times 200 \approx 1.36$ at moderate mileage levels. This illustrates that replacement is unlikely at low mileage, where the fixed cost dominates, but becomes more attractive as the accumulated operating costs grow.
 
 Overall, replacement occurs when the accumulated discounted mileage costs become sufficiently large to offset the fixed replacement cost. The estimates therefore reflect the fundamental trade-off at the heart of Rust’s dynamic optimal stopping problem.
 
@@ -131,14 +135,16 @@ $\sigma$ (std. dev.) & 0.113453 \\
 \toprule
 Component & Invest Today & No Invest Today \\
 \midrule
-$x_1$ (replacement stream) & -1.1757 & -0.5727 \\
-$x_2$ (mileage stream)     & -471.423 & -688.320 \\
-$x_3$ (shock term)         & 37.2352 & 39.0315 \\
+$x_1$ (replacement stream) & -1.175 & -0.573 \\
+$x_2$ (mileage stream)    & -471.423 & -688.32 \\
+$x_3$ (shock term)         & 36.664 & 38.418 \\
 \bottomrule
 \end{tabular}
 \caption{Average simulated value function components over observations.}
 \label{tab:q3}
 \end{table}
+
+
 
 
 \begin{table}[H]
@@ -147,8 +153,8 @@ $x_3$ (shock term)         & 37.2352 & 39.0315 \\
 \toprule
 Parameter & Estimate & Std. Error \\
 \midrule
-$RC$ (replacement cost) & 9.5537 & 0.8303 \\
-$\mu$ (mileage cost)    & 0.007413 & 0.001088 \\
+$RC$ (replacement cost) & 9.351 & 0.821  \\
+$\mu$ (mileage cost)   & 0.0068 & 0.0011 \\
 \bottomrule
 \end{tabular}
 \caption{Structural parameter estimates from the dynamic logit model. The coefficient on $v_3$ is fixed at 1 as implied by the Type I Extreme Value assumption.}
