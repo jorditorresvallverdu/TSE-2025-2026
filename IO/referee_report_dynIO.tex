@@ -1,0 +1,190 @@
+\documentclass{article}
+\usepackage{amsmath} 
+\usepackage{amsfonts}
+\usepackage{booktabs}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{float}   % for [H]
+\usepackage{graphicx}   % for \includegraphics
+\usepackage{tabularx}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{blindtext}
+\usepackage{hyperref}
+\usepackage[round]{natbib}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{dcolumn}
+\usepackage{threeparttable}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{pdflscape} % in your preamble
+\usepackage{tabularray}
+\setcounter{secnumdepth}{2}
+\usepackage{amsthm}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\definecolor{ccqqqq}{rgb}{0.8,0,0}
+\definecolor{ududff}{rgb}{0.30196078431372547,0.30196078431372547,1}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1}
+\setlength{\parskip}{0.45em}   % space between paragraphs
+\setlength{\parindent}{0pt}    % optional: remove paragraph indentation
+
+\setlength\parindent{0pt}
+
+\begin{document}
+
+
+
+\title{Referee report-Dynamic Spatial Competition in Early Education (P. Bodéré)}
+\author{Jordi Torres}
+\date{\today}
+
+\maketitle
+
+\section{Summary}
+In this paper, \citet{bodere2023dynamic} develops a structural model to evaluate the impact of public policies in early childhood education (ECE) markets in the United States. High-quality ECE generates substantial long-run benefits for children, particularly for disadvantaged households. Yet public investment in early education in the U.S. remains limited, and the provision of preschool services is largely private. As a result, enrollment is relatively low, access varies across neighborhoods, and prices are high for many families. The paper therefore asks two related questions: why is the provision of ECE limited and costly, and how can public policy improve access and quality?
+
+The key insight of the paper is that policies aimed at expanding early education operate through both static and dynamic channels. Demand subsidies may increase enrollment in the short run, but they also affect providers’ incentives to enter the market and invest in quality over time. Evaluating policy interventions therefore requires accounting for both short-run equilibrium responses and long-run changes in market structure.
+
+To study these mechanisms, the author develops a model with two components. First, a static spatial equilibrium determines prices and enrollment given the existing set of providers, allowing the estimation of parental preferences and providers’ marginal costs. Second, a dynamic game models providers’ entry, exit, and quality investment decisions, which determine the evolution of the supply and quality of centers over time. The model is estimated using administrative data on ECE providers in Pennsylvania, which contains detailed information on prices, enrollment, and quality ratings.
+
+Using the estimated model, the paper evaluates different policies aimed at expanding early education. The results highlight trade-offs between increasing access, improving quality, and targeting disadvantaged households. Policies encouraging entry expand access but tend to increase the presence of low-quality providers, while demand subsidies raise enrollment but may lead providers to adjust prices. Policies that combine targeted demand subsidies with financial incentives for high-quality providers are found to be more effective at increasing high-quality enrollment.
+
+\section{Model}
+\subsection{Static Spatial Model}
+
+Markets are defined by geographic areas $m$ and years $t$. Each market contains a set of residential nodes $l \in L_m$ where families reside. Nodes summarize local demographics, including the number of children aged 3--4 ($N_{lt}$), the share of families with a college educated mother, and income distributions $y_{it} \sim F^{y}_{elt}$ for education types $e \in \{H,L\}$.
+
+Household $i$ of education type $e$ living in node $l$ chooses among preschools $j$ located in market $m$. Each preschool $j$ is characterized by a price $p_{jt}$, a quality rating $sr_{jt}$, and unobserved demand components. Utility from center $j$ is
+
+\[
+u_{ilejt} = \delta_{jt}\footnote{$\delta_{jt}$ denotes the mean utility of preschool $j$ in market $mt$ and includes observed quality $sr_{jt}$ and unobserved demand shocks $(\xi_t,\xi_j,\Delta\xi_{jt})$.} + \mu_{e,l,j}(y_{it}) + \varepsilon_{ijt},
+\]
+
+where
+
+\[
+\mu_{e,l,j}(y_{it}) =
+\beta_H^{0}\mathbf{1}\{e_i=H\}
++ \beta_H^{sr}\mathbf{1}\{e_i=H\}\mathbf{1}\{sr_{jt}\in\{3,4\}\}
++ \left(\alpha_1^{e} + \frac{\alpha_2^{e}}{y_{it}}\right)p_{ijt}(y_{it})
++ \lambda^{e} d_{lj}.
+\]
+
+Households differ by education, income, and distance to providers. Prices paid by households may differ from posted prices due to income-based subsidies.
+
+Given demand, providers choose prices. Variable profits for center $j$ are
+
+\begin{equation}
+\pi(p_{jt}, \{s_{jt}\}_{\tau}, sr_{jt})
+=
+\sum_{\tau \in \{sub,nosub\}} 
+N_{mt} w_{mt}^{\tau} s_{jt}
+\left(
+p_{jt} + \kappa^{\tau}(sr_{jt}) - mc_{jt}
+\right),
+\end{equation}
+
+where $s_{jt}$ denotes market shares, $mc_{jt}$ marginal costs, and $\kappa^{\tau}(sr_{jt})$ the per-child subsidy received by the provider when serving a child of type $\tau$, which depends on the center's quality rating.
+
+Centers compete in Bertrand prices within markets. Combining the demand estimates with the pricing first-order conditions allows the recovery of marginal costs $mc_{jt}$.
+
+\subsection{Dynamic Model}
+
+The dynamic model captures providers entry, exit, and quality upgrade decisions. Let $M_{xjt}$ denote the payoff-relevant state for provider $j$ in period $t$, which includes local demographics, provider characteristics (including quality rating), and demand and cost shocks. The index $x \in \{\text{Out}, \text{STAR1},\dots,\text{STAR4}\}$ denotes the provider's current operating state.
+
+Providers choose next period state $a_{jt}$ (exit, remain, or change quality). Flow payoffs are
+
+\[
+\Pi(a_{jt},M_{xjt}) + \psi_{\varepsilon}\varepsilon(a_{jt})
+=
+\pi(M_{xjt})
+- W(a_{jt},M_{xjt})\psi_W
+- \beta C(a_{jt})\psi_C
++ \psi_{\varepsilon}\varepsilon(a_{jt}),
+\]
+
+where $\pi(M_{xjt})$ are static profits from price competition, $W(\cdot)$ denotes entry, exit or upgrade costs, and $C(\cdot)$ fixed operating costs.
+
+The equilibrium concept is a stationary Markov Perfect Equilibrium. The value function satisfies
+
+\[
+V(M_{xjt})
+=
+\mathbb{E}_{\varepsilon}
+\max_{a_{jt}}
+\left\{
+\Pi(a_{jt},M_{xjt})
++
+\psi_{\varepsilon}\varepsilon(a_{jt})
++
+\beta
+\int
+V(M_{xjt'})
+g(M_{xjt'}|M_{xjt},a_{jt})
+dM_{xjt'}
+\right\}.
+\]
+\subsection{Identification and Estimation}
+
+Estimation proceeds in two steps. First, the static demand system and marginal costs are estimated using standard Berry-style GMM. Price endogeneity is addressed using instruments based on competitors’ characteristics, following \citet{gandhi2019measuring}.
+
+Second, the dynamic parameters governing entry, exit and quality investment are estimated using a full-solution approach combining Parametric Policy Iteration (PPI) with a Nested Pseudo Likelihood (NPL) estimator in the spirit of \citet{aguirregabiria_mira} and \citet{sweeting2013}. Because the state space is large and market structure evolves endogenously, the value function is approximated parametrically. To make computation feasible, the paper uses a neural network that approximates variable profits as a function of the state, allowing the dynamic game to be solved without repeatedly computing static equilibria
+\subsection{CF}
+The counterfactuals modify policy parameters that enter the static demand system and the dynamic profit function. Three policies are considered.
+
+\begin{enumerate}
+    \item \textbf{Demand subsidies.} Lower copayments for low-income families reduce the effective price $p_{ijt}(y_{it})$ in the utility function. This shifts static demand and therefore equilibrium market shares $s_{jt}$ and profits $\pi(M_{xjt})$.
+
+    \item \textbf{Supply subsidies.} Add-on payments for serving subsidized children at high quality increase $\kappa^{\tau}(sr_{jt})$ in the profit equation. This raises the variable profits of high-quality providers serving subsidized children.
+
+    \item \textbf{Entry subsidies.} Start-up grants reduce entry costs $C(a_{jt})$ in the dynamic payoff function, directly affecting providers’ entry decisions.
+\end{enumerate}
+
+In the first two cases, the policy changes the static equilibrium (demand, prices, and profits), which in turn modifies the flow payoffs of the dynamic game. The model therefore recomputes the equilibrium of the dynamic game under the new policy environment. 
+
+\section{Discussion}
+
+I first highlight some strengths of the paper. The main contribution is to show clearly that tensions in ECE provision are both static and dynamic. The richness of the counterfactual analysis comes from embedding a static demand and pricing model within a dynamic game of entry, exit, and quality choices. This structure makes it possible to study how policies affect both short-run outcomes and long-run market structure. The paper also shows that ignoring the dynamic supply response can lead to misleading conclusions about which policies improve welfare. Finally, the model incorporates inequality concerns in a natural way, which is important given that targeting disadvantaged households is a central objective of ECE policy.
+
+However, the paper still has some limitations that may require more discussion in the paper. I discuss them below.
+
+\begin{enumerate}
+
+\item \textbf{Static model: outside option.}  
+The model bundles all non-preschool arrangements (parental care, relatives, informal care) into a single outside option. While its level is normalized, the model does not allow the attractiveness of the outside option to vary systematically across locations $l$ or household types. This may matter in a spatial setting. Outside alternatives likely differ across neighborhoods and income groups (for example access to nannies or flexible work for higher-income households). If the outside option varies with $l$ or socioeconomic status, the model may partly attribute these differences to preferences for preschool quality or price sensitivity. This could affect the distributional predictions of the counterfactuals.
+
+\item \textbf{Dynamic model: cost structure.}  
+The dynamic model captures the cost of upgrading quality through investment and transition costs. However, it abstracts from equilibrium responses in the labor market for teachers\footnote{To be fair, the author aknowledges this in the paper. It seems to be left for future work. However, it is unclear how much the results are affected by not modelling this; some more intuition or explanation would be welcomed.}. The paper itself argues that teacher quality is a key determinant of preschool quality. If policies induce many centers to upgrade quality at the same time, demand for qualified teachers may increase and wages may rise. In the current model these costs are treated as fixed or idiosyncratic. This may understate the true cost of upgrading quality when policies expand the sector -indeed it seems that supply blows up in CF forrelatively small policy changes...This raises the question: is cost of upgrading well approximated?
+
+\item \textbf{Dynamic model: equilibrium in counterfactuals and neural networks.}  The solution relies on approximations, via neural networks, of equilibrium strategies. It would be helpful to discuss how robust these approximations remain under large policy changes. It is unclear if the equilibrium under each CF are unique or multiple.
+
+\item \textbf{Measurement of quality.}  
+The empirical analysis relies heavily on the STAR rating as a measure of quality. Changes in STAR ratings may be correlated with other improvements in centers that are not directly observed in the data, such as changes in management quality, reputation, or other aspects of the learning environment. If so, the estimated demand response to quality may partly capture these unobserved improvements rather than the rating itself. Since the counterfactual policies rely heavily on incentives for centers to upgrade their quality rating, it would be useful to discuss how sensitive the results are to this interpretation of the quality measure.
+
+
+\item \textbf{Location choice.}  
+Providers are assumed to be tied to a specific location, and potential entrants only decide whether to enter at that location. This rules out strategic location choices. In practice, policies aimed at expanding childcare access may also affect where providers choose to open. As distance plays an important role in household demand, allowing for endogenous location choices could change the spatial distribution of entry and therefore the predicted effects of the policies. Maybe this is too complicated to pursue here, but for policy it matters even more...
+
+\end{enumerate}
+
+
+\section{Conclusion}
+
+The paper contributes to a growing literature at the intersection of industrial organization and education economics \citep{allende2019, neilson2013, singleton2019, neilson_dinerstein_otero2020}. While some of these papers study equilibrium consequences of school supply in largely static settings, others focus on dynamic decisions such as entry, exit, or investment. A key contribution of \citet{bodere2023dynamic} is to combine these two approaches within a unified framework. By embedding a static model of spatial demand and pricing into a dynamic game of entry, exit, and quality investment, the paper is able to study both short-run equilibrium responses and the long-run evolution of market structure.
+
+Second, the paper also contributes to the empirical IO literature on dynamic (multi-agent) games that we discussed in class \citep{ryan2012, collardwexler2013}. Following \citet{sweeting2013}, the author uses value function approximation together with neural networks to make the computation of a dynamic multi-agent game with many firms tractable.
+
+As a next step, it would be interesting to extend the framework in several directions. One possibility would be to model the supply of teachers explicitly, allowing wages and labor supply to respond to policies that increase demand for high-quality childcare. Another direction would be to incorporate endogenous location choices for entrants, allowing firms to decide in which neighborhood to open a center; although this is probably computationaly hard to do. Given the importance of distance in shaping household demand, such spatial entry decisions could significantly affect the long-run distribution of access to childcare across areas.
+\bibliographystyle{apalike}
+
+\bibliography{bibliography}
+
+
+
+\end{document}
