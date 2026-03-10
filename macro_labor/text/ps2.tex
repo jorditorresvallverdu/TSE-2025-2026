@@ -1,0 +1,198 @@
+\documentclass[12pt]{article}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{booktabs, amsmath, siunitx}
+\usepackage{xcolor}
+\usepackage{natbib}
+\usepackage{import} 
+
+\geometry{margin=1in}
+\setlength{\parskip}{0.45em}   % space between paragraphs
+\setlength{\parindent}{0pt}    % optional: remove paragraph indentation
+
+\title{Problem Set 2}
+\author{Carlos Álvarez \& Jordi Torres}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\setlength{\parindent}{0em}
+\section*{Problem 1}
+\subsection*{a)}
+
+The separation rate $s$ is constant. Labor productivity $z$ follows a discrete
+Markov chain with transition matrix $\pi(z' \mid z)$. Let $\beta = 1/(1+r)$
+denote the discount factor and $\gamma \in (0,1)$ workers' bargaining power.
+
+\subsubsection*{Value Functions}
+
+Unemployed worker:
+\begin{equation}
+    U_z = b + \beta\,\mathbb{E}_z\!\left[
+        f(\theta_{z'})\,E_{z'} + \bigl(1 - f(\theta_{z'})\bigr)\,U_{z'}
+    \right]
+\end{equation}
+
+Employed worker:
+\begin{equation}
+    E_z = w_z + \beta\,\mathbb{E}_z\!\left[
+        (1-s)\,E_{z'} + s\,U_{z'}
+    \right]
+\end{equation}
+
+Filled job:
+\begin{equation}
+    J_z = z - w_z + \beta(1-s)\,\mathbb{E}_z\!\left[J_{z'}\right]
+\end{equation}
+
+\subsubsection*{Equilibrium Conditions}
+
+Free entry:
+\begin{equation}\label{eq:FE}
+    c = q(\theta_z)\,J_z \tag{FE}
+\end{equation}
+
+Nash bargaining over surplus $S_z \equiv J_z + E_z - U_z$:
+\begin{equation}\label{eq:NB}
+    E_z - U_z = \gamma S_z, \qquad J_z = (1-\gamma)\,S_z \tag{NB}
+\end{equation}
+
+\subsubsection*{Equilibrium Equation}
+
+Define the match surplus $S_z$. Subtracting the unemployed worker's equation
+from the employed worker's, adding the firm's equation, and applying
+\eqref{eq:NB} to eliminate wages yields the surplus equation. Using
+\eqref{eq:FE} to substitute $J_z = c/q(\theta_z)$, so that:
+\begin{equation}
+    S_z = \frac{c}{(1-\gamma)\,q(\theta_z)},
+\end{equation}
+and dividing through by $c/(1-\gamma)$ and using $f(\theta) = \theta\,q(\theta)$,
+the surplus equation reduces to a single equation that implicitly defines
+$\theta_z$ for each state $z$:
+\begin{equation}\label{eq:EQ}
+\boxed{
+    \frac{1}{q(\theta_z)} = (1-\gamma)\frac{z - b}{c}
+    + \beta(1-s)\,\mathbb{E}_z\!\left[\frac{1}{q(\theta_{z'})}\right]
+    - \beta\gamma\,\mathbb{E}_z\!\left[\theta_{z'}\right]
+}
+\end{equation}
+
+The three terms have a clean interpretation: the expected cost of filling a
+vacancy equals the net flow surplus from the match, plus the discounted
+continuation value of the filled job, minus the share of future market
+tightness that accrues to the worker through bargaining.
+
+\subsubsection*{Wage Equation}
+
+Applying \eqref{eq:NB} to the value of unemployment and rearranging:
+\begin{equation}
+    w_z = (1-\gamma)b + \gamma z + \beta\gamma c\,\mathbb{E}_z[\theta_{z'}]
+\end{equation}
+Wages absorb a fraction $\gamma$ of both the flow surplus and expected future
+market tightness. This is the source of the amplification failure: when $z$
+rises, $\mathbb{E}_z[\theta']$ rises too, so wages increase by nearly as much
+as productivity, leaving firms' profits---and hence vacancy creation
+incentives---largely unchanged.
+
+\subsubsection*{Unemployment Dynamics}
+
+\begin{equation}
+    u_{t+1} = s(1 - u_t) + \bigl(1 - f(\theta_{z_t})\bigr)\,u_t
+\end{equation}
+with steady state:
+\begin{equation}
+    u^* = \frac{s}{s + f(\theta_z)}
+\end{equation}
+
+
+
+
+\subsection*{b)}
+
+We discretize the AR(1) process following Rouwenhorst (1995). Details are explained in the code. \\
+
+\subsection*{c)}
+We calibrate the model following Table 2 in \citet{shimer2005} , but adjusting
+x, y and z to be monthly. 
+Table \ref{tab:parameters} shows the calibrated parameters. \\
+
+\subsection*{d)}
+
+Table~\ref{tab:baseline} reports the results of our replication of Table 3 in Shimer (2005). Overall, the model reproduces the main patterns in the paper quite closely. Unemployment is strongly negatively correlated with vacancies, while vacancies, market tightness $\frac{v}{u}$, the job-finding rate $f$, and productivity $z$ are all strongly positively correlated.
+
+Several correlations are very close to one in absolute value. This occurs because productivity is the only aggregate shock in the model, so most endogenous variables move closely together with the same underlying state.
+
+The remaining moments are also close to those reported in Shimer (2005). The main small differences appear in the autocorrelations of $\frac{v}{u}$ and $f$, which may arise from the monthly calibration, the discretization of the productivity process, and simulation error. Overall, the replication matches the qualitative results in the original paper.
+
+\section*{Problem 2}
+\subsection*{a)}
+Table (\ref{tab:hm}) shows the results of replicating \citet{shimer2005} but with 
+a higher value for leisure. 
+Following \citet{hagedorn2008}, we increase the value of leisure $z$
+to be close to average productivity, so that the average surplus from a match $(p^* - z)$
+is small. In their original calibration, Hagedorn and Manovskii set $b \approx 0.955 $, 
+which implies that workers are nearly indifferent between employment and unemployment. 
+However, implementing this value directly in our discrete-time framework is not feasible: 
+the Rouwenhorst (1995) discretization with $N = 21$
+grid points generates a minimum productivity value of $p_{min} \approx 0.663$, 
+and any value of $z$ exceeding $p_{min}$
+would violate the positive-surplus condition $p_i - z > 0 $
+required for matches to be mutually beneficial at all points of the state space. 
+We therefore set $z = 0.95 \times p_{min} \approx 0.630$, which is the highest feasible value 
+of leisure consistent with positive surplus everywhere on the grid. \\
+
+\subsection*{b)}
+Table (\ref{tab:hall}) shows the results of the replication of \citet{shimer2005} , while 
+keeping wages constant after a match is realized. \\
+
+\subsection*{c)}
+Table (\ref{tab:proc_leisure}) follows the Chodorow-Reich and Karabarbounis (2016)
+critique and shows the results with a procyclical $b$.
+In their paper, they propose
+setting $z(p) = \zeta p$, where $\zeta \in (0,1)$ is a scalar that determines
+both the average level of the outside option and how strongly it responds to
+aggregate productivity. When productivity $p$ is high, workers enjoy better
+outside opportunities, and when it is low, the outside option deteriorates
+proportionally. The parameter $\zeta$ is calibrated so that the procyclical
+leisure specification is consistent with the \citet{hagedorn2008} calibration
+at the steady state. Specifically, evaluating at the mean productivity $p^{*}=1$
+gives $z(p^{*}) = \zeta \times 1 = 0.955$, which exactly matches the value of
+leisure that Hagedorn and Manovskii target in their original calibration. Note
+that by construction this is a higher value of $b$ than the one in part~(a),
+where we followed \citet{shimer2005} and set $z = 0.40$. \\
+
+\subsection*{d)}
+Table (\ref{tab:proc_gamma}) shows the results with $\beta(z) = \bar{\beta} + \phi(z - \bar{z})$,
+where $\bar{\beta} = 0.72$ is the baseline bargaining power from \citet{shimer2005},
+$\bar{z} = p^{*} = 1$ is mean productivity, and $\phi = 0.1$ governs the sensitivity
+of bargaining power to cyclical conditions. When productivity exceeds its mean,
+workers capture a larger share of the match surplus, and conversely when
+productivity falls below its mean.
+
+\subsection*{e)}
+
+Comparing Tables~\ref{tab:baseline} and~\ref{tab:hm}, the Hagedorn--Manovskii calibration generates higher volatility of unemployment $u$, vacancies $v$, and market tightness $v/u$ than the baseline model. The intuition is that increasing the value of leisure $b$ reduces the match surplus $z-b$. When this surplus is small, even small productivity shocks produce large proportional changes in firms' profits, which makes vacancy creation much more sensitive to fluctuations in productivity. As a result, labor market variables become more volatile than in the baseline model.
+
+Comparing Tables~\ref{tab:baseline} and~\ref{tab:hall}, the results change dramatically. This is normal. Under Hall's constant-wage assumption, wages no longer adjust to productivity shocks. In the baseline model, Nash bargaining makes wages move closely with productivity, so most of the shock is absorbed by wages and firms' profits change little. When wages are fixed, productivity shocks translate directly into changes in firms' profits. This makes vacancy creation much more responsive, generating much higher volatility in vacancies, unemployment, and market tightness. Hence, wage rigidity is one possible way to address the Shimer puzzle.
+
+Comparing Tables~\ref{tab:baseline} and~\ref{tab:proc_leisure}, the results are very similar to the baseline, and in some dimensions volatility is even lower. This is consistent with the critique of Chodorow-Reich and Karabarbounis (2016). If leisure is procyclical, so that $b(z)=\zeta z$, then the worker's outside option increases in good times. As a consequence, the match surplus $z-b(z)$ changes little over the cycle. Firms' profits therefore fluctuate less, vacancy creation reacts weakly, and the model continues to generate low labor-market volatility.
+
+Finally, comparing Tables~\ref{tab:baseline} and~\ref{tab:proc_beta}, the results remain relatively close to the baseline model. When bargaining power becomes procyclical, workers capture a larger share of the match surplus in good states - a very close argument as the last paragraph. This offsets part of the increase in firms' profits coming from higher productivity, so the response of vacancy creation remains limited. Therefore, the amplification of productivity shocks is still modest, and the model does not move very far from the baseline case.
+
+\section*{Appendix}
+
+\input{tab_params.tex}
+\input{baseline.tex}
+
+% Problem 2
+\input{hm.tex}
+\input{hall.tex}
+\input{proc_leisure.tex}
+\input{proc_gamma.tex}
+
+
+\bibliographystyle{aer}        % American Economic Review style
+\bibliography{references} 
+
+\end{document}

@@ -1,0 +1,51 @@
+% Standalone parameter table — \input{} this file into your master document.
+% Requires: booktabs, amsmath
+
+\begin{table}[ht]
+\centering
+\caption{Parameter Values}
+\label{tab:parameters}
+\small
+\begin{tabular}{llll}
+\toprule
+Parameter & Symbol & Value & Source / Target \\
+\midrule
+\addlinespace
+\multicolumn{4}{l}{\textit{Panel A\@. Frequency-invariant parameters}} \\
+\addlinespace
+Mean productivity          & $\bar{z}$   & $1.00$    & Normalization \\
+Value of leisure           & $b$         & $0.40$    & \citet{shimer2005} \\
+Matching elasticity        & $\alpha$    & $0.72$    & Estimated \\
+Bargaining power           & $\gamma$    & $0.72$    & Hosios: $\gamma=\alpha$ \\
+\addlinespace
+\multicolumn{4}{l}{\textit{Panel B\@. Monthly flow parameters}} \\
+\addlinespace
+Discount factor            & $\beta$     & $0.99602$ & $(1+r_q)^{-1/3}$, $r_q=0.012$ \\
+Separation rate            & $s$         & $0.034$   & \citet{shimer2005}, Table~1 \\
+Matching function constant & $\mu$       & $0.450$   & $f(\theta^{*})=0.45$ at $\theta^{*}=1$ \\
+Vacancy posting cost       & $c$         & $0.210$   & Free-entry at $\theta^{*}=1$ \\
+\addlinespace
+\multicolumn{4}{l}{\textit{Panel C\@. Productivity process (monthly AR(1))}} \\
+\addlinespace
+Autocorrelation            & $\rho$                 & $0.99867$ & $e^{-\kappa/3}$, $\kappa=0.004$ \\
+Innovation std.\ dev.\     & $\sigma_{\varepsilon}$ & $0.00952$ & $\sigma_q/\!\sqrt{3}$, $\sigma_q=0.0165$ \\
+Unconditional std.\ dev.\  & $\sigma_{z}$           & $0.1845$  & $\sigma_{\varepsilon}/\!\sqrt{1-\rho^{2}}$ \\
+\addlinespace
+\multicolumn{4}{l}{\textit{Panel D\@. Discretization and filtering}} \\
+\addlinespace
+Grid points                & $N$         & $21$      & Rouwenhorst (1995) \\
+HP filter parameter        & $\lambda$   & $10^{5}$  & Hodrick--Prescott, quarterly \\
+\addlinespace
+\bottomrule
+\end{tabular}
+\parbox{\linewidth}{\smallskip\footnotesize
+\textit{Notes:} Monthly parameters are converted from \citet{shimer2005}'s quarterly
+calibration. The matching function is $f(\theta)=\mu\theta^{1-\alpha}$ with
+$q(\theta)=\mu\theta^{-\alpha}$. Vacancy cost $c$ is solved from the
+steady-state free-entry condition
+$c = (1-\gamma)(\bar{z}-b)\big/\!\left[\mu^{-1}(1-\beta(1-s))
++\beta\gamma\right]$.
+The productivity process $z_{t+1} = \rho\, z_t + \varepsilon_{t+1}$ is
+discretized using Rouwenhorst's (1995) method, which exactly matches
+the conditional and unconditional first two moments for any $N$.}
+\end{table}
