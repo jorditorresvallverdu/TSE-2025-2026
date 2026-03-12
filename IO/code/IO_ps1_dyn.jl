@@ -11,7 +11,12 @@ const start_firms= 1;
 #entry and exit of firms 
 const entry_low= 0.15;
 const entry_high= 0.25;
-const 
+const scrap_value= 0.1;
+const entry_at= 4; 
+const beta = 0,925; 
+const delta= 0.7;
+
+#investment
 
 
 % entry-exit
