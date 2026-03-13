@@ -1,6 +1,6 @@
-PWD /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO
+PWD /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/tex
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt
-INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/io_referee_report_rwz.tex
+INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/tex/io_referee_report_rwz.tex
 OUTPUT io_referee_report_rwz.log
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/article.cls
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/article.cls

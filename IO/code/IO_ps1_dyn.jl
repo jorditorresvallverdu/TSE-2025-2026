@@ -1,79 +1,202 @@
-#Author: Jordi Torres Vallverdú
-#Start Date: 12/03/2025
+# Author: Jordi Torres Vallverdú
+# Start Date: 12/03/2025
 
-###Main
+############ Main Function ############
 
-#Nunmber of firms and states 
-const max_firms= 3;
-const kmax= 19;
-const start_firms= 1;
+mutable struct ModelParams
+    max_firms::Int
+    kmax::Int
+    start_firms::Int
 
-#entry and exit of firms 
-const entry_low= 0.15;
-const entry_high= 0.25;
-const scrap_value= 0.1;
-const entry_at= 4; 
-const beta = 0,925; 
-const delta= 0.7;
+    entry_low::Float64
+    entry_high::Float64
+    scrap_val::Float64
+    entry_at::Int
+    beta::Float64
+    delta::Float64
 
-#investment
+    inv_mult::Float64
+
+    intercept::Float64
+    fixed_cost::Float64
+    gamma::Float64
+
+    tol::Float64
+
+    profit_done::Bool
+    eql_done::Bool
+    prefix::String
+
+    ds_wstart::Vector{Float64}
+    ds_nsimx::Int
+end
+
+    #### Model Parameters ####
+
+    max_firms = 3
+    kmax = 19
+    start_firms = 1
+
+    entry_low = 0.15
+    entry_high = 0.25
+    scrap_val = 0.1
+    entry_at = 4
+    beta = 0.925
+    delta = 0.7
+
+    inv_mult = 3
+
+    intercept = 3
+    fixed_cost = 0.2
+    gamma = 1
+
+    tol = 0.1
+
+    profit_done = false
+    eql_done = false
+    prefix = "cc"
+
+    ds_wstart = vcat(entry_at + 2, zeros(max_firms - 1))
+    ds_nsimx = 10000
 
 
-% entry-exit
-c.ENTRY_LOW = 0.15; % uniform distribution support: lower bound
-c.ENTRY_HIGH = 0.25; % uniform distribution support: higher bound
-c.SCRAP_VAL = 0.1; % scrap value
-c.ENTRY_AT = 4; % efficiency level at which new firms enter
-c.BETA = 0.925; % discount factor
-c.DELTA = 0.7; % probability of industry aggregate decline
+    c = ModelParams(
+        max_firms,
+        kmax,
+        start_firms,
+        entry_low,
+        entry_high,
+        scrap_val,
+        entry_at,
+        beta,
+        delta,
+        inv_mult,
+        intercept,
+        fixed_cost,
+        gamma,
+        tol,
+        profit_done,
+        eql_done,
+        prefix,
+        ds_wstart,
+        ds_nsimx
+    )
 
-% investment cost
-c.INV_MULT = 3; % investment cost parameter
 
-% profit
-c.INTERCEPT = 3; % cournot demand intercept 
-c.FIXED_COST = 0.2; % cournot fixed cost
-c.GAMMA = 1; % cournot marginal cost coefficient
+    ######## Baseline ########
 
-% convergence tolerence:
-c.TOL = 0.1; % tolerance
+    #static_profit(c)
+    #eql_ma(c)
+    #ds_ma(c, "baseline.tex")
 
-% indicators and name prefixes that make it easier to interpret saved
-% results
-c.PROFIT_DONE = 0; % indicator for having finished computing profit
-c.EQL_DONE = 0; % indicator for having finihsed equilibrium computation
-c.PREFIX = 'cc'; % prefix representing Cournot competition in saved results
 
-% simulation
-c.DS_WSTART = [c.ENTRY_AT+2; zeros(c.MAX_FIRMS-1,1)]; % initial state for simulation
-c.DS_NSIMX = 10000; % number of simulation periods
+    ######## Low Entry Cost ########
 
-%% Test decode function
-%%% Task %%%%%
+    c.entry_low = 0.01
+    c.entry_high = 0.11
 
-%%%%%%%%%%%%%%
+    #static_profit(c)
+    #eql_ma(c)
+    #ds_ma(c, "low_entry_cost.tex")
 
-%% Baseline
-% Compute static profit:
-static_profit(c);
+####FUNCTION 1: STATIC PROFITS
 
-% Solve dynamic equilibrium:
-eql_ma(c);
 
-% Simulate entry & exit:
-ds_ma(c,'baseline.tex');
+function static_profit(c)
 
-%% Low entry cost
-% new entry cost parameters
-c.ENTRY_LOW = 0.01;
-c.ENTRY_HIGH = 0.11;
+    nfmax= c.max_firms
+    kkmax= c.kmax
 
-% Compute static profit:
-static_profit(c);
+    #Set up binomial coefficients
 
-% Solve dynamic equilibrium:
-eql_ma(c);
 
-% Simulate entry & exit:
-ds_ma(c,'low_entry_cost.tex');
+
+end
+
+
+
+#This generates the states and the index. Probably is not so efficient as the matlab computation, but it is much more simple to compute
+function states(kmax)
+    states= Dict()  
+    id=1
+    for w1 in 0:kmax
+        for w2 in 0:w1
+            for w3 in 0:w2
+                states[(w1,w2,w3)]= id 
+                id +=1    
+            end 
+        end 
+    end 
+    return states
+end 
+data_states= states(kmax)
+println(data_states)
+#Now we define the connection between the function of the states and the numeric index. It should be easy to check as it should be indexed easily. 
+println(length(data_states))
+
+#I guess this is a version of the decode function, if needed afterwards.
+index_to_state = Dict(v => k for (k,v) in data_states)
+state_to_index = Dict(k => v for (k,v) in data_states)
+
+println(index_to_state)
+
+function theta(gamma, w)
+    cost= @. gamma * exp(-(w-4.0)) #this should be in vectorized form for slight efficiency in terms of coding 
+    return cost
+end 
+
+
+
+function static_profit_computation(data_states, c)
+
+#Declare parameter values. 
+
+num_data_states= length(data_states)
+
+    for states in 1:num_data_states
+
+        #Computes marginal cost : c1, c2, c3 
+        w1, w2, w3= index_to_state[states]
+        c1= theta(c.gamma, w1)
+        if w2>0
+        c2= theta(c.gamma, w2)
+        end 
+        if w3>0
+        c3= theta(c.gamma, w3)
+        end 
+
+        theta= vcat(c1, c2, c3)
+        #Determine active firms
+        n_firms= count(c1,c2,c3) #different from 0
+
+        p= (D + () )
+
+
+    end
+
+
+    
+
+end 
+
+    D = intercept;  
+
+
+        #Computes marginal cost : c1, c2, c3 
+        w1, w2, w3 = index_to_state[10] #this is just an example
+
+        w= vcat(w1, w2, w3) # just to provide it in vectorized form
+        n_firms= count(w.>0) #count the elements of the vector that are larger than 0
+
+        cost= theta(1, w)
+        #Determine active firms
+
+        #here we need to use the fact w1>w2>w3 -> theta1< theta2< theta3
+        p= (D + sum(cost) )/(n_firms+1)
+
+        #here we need to generate top profits. 
+        function find_eq()
+            while (p - cost[1] >= 0)                    
+
+            #finish here the function...
 
