@@ -3,4 +3,25 @@
 \fi
 \begin{thebibliography}{xx}
 
+\harvarditem[Chodorow-Reich and Karabarbounis]{Chodorow-Reich and
+  Karabarbounis}{2016}{chodorowreich2016}
+{\bf Chodorow-Reich, Gabriel and Loukas Karabarbounis}, ``The Cyclicality of
+  the Opportunity Cost of Employment,'' {\it Journal of Political Economy},
+  2016, {\it 124} (6), 1563--1618.
+
+\harvarditem[Hagedorn and Manovskii]{Hagedorn and
+  Manovskii}{2008}{hagedorn2008}
+{\bf Hagedorn, Marcus and Iourii Manovskii}, ``The Cyclical Behavior of
+  Equilibrium Unemployment and Vacancies Revisited,'' {\it American Economic
+  Review}, 2008, {\it 98} (4), 1692--1706.
+
+\harvarditem[Hall]{Hall}{2005}{hall2005}
+{\bf Hall, Robert~E.}, ``Employment Fluctuations with Equilibrium Wage
+  Stickiness,'' {\it American Economic Review}, 2005, {\it 95} (1), 50--65.
+
+\harvarditem[Shimer]{Shimer}{2005}{shimer2005}
+{\bf Shimer, Robert}, ``The Cyclical Behavior of Equilibrium Unemployment and
+  Vacancies,'' {\it American Economic Review}, March 2005, {\it 95} (1),
+  25--49.
+
 \end{thebibliography}
