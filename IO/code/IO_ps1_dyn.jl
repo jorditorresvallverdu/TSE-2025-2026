@@ -201,28 +201,87 @@ mat_results = ccprofit_all(D, f, index_to_state, gamma)
 
 #This starts from the matlab code eql_ma.m
 
-rlnfirm = max_firms
-#kmax, already defined 
-stfirm = start_firms
-x_entryl = entry_low
-x_entryh = entry_high
-phi = scrap_val
-entry_k = entry_at
-#beta, already defined. Note: this I should improve in the next iteration of the code, to make it robust to different versions. 
-#delta 
-a = inv_mult
-#tol 
+
+function state_helper(d, justone, z1, z2)
+
+    #crucial part of the code, we need to reorder efficiencies after change in investment. 
+    temp = hcat(d, justone)
+    perm = sortperm(temp[:, 1], rev=true)
+    temp = temp[perm, :]
+    d_sorted = temp[:, 1] #key outcome
+
+    e = d_sorted .- 1 #aggregate shock
+
+    #check that is bounded
+    e = max.(e, z1)
+    d_sorted = min.(d_sorted, z2)
+
+    #new place of the firm after the change of states
+    pl1 = argmax(temp[:, 2])
+
+    return e, d_sorted, pl1
+end
+
 
 #Let's start with the main function of cal val. This is all testing so far.
-function calval(nfirms)
-    z1 = zeros(nfirms, 1) #lower bound states
-    z2 = kmax * ones(nfirms, 1) #upper bound states.
-
-    if nfirms>1
-        if place ==1
-            locmask= zeros
+function calval(place, w, x, k, oldvalue, etable, multfac, two_n, kmax, nfirms, mask, delta, a)
+    z1 = zeros(nfirms) #lower bound states
+    z2 = fill(kmax, nfirms) #upper bound states.
 
 
+    if nfirms > 1 ##should I condition on this right now?
+        locmask = zeros(Int, nfirms, two_n)
+        locmask[1:place-1, :] = mask[1:place-1, :]
+        locmask[place+1:nfirms, :] = mask[place:nfirms-1, :] #Just inserts a row in mask where own firm is. This is much simpler than Matlab.
+    else
+        locmask = zeros(Int, 1, 1)
+    end
+
+    #modify investment and state. 
+    x = copy(x)
+    w = copy(w)
+
+    x[place] = 0
+    w[place] = k
+    justone = zeros(nfirms)
+    justone[place] = 1
+
+    #probability of going up
+    p_up = @. (a * x) / (1 + a * x)
+
+    #initialize empty containers 
+    val_up = 0.0
+    val_stay = 0.0
+
+
+    #initialize the loop to compute future values
+    for i in 1:two_n #loop over the rivals?
+
+        probmask = prod((locmask[:, i] .* p_up) .+ ((1 .- locmask[:, i]) .* (1 .- p_up)))
+        ##############1. if firm does not move up. 
+
+        d = w + locmask[:, i] #private shock
+
+        e, d_sorted, pl1 = state_helper(d, justone, z1, z2)
+
+        val_stay += (
+            (1 - delta) * oldvalue[qencode(d_sorted, etable, multfac), pl1] +
+            delta * oldvalue[qencode(e, etable, multfac), pl1]
+        ) * probmask
+
+        ##############2. if firm moves up 
+        d_up = w + locmask[:, i]
+        d_up[place] += 1 #just as if firm is successful too!
+
+        e_up, d_up_sorted, pl1_up = state_helper(d_up, justone, z1, z2)
+
+        val_up += (
+            (1 - delta) * oldvalue[qencode(d_up_sorted, etable, multfac), pl1_up] +
+            delta * oldvalue[qencode(e_up, etable, multfac), pl1_up]
+        ) * probmask
+    end
+
+    return val_up, val_stay
 end
 
 
