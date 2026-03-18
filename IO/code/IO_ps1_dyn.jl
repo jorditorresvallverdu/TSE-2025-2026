@@ -1,6 +1,9 @@
 # Author: Jordi Torres Vallverdú
 # Start Date: 12/03/2025
 
+using JLD2  # moved here from inside eql_ma — Julia doesn't like using inside functions
+using Statistics  # for mean()
+
 ############ Main Function ############
 
 mutable struct ModelParams
@@ -337,7 +340,8 @@ function optimize(w, oldvalue, oldx, isentry, profit,
         if CV[s] >= phi
             locwx[s] = locw[s]
         else
-            locwx[s] = 0
+            locwx[s:end] .= 0  # equilibrium selection: if s exits, all weaker firms exit too
+            break
         end
     end
 
@@ -363,6 +367,8 @@ function optimize(w, oldvalue, oldx, isentry, profit,
         if locwx[j] == 0
             nval[j] = phi
             nx[j] = 0.0
+            oval[j] = phi
+            ox[j] = 0.0
             continue
         end
 
@@ -423,10 +429,31 @@ function contract(oldvalue, oldx, profit,
     isentry = zeros(wmax)
 
     for w in 1:wmax
-        locw = collect(index_to_state[w]) #this probably I need to adapt again. But will use an bottom up approach. 
-        if (locw(nfirms) == 0)
+        locw = collect(index_to_state[w])
 
-            _, val_stay = calcval(place, w, x, k, oldvalue, two_n, kmax, nfirms, mask, delta, a, state_to_index)
+        if locw[nfirms] == 0
+
+            # figure out where the potential entrant would sit
+            n_active = sum(locw .> 0)
+            place = n_active + 1
+
+            # build the state with the entrant added at entry_k, then sort
+            locw_entry = copy(locw)
+            locw_entry[place] = entry_k
+            locw_entry_sorted = sort(locw_entry, rev=true)
+
+            # find where the entrant ended up after sorting (for calcval)
+            pl_entry = findfirst(x -> x == entry_k, locw_entry_sorted)
+            if pl_entry === nothing
+                pl_entry = place
+            end
+
+            # entrant has no prior investment
+            ox_entry = zeros(nfirms)
+
+            _, val_stay = calcval(pl_entry, locw_entry_sorted, ox_entry, entry_k,
+                oldvalue, two_n, kmax, nfirms, mask, delta, a, state_to_index)
+
             val = beta * val_stay
             isentry[w] = unif_distribution_cdf(val, x_entryh, x_entryl)
 
@@ -454,22 +481,53 @@ function contract(oldvalue, oldx, profit,
 end
 
 #######################################################################################
-############################# PART 4. #################################################
+############################# PART 5. #################################################
 function make_mask(nfirms)
     n = nfirms - 1
     two_n = 2^n
 
     if n == 0
-        return zeros(Int, 1, 1)
+        return zeros(Int, 1, 1), two_n
     end
 
-    return hcat([reverse(digits(i, base=2, pad=n)) for i in 0:two_n-1]...)
+    return hcat([reverse(digits(i, base=2, pad=n)) for i in 0:two_n-1]...), two_n
+end
+
+# Translated from Matlab initialize.m
+function initialize(nfirms, wmax, index_to_state, state_to_index, newvalue, newx)
+    oldx = zeros(wmax, nfirms)
+    oldvalue = zeros(wmax, nfirms)
+
+    if nfirms == 1
+        oldvalue = 1 .+ 0.1 .* (1:wmax)  # newvalue and newx don't exist for nfirms-1=0
+    else
+        for w in 1:wmax
+            tuple_w = collect(index_to_state[w])
+
+            # Initialize by mapping the current w to the corresponding nfirms-1 equilibrium
+            # (ignore the last firm)
+            sub_tuple = Tuple(tuple_w[1:nfirms-1])
+            n_sub = state_to_index[sub_tuple]
+            oldvalue[w, 1:nfirms-1] = newvalue[n_sub, :]
+            oldx[w, 1:nfirms-1] = newx[n_sub, :]
+
+            # Initialize the last firm by ignoring the second last firm,
+            # i.e., swap the last two firms and set the last firm to 0 state
+            tuple_mod = copy(tuple_w)
+            tuple_mod[nfirms-1] = tuple_w[nfirms]
+            tuple_mod[nfirms] = 0
+            n_mod = state_to_index[Tuple(sort(tuple_mod, rev=true))]
+            oldvalue[w, nfirms] = oldvalue[n_mod, nfirms-1]
+            oldx[w, nfirms] = oldx[n_mod, nfirms-1]
+        end
+    end
+
+    return oldvalue, oldx
 end
 
 function eql_ma(c)
 
     #From params 
-
     rlnfirms = c.max_firms
     kmax = c.kmax
     stfirm = c.start_firms
@@ -485,30 +543,32 @@ function eql_ma(c)
 
     tol = c.tol
 
+    D = c.intercept
+    f = c.fixed_cost
+    γ = c.gamma
+
+    # Build state dictionaries
+    local_states = states(kmax)
+    local_i2s = Dict(v => k for (k, v) in local_states)
+    local_s2i = Dict(k => v for (k, v) in local_states)
+    wmax = length(local_i2s)
+
+    # Compute static profits
+    profit_full = ccprofit_all(D, f, local_i2s, γ)
+
     #empty containers. 
-    newvalue = zeros(wmax, nfirms)
-    newx = zeros(wmax, nfirms)
-    oldvalue = zeros(wmax, nfirms)
-    oldx = zeros(wmax, nfirms)
+    newvalue = zeros(wmax, 1)
+    newx = zeros(wmax, 1)
     isentry = zeros(wmax)
 
     for nfirms in stfirm:rlnfirms
 
-        #Number of combinations
-        wmax = length(state_to_index) #this differs a bit. 
+        profit = profit_full[:, 1:nfirms]
 
-        #Load profit, should I call the function?
-        #TO do
+        #Number of rival actions + mask
+        mask, two_n = make_mask(nfirms)
 
-        #Number of rival actions 
-        two_n = 2.0^(nfirms - 1)
-
-        #Matrix with all possible actions of the other firms. 
-        mask = make_mask(nfirms) #described above, same as dec2bin. 
-
-        #dtable is what I already have, no? The rest I don't need at all. 
-
-        oldvalue, oldx = initialize(dtable, nfirms, wmax, binom, newvalue, newx) #need to adapt initialize.
+        oldvalue, oldx = initialize(nfirms, wmax, local_i2s, local_s2i, newvalue, newx)
 
         ix = 1
         norm = tol + 1
@@ -520,10 +580,10 @@ function eql_ma(c)
             newvalue, newx, isentry = contract(oldvalue, oldx, profit,
                 wmax, two_n, kmax, nfirms, mask,
                 x_entryl, x_entryh, phi, entry_k, beta, delta, a,
-                state_to_index, index_to_state)
+                local_s2i, local_i2s)
 
-            norm = max(max(abs(oldvalue - newvalue)))
-            avgnorm = mean(mean(abs(oldvalue - newvalue)))
+            norm = maximum(abs.(oldvalue .- newvalue))
+            avgnorm = mean(abs.(oldvalue .- newvalue))
 
             ix += 1
             oldx = newx
@@ -533,7 +593,7 @@ function eql_ma(c)
 
         # Warning check
         flag = any(
-            index_to_state[s][1] == kmax && newx[s, 1] > 0
+            local_i2s[s][1] == kmax && newx[s, 1] > 0
             for s in 1:wmax
         )
 
@@ -546,10 +606,18 @@ function eql_ma(c)
         prising = a .* newx ./ (1 .+ a .* newx)
 
         # Save
-        using JLD2
         @save "a.$(c.prefix)_markov$(nfirms).jld2" newvalue newx prising isentry
 
         c.eql_done = true
     end
 
+    return newvalue, newx
+
+end
+
+#######################################################################################
+############################# PART 6: DS_MA ############################################
+
+function ds_ma(c, label)
+    # YOUR CODE HERE
 end
