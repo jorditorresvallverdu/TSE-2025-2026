@@ -40,8 +40,8 @@ max_firms = 3
 kmax = 19
 start_firms = 1
 
-entry_low = 0.15
-entry_high = 0.25
+entry_low = 0.01
+entry_high = 0.11
 scrap_val = 0.1
 entry_at = 4
 beta = 0.925
@@ -588,7 +588,6 @@ end
 
 #######################################################################################
 ############################# PART 6: DS_MA ############################################
-
 function ds_ma(c)
 
     # load
@@ -601,14 +600,14 @@ function ds_ma(c)
     active_firms = zeros(c.ds_nsimx)
     total_inv = zeros(c.ds_nsimx)
     total_realized_inv = zeros(c.ds_nsimx)
+
     # main loop
     for t in 1:c.ds_nsimx
         s = state_to_index[Tuple(sort(Int.(w), rev=true))]
 
-        local new_entrant_pos = 0
         # record BEFORE updating
         active_firms[t] = sum(w .> 0)
-        total_realized_inv[t] = sum(newx[s, :]) #to distinguish from made
+        total_realized_inv[t] = sum(newx[s, :])
 
         # 1. EXIT
         w_new = copy(Int.(w))
@@ -619,24 +618,21 @@ function ds_ma(c)
             end
         end
 
-        # 2. ENTRY
+        # 2. INVESTMENT — post-exit state, already weights over entry probability
+        s_post_exit = state_to_index[Tuple(sort(w_new, rev=true))]
+        total_inv[t] = sum(newx[s_post_exit, :])
+        tau = [Int(rand() < prising[s_post_exit, j]) for j in 1:3]
+
+        # 3. ENTRY
         n_active = sum(w_new .> 0)
         if n_active < 3
-            s_post_exit = state_to_index[Tuple(sort(w_new, rev=true))]
             if rand() < isentry[s_post_exit]
                 w_new[n_active+1] = c.entry_at
                 sort!(w_new, rev=true)
-                new_entrant_pos = findfirst(x -> x == c.entry_at, w_new)
-
             end
         end
 
-        # 3. INVESTMENT + 4. AGGREGATE SHOCK
-        s_post_entry = state_to_index[Tuple(sort(w_new, rev=true))]
-
-        total_inv[t] = sum(newx[s_post_entry, :]) #to distinguish from realized
-
-        tau = [j == new_entrant_pos ? 0 : Int(rand() < prising[s_post_entry, j]) for j in 1:3]
+        # 4. AGGREGATE SHOCK
         nu = rand() < c.delta ? 1 : 0
 
         # 5. UPDATE
@@ -648,10 +644,9 @@ function ds_ma(c)
         w = w_new
     end
 
-
     println("Average active firms: ", mean(active_firms))
     println("Average total investment: ", mean(total_inv))
-    println("Realized Investment (-shocks):", mean(total_realized_inv))
+    println("Realized Investment (-shocks): ", mean(total_realized_inv))
 end
 
 newvalue, newx = eql_ma(c)
