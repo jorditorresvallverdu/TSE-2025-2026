@@ -646,7 +646,8 @@ function ds_ma(c)
 
     println("Average active firms: ", mean(active_firms))
     println("Average total investment: ", mean(total_inv))
-    println("Realized Investment (-shocks): ", mean(total_realized_inv))
+    #println("Realized Investment (-shocks): ", mean(total_realized_inv))
+    return mean(active_firms), mean(total_inv)
 end
 
 newvalue, newx = eql_ma(c)
@@ -689,10 +690,11 @@ println("p - cost[3]: ", p - cost[3])
 #FINAL RESULTS 
 ds_ma(c) #baseline 
 
-
 #CF
 
 
 
 
 ###Change the support of c. 
+
+#To do: separate the functions in different steps and build a master jl that runs all the different parts together. 
