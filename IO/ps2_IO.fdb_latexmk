@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1774009875.81765 "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/ps2_IO.tex" "ps2_IO.pdf" "ps2_IO" 1774009876.17403 0
-  "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/ps2_IO.tex" 1774009875.44509 3201 d24858152725d97bf30db9adc7640f99 ""
+["pdflatex"] 1774027197.07232 "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/ps2_IO.tex" "ps2_IO.pdf" "ps2_IO" 1774027197.44263 0
+  "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO/ps2_IO.tex" 1774027196.7083 3685 8e2b3c8f461a67a5cb486af68372a968 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map" 1773399416.91225 339773 a1c68872d3dc0a4bee66a5dedbc28f32 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1734277980.39253 11548 65e4107434a595602cca075154f9e8e6 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1734277941.08881 12002472 b582eb731daf2b623c3d30845607ef6c ""
@@ -20,7 +20,6 @@
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmsy6.tfm" 1725915924.43756 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmsy8.tfm" 1725915924.43779 1120 8b7d695260f3cff42e636090a8002094 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmtt10.tfm" 1725915924.43908 768 1321e9409b4137d6fb428ac9dc956269 ""
-  "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmtt12.tfm" 1725915924.43918 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1725915917.95775 32080 340ef9bf63678554ee606688e7b5339d ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1725915917.97614 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1725915917.9817 36281 c355509802a035cadc5f15869451dcee ""
@@ -35,7 +34,6 @@
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1725915918.01815 32716 08e384dc442464e7285e891af9f45947 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1725915918.01961 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1725915918.03233 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
-  "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt12.pfb" 1725915918.03331 24252 1e4e051947e12dfb50fee0b7f4e26e3a ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/context/base/mkii/supp-pdf.mkii" 1725915931.12397 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/iftex/iftex.sty" 1725915926.5436 7237 bdd120a32c8fdb4b433cf9ca2e7cd98a ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/iftex/ifvtex.sty" 1725915926.54625 1057 525c2192b5febbd8c1f662c9468335bb ""
@@ -62,11 +60,11 @@
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/listings.sty" 1734275015.92718 81640 997090b6c021dc4af9ee00a97b85c5b4 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstmisc.sty" 1734275015.92816 77051 be68720e5402397a830abb9eed5a2cb4 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstpatch.sty" 1734275015.93471 353 9024412f43e92cd5b21fe9ded82d0610 ""
-  "ps2_IO.aux" 1774009876.08219 486 6a1a9227cecabc6376def357c22ea4d5 "pdflatex"
-  "ps2_IO.tex" 1774009875.44509 3201 d24858152725d97bf30db9adc7640f99 ""
-  "results.tex" 1774009267.63083 334 cee918bea46d3fe4f86585e246b6928e ""
-  "task1_table.tex" 1774009262.7349 660 fb73a0c2e29d5a0832f652751dd30b3b ""
-  "task2_values.tex" 1774009266.31266 174 12ab546071967eb672a4f8f1f00e3102 ""
+  "ps2_IO.aux" 1774027197.35199 486 6a1a9227cecabc6376def357c22ea4d5 "pdflatex"
+  "ps2_IO.tex" 1774027196.7083 3685 8e2b3c8f461a67a5cb486af68372a968 ""
+  "results.tex" 1774026135.19272 334 cee918bea46d3fe4f86585e246b6928e ""
+  "task1_table.tex" 1774026130.21151 660 fb73a0c2e29d5a0832f652751dd30b3b ""
+  "task2_values.tex" 1774026133.84558 174 12ab546071967eb672a4f8f1f00e3102 ""
   (generated)
   "ps2_IO.aux"
   "ps2_IO.log"

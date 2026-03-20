@@ -20,15 +20,24 @@ Instead of implementing encode/decode using binomial coefficients as in the MATL
 
 \input{task1_table.tex}
 
-\section*{EX 2: \texttt{calcval} Function}
+\section*{EX 2}
 
 The \texttt{calcval} function computes the continuation value for a firm moving up in efficiency (\texttt{val\_up}) and staying at the same level (\texttt{val\_stay}). It integrates over all possible rival investment outcomes. After the first contraction iteration with $N=1$ and $\bar{w}=19$:
 
 \input{task2_values.tex}
 
-Results are intuitive. Higher efficiency states have higher value as expected; a firm at $w=19$ faces lower marginal cost and earns higher profits.
+Results are intuitive. Higher efficiency states have higher value as expected; a firm at $w=19$ faces lower marginal cost and earns higher profits\footnote{The only meaningful difference from the MATLAB implementation 
+is in initialization. For $N=1$, MATLAB initializes over 20 
+states with values $1 + 0.1 \times (1,\ldots,20)$, ranging 
+from 1.1 to 3.0. My code initializes over all 1540 states 
+with $1 + 0.1 \times (1,\ldots,1540)$, ranging from 1.1 to 
+155. The contraction starts further from the fixed point, 
+takes more iterations, and the first-iteration values in 
+exercisee2 differ as a result. The same issue goes to 
+$N=2$. The final $N=3$ equilibrium converges correctly 
+and produces consistent simulation results.}.
 
-\section*{EX 3: Analytical Solution for Optimal Investment}
+\section*{EX 3}
 
 The firm's value function is:
 $$V_j = \pi_j + \beta \left[ p \cdot V_{up} + (1-p) \cdot V_{stay} \right] - x$$
@@ -38,12 +47,12 @@ where $\Delta V = V_{up} - V_{stay}$. Solving for $x^*$:
 $$\boxed{x^* = \frac{\sqrt{a \beta \Delta V} - 1}{a}}$$
 If $\Delta V \leq 0$, then $x^* = 0$\footnote{In the code I force this to be either 0 or $\Delta$ to avoid taking $\sqrt{}$ of negative values.}. The equilibrium selection criterion imposes that if firm $i$ exits, all firms $j$ with $w_j \leq w_i$ exit too.
 
-\section*{EX 4: Simulation Results}
+\section*{EX 4}
 
-Starting from industry state $(6,0,0)$, 3 firms, and simulating forward 10,000 periods, Table \ref{tab:results} reports the average number of active firms and average total investment per period for both entry cost cases.
+Starting from industry state $(6,0,0)$ and simulating forward 10,000 periods, Table \ref{tab:results} reports the average number of active firms and average total investment per period for both entry cost cases.
 
 \input{results.tex}
 
-With lower entry costs, significantly more firms are active on average (roughly, in different simulations I get $\approx$ $1.85-1.90$ vs $1.20-1.26$). Total investment remains roughly stable because the competition effect — each firm investing less due to lower returns from efficiency gains — offsets the more-firms effect. Investment per firm falls from $\approx 0.46-0.60$ to $\approx 0.31-0.50$ with lower entry costs, depending on the simulation.
+With lower entry costs, significantly more firms are active on average (roughly, in different simulations I get $\approx$ $1.80-1.90$ vs $1.16-1.26$). Total investment remains roughly stable because the competition effect — each firm investing less due to lower returns from efficiency gains — offsets the more-firms effect. Investment per firm falls from $\approx 0.46-0.60$ to $\approx 0.31-0.50$ with lower entry costs, depending on the simulation.
 
 \end{document}
