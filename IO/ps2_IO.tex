@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Problem Set 2: Solving Dynamic Oligopoly Games}
+\author{Jordi Torres Vallverdú}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{EX 1}
+
+Instead of implementing encode/decode using binomial coefficients as in the MATLAB framework, I implement an equivalent bijection between state codes and weakly descending 3-tuples using dictionary enumeration in Julia\footnote{I understand the Matlab code is general to handle $N>3$ firms and combinatorial is more efficient the larger the state space. However, given that I am more familiar with Julia and in this language dictionaries are quite fast -also, given that we want to solve $N=3$-, I decided to code it this way to understand better the rest of the problem.}. The function \texttt{states(kmax)} iterates over all valid tuples $(w_1, w_2, w_3)$ with $w_1 \geq w_2 \geq w_3$ and assigns sequential integer codes. This produces the same bijection as the binomial approach but is more readable and easier to use in the different parts of the code. The decode table for $N=3$, $\bar{w}=3$ is shown below.
+
+\input{task1_table.tex}
+
+\section*{EX 2: \texttt{calcval} Function}
+
+The \texttt{calcval} function computes the continuation value for a firm moving up in efficiency (\texttt{val\_up}) and staying at the same level (\texttt{val\_stay}). It integrates over all possible rival investment outcomes. After the first contraction iteration with $N=1$ and $\bar{w}=19$:
+
+\input{task2_values.tex}
+
+Results are intuitive. Higher efficiency states have higher value as expected; a firm at $w=19$ faces lower marginal cost and earns higher profits.
+
+\section*{EX 3: Analytical Solution for Optimal Investment}
+
+The firm's value function is:
+$$V_j = \pi_j + \beta \left[ p \cdot V_{up} + (1-p) \cdot V_{stay} \right] - x$$
+where $p = \frac{ax}{1+ax}$ is the probability of moving up. Taking the FOC with respect to $x$:
+$$\beta \Delta V \cdot \frac{a}{(1+ax)^2} = 1$$
+where $\Delta V = V_{up} - V_{stay}$. Solving for $x^*$:
+$$\boxed{x^* = \frac{\sqrt{a \beta \Delta V} - 1}{a}}$$
+If $\Delta V \leq 0$, then $x^* = 0$\footnote{In the code I force this to be either 0 or $\Delta$ to avoid taking $\sqrt{}$ of negative values.}. The equilibrium selection criterion imposes that if firm $i$ exits, all firms $j$ with $w_j \leq w_i$ exit too.
+
+\section*{EX 4: Simulation Results}
+
+Starting from industry state $(6,0,0)$, 3 firms, and simulating forward 10,000 periods, Table \ref{tab:results} reports the average number of active firms and average total investment per period for both entry cost cases.
+
+\input{results.tex}
+
+With lower entry costs, significantly more firms are active on average (roughly, in different simulations I get $\approx$ $1.85-1.90$ vs $1.20-1.26$). Total investment remains roughly stable because the competition effect — each firm investing less due to lower returns from efficiency gains — offsets the more-firms effect. Investment per firm falls from $\approx 0.46-0.60$ to $\approx 0.31-0.50$ with lower entry costs, depending on the simulation.
+
+\end{document}

@@ -1,4 +1,4 @@
-#This generates the states and the index. Probably is not so efficient as the matlab computation, but it is much more simple to compute and to understand.
+#This generates the states and the index. Probably is not so general or efficient with more firms as the matlab computation, but it is much more simple to compute and to understand. It should be much faster for n=3 in jl. 
 function states(kmax)
     states = Dict()
     id = 1
@@ -22,7 +22,7 @@ state_to_index = Dict(k => v for (k, v) in data_states)
 
 
 
-#Export, exercise 1. # Task 1 verification — decode table for N=3, wbar=3
+#Export, exercise 1. #  decode table for N=3, wbar=3
 small_states = states(3)
 small_i2s = Dict(v => k for (k, v) in small_states)
 n_states = length(small_i2s)
@@ -30,7 +30,7 @@ table = hcat([collect(small_i2s[i]) for i in 1:n_states]...)
 println("\nTask 1 — Decode table for N=3, w̄=3:")
 println(table)
 
-# Export Task 1 table to latex
+#Export Task 1 table to latex
 open("task1_table.tex", "w") do f
     write(f, "\\begin{table}[h]\n")
     write(f, "\\centering\n")

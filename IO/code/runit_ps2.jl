@@ -3,6 +3,7 @@
 
 using JLD2
 using Statistics
+using Random
 
 ############ Main Function ############
 
@@ -85,10 +86,10 @@ c = ModelParams(
 )
 
 ############ RUN FUNCTIONS IN ORDER ############
-include("states_ps2.jl")
-include("static_profit_ps2.jl")
-include("eqlma_ps2.jl")
-include("ds_ma_ps2.jl")
+include("states_ps2.jl") #this just runs my version of decode encode
+include("static_profit_ps2.jl") #static profits
+include("eqlma_ps2.jl") # policy function and fixed point
+include("ds_ma_ps2.jl") # simulation code
 
 
 
@@ -96,15 +97,16 @@ include("ds_ma_ps2.jl")
 
 ############ RUN SIMULATION ############
 
-# Baseline
-#c.entry_low = 0.15
-#c.entry_high = 0.25
+
+Random.seed!(123) #so that results don't change in export... but not needed really. Just annoying to rewrite the tex... 
 eql_ma(c)
 avg_firms_base, avg_inv_base = ds_ma(c)
 
-# Low entry cost
+#Low entry cost
 c.entry_low = 0.01
 c.entry_high = 0.11
+
+Random.seed!(123)
 eql_ma(c)
 avg_firms_low, avg_inv_low = ds_ma(c)
 

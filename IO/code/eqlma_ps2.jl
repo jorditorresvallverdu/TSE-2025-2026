@@ -1,7 +1,7 @@
 ####################
 
 #Run main pieces
-include("calcval_ps2.jl")
+include("calcval_ps2.jl") #follows same structure as in matlab
 include("optimize_ps2.jl")
 include("contract_ps2.jl")
 include("initialize_ps2.jl")
@@ -31,16 +31,16 @@ function eql_ma(c)
     f = c.fixed_cost
     γ = c.gamma
 
-    # Build state dictionaries
+    #Build state dictionaries
     local_states = states(kmax)
     local_i2s = Dict(v => k for (k, v) in local_states)
     local_s2i = Dict(k => v for (k, v) in local_states)
     wmax = length(local_i2s)
 
-    # Compute static profits
+    #Compute static profits
     profit_full = ccprofit_all(D, f, local_i2s, γ)
 
-    # Full containers — always (wmax, rlnfirms) so initialize can read correct slices
+    #Full containers — always (wmax, rlnfirms) so initialize can read correct slices
     newvalue = zeros(wmax, rlnfirms)
     newx = zeros(wmax, rlnfirms)
     isentry = zeros(wmax)
@@ -69,6 +69,8 @@ function eql_ma(c)
             norm = maximum(abs.(oldvalue .- newvalue_n))
             avgnorm = mean(abs.(oldvalue .- newvalue_n))
             println("ix=$ix norm=$norm avgnorm=$avgnorm sample_val=$(newvalue_n[100,1])")
+
+            #exercise 2!!!
 
             if nfirms == 1 && ix == 1
                 println("\nTask 2 verification — value function after first iteration N=1:")
