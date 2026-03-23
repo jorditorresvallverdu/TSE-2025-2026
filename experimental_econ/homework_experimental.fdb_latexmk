@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1774098974.66476 "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/experimental_econ/homework_experimental.tex" "homework_experimental.pdf" "homework_experimental" 1774098975.0495 0
-  "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/experimental_econ/homework_experimental.tex" 1774098974.01492 854 dd3d1055861b172e33b4503eb3f51800 ""
+["pdflatex"] 1774101939.65934 "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/experimental_econ/homework_experimental.tex" "homework_experimental.pdf" "homework_experimental" 1774101939.99875 0
+  "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/experimental_econ/homework_experimental.tex" 1774101939.25136 886 3684e55124eaaa1183fd3393933d765f ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map" 1773399416.91225 339773 a1c68872d3dc0a4bee66a5dedbc28f32 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1734277941.08881 12002472 b582eb731daf2b623c3d30845607ef6c ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1725915917.94285 1004 54797486969f23fa377b128694d548df ""
@@ -39,8 +39,8 @@
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/kvsetkeys/kvsetkeys.sty" 1734277976.90596 13815 760b0c02f691ea230f5359c4e1de23a7 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def" 1725915926.65539 29785 9f93ab201fe5dd053afcc6c1bcf7d266 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/parskip/parskip.sty" 1737709696.97451 4288 94714aa7f535440f33181fec52a31963 ""
-  "homework_experimental.aux" 1774098974.94898 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "homework_experimental.tex" 1774098974.01492 854 dd3d1055861b172e33b4503eb3f51800 ""
+  "homework_experimental.aux" 1774101939.93416 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "homework_experimental.tex" 1774101939.25136 886 3684e55124eaaa1183fd3393933d765f ""
   (generated)
   "homework_experimental.aux"
   "homework_experimental.log"
