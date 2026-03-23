@@ -1,0 +1,72 @@
+\documentclass[11pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\usepackage{amsmath}
+
+\title{Why Does the Messenger Matter More Than the Message?}
+\subtitle{Information Channel Effects on Parental Investment in Education}
+\author{Jordi Torres Vallverdu}
+\institute{MRes TSE --- Behavioral Development Economics}
+\date{March 2026}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%% ---- SLIDE 1: The Puzzle ----
+\begin{frame}{The Puzzle: Channel $>$ Content}
+
+\textbf{Fact:} Parents systematically misperceive their children's school performance.
+\begin{itemize}
+    \item Belief--performance gap $>1$ SD; 1/3 of parents wrong about which child does better (Dizon-Ross, 2019 --- Malawi)
+    \item Parents vastly understate missed assignments (Bergman \& Chan, 2021 --- Los Angeles)
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Puzzle:} Providing the \emph{same} information via SMS/WhatsApp instead of report cards generates large effects:
+\begin{itemize}
+    \item GPA $+0.19$ SD, course failures $-38\%$, at $<$\$63 total cost (Bergman \& Chan, 2021)
+    \item Effects concentrate among low-SES households
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Why is this surprising?} Standard theory predicts only the \emph{content} of a signal matters, not its packaging. Report cards are free. Why don't parents use them?
+
+{\small \textit{Neither rational inattention, moral hazard, nor credit constraints fully explain why the delivery channel drives the effect.}}
+
+\end{frame}
+
+%% ---- SLIDE 2: Proposed Explanation & Research Questions ----
+\begin{frame}{Proposed Explanation \& Research Agenda}
+
+\textbf{Hypothesis:} The effect operates through \emph{attention and salience}, not (only) belief correction.
+\begin{itemize}
+    \item Parents under cognitive load do not include ``child performance'' in their active decision model (Gabaix, 2014 --- sparse max)
+    \item SMS creates high \emph{contrast} with the prior of ``everything is fine'' $\to$ signal becomes salient (Bordalo, Gennaioli, Shleifer, 2012)
+    \item Distinct from wrong beliefs: the variable is not \emph{considered at all}
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{How to test it:} Multi-arm RCT that \emph{separates} channel from content:
+\begin{itemize}
+    \item T1: same info, different channel (SMS) $\to$ identifies attention ($A$)
+    \item T2: new info, same channel (paper) $\to$ identifies belief correction ($\lambda$)
+    \item T3: new info + SMS $\to$ identifies complementarity
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Research questions:}
+\begin{enumerate}
+    \item How much of the treatment effect is attention vs.\ belief correction?
+    \item Does message salience decay over time (habituation)?
+    \item What is the optimal information policy (channel, frequency, targeting)?
+\end{enumerate}
+
+\end{frame}
+
+\end{document}

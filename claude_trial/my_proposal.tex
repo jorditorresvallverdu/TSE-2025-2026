@@ -1,0 +1,150 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{natbib}
+\usepackage{setspace}
+
+\setstretch{1.2}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+
+\title{PS1\\[4pt]
+\large Behavioral Development Economics --- MRes TSE 2025--2026}
+\author{Jordi Torres Vallverdu}
+\date{March 2026}
+
+\begin{document}
+\maketitle
+\newpage
+
+
+%% ========================================================================
+\section{Part (a): The Puzzle}
+%% ========================================================================
+
+Parental investments are central to children's educational success. How much effort parents put into helping their child at home---in terms of time, attention, or finances---depends on their perception of how the child is doing at school. This perception, in turn, depends on the information available to parents about their child's performance. Such information may come from the school (report cards, parent-teacher meetings) or from the child directly \citet{dizonross2019parents}.
+
+A natural prediction from standard economics is that providing parents with accurate information about their child's performance should lead them to adjust their behavior accordingly. Yet the evidence is more puzzling than this: what seems to matter is not only the \emph{content} of information but also the \emph{channel} through which it is delivered. Parents who receive the same performance information via SMS or WhatsApp---rather than through traditional report cards---show significantly larger responses in terms of engagement and their children's outcomes \citet{bergman2021information}. 
+
+This is surprising. Standard models predict that only the content of a signal should matter for decision-making, not its "packaging". If report cards are available and for free, rational parents should process them. The puzzle, then, is: why does the channel of information matter so much, and why do these effects concentrate among low-SES households?
+
+%% ========================================================================
+\section{Part (b): Standard Economic Explanations}
+%% ========================================================================
+
+Several standard economic explanations could account for parts of this puzzle, but none fully resolves it.
+
+\begin{enumerate}
+    \item \textbf{Rational inattention:} Parents face opportunity costs of time. If the cost of processing school information exceeds the expected marginal return to adjusting investments, parents rationally ignore report cards. Under this view, SMS treatments simply lower the acquisition cost of information. However, a pure rational-inattention model predicts that any two channels carrying the same information should produce identical responses. The fact that the channel matters is hard to reconcile with this framework.
+
+    \item \textbf{Moral hazard and agency:} Children are strategic agents who may hide or distort report cards. Missing assignments are not ``forgotten'' but hidden or not disclosed. The information treatment surpasses the child's will, restoring the parent's information set. However, \citet{bergman2021information} does an exercise to quantify if this matters and he attributes only about 41\% of the treatment effect to reduced monitoring costs, while 49\% comes from belief revision of parents---a split that this approach does not predict.
+
+    \item \textbf{Credit constraints:} Even if parents learn their child is struggling, they may lack the financial resources to respond. That is, the treatment effect could reflect complementarity between information and the capacity to act. While this explanation may apply to financial decisions, other decisions that involve change in time involved with the kid or effort should not be that constrained.\footnote{It is true, however, that time is costly and the opportunity cost of effort may be income lost due to not working. This last hypothesis should not be discarded. I will abstract from it in the next section, although more thought needs to be put in this one.}
+\end{enumerate}
+
+%% ========================================================================
+\section{Part (c): Behavioral Mechanisms}
+%% ========================================================================
+
+I consider three behavioral mechanisms that could generate the puzzling pattern.
+
+\begin{enumerate}
+    \item \textbf{Biased beliefs and asymmetric updating.} Parents may hold systematically upward-biased beliefs about their child's ability, as documented, for example, by \citet{dizonross2019parents}\footnote{For example, she documents that the mean belief-performance gap exceeds 1 SD in Malawi, and that a third of parents are wrong about which of their children performs better }. These biases are more pronounced among low-SES households. Crucially, belief updating appears asymmetric: parents incorporate positive signals more readily than negative ones, consistent with motivated reasoning. When a report card arrives, parents may selectively process the good news and discount the bad. 
+
+    \item \textbf{Limited attention and salience.} In \citet{gabaix2014sparsity} sparse-max framework, agents attend only to variables whose relevabce exceeds an attention threshold $\kappa$. For parents with high cognitive load/pressure---disproportionately low-SES households, likely---``child performance'' may fall below this threshold. A report card among school paperwork arrives in a low-contrast context. An SMS arriving on the parent's phone, in routine life, creates high contrast with the prior expectation that all is good. Following \citet{bordalo2012salience}, the salience of the signal---not its content---may drive the decision weight. Note that this mechanism is distinct from biased beliefs: it is not that the parent has a wrong estimate, but that the variable is not even part of their active decision model. A key prediction of this approch is that changing the channel while holding content fixed should still produce an effect.
+
+    \item \textbf{Present bias and procrastination.} Parents may \emph{intend} to engage with their child's education but procrastinate because effort costs are immediate while benefits (the child's human capital) are distant. Under quasi-hyperbolic discounting, a na\"{\i}ve present-biased parent plans to read the report card ``tomorrow'' and never does. An SMS arriving on a Tuesday evening drops the delay between information receipt and action: the parent can immediately check homework or call the child. This theory can be mixed with the rational inattentiveness -simply adding the dynamic component- and is not per se that interesting compared to the previous two. 
+\end{enumerate}
+%% ========================================================================
+\section{Part (d): Experimental Design and Model}
+%% ========================================================================
+
+I focus on the limited attention / salience mechanism (Mechanism 2 above), as it is the least studied. Here I will start by sketching a model that can help us distinguish the mechanisms; then I will talk about how an experimental design can help us in identifying key parameters of this model. 
+
+\subsection{A simple model}
+
+Consider students $i$ in schools $e$. For each student we observe grades\footnote{Here I also assume that we have valid measures of all this variables. Of course, this is asking too much, as having measures of parental effort is quite hard. The design should make sure to measure parental effort in baseline and post, collect administrative data on grades, school characteristics etc.}:
+\[
+Y_{i} = Y(a_{i}, e_{i}^{p}, e^{s}) + \varepsilon_{i}
+\]
+where $a_i$ is student ability, $e_i^p$ is parental effort, $e^s$ captures school-level effort, 
+and $\varepsilon_i$ is an idiosyncratic shock.
+
+\medskip
+\noindent \textbf{Belief updating.} Parents do not observe $a_i$ directly. They hold a prior 
+$\hat{a}_{i}^{\text{pre}}$. Upon receiving a grade signal $\sigma_i$, they update:
+\[
+\hat{a}_{i}^{\text{post}} = \hat{a}_{i}^{\text{pre}} 
+  + A(\kappa_i) \cdot \lambda(\sigma_i, \hat{a}_{i}^{\text{pre}}) 
+  \cdot (\sigma_i - \hat{a}_{i}^{\text{pre}})
+\]
+where $A(\kappa_i) \in [0,1]$ is an attention weight in the spirit of \citet{gabaix2014sparsity}: 
+parents under high cognitive load (high $\kappa_i$) attend less to the signal, and the 
+SMS treatment works in part by lowering $\kappa_i$. The term $\lambda(\sigma_i, 
+\hat{a}_{i}^{\text{pre}}) \in [0,1]$ is a salience weight in the spirit of \citet{bordalo2012salience}: signals that contrast more strongly with prior beliefs 
+receive greater weight. Both $A$ and $\lambda$ are needed because they capture distinct 
+forces: $A$ determines whether the parent \emph{considers} the information at all, 
+while $\lambda$ determines how much weight the signal gets \emph{conditional on attention}.\footnote{Even with this design, the effect of information content is not fully separable from belief distortions ---channel 1 highlighted above. A behavioral response to T2 may rise either from correcting biased priors or from non-Bayesian updating (e.g., asymmetric or attenuated responses to negative signals). Eliciting baseline beliefs would allow us to observe $\hat a_i^{pre}$ and construct the belief gap $(\sigma_i - \hat a_i^{pre})$. I think this may help to distinguish biased priors from distortions in the updating process.
+}
+
+\medskip
+\noindent \textbf{Effort choice.} Given updated beliefs, the parent chooses effort to maximize:
+\[
+\max_{e_i^p \geq 0} \; \ln Y(a_i, e_i^p, e^s) \Big|_{\hat{a}_{i}^{\text{post}}} - C^p(e_i^p, z_i)
+\]
+where $C^p$ is the cost of effort, heterogeneous in parent type $z_i$ (e.g., SES, time constraints\footnote{This is a possibility to include hypothesis 3 inside the "non behavioral" hypothesis; that is budget constraint affecting cost of actually putting effort or acting upon the information.}).
+
+\medskip
+\noindent \textbf{Extension: school response.}  Schools may react to increased parental pressure by adjusting their own effort---e.g, raising or lowering grading standards. If parents who receive negative information respond by complaining to teachers rather than helping at home, schools may lower standards to avoid conflict. This offsetting response means that the long-run effect of information treatment could be smaller than the short-run reduced-form estimate. Modeling the school side would require adding a school objective function (some ideas can be taken again from \citet{fu2018ability}), but maybe this is too much for one idea.
+
+\subsection{Experimental design}
+
+The key gap in existing work (Bergman, Dizon-Ross) is that they bundle the content of information with the channel of delivery. The goal of this design is to separate the two.
+
+\medskip
+\noindent \textbf{Setting.} Primary or secondary schools in a context where schools have digital gradebook systems (needed for automated messaging) but baseline parent-school communication is low. Randomization should be stratified by school characteristics (and some measure of prior communication level). The idea is then to consider the following experiment:
+
+\medskip
+\noindent \textbf{Treatment arms:}
+\begin{enumerate}
+    \item \textbf{C (Control):} Parents receive standard report cards at the end of term (status quo).
+    \item \textbf{T1 (Salience only):} Same information content as the control, but delivered via WhatsApp/SMS in a simplified format. No new academic information beyond what report cards contain.
+    \item \textbf{T2 (Belief correction only):} More detailed academic information (grades, relative ranking, missing assignments), delivered via the same channel as the control (paper, mailed home).
+    \item \textbf{T3 (Full treatment):} Detailed academic information delivered via WhatsApp/SMS---replicating Bergman (2021).
+    \item \textbf{T4 (Frequency):} Same as T3 but at double the frequency (weekly vs.\ biweekly).
+\end{enumerate}
+
+
+\medskip
+The idea is the following: 
+\noindent \textbf{Identification:}
+\begin{itemize}
+    \item $\text{T1} - \text{C}$: identifies the attention effect $A$ (channel changes, content fixed).
+    \item $\text{T2} - \text{C}$: identifies the belief-correction effect through $\lambda \cdot (\sigma - \hat{a})$ (content changes, channel fixed).
+    \item $\text{T3} - \text{C}$: joint effect (kinda replication of Bergman).
+    \item $\text{T3} - \text{T1} - \text{T2} + \text{C}$: complementarity between attention and salience (under some assumptions). 
+\end{itemize}
+
+\medskip
+\noindent \textbf{Why this matters for policy.} The decomposition moves beyond reduced-form estimates to understanding \emph{why} information treatments work. This has direct policy implications: if the effect is mainly through $A$ (attention), then channel design and message timing are the policy levers; nudges are needed. If the effect is mainly through $\lambda$ (belief correction), a one-shot information provision may be enough. If there is strong complementarity, both must be addressed at the same tine. The structural model also allows computing counterfactuals---optimal message frequency, which parents to target, and whether universal adoption would be offset by school responses ---if the last model is developed.
+
+%% ========================================================================
+\section{Part (e): Behavioral vs.\ Standard Explanation}
+%% ========================================================================
+
+The behavioral explanation is likely to be both quantitatively important and policy-relevant. For three reasons:
+
+First, the effects are large relative to cost. Bergman's SMS treatment produces a 0.19 SD GPA increase at very low cost per student---comparable in magnitude to much more expensive interventions like high-quality charter schools or financial incentives. The behavioral explanation prescribes \emph{design} interventions---change the channel, increase salience, time the message---which are much cheaper and more scalable than other direct interventions.
+
+Second, the standard explanations do not fully account for the data. Rational inattention cannot explain why the channel matters when informational content is held constant. Moral hazard (children hiding information) accounts for part of the effect, but Bergman's decomposition shows that roughly half the treatment effect comes from belief revision, not monitoring---a channel the agency model does not predict. Credit constraints may explain the channels highlighted above. Probably I need to think of ways to rule it out.
+
+Third, the behavioral framework has distinct and more simple policy implications. If the mechanism is primarily belief correction, a one-shot information intervention suffices. If it is attention and salience, ongoing nudges are needed. These prescriptions are very different from each other, and the standard model---which predicts the channel should not matter---cannot distinguish between them. Separating these mechanisms, as proposed in Part (d), is therefore not just theoretically interesting but necessary for designing cost-effective education policies.
+
+
+\bibliographystyle{plainnat}
+\bibliography{bibliography}
+
+\end{document}
