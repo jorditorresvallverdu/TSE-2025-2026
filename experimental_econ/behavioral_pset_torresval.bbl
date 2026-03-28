@@ -1,0 +1,45 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bergman(2021)]{bergman2021information}
+Peter Bergman.
+\newblock Parent-child information frictions and human capital investment:
+  Evidence from a field experiment.
+\newblock \emph{Journal of Political Economy}, 129\penalty0 (1):\penalty0
+  286--322, 2021.
+
+\bibitem[Bordalo et~al.(2012)Bordalo, Gennaioli, and
+  Shleifer]{bordalo2012salience}
+Pedro Bordalo, Nicola Gennaioli, and Andrei Shleifer.
+\newblock Salience theory of choice under risk.
+\newblock \emph{The Quarterly Journal of Economics}, 127\penalty0 (3):\penalty0
+  1243--1285, August 2012.
+\newblock \doi{10.1093/qje/qjs018}.
+
+\bibitem[Dizon-Ross(2019)]{dizonross2019parents}
+Rebecca Dizon-Ross.
+\newblock Parents' beliefs about their children's academic ability:
+  Implications for educational investments.
+\newblock \emph{American Economic Review}, 109\penalty0 (8):\penalty0
+  2728--2765, 2019.
+\newblock \doi{10.1257/aer.20171106}.
+
+\bibitem[Fu and Mehta(2018)]{fu2018ability}
+Chao Fu and Nirav Mehta.
+\newblock Ability tracking, school and parental effort, and student
+  achievement: A structural model and estimation.
+\newblock \emph{Journal of Labor Economics}, 36\penalty0 (4):\penalty0
+  923--979, 2018.
+
+\bibitem[Gabaix(2014)]{gabaix2014sparsity}
+Xavier Gabaix.
+\newblock A sparsity-based model of bounded rationality.
+\newblock \emph{The Quarterly Journal of Economics}, 129\penalty0 (4):\penalty0
+  1661--1710, November 2014.
+\newblock \doi{10.1093/qje/qju024}.
+
+\end{thebibliography}

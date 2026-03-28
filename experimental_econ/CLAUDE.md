@@ -1,109 +1,67 @@
-# CLAUDE.md — Behavioral Economics PSET (MRes TSE 2025-2026)
+# CLAUDE.md — Behavioral Economics presentation (MRes TSE 2025-2026)
 
 ## Project Overview
 
-This project synthesizes academic papers and personal notes to produce a structured LaTeX document with original ideas for answering a graduate-level MRes economics problem set on behavioral development economics.
-
+This project contains the sources needed to create a presentation in beamer of a 15 min research proposal for a PhD economic course in Experimental Development Economics
 ---
 
 ## Directory Structure
 
 ```
-/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/claude_trial/
+/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/experimental_econ/
 ├── CLAUDE.md                          ← this file
-├── MRES_behavioralDevelopment_PSET.pdf   ← problem set to answer
-├── papers/                            ← reference PDFs
-│   └── *.pdf
-├── my_ideas.rtf                      ← personal notes and ideas
+├── behavioral_pset_torresval.pdf              <- this is the backbone of my research proposal 
 └── output/
-    └── pset_ideas.tex                 ← output document (to be generated)
+    └── presentation_rprop_exp.tex                 ← output document (to be generated) + folder
 ```
 
 ---
 
 ## Workflow
 
-Execute steps in order. Do not skip ahead. Also, make sure not to parallelize the reading of PDFs or other processes too much. Go one by one. I have an API limit and it will break otherwise. I don't mind if the process is slow, but good. 
+Execute steps in order. Go one by one. I don't mind if the process is slow, but good.
 
-### Step 1 — Read the Problem Set
+### Step 1 — behavioral_pset_torresval.pdf
 
-- Open `MRES_behavioralDevelopment_PSET.pdf`
-- Identify and list **every question** clearly
-- Note the structure: which questions are related, what each one is testing
-- Keep all questions in scope — none should be dropped
+- Open and read `behavioral_pset_torresval.pdf`
+- This contains my ideas for the research proposal.
+- Make sure to understand the underlying problem, the model proposed and how the data needs to be collected.
 
-### Step 2 — Read all papers in `papers/`
+### Step 2 — Create a folder "output" inside this directory
 
-For each PDF, extract and internally organize the following:
+### Step 3 - Inside the folder "output" create a presentation for the research proposal
 
-1. **Behavioral frictions and puzzles** — what anomaly or deviation from standard theory does the paper document?
-2. **Behavioral evidence** — in case the paper is empirical, what is the empirical strategy, data, and key result?
-3. **Theoretical models** — what model is used or proposed? What are the key mechanisms?
-4. **Identification**- what is the main source of identification in the empirical ones - for those that are empirical. 
-4. **Research gaps and future lines** — what does the paper leave open, or what does it suggest as next steps?
+The guidelines to consider are the following, based on the behavioral_pset_torresval.pdf info:
 
-Cross-reference across papers: identify common themes, complementary findings, and tensions between approaches.
+1. **Presentation length** : maximum 15 minutes, so make it simple
+2. **Create a beamer**: create a beamer tex file, and consider the following slides and guidelines:
+3. **Structure of slides**:
+    2.1 Introduction: 1 slide of context, informational problems in education, why is this important (cite relevant papers from structural econometrics: Arcidiacono, Maurel, Aucejo Ransom; Stinebrickner, Wiswall Zafar, Larroucau Rios;) why is this an issue (students seem to be missinformed)
+    2.2 Experimental evidence on a concrete issue of information: providing info treatments to parents (bergman, dizon-ross)
+    2.3. Caveat: hard to understand the mechanisms behind this last approach: mention the possible mechanisms.
+    2.4. Proposal->questions to answer (basically be able to separate mechanisms)
+    2.5. The model
+    2.6. The RCT
+    2.7. Identification based on RCT
+    2.8. Power Calculations? (he also asks us to do some of this)
+    2.9. Conclusion.
 
-### Step 3 — Read `my_ideas.rtf`
+4. **Important guidelines** Be aware that presentation for research must not be crowded in text.
+    3.1 This means short sentences better than complete sentences, the slides need to guide the proposal, not the oppsite.
+    3.2. Use real citations of papers, don't invent shit. So make sure citations are correct. Main papers are already included in the document behavioral_pset_torresval.
+    3.3. Be precise in the math of the model, that is important to explain well.
+    3.4. In the RCT, make it visual, maybe with a table, also for identification.
 
-- Understand how Jordi views these papers and what connections he has already drawn
-- Use this as the intellectual anchor — the output should reflect and extend these ideas, not replace them
-- Note which ideas are most developed vs. rough sketches
-- Prioritize sketch of identification and econometric arguments that link RCT variation (and design) to a structural model that derives channels.
+### Step 4 - Output
 
-### Step 4 — Cross-reference with frontier research
+1. **Output** : save the presentation as "presentation_rprop_exp" inside the output folder, render it into pdf too.
 
-- **Use `WebSearch` and `WebFetch` tools directly** to find recent papers. Do NOT rely on training data or memory for citations — actually search the web. If a subagent is used, verify it performed real web searches.
-- Search for recent (2023–2026) NBER working papers and published articles on: information treatments in education, parental beliefs and investments, salience in education decisions, SMS/WhatsApp interventions in schools, behavioral-structural models of education.
-- For each paper found, verify it exists by fetching the URL or abstract. **Do not hallucinate citations.**
-- Identify where the papers + personal ideas connect to **current NBER working papers** on behavioral and structural economics of education.
-- In particular, I am interested in understanding **Information treatments/problems** in education.
-- Flag lines of research that appear **genuinely new or underexplored** as of 2025-2026.
-- Prioritize novelty: ideas that combine behavioral models with structural approaches are of particular interest.
-- **API budget awareness**: This step involves many web calls. Do searches sequentially (not in parallel) and limit to 5–8 targeted searches. Fetch only abstracts/first pages, not full papers. Stop searching once you have 5–10 solid frontier references.
+### Step 5- Revise
 
-### Step 5 — Generate output
+1. Go through presentation_rprop_exp and revise that guidelines are completed and that format is correct.
+2. Propose improvements to clarity and format
+3. Save a new document called presentation_rprop_exp_v2 in tex and pdf
 
-Write `output/pset_ideas.tex` as described below.
+END
 
----
-
-## Output Specification
-
-**File:** `output/pset_ideas.tex`
-
-**Purpose:** A structured reference document for Jordi to use when writing his own PSET answers. This is NOT a draft of the answers themselves — it is an organized synthesis of key ideas he can develop.
-
-**Structure:**
-
-```latex
-\documentclass{article}
-% standard packages: amsmath, amssymb, hyperref, geometry, biblatex or natbib
-```
-
-One section per PSET question, each containing:
-
-- **Key concepts to mobilize** — relevant behavioral frictions, models, and evidence from the papers
-- **Original angles** — new ideas or combinations that go beyond what any single paper does
-- **Potential research contributions** — what would be genuinely novel if developed formally
-- **Relevant citations** — author (year) inline, no need for full bibliography unless natural
-
-**Tone:** Concise, technical, graduate-level. No padding. Bullet points and short paragraphs preferred over prose.
-
----
-
-## Constraints
-
-- Do **not** write the PSET answers — only the intellectual raw material to build them
-- Do **not** summarize papers exhaustively — focus only on what is relevant to the PSET questions
-- Prioritize **novel combinations** of ideas over standard textbook points
-- LaTeX must compile cleanly — use only standard packages
-- Keep `CLAUDE.md` under 200 lines
-
----
-
-## Definitions (project-specific)
-
-- **Behavioral frictions**: deviations from standard rationality (present bias, inattention, reference dependence, etc.)
-- **Structural approach**: models with explicit primitives, estimated structurally, policy-relevant counterfactuals
-- **New line**: an idea not yet mainstream in published journals as of 2025, ideally connectable to an NBER working paper
+###### EOF

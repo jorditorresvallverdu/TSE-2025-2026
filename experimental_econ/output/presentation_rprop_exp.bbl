@@ -1,0 +1,67 @@
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Arcidiacono et~al.(2024)Arcidiacono, Hotz, Maurel, and
+  Romano]{arcidiacono2016college}
+Peter Arcidiacono, V.~Joseph Hotz, Arnaud Maurel, and Teresa Romano.
+\newblock Recovering ex ante returns and preferences for occupations using
+  subjective expectations data.
+\newblock \emph{Journal of Political Economy}, 132\penalty0 (8):\penalty0
+  2544--2594, 2024.
+
+\bibitem[Bergman(2021)]{bergman2021information}
+Peter Bergman.
+\newblock Parent-child information frictions and human capital investment:
+  Evidence from a field experiment.
+\newblock \emph{Journal of Political Economy}, 129\penalty0 (1):\penalty0
+  286--322, 2021.
+
+\bibitem[Bordalo et~al.(2012)Bordalo, Gennaioli, and
+  Shleifer]{bordalo2012salience}
+Pedro Bordalo, Nicola Gennaioli, and Andrei Shleifer.
+\newblock Salience theory of choice under risk.
+\newblock \emph{The Quarterly Journal of Economics}, 127\penalty0 (3):\penalty0
+  1243--1285, 2012.
+\newblock \doi{10.1093/qje/qjs018}.
+
+\bibitem[Dizon-Ross(2019)]{dizonross2019parents}
+Rebecca Dizon-Ross.
+\newblock Parents' beliefs about their children's academic ability:
+  Implications for educational investments.
+\newblock \emph{American Economic Review}, 109\penalty0 (8):\penalty0
+  2728--2765, 2019.
+\newblock \doi{10.1257/aer.20171106}.
+
+\bibitem[Gabaix(2014)]{gabaix2014sparsity}
+Xavier Gabaix.
+\newblock A sparsity-based model of bounded rationality.
+\newblock \emph{The Quarterly Journal of Economics}, 129\penalty0 (4):\penalty0
+  1661--1710, 2014.
+\newblock \doi{10.1093/qje/qju024}.
+
+\bibitem[Larroucau and Rios(2024)]{larroucau2024application}
+Tom\'{a}s Larroucau and Ignacio Rios.
+\newblock Do people know enough? biased beliefs and college application
+  behavior.
+\newblock \emph{American Economic Journal: Economic Policy}, 16\penalty0
+  (1):\penalty0 1--40, 2024.
+
+\bibitem[Stinebrickner and Stinebrickner(2012)]{stinebrickner2012learning}
+Todd Stinebrickner and Ralph Stinebrickner.
+\newblock Learning about academic ability and the college dropout decision.
+\newblock \emph{Journal of Labor Economics}, 30\penalty0 (4):\penalty0
+  707--748, 2012.
+
+\bibitem[Wiswall and Zafar(2015)]{wiswall2015determinants}
+Matthew Wiswall and Basit Zafar.
+\newblock Determinants of college major choice: Identification using an
+  information experiment.
+\newblock \emph{The Review of Economic Studies}, 82\penalty0 (2):\penalty0
+  791--824, 2015.
+\newblock \doi{10.1093/restud/rdu044}.
+
+\end{thebibliography}

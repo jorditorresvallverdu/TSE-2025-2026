@@ -1,0 +1,394 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{tikz}
+
+% Clean fonts
+\usefonttheme{professionalfonts}
+
+\title[Information \& Parental Investment]{Why Does the Channel Matter?\\[4pt]
+\small Separating Attention and Belief Mechanisms\\in Parental Information Interventions}
+\author{Jordi Torres Vallverd\'{u}}
+\institute{MRes TSE --- Behavioral Development Economics}
+\date{March 2026}
+
+\begin{document}
+
+% ============================================================
+% TITLE
+% ============================================================
+\begin{frame}
+\titlepage
+\end{frame}
+
+% ============================================================
+% OUTLINE
+% ============================================================
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+% ============================================================
+\section{Introduction}
+% ============================================================
+
+\begin{frame}{Information Problems in Education}
+
+\textbf{Students and parents make decisions under imperfect information}
+
+\begin{itemize}
+    \item Students hold biased beliefs about returns to education and own ability
+    \begin{itemize}
+        \item Major choice and labor market outcomes \citep{arcidiacono2016college,wiswall2015determinants}
+        \item Persistence and dropout decisions \citep{stinebrickner2012learning}
+        \item College application and matching \citep{larroucau2024application}
+    \end{itemize}
+
+    \medskip
+
+    \item \textbf{Parents are also misinformed} about their children's performance
+    \begin{itemize}
+        \item Mean belief--performance gap $>$ 1 SD in some contexts \citep{dizonross2019parents}
+        \item Biases concentrated among low-SES households
+    \end{itemize}
+
+    \medskip
+
+    \item Parental investments respond to information $\Rightarrow$ misperceptions distort human capital accumulation
+\end{itemize}
+
+\end{frame}
+
+% ============================================================
+\section{Experimental Evidence}
+% ============================================================
+
+\begin{frame}{Information Treatments to Parents}
+
+\textbf{Providing information to parents improves outcomes}
+
+\begin{itemize}
+    \item \citet{dizonross2019parents}: Correcting beliefs about child ability in Malawi
+    \begin{itemize}
+        \item Parents reallocate investments toward lower-performing children
+        \item Beliefs are systematically upward-biased
+    \end{itemize}
+
+    \bigskip
+
+    \item \citet{bergman2021information}: SMS-based grade notifications in the US
+    \begin{itemize}
+        \item Parents receive same info via SMS vs.\ standard report cards
+        \item Result: 0.19 SD GPA increase at very low cost
+        \item $\sim$59\% from belief revision, $\sim$41\% from reduced monitoring costs
+    \end{itemize}
+
+    \bigskip
+
+    \item \textbf{The puzzle:} the \emph{channel} of delivery matters, not just content
+\end{itemize}
+
+\end{frame}
+
+% ============================================================
+\section{Mechanisms}
+% ============================================================
+
+\begin{frame}{Why Does the Channel Matter? Possible Mechanisms}
+
+Standard economics: only content should matter $\Rightarrow$ \textbf{three behavioral mechanisms}
+
+\bigskip
+
+\begin{enumerate}
+    \item \textbf{Biased beliefs \& asymmetric updating}
+    \begin{itemize}
+        \item Parents hold upward-biased priors; update asymmetrically
+        \item More information $\Rightarrow$ belief correction
+    \end{itemize}
+
+    \medskip
+
+    \item \textbf{Limited attention \& salience} \textcolor{blue}{$\leftarrow$ \textit{main focus}}
+    \begin{itemize}
+        \item Under cognitive load, ``child performance'' drops out of active decision model \citep{gabaix2014sparsity}
+        \item SMS creates high salience contrast vs.\ report card among paperwork \citep{bordalo2012salience}
+    \end{itemize}
+
+    \medskip
+
+    \item \textbf{Present bias \& procrastination}
+    \begin{itemize}
+        \item Parents intend to engage but delay; SMS reduces action delay
+    \end{itemize}
+\end{enumerate}
+
+\bigskip
+\textbf{Problem:} existing designs bundle content and channel $\Rightarrow$ cannot separate mechanisms
+\end{frame}
+
+% ============================================================
+\section{Research Proposal}
+% ============================================================
+
+\begin{frame}{Research Questions}
+
+\textbf{Goal:} Disentangle the mechanisms behind parental information treatments
+
+\bigskip
+
+\begin{enumerate}
+    \item Does changing the \emph{channel} alone (holding content fixed) affect parental behavior?\\
+    $\Rightarrow$ Attention / salience mechanism
+
+    \bigskip
+
+    \item Does providing richer \emph{content} (holding channel fixed) affect behavior?\\
+    $\Rightarrow$ Belief correction mechanism
+
+    \bigskip
+
+    \item Are channel and content \emph{complements} or \emph{substitutes}?\\
+    $\Rightarrow$ Interaction between attention and beliefs
+
+    \bigskip
+
+    \item Does \emph{frequency} of contact matter beyond content and channel?\\
+    $\Rightarrow$ Sustained attention vs.\ one-shot correction
+\end{enumerate}
+
+\end{frame}
+
+% ============================================================
+\section{Model}
+% ============================================================
+
+\begin{frame}{Model: Production Function \& Belief Updating}
+
+\textbf{Grade production:} Student $i$ in school $e$:
+\[
+Y_{i} = Y(a_{i},\, e_{i}^{p},\, e^{s}) + \varepsilon_{i}
+\]
+\begin{itemize}
+    \item $a_i$: student ability \quad $e_i^p$: parental effort \quad $e^s$: school effort
+\end{itemize}
+
+\bigskip
+
+\textbf{Belief updating:} Parents hold prior $\hat{a}_{i}^{\text{pre}}$, receive signal $\sigma_i$:
+\[
+\hat{a}_{i}^{\text{post}} = \hat{a}_{i}^{\text{pre}}
+  + \underbrace{A(\kappa_i)}_{\text{attention}} \cdot \underbrace{\lambda(\sigma_i, \hat{a}_{i}^{\text{pre}})}_{\text{salience}}
+  \cdot (\sigma_i - \hat{a}_{i}^{\text{pre}})
+\]
+
+\begin{itemize}
+    \item $A(\kappa_i) \in [0,1]$: attention weight \citep{gabaix2014sparsity}
+    \begin{itemize}
+        \item High cognitive load $\kappa_i$ $\Rightarrow$ low attention; SMS lowers $\kappa_i$
+    \end{itemize}
+    \item $\lambda(\cdot) \in [0,1]$: salience weight \citep{bordalo2012salience}
+    \begin{itemize}
+        \item Signals contrasting with priors get more weight
+    \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Model: Effort Choice}
+
+\textbf{Parental effort:} Given updated beliefs, parent maximizes:
+\[
+\max_{e_i^p \geq 0} \; \ln Y\!\left(a_i,\, e_i^p,\, e^s\right)\Big|_{\hat{a}_{i}^{\text{post}}} - C^p(e_i^p,\, z_i)
+\]
+
+\begin{itemize}
+    \item $C^p(e_i^p, z_i)$: cost of effort, heterogeneous in parent type $z_i$ (SES, time)
+    \item Allows credit constraints to enter through cost function
+\end{itemize}
+
+\bigskip
+
+\textbf{Key distinction:}
+\begin{itemize}
+    \item $A(\kappa_i)$: determines whether parent \emph{considers} the information at all
+    \item $\lambda(\cdot)$: determines how much weight the signal gets \emph{conditional on attention}
+\end{itemize}
+
+\bigskip
+
+$\Rightarrow$ Both needed: a parent can attend to a signal yet underweight it (or vice versa)
+
+\end{frame}
+
+% ============================================================
+\section{Experimental Design}
+% ============================================================
+
+\begin{frame}{The RCT: Five Treatment Arms}
+
+\textbf{Setting:} Primary/secondary schools with digital gradebooks but low parent--school communication. Randomization stratified by school characteristics.
+
+\bigskip
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}llcc@{}}
+\toprule
+\textbf{Arm} & \textbf{Description} & \textbf{Channel} & \textbf{Content} \\
+\midrule
+\textbf{C}  & Standard report cards (status quo) & Paper & Standard \\
+\textbf{T1} & Same info, delivered via SMS/WhatsApp & \textcolor{blue}{SMS} & Standard \\
+\textbf{T2} & Detailed info (grades, ranking, absences) & Paper & \textcolor{blue}{Detailed} \\
+\textbf{T3} & Detailed info via SMS (replicates Bergman) & \textcolor{blue}{SMS} & \textcolor{blue}{Detailed} \\
+\textbf{T4} & Same as T3, double frequency (weekly) & \textcolor{blue}{SMS} & \textcolor{blue}{Detailed+} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\bigskip
+
+\begin{itemize}
+    \item T1 vs.\ C: isolates \emph{channel} (attention)
+    \item T2 vs.\ C: isolates \emph{content} (beliefs)
+    \item T3 vs.\ C: joint effect (replication)
+    \item T4 vs.\ T3: frequency / sustained attention
+\end{itemize}
+
+\end{frame}
+
+% ============================================================
+\section{Identification}
+% ============================================================
+
+\begin{frame}{Identification Strategy}
+
+\textbf{$2 \times 2$ factorial design} enables clean decomposition:
+
+\bigskip
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lcc@{}}
+\toprule
+ & \textbf{Standard content} & \textbf{Detailed content} \\
+\midrule
+\textbf{Paper channel} & C & T2 \\
+\textbf{SMS channel}   & T1 & T3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\bigskip
+
+\textbf{Estimating equation:}
+\[
+Y_i = \alpha + \beta_1 \cdot \mathbf{1}[\text{SMS}]_i + \beta_2 \cdot \mathbf{1}[\text{Detailed}]_i + \beta_3 \cdot \mathbf{1}[\text{SMS} \times \text{Detailed}]_i + X_i'\gamma + \epsilon_i
+\]
+
+\begin{itemize}
+    \item $\beta_1$: attention effect $A$ (channel changes, content fixed)
+    \item $\beta_2$: belief-correction effect through $\lambda \cdot (\sigma - \hat{a})$
+    \item $\beta_3$: complementarity between attention and beliefs
+    \item T4 arm: adds frequency dimension
+\end{itemize}
+
+\bigskip
+
+\textbf{Additional data:} Elicit baseline beliefs $\hat{a}_i^{\text{pre}}$ to observe belief gap $\Rightarrow$ helps separate biased priors from distorted updating
+
+\end{frame}
+
+% ============================================================
+\section{Power Calculations}
+% ============================================================
+
+\begin{frame}{Power Calculations}
+
+\textbf{Benchmark:} \citet{bergman2021information} finds 0.19 SD effect (joint treatment)
+
+\bigskip
+
+\textbf{Assumptions:}
+\begin{itemize}
+    \item MDE = 0.10 SD (individual mechanisms are smaller than joint)
+    \item Significance level $\alpha = 0.05$, power = 0.80
+    \item ICC $\rho = 0.05$ (school-level clustering)
+    \item 20 students per school cluster
+\end{itemize}
+
+\bigskip
+
+\textbf{Required sample (per arm):}
+\[
+n = \frac{(z_{1-\alpha/2} + z_{\text{power}})^2 \cdot 2\sigma^2 \cdot \text{DEFF}}{\text{MDE}^2}
+\approx \frac{(1.96 + 0.84)^2 \cdot 2 \cdot 1.95}{0.01} \approx 3{,}060
+\]
+where $\text{DEFF} = 1 + (20-1) \times 0.05 = 1.95$
+
+\bigskip
+
+\begin{itemize}
+    \item $\approx$ 3,000 students per arm $\times$ 5 arms = \textbf{15,000 students total}
+    \item $\approx$ 750 school clusters (150 per arm)
+    \item Stratification by school SES helps reduce variance
+\end{itemize}
+
+\end{frame}
+
+% ============================================================
+\section{Conclusion}
+% ============================================================
+
+\begin{frame}{Conclusion \& Policy Implications}
+
+\textbf{Summary:}
+\begin{itemize}
+    \item Existing evidence shows information treatments improve educational outcomes
+    \item But we cannot distinguish \emph{why}: attention, beliefs, or their interaction
+    \item Proposed RCT with factorial design separates these mechanisms
+\end{itemize}
+
+\bigskip
+
+\textbf{Policy implications depend on the mechanism:}
+\begin{itemize}
+    \item If $\beta_1 \gg \beta_2$: channel/salience drives the effect $\Rightarrow$ invest in \textbf{nudge design}
+    \item If $\beta_2 \gg \beta_1$: content/beliefs drive the effect $\Rightarrow$ \textbf{one-shot information} suffices
+    \item If $\beta_3 > 0$: attention and beliefs are complements $\Rightarrow$ \textbf{both needed together}
+\end{itemize}
+
+\bigskip
+
+\textbf{Contribution:}
+\begin{itemize}
+    \item Moves beyond reduced-form to structural understanding of why information works
+    \item Low-cost interventions with potentially large returns
+    \item Framework generalizable to other parental/educational information settings
+\end{itemize}
+
+\end{frame}
+
+% ============================================================
+% REFERENCES
+% ============================================================
+
+\begin{frame}[allowframebreaks]{References}
+\small
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{frame}
+
+\end{document}
