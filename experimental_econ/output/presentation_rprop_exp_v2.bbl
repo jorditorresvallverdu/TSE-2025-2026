@@ -5,19 +5,18 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[Arcidiacono et~al.()Arcidiacono, Hotz, Maurel, and
+  Romano]{arcidiacono2024recovering}
+Peter Arcidiacono, V.~Joseph Hotz, Arnaud Maurel, and Teresa Romano.
+\newblock Recovering ex ante returns and preferences for occupations using
+  subjective expectations data.
+\newblock \emph{IZA working paper}.
+
 \bibitem[Arcidiacono et~al.(2016)Arcidiacono, Aucejo, Maurel, and
   Ransom]{arcidiacono2016college}
 Peter Arcidiacono, Esteban~M. Aucejo, Arnaud Maurel, and Tyler Ransom.
 \newblock College attrition and the dynamics of information revelation.
 \newblock \emph{NBER Working Paper No. 22325}, 2016.
-
-\bibitem[Arcidiacono et~al.(2024)Arcidiacono, Hotz, Maurel, and
-  Romano]{arcidiacono2024recovering}
-Peter Arcidiacono, V.~Joseph Hotz, Arnaud Maurel, and Teresa Romano.
-\newblock Recovering ex ante returns and preferences for occupations using
-  subjective expectations data.
-\newblock \emph{Journal of Political Economy}, 132\penalty0 (8):\penalty0
-  2544--2594, 2024.
 
 \bibitem[Bergman(2021)]{bergman2021information}
 Peter Bergman.

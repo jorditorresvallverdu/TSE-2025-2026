@@ -1,7 +1,7 @@
-PWD /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/experimental_econ/output
+PWD /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO_theory/output
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt
-INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/experimental_econ/output/presentation_rprop_exp_v2.tex
-OUTPUT presentation_rprop_exp_v2.log
+INPUT /Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO_theory/output/presentation_IO_theory_v2.tex
+OUTPUT presentation_IO_theory_v2.log
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamer.cls
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamer.cls
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerbasemodes.sty
@@ -264,7 +264,7 @@ INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/inst
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerinnerthemedefault.sty
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerinnerthemedefault.sty
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamericonbook.pdf
-OUTPUT presentation_rprop_exp_v2.pdf
+OUTPUT presentation_IO_theory_v2.pdf
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamericonbook.pdf
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamericonbook.pdf
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamericonbook.20.pdf
@@ -294,14 +294,6 @@ INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/inst
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerinnerthemerounded.sty
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerouterthemeinfolines.sty
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerouterthemeinfolines.sty
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamercolorthemeseahorse.sty
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamercolorthemeseahorse.sty
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/booktabs/booktabs.sty
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/booktabs/booktabs.sty
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/multirow/multirow.sty
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/multirow/multirow.sty
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/natbib/natbib.sty
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/natbib/natbib.sty
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/frontendlayer/tikz.sty
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/frontendlayer/tikz.sty
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/basiclayer/pgf.sty
@@ -325,14 +317,14 @@ INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/inst
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerfontthemeprofessionalfonts.sty
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerfontthemeprofessionalfonts.sty
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/booktabs/booktabs.sty
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/booktabs/booktabs.sty
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
-INPUT ./presentation_rprop_exp_v2.aux
-INPUT ./presentation_rprop_exp_v2.aux
-INPUT presentation_rprop_exp_v2.aux
-OUTPUT presentation_rprop_exp_v2.aux
+INPUT ./presentation_IO_theory_v2.aux
+INPUT ./presentation_IO_theory_v2.aux
+INPUT presentation_IO_theory_v2.aux
+OUTPUT presentation_IO_theory_v2.aux
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
@@ -341,13 +333,13 @@ INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/inst
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
-INPUT ./presentation_rprop_exp_v2.out
-INPUT ./presentation_rprop_exp_v2.out
-INPUT presentation_rprop_exp_v2.out
-INPUT presentation_rprop_exp_v2.out
-INPUT ./presentation_rprop_exp_v2.out
-INPUT ./presentation_rprop_exp_v2.out
-OUTPUT presentation_rprop_exp_v2.out
+INPUT ./presentation_IO_theory_v2.out
+INPUT ./presentation_IO_theory_v2.out
+INPUT presentation_IO_theory_v2.out
+INPUT presentation_IO_theory_v2.out
+INPUT ./presentation_IO_theory_v2.out
+INPUT ./presentation_IO_theory_v2.out
+OUTPUT presentation_IO_theory_v2.out
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/translator/translator-basic-dictionary-English.dict
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/translator/translator-basic-dictionary-English.dict
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/translator/translator-basic-dictionary-English.dict
@@ -366,32 +358,17 @@ INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/inst
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/translator/translator-theorem-dictionary-English.dict
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/translator/translator-theorem-dictionary-English.dict
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/translator/translator-theorem-dictionary-English.dict
-INPUT ./presentation_rprop_exp_v2.nav
-INPUT ./presentation_rprop_exp_v2.nav
-INPUT presentation_rprop_exp_v2.nav
+INPUT ./presentation_IO_theory_v2.nav
+INPUT ./presentation_IO_theory_v2.nav
+INPUT presentation_IO_theory_v2.nav
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss8.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss12.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss10.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssi10.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss8.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss8.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssbx10.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam7.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam5.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmr8.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmr6.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss10.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmmi8.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmmi6.tfm
@@ -401,69 +378,90 @@ INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/inst
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmex10.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssi10.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssbx10.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx10.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx8.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx6.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss9.tfm
-INPUT ./presentation_rprop_exp_v2.bbl
-INPUT ./presentation_rprop_exp_v2.bbl
-INPUT presentation_rprop_exp_v2.bbl
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssi9.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmr9.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmmi9.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmsy9.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx9.tfm
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx5.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/sansmathaccent/mathkerncmssi10.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss8.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss8.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msam5.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-OUTPUT presentation_rprop_exp_v2.nav
-OUTPUT presentation_rprop_exp_v2.toc
-OUTPUT presentation_rprop_exp_v2.snm
-INPUT presentation_rprop_exp_v2.aux
-INPUT ./presentation_rprop_exp_v2.out
-INPUT ./presentation_rprop_exp_v2.out
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/sansmathaccent/mathkerncmssi10.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssi10.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmss12.tfm
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmssbx10.tfm
+INPUT ./table1.png
+INPUT ./table1.png
+INPUT ./table1.png
+INPUT ./table1.png
+INPUT ./table1.png
+INPUT ./table1.png
+INPUT ./table1.png
+INPUT ./table2.png
+INPUT ./table2.png
+INPUT ./table2.png
+INPUT ./table2.png
+INPUT ./table2.png
+INPUT ./table2.png
+INPUT ./table2.png
+INPUT ./table3.png
+INPUT ./table3.png
+INPUT ./table3.png
+INPUT ./table3.png
+INPUT ./table3.png
+INPUT ./table3.png
+INPUT ./table3.png
+OUTPUT presentation_IO_theory_v2.nav
+OUTPUT presentation_IO_theory_v2.toc
+OUTPUT presentation_IO_theory_v2.snm
+INPUT presentation_IO_theory_v2.aux
+INPUT ./presentation_IO_theory_v2.out
+INPUT ./presentation_IO_theory_v2.out
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr9.pfb
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr9.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss12.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss12.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss8.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss8.pfb
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss9.pfb
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss9.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssbx10.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssbx10.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi10.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi10.pfb
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi9.pfb
-INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi9.pfb
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi8.pfb
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi8.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy5.pfb
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy5.pfb
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pfb
+INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb

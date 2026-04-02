@@ -15,8 +15,8 @@
 % Clean fonts
 \usefonttheme{professionalfonts}
 
-\title[Information \& Parental Investment]{Why Does the Channel Matter?\\[4pt]
-\small Separating Attention and Belief Mechanisms\\in Parental Information Interventions}
+\title[Information \& Parental Investment]{Does the Channel Matter?\\[4pt]
+\small Separating Attention from Belief Correction\\in Parental Information Interventions}
 \author{Jordi Torres Vallverd\'{u}}
 \institute{MRes TSE --- Behavioral Development Economics}
 \date{March 2026}
@@ -30,12 +30,7 @@
 \titlepage
 \end{frame}
 
-% ============================================================
-% OUTLINE
-% ============================================================
-\begin{frame}{Outline}
-\tableofcontents
-\end{frame}
+
 
 % ============================================================
 \section{Introduction}
@@ -105,7 +100,7 @@
 
 \begin{frame}{Why Does the Channel Matter? Possible Mechanisms}
 
-Standard economics: only content should matter $\Rightarrow$ \textbf{three behavioral mechanisms}
+Standard economics: only content should matter $\Rightarrow$ \textbf{three mechanisms}
 
 \bigskip
 
@@ -113,7 +108,7 @@ Standard economics: only content should matter $\Rightarrow$ \textbf{three behav
     \item \textbf{Biased beliefs \& asymmetric updating}
     \begin{itemize}
         \item Parents hold upward-biased priors; update asymmetrically
-        \item More information $\Rightarrow$ belief correction
+        \item More information $\Rightarrow$ belief correction (upward)
     \end{itemize}
 
     \medskip
@@ -126,9 +121,9 @@ Standard economics: only content should matter $\Rightarrow$ \textbf{three behav
 
     \medskip
 
-    \item \textbf{Present bias \& procrastination}
+    \item \textbf{Capacity to act \& budget constraints}
     \begin{itemize}
-        \item Parents intend to engage but delay; SMS reduces action delay
+        \item Parents intend to engage but can't due to budget constraints. 
     \end{itemize}
 \end{enumerate}
 
@@ -140,31 +135,32 @@ Standard economics: only content should matter $\Rightarrow$ \textbf{three behav
 \section{Research Proposal}
 % ============================================================
 
-\begin{frame}{Research Questions}
+\begin{frame}{Research Question}
 
-\textbf{Goal:} Disentangle the mechanisms behind parental information treatments
+\textbf{Core question:} Holding timing fixed, does the \emph{channel} of parental information delivery affect investment---and through which mechanism?
 
 \bigskip
 
+Bergman (2021): SMS-based grade info raises GPA by 0.19 SD. Is this because parents \textbf{learn something new}, or because they finally \textbf{notice} what they already could have known?
+
+\bigskip
+
+\textbf{This design separates:}
 \begin{enumerate}
-    \item Does changing the \emph{channel} alone (holding content fixed) affect parental behavior?\\
-    $\Rightarrow$ Attention / salience mechanism
+    \item \textbf{Channel effect} (SMS vs.\ paper, content fixed) $\Rightarrow$ attention / salience
 
-    \bigskip
+    \medskip
 
-    \item Does providing richer \emph{content} (holding channel fixed) affect behavior?\\
-    $\Rightarrow$ Belief correction mechanism
+    \item \textbf{Content effect} (detailed vs.\ standard, channel fixed) $\Rightarrow$ belief correction
 
-    \bigskip
+    \medskip
 
-    \item Are channel and content \emph{complements} or \emph{substitutes}?\\
-    $\Rightarrow$ Interaction between attention and beliefs
-
-    \bigskip
-
-    \item Does \emph{frequency} of contact matter beyond content and channel?\\
-    $\Rightarrow$ Sustained attention vs.\ one-shot correction
+    \item \textbf{Interaction:} are channel and content complements or substitutes?
 \end{enumerate}
+
+\bigskip
+
+\textbf{Key design choice:} all arms receive information \emph{per-term} $\Rightarrow$ timing and action set equalized
 
 \end{frame}
 
@@ -176,19 +172,19 @@ Standard economics: only content should matter $\Rightarrow$ \textbf{three behav
 
 \textbf{Grade production:} Student $i$ in school $e$:
 \[
-Y_{i} = Y(a_{i},\, e_{i}^{p},\, e^{s}) + \varepsilon_{i}
+Y_{it}^{e} = Y(a_{i},\, e_{it}^{p},\, e_{t}^{s}) + \varepsilon_{it}
 \]
 \begin{itemize}
-    \item $a_i$: student ability \quad $e_i^p$: parental effort \quad $e^s$: school effort
+    \item $a_i$: student ability \quad $e_{it}^{p}$: parental effort \quad $e_{t}^{s}$: school effort
 \end{itemize}
 
 \bigskip
 
-\textbf{Belief updating:} Parents hold prior $\hat{a}_{i}^{\text{pre}}$, receive signal $\sigma_i$:
+\textbf{Belief updating:} Parents hold prior $\hat{a}_{it}^{\text{pre}}$, receive signal $\sigma_{it}$:
 \[
-\hat{a}_{i}^{\text{post}} = \hat{a}_{i}^{\text{pre}}
-  + \underbrace{A(\kappa_i)}_{\text{attention}} \cdot \underbrace{\lambda(\sigma_i, \hat{a}_{i}^{\text{pre}})}_{\text{salience}}
-  \cdot (\sigma_i - \hat{a}_{i}^{\text{pre}})
+\hat{a}_{it}^{\text{post}} = \hat{a}_{it}^{\text{pre}}
+  + \underbrace{A(\kappa_i)}_{\text{attention}} \cdot \underbrace{\lambda(\sigma_{it}, \hat{a}_{it}^{\text{pre}})}_{\text{salience}}
+  \cdot (\sigma_{it} - \hat{a}_{it}^{\text{pre}})
 \]
 
 \begin{itemize}
@@ -210,11 +206,11 @@ Y_{i} = Y(a_{i},\, e_{i}^{p},\, e^{s}) + \varepsilon_{i}
 
 \textbf{Parental effort:} Given updated beliefs, parent maximizes:
 \[
-\max_{e_i^p \geq 0} \; \ln Y\!\left(a_i,\, e_i^p,\, e^s\right)\Big|_{\hat{a}_{i}^{\text{post}}} - C^p(e_i^p,\, z_i)
+\max_{e_{it}^p \geq 0} \; \ln Y\!\left(a_i,\, e_{it}^p,\, e_{t}^s\right)\Big|_{\hat{a}_{i}^{\text{post}}} - C^p(e_{it}^p,\, z_i)
 \]
 
 \begin{itemize}
-    \item $C^p(e_i^p, z_i)$: cost of effort, heterogeneous in parent type $z_i$ (SES, time)
+    \item $C^p(e_{it}^p, z_i)$: cost of effort, heterogeneous in parent type $z_i$ (SES, time)
     \item Allows credit constraints to enter through cost function
 \end{itemize}
 
@@ -236,36 +232,34 @@ $\Rightarrow$ Both needed: a parent can attend to a signal yet underweight it (o
 \section{Experimental Design}
 % ============================================================
 
-\begin{frame}{The RCT: Five Treatment Arms}
+\begin{frame}{The RCT:  Factorial Design}
 
-\textbf{Setting:} Primary/secondary schools with digital gradebooks but low baseline parent--school communication. Randomization stratified by school characteristics.
+\textbf{Setting:} Primary/secondary schools with digital gradebooks but low baseline parent--school communication. Multiple terms per year (e.g.\ 3 trimesters). Randomization stratified by school.
 
 \bigskip
+
+\textbf{$2 \times 2$:} all arms deliver info at \textbf{same frequency} (biweekly, mid-term):
 
 \begin{table}[h]
 \centering
 \small
-\begin{tabular}{@{}llcc@{}}
+\begin{tabular}{@{}lcc@{}}
 \toprule
-\textbf{Arm} & \textbf{Description} & \textbf{Channel} & \textbf{Content} \\
+ & \textbf{Standard content} & \textbf{Detailed content} \\
 \midrule
-\textbf{C}  & Standard report cards (status quo) & Paper & Standard \\
-\textbf{T1} & Same info, delivered via SMS/WhatsApp & \textcolor{blue}{SMS} & Standard \\
-\textbf{T2} & Detailed info (grades, ranking, absences) & Paper & \textcolor{blue}{Detailed} \\
-\textbf{T3} & Detailed info via SMS (replicates Bergman) & \textcolor{blue}{SMS} & \textcolor{blue}{Detailed} \\
-\textbf{T4} & Same as T3, double frequency (weekly) & \textcolor{blue}{SMS} & \textcolor{blue}{Detailed+} \\
+\textbf{Paper (mailed home)} & C & T2 \\
+\textbf{SMS / WhatsApp}      & T1 & T3 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
+\begin{itemize}
+    \item \textbf{T4}: Same as T3, weekly frequency $\Rightarrow$ sustained attention vs.\ one-shot
+\end{itemize}
+
 \bigskip
 
-\begin{itemize}
-    \item T1 vs.\ C: isolates \emph{channel} effect (attention)
-    \item T2 vs.\ C: isolates \emph{content} effect (beliefs)
-    \item T3 vs.\ C: joint effect (replication of Bergman)
-    \item T4 vs.\ T3: \emph{frequency} / sustained attention
-\end{itemize}
+\textbf{Panel structure:} observe grades and effort across terms $\Rightarrow$ trace \emph{dynamics} of belief updating and effort response within the model
 
 \end{frame}
 
@@ -275,42 +269,29 @@ $\Rightarrow$ Both needed: a parent can attend to a signal yet underweight it (o
 
 \begin{frame}{Identification Strategy}
 
-\textbf{$2 \times 2$ factorial design} enables clean decomposition:
+\textbf{$2 \times 2$ factorial} with equalized timing enables clean decomposition:
 
 \medskip
 
-\begin{table}[h]
-\centering
-\begin{tabular}{@{}lcc@{}}
-\toprule
- & \textbf{Standard content} & \textbf{Detailed content} \\
-\midrule
-\textbf{Paper channel} & C & T2 \\
-\textbf{SMS channel}   & T1 & T3 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\medskip
-
-\textbf{\textcolor{blue}{revise. I think this is a bit off}}
-
-\textbf{Estimating equation:}
+\textbf{Estimating equation} (panel across terms $t$):
 \[
-Y_i = \alpha + \beta_1 \cdot \mathbf{1}[\text{SMS}]_i + \beta_2 \cdot \mathbf{1}[\text{Detailed}]_i + \beta_3 \cdot (\text{SMS} \times \text{Detailed})_i + X_i'\gamma + \epsilon_i
+Y_{it} = \alpha + \beta_1 \cdot \mathbf{1}[\text{SMS}]_i + \beta_2 \cdot \mathbf{1}[\text{Detailed}]_i + \beta_3 \cdot (\text{SMS} \times \text{Detailed})_i + \delta_t + X_i'\gamma + \epsilon_{it}
 \]
 
-\medskip
-
 \begin{itemize}
-    \item $\beta_1$: attention effect $A$ (channel changes, content fixed)
-    \item $\beta_2$: belief-correction effect through $\lambda \cdot (\sigma - \hat{a})$
-    \item $\beta_3$: complementarity between attention and beliefs
+    \item $\beta_1$: \textbf{channel / attention effect} $A$ --- content and timing held fixed
+    \item $\beta_2$: \textbf{content / belief-correction effect} through $\lambda \cdot (\sigma - \hat{a})$
+    \item $\beta_3$: \textbf{complementarity} between attention and beliefs
+    \item $\delta_t$: term fixed effects --- capture common shocks across periods
 \end{itemize}
 
 \medskip
 
-\textbf{Additional:} Elicit baseline beliefs $\hat{a}_i^{\text{pre}}$ to separate biased priors from distorted updating. T4 adds frequency dimension.
+\textbf{Dynamics:} with multiple terms, can test whether effects are \emph{immediate} (attention) or \emph{cumulative} (belief correction builds over repeated signals)
+
+\medskip
+
+\textbf{Additional:} elicit baseline beliefs $\hat{a}_i^{\text{pre}}$ to separate biased priors from distorted updating
 
 \end{frame}
 
@@ -320,39 +301,40 @@ Y_i = \alpha + \beta_1 \cdot \mathbf{1}[\text{SMS}]_i + \beta_2 \cdot \mathbf{1}
 
 \begin{frame}{Power Calculations}
 
-\textbf{Benchmark:} \citet{bergman2021information} finds 0.19 SD effect (joint treatment)
+\textbf{Benchmark:} \citet{bergman2021information} joint effect = 0.19 SD. Individual mechanisms smaller $\Rightarrow$ \textbf{MDE = 0.10 SD}.
 
 \medskip
 
-\textbf{Assumptions:}
-\begin{itemize}
-    \item MDE = 0.10 SD (individual mechanisms smaller than joint effect)
-    \item Significance level $\alpha = 0.05$, power $= 0.80$
-    \item ICC $\rho = 0.05$ (school-level clustering), 20 students per cluster
-\end{itemize}
+\textbf{Assumptions:} $\alpha = 0.05$, power $= 0.80$, ICC $\rho = 0.05$, cluster size $m = 20$, $\sigma = 1$.
 
-\medskip
+\bigskip
 
-\textbf{Required sample (per arm):}
+\textbf{Required sample per arm (clustered):}
 \[
-n = \frac{(z_{1-\alpha/2} + z_{\text{power}})^2 \cdot 2\sigma^2 \cdot \text{DEFF}}{\text{MDE}^2}
-\approx \frac{(1.96 + 0.84)^2 \cdot 2 \cdot 1.95}{0.01} \approx 3{,}060
+n_{\text{per arm}} = \underbrace{\frac{(z_{\alpha/2} + z_\beta)^2 \cdot 2\sigma^2}{\text{MDE}^2}}_{\approx\, 1{,}568} \times \underbrace{[1 + (m-1)\rho]}_{\text{DEFF}\,=\,1.95} \;\approx\; 3{,}058
 \]
 
-\smallskip
+\bigskip
 
-where $\text{DEFF} = 1 + (20-1) \times 0.05 = 1.95$ (design effect for clustering)
-\textbf{\textcolor{blue}{unfeasible}}
+\textbf{Factorial efficiency:} each main effect pools two cells (e.g.\ T1+T3 vs.\ C+T2):
+
 \medskip
 
-\begin{itemize}
-    \item $\approx$ 3,000 students per arm $\times$ 5 arms $=$ \textbf{15,000 students total}
-    \item $\approx$ 750 school clusters (150 per arm)
-    \item Stratification by school SES reduces variance
-\end{itemize}
+\begin{center}
+\begin{tabular}{@{}lrl@{}}
+\toprule
+Total sample & $\approx 6{,}000$ & students \\
+Per cell & $\approx 1{,}500$ & students \\
+Clusters & $\approx 300$ & schools/classes? (75/cell) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+
+
 
 \end{frame}
-
 % ============================================================
 \section{Conclusion}
 % ============================================================
@@ -361,27 +343,30 @@ where $\text{DEFF} = 1 + (20-1) \times 0.05 = 1.95$ (design effect for clusterin
 
 \textbf{Summary:}
 \begin{itemize}
-    \item Existing evidence: information treatments improve educational outcomes
-    \item Open question: \emph{why}---attention, beliefs, or their interaction?
-    \item Proposed RCT with factorial design separates these mechanisms
+    \item Existing evidence shows information treatments work, but bundles channel and content
+    \item $2 \times 2$ factorial with equalized timing cleanly separates attention from belief correction
+    \item Panel structure across terms traces the dynamics of parental response
 \end{itemize}
 
 \bigskip
 
-\textbf{Policy implications depend on the mechanism:}
-\begin{itemize}
-    \item If $\beta_1 \gg \beta_2$: channel/salience drives the effect $\Rightarrow$ invest in \textbf{nudge design}
-    \item If $\beta_2 \gg \beta_1$: content/beliefs drive the effect $\Rightarrow$ \textbf{one-shot information} suffices
-    \item If $\beta_3 > 0$: attention and beliefs are complements $\Rightarrow$ \textbf{both needed together}
-\end{itemize}
+\textbf{The mechanism determines the policy:}
+
+\medskip
+
+\begin{tabular}{@{}ll@{}}
+$\beta_1 \gg \beta_2$ & Attention drives effect $\Rightarrow$ invest in \textbf{delivery design} (SMS, nudges) \\[4pt]
+$\beta_2 \gg \beta_1$ & Beliefs drive effect $\Rightarrow$ \textbf{richer content} suffices, channel secondary \\[4pt]
+$\beta_3 > 0$         & Complements $\Rightarrow$ \textbf{both channel and content} needed together \\
+\end{tabular}
 
 \bigskip
 
 \textbf{Contribution:}
 \begin{itemize}
-    \item From reduced-form to structural understanding of why information works
-    \item Low-cost, scalable interventions with large potential returns
-    \item Framework generalizable to other informational settings in education
+    \item First design to separate channel from content in parental information interventions
+    \item Low-cost, scalable --- directly informs how schools communicate with parents
+    \item Structural model to extend results beyond local effects. 
 \end{itemize}
 
 \end{frame}

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.12.15)  31 MAR 2026 13:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.12.15)  2 APR 2026 11:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/experimental_econ/output/presentation_rprop_exp_v2.tex
-(/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/experimental_econ/output/presentation_rprop_exp_v2.tex
+**/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO_theory/output/presentation_IO_theory_v2.tex
+(/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO_theory/output/presentation_IO_theory_v2.tex
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
 (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamer.cls
@@ -535,38 +535,7 @@ Package: amsthm 2020/05/29 v2.20.6
 ) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerbasethemes.sty)) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerthemedefault.sty (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerfontthemedefault.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamercolorthemedefault.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerinnerthemedefault.sty
 \beamer@dima=\dimen293
 \beamer@dimb=\dimen294
-) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerouterthemedefault.sty))) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerthemeMadrid.sty (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamercolorthemewhale.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamercolorthemeorchid.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerinnerthemerounded.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerouterthemeinfolines.sty)) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamercolorthemeseahorse.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/booktabs/booktabs.sty
-Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen295
-\lightrulewidth=\dimen296
-\cmidrulewidth=\dimen297
-\belowrulesep=\dimen298
-\belowbottomsep=\dimen299
-\aboverulesep=\dimen300
-\abovetopsep=\dimen301
-\cmidrulesep=\dimen302
-\cmidrulekern=\dimen303
-\defaultaddspace=\dimen304
-\@cmidla=\count345
-\@cmidlb=\count346
-\@aboverulesep=\dimen305
-\@belowrulesep=\dimen306
-\@thisruleclass=\count347
-\@lastruleclass=\count348
-\@thisrulewidth=\dimen307
-) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/multirow/multirow.sty
-Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
-\multirow@colwidth=\skip66
-\multirow@cntb=\count349
-\multirow@dima=\skip67
-\bigstrutjot=\dimen308
-) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/natbib/natbib.sty
-Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip68
-\bibsep=\skip69
-LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count350
-) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/frontendlayer/tikz.sty (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/basiclayer/pgf.sty
+) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerouterthemedefault.sty))) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerthemeMadrid.sty (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamercolorthemewhale.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamercolorthemeorchid.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerinnerthemerounded.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerouterthemeinfolines.sty)) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/frontendlayer/tikz.sty (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/basiclayer/pgf.sty
 Package: pgf 2023-01-15 v3.1.10 (3.1.10)
  (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -575,73 +544,92 @@ File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen309
-\pgf@nodesepend=\dimen310
+\pgf@nodesepstart=\dimen295
+\pgf@nodesepend=\dimen296
 ) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 )) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/utilities/pgffor.sty (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen311
-\pgffor@skip=\dimen312
+\pgffor@iter=\dimen297
+\pgffor@skip=\dimen298
 \pgffor@stack=\toks46
 \pgffor@toks=\toks47
 )) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
  (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count351
-\pgfplotmarksize=\dimen313
+\pgf@plot@mark@count=\count345
+\pgfplotmarksize=\dimen299
 )
-\tikz@lastx=\dimen314
-\tikz@lasty=\dimen315
-\tikz@lastxsaved=\dimen316
-\tikz@lastysaved=\dimen317
-\tikz@lastmovetox=\dimen318
-\tikz@lastmovetoy=\dimen319
-\tikzleveldistance=\dimen320
-\tikzsiblingdistance=\dimen321
+\tikz@lastx=\dimen300
+\tikz@lasty=\dimen301
+\tikz@lastxsaved=\dimen302
+\tikz@lastysaved=\dimen303
+\tikz@lastmovetox=\dimen304
+\tikz@lastmovetoy=\dimen305
+\tikzleveldistance=\dimen306
+\tikzsiblingdistance=\dimen307
 \tikz@figbox=\box78
 \tikz@figbox@bg=\box79
 \tikz@tempbox=\box80
 \tikz@tempbox@bg=\box81
-\tikztreelevel=\count352
-\tikznumberofchildren=\count353
-\tikznumberofcurrentchild=\count354
-\tikz@fig@count=\count355
+\tikztreelevel=\count346
+\tikznumberofchildren=\count347
+\tikznumberofcurrentchild=\count348
+\tikz@fig@count=\count349
  (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count356
-\pgfmatrixcurrentcolumn=\count357
-\pgf@matrix@numberofcolumns=\count358
+\pgfmatrixcurrentrow=\count350
+\pgfmatrixcurrentcolumn=\count351
+\pgf@matrix@numberofcolumns=\count352
 )
-\tikz@expandcount=\count359
+\tikz@expandcount=\count353
  (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/beamer/beamerfontthemeprofessionalfonts.sty) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
+))) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen308
+\lightrulewidth=\dimen309
+\cmidrulewidth=\dimen310
+\belowrulesep=\dimen311
+\belowbottomsep=\dimen312
+\aboverulesep=\dimen313
+\abovetopsep=\dimen314
+\cmidrulesep=\dimen315
+\cmidrulekern=\dimen316
+\defaultaddspace=\dimen317
+\@cmidla=\count354
+\@cmidlb=\count355
+\@aboverulesep=\dimen318
+\@belowrulesep=\dimen319
+\@thisruleclass=\count356
+\@lastruleclass=\count357
+\@thisrulewidth=\dimen320
+) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count360
+\l__color_backend_stack_int=\count358
 \l__pdf_internal_box=\box82
-) (presentation_rprop_exp_v2.aux)
-\openout1 = `presentation_rprop_exp_v2.aux'.
+) (presentation_IO_theory_v2.aux)
+\openout1 = `presentation_IO_theory_v2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -679,16 +667,16 @@ LaTeX Font Info:    ... okay on input line 24.
 
 (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count361
-\scratchdimen=\dimen322
+\scratchcounter=\count359
+\scratchdimen=\dimen321
 \scratchbox=\box83
-\nofMPsegments=\count362
-\nofMParguments=\count363
+\nofMPsegments=\count360
+\nofMParguments=\count361
 \everyMPshowfont=\toks48
-\MPscratchCnt=\count364
-\MPscratchDim=\dimen323
-\MPnumerator=\count365
-\makeMPintoPDFobject=\count366
+\MPscratchCnt=\count362
+\MPscratchDim=\dimen322
+\MPnumerator=\count363
+\makeMPintoPDFobject=\count364
 \everyMPtoPDFconversion=\toks49
 ) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -696,11 +684,60 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 24.
- (presentation_rprop_exp_v2.out) (presentation_rprop_exp_v2.out)
+Package hyperref Info: Link coloring OFF on input line 38.
+ (presentation_IO_theory_v2.out) (presentation_IO_theory_v2.out)
 \@outlinefile=\write5
-\openout5 = `presentation_rprop_exp_v2.out'.
+\openout5 = `presentation_IO_theory_v2.out'.
 
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 38.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 38.
+\symnumbers=\mathgroup6
+\sympureletters=\mathgroup7
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 38.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 38.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 38.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 38.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 38.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 38.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 38.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 38.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 38.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 38.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 38.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 38.
+LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 38.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 38.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 38.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 38.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 38.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 38.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 38.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 38.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 38.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 38.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 38.
  (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/translator/translator-bibliography-dictionary-English.dict
@@ -713,23 +750,27 @@ Dictionary: translator-months-dictionary, Language: English
 Dictionary: translator-numbers-dictionary, Language: English 
 ) (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/translator/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) (presentation_rprop_exp_v2.nav)
+) (presentation_IO_theory_v2.nav)
 
 [1
 
 {/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
- (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
- (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 
 [2
 
 ]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
+ (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
+ (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 94.
+ (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
+)
 
 [3
 
@@ -765,50 +806,90 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [11
 
-] (presentation_rprop_exp_v2.bbl
+]
+<table1.png, id=135, 586.19pt x 304.13625pt>
+File: table1.png Graphic file (type png)
+<use table1.png>
+Package pdftex.def Info: table1.png  used on input line 359.
+(pdftex.def)             Requested size: 325.00801pt x 168.6259pt.
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\translate ' on input line 1.
-
-)
 
 [12
 
-]
+ <./table1.png>]
 
 [13
 
+]
+
+[14
+
+]
+<table2.png, id=167, 577.15625pt x 316.18124pt>
+File: table2.png Graphic file (type png)
+<use table2.png>
+Package pdftex.def Info: table2.png  used on input line 428.
+(pdftex.def)             Requested size: 303.3395pt x 166.18579pt.
+
+
+[15
+
+ <./table2.png>]
+
+[16
+
+]
+<table3.png, id=193, 495.8525pt x 306.14375pt>
+File: table3.png Graphic file (type png)
+<use table3.png>
+Package pdftex.def Info: table3.png  used on input line 470.
+(pdftex.def)             Requested size: 260.00905pt x 160.53166pt.
+
+
+[17
+
+ <./table3.png>]
+
+[18
+
+]
+
+[19
+
+]
+
+[20
 
 ]
 \tf@nav=\write6
-\openout6 = `presentation_rprop_exp_v2.nav'.
+\openout6 = `presentation_IO_theory_v2.nav'.
 
 \tf@toc=\write7
-\openout7 = `presentation_rprop_exp_v2.toc'.
+\openout7 = `presentation_IO_theory_v2.toc'.
 
 \tf@snm=\write8
-\openout8 = `presentation_rprop_exp_v2.snm'.
+\openout8 = `presentation_IO_theory_v2.snm'.
 
- (presentation_rprop_exp_v2.aux)
+ (presentation_IO_theory_v2.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
-Package rerunfilecheck Info: File `presentation_rprop_exp_v2.out' has not changed.
-(rerunfilecheck)             Checksum: DBE26C3C4E2BF81ED5E9987B41C608AF;1124.
+Package rerunfilecheck Info: File `presentation_IO_theory_v2.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25443 strings out of 473682
- 523432 string characters out of 5703553
- 862546 words of memory out of 5000000
- 47956 multiletter control sequences out of 15000+600000
- 570931 words of font info for 84 fonts, out of 8000000 for 9000
+ 25015 strings out of 473682
+ 517177 string characters out of 5703553
+ 855309 words of memory out of 5000000
+ 47558 multiletter control sequences out of 15000+600000
+ 570220 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,13n,123p,484b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr9.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss9.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi9.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on presentation_rprop_exp_v2.pdf (13 pages, 260104 bytes).
+ 128i,11n,123p,476b,677s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy5.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on presentation_IO_theory_v2.pdf (20 pages, 307023 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
- 171 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 284 PDF objects out of 1000 (max. 8388607)
+ 41 named destinations out of 1000 (max. 500000)
+ 298 words of extra memory for PDF output out of 10000 (max. 10000000)
 
