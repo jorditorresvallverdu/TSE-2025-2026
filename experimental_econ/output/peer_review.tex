@@ -1,0 +1,55 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{parskip}
+\usepackage{eurosym}
+\usepackage{enumitem}
+
+\title{\textbf{Behavioral Development Economics}\\[0.3em] Peer Review}
+\author{Jordi Torres Vallverd\'{u}}
+\date{April 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Review of Federica's Proposal}
+
+Federica's proposal looks at under-investment in financial products in Southern Italy. The idea is to give \euro{500} to selected households so they start investing, and then see if peers follow through social networks. The topic is important and the network approach has real potential. I especially like the comparison between randomly selected seeds and popular seeds---this directly tests whether network position matters for diffusion, which is a clean and interesting design choice. I have some suggestions/doubts on how to strengthen the rest of the design.
+
+\begin{enumerate}[leftmargin=*, itemsep=6pt]
+
+\item \textbf{It would help to clarify what friction the nudge is overcoming.} The \euro{500} incentive works as a nudge to get people to try investing. But for this nudge to work, households need to already know roughly what investing means and how to do it---they just need a push. The motivation, however, says the problem is a lack of financial literacy, which suggests people do not have that baseline knowledge. If that is the case, offering \euro{500} may not be enough: someone who does not understand what a fund is or how to navigate a financial institution will not start investing just because there is a reward. It would be good to clarify which of these is the actual barrier\footnote{One thought: if the story is really about financial literacy, there is a large and active literature on this (see e.g.\ Annamaria Lusardi) that could connect the proposal to an important frontier. An informational treatment---like a short training on what it means to invest and how to do it---would directly target the knowledge channel, would be much cheaper to scale, and would make the spillover easier to interpret, since what neighbours learn from observing a peer would be clearer. This could be a nice complement to the current design or even a simpler first step. Knowing and testing just one mechanism would facilitate the rest of the issues.}.
+
+\item \textbf{The behavioural demands on treated households are not realistic.} The design asks households to keep the \euro{500} secret while telling others they are investing. In towns of 2,500 people this is very hard to achieve. If control households find out about the subsidy, they attribute the investment to the money and not to the product being attractive---and the spillover channel breaks down. Maybe framing the subsidy as a matching bonus or a return on the investment could help, so it looks like part of the product itself.
+
+\item \textbf{The scale is very large and driven by a very high ICC.} The power calculation requires 1,050 small towns, which at 50 treated households per treatment town and \euro{500} each implies roughly \euro{17.5 million} in transfers. This is driven by an intra-cluster correlation of 0.5, which is extremely high---it means half of the variation in investment is between towns rather than within. If the ICC is even slightly lower -I think it is plausibly much lower-, the required sample drops a lot. It would be good to justify this number or discuss what happens under alternative assumptions, because the feasibility of the whole experiment depends on it.
+
+\item \textbf{``Popularity'' may not mean financial influence.} Picking caf\'{e} and salon owners is a reasonable starting point, but the person you chat with is not necessarily the person you trust on financial decisions. A short baseline question---``who in town would you ask about financial matters?''---could help identify the right seeds (maybe matters within family? talking about financial decisions is not something done in public, I think...). This matters a lot because the whole design rests on the assumption that these popular households actually influence financial behaviour.
+
+\end{enumerate}
+
+\noindent Overall, I think the question is really important, the network angle is cool and interesting, and the two-arm comparison between random and popular seeds is a great idea. Tightening the link between the motivation and the treatment design, and checking whether the power calculation assumptions are realistic, would make this a very strong proposal.
+
+\newpage
+
+\section*{Review of Kosta's Proposal}
+
+Konstantinos proposes to test whether replacing human counsellors with an AI chatbot increases take-up of educational guidance among low-SES students. The design is well thought out---the five treatment arms isolate specific channels (information alone, any counselling, AI vs human, identity matching), and the heterogeneity predictions provide a clean test of mechanism. I have some thoughts/doubts on where it could be strengthened.
+
+\begin{enumerate}[leftmargin=*, itemsep=6pt]
+
+\item \textbf{The text-only setting weakens the theoretical mechanism.} The theory is about social-image costs and identity mismatch. But all interaction happens via text, where cues about the counsellor's race, class, or attitude are very limited. A human counsellor over text already removes much of the social pressure compared to face-to-face meetings. So the difference between AI and human may be smaller than predicted---or may capture something else entirely, like perceived convenience or novelty. The T3 vs T2 comparison helps, but it would be good to discuss why the mechanism should still operate strongly in a text-only environment. 
+
+\item \textbf{Information and motivation are hard to separate.} A human counsellor does not just give information---she/he encourages, pushes back, gives confidence. An AI can say ``you should apply'' but that may carry little motivational weight coming from a screen. If the human arm outperforms AI, we cannot tell if it is because humans give better advice or because they motivate in ways a machine cannot. 
+
+\item \textbf{The AI might just reproduce existing biases.} current LLMs are trained on data reflecting how things are, not how they should be. If the model sees grades from a low-ranked school, it might give the same cautious recommendations as a biased human counsellor. Also, nothing prevents current models from lying or giving false information just to please the receiver. It could be useful to pre-test the AI's recommendations and check whether they actually differ from the human ones before running the full experiment. Also, how costly it is to create a model that departs from current models? How feasible it is?\footnote{Idea: can the proposal be framed without IA and simply with a treatment that reduces the human interaction? say recommenders are external people that only observe grades and conversation happens without seeing each other. The LLM thing seems a bit unfeasible given current setting and I think the rest of the proposal is nice enough to think beyond IA.}
+
+\item \textbf{At scale, this could backfire.} If the intervention works and many more low-SES students apply to selective universities, admissions become more competitive. The marginal students---exactly those the intervention targets---may get rejected, which would confirm their original pessimistic beliefs. This does not invalidate the experiment, but it is worth discussing what the policy implications look like beyond the experimental setting.
+
+\end{enumerate}
+
+\noindent I think this is a very well-designed proposal that tackles an important question. The treatment arms are carefully designd and the heterogeneity predictions are a good way to test the mechanism. Discussing why the behavioural channel operates in a text-only setting and pre-testing the AI for bias- or departing entirely from IA- would make it perhaps stronger.
+
+\end{document}
