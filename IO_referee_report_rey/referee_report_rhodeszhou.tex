@@ -1,0 +1,67 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+\onehalfspacing
+
+\title{Referee Report: ``Multiproduct Intermediaries'' \\ \small Rhodes, Watanabe, and Zhou (2021)}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-2em}
+
+\section*{Summary}
+
+This paper studies why multiproduct intermediaries remain profitable even when manufacturers can sell directly to consumers. The main result is that an intermediary can earn positive profit purely through assortment choice, without lowering prices or improving search efficiency. By stocking some high consumer-surplus products exclusively, it attracts consumers who then also buy other, more profitable products. The optimal product range is characterized in a $(\pi, v)$ space and the framework is applied to shopping malls and direct-to-consumer (DTC) sales.
+
+\section*{Model}
+
+A continuum of manufacturers each produce a different product $i$ with marginal cost $c_i \geq 0$. Consumers have identical preferences and search cost $s \sim F$ on $[0, \bar{s}]$. Each product is summarized by its monopoly profit and consumer surplus:
+\[
+\pi_i = (p_i^m - c_i)\, Q_i(p_i^m), \qquad v_i = \int_{p_i^m}^{\infty} Q_i(p)\, dp.
+\]
+Since consumers do not observe prices before search, all sellers charge the monopoly price $p_i^m$ (Diamond, 1971). The intermediary offers take-it-or-leave-it contracts $(\tau_i = c_i,\; T_i = \pi_i F(v_i))$ and can request exclusivity. Each product is thus fully described by $(\pi_i, v_i)$.
+
+\paragraph{Simple case.} Assume exclusivity only, $h(m) = m$, $\bar{m} = 1$. A consumer visits the intermediary iff $s \leq \hat{v}$, where
+\[
+\hat{v} = \frac{\int_A v\, dG}{\int_A dG}
+\]
+is the average surplus across stocked products $A$. The intermediary's net profit from product $(\pi, v)$ is $\pi[F(\hat{v}) - F(v)]$: it attracts $F(\hat{v})$ consumers but pays the manufacturer its outside option $\pi F(v)$. The intermediary solves
+\[
+\max_{q(\pi,v) \in \{0,1\}} \int_\Omega q(\pi,v)\, \pi [F(\hat{v}) - F(v)]\, dG.
+\]
+Introducing a Lagrange multiplier $\lambda$ for the constraint defining $\hat{v}$, the value of stocking $(\pi, v)$ decomposes into a \emph{direct effect} $\pi[F(\hat{v}) - F(v)]$ and an \emph{indirect effect} $\lambda(v - \hat{v})$. Products with $v < \hat{v}$ generate profit but discourage search; products with $v > \hat{v}$ are loss-makers but attract consumers. The optimal assortment consists of two negatively correlated regions: high-$v$, low-$\pi$ products (traffic generators) and low-$v$, high-$\pi$ products (profit generators).
+
+\paragraph{General case.} Adding non-exclusive contracts, a general search technology $h(m)$, and a capacity constraint $m \leq \bar{m}$, the same trade-off survives. High-$v$ products are stocked exclusively to attract consumers; low-$v$ products generate profit. With economies of search ($h'(m) < 1$), all high-$v$ products are stocked; with diseconomies, only low-$\pi$ ones are. Larger capacity leads to more products but proportionally fewer exclusive ones.
+
+\section*{Applications}
+
+\textbf{Shopping malls.} The mall acts as a platform (does not set prices). High-$v$ stores are ``anchor stores,'' subsidized to attract traffic; low-$v$, high-$\pi$ stores pay rent. The same $(\pi, v)$ logic applies directly.
+
+\textbf{DTC expansion.} Easier DTC raises manufacturers' outside option to $\pi F(v/\theta)$. The intermediary responds by shrinking its assortment, increasing the share of exclusive products, and becoming more ``polarized'' in $(\pi, v)$ space. Its profit declines.
+
+\section*{Assessment}
+
+The paper makes a clean contribution. The $(\pi, v)$ reduction is a nice trick that makes product range choice tractable, and the direct/indirect decomposition is intuitive and gives testable predictions.
+
+That said, some limitations are worth flagging. First, monopoly pricing everywhere is a strong assumption -- there is no price competition at all. The authors argue the mechanism does not depend on it, which seems right, but it would be good to see this checked more carefully. Second, there is only one intermediary. The paper acknowledges that competition between intermediaries is left for future work. I sketch a direction below.
+
+\section*{Extension Sketch: Competing Platforms}
+
+Consider two symmetric platforms $j \in \{1, 2\}$ that simultaneously bid for products via exclusive contracts. Let $A_j$ denote the set of products stocked exclusively by platform $j$, so $A_1 \cap A_2 = \emptyset$. Each platform $j$ attracts consumers with $s \leq \hat{v}_j$, where
+\[
+\hat{v}_j = \frac{\int_{A_j} v\, dG}{\int_{A_j} dG}.
+\]
+Platform $j$'s profit from product $(\pi, v) \in A_j$ is $\pi[F(\hat{v}_j) - F(v)]$. In competition, each platform bids for high-$v$ products to attract traffic. The manufacturer of a high-$v$ product can play platforms against each other: if platform 1 offers $T_1$, the manufacturer can credibly threaten to join platform 2, which would raise $\hat{v}_2$ and lower $\hat{v}_1$.
+
+In a Nash equilibrium of the bidding game, consider a product $(\pi, v)$ with $v > \hat{v}_j$. Its marginal contribution to platform $j$'s traffic is approximately $\lambda_j (v - \hat{v}_j)$ (the indirect effect). Competition forces the winning platform to bid up to the rival's willingness to pay, so the manufacturer captures a transfer closer to
+\[
+T^* \approx \pi F(v) + \lambda_{-j}(v - \hat{v}_{-j}),
+\]
+i.e., its outside option plus the indirect value it would generate for the rival. This means the rents from traffic generation, which the monopolist intermediary fully appropriated, are now partly captured by high-$v$ manufacturers.
+
+\textbf{Conjecture.} Under platform competition: (i) the equilibrium assortments remain negatively correlated in $(\pi, v)$, since the traffic/profit trade-off persists; (ii) each platform stocks fewer high-$v$ exclusive products, because their cost rises; (iii) high-$v$ manufacturers earn higher transfers, eroding platform profits; (iv) total welfare likely increases, as competition reduces excessive exclusivity relative to the single-intermediary case. Whether the main results of the paper survive under competition is an open question. A full characterization would require specifying the bidding game carefully and checking existence, which is beyond this report, but it seems like a natural next step.
+
+\end{document}
