@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex ps2"] 1773663979.70327 "ps2.aux" "ps2.bbl" "ps2" 1773663980.96888 0
+["bibtex ps2"] 1773663979.70327 "ps2.aux" "ps2.bbl" "ps2" 1775904484.70199 0
   "./references.bib" 1773511548.1129 1595 cfde7ea10beaab6767275bc58f1af7ca ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/bibtex/bst/economic/aer.bst" 1771859714.05619 26812 2ae6e48450a8c17a93d98067b7084a7a ""
-  "ps2.aux" 1773663980.42435 2295 3b3b421fe9a84aed789e856d8b69eefc "pdflatex"
+  "ps2.aux" 1775904484.15008 2295 3b3b421fe9a84aed789e856d8b69eefc "pdflatex"
   (generated)
   "ps2.bbl"
   "ps2.blg"
   (rewritten before read)
-["pdflatex"] 1773663979.92818 "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/macro_labor/text/ps2.tex" "ps2.pdf" "ps2" 1773663980.96902 0
-  "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/macro_labor/text/ps2.tex" 1773663978.02003 11251 073067b4f4b4c325a828ca4eae545bbb ""
-  "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map" 1773399416.91225 339773 a1c68872d3dc0a4bee66a5dedbc28f32 ""
+["pdflatex"] 1775904483.65882 "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/macro_labor/text/ps2.tex" "ps2.pdf" "ps2" 1775904484.70212 0
+  "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/macro_labor/text/ps2.tex" 1773663992.81724 11251 073067b4f4b4c325a828ca4eae545bbb ""
+  "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map" 1775574386.64114 339971 a0f6282cb8d7554e74ae479a7475da24 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1734277941.08881 12002472 b582eb731daf2b623c3d30845607ef6c ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1725915917.94285 1004 54797486969f23fa377b128694d548df ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1725915917.94298 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -116,10 +116,10 @@
   "hm.tex" 1773569851.82819 984 519a221729f723e48daca5147997a338 ""
   "proc_beta.tex" 1773569851.82928 979 0c1d1fe6b42e0d88c7177e8c78e203eb ""
   "proc_leisure.tex" 1773569851.82875 1013 e1f6bb8536505a1e84efa49688828d21 ""
-  "ps2.aux" 1773663980.42435 2295 3b3b421fe9a84aed789e856d8b69eefc "pdflatex"
+  "ps2.aux" 1775904484.15008 2295 3b3b421fe9a84aed789e856d8b69eefc "pdflatex"
   "ps2.bbl" 1773663979.88222 1117 bc5f627390b2a8cfec5add63c52f98cb "bibtex ps2"
-  "ps2.out" 1773663980.34948 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "ps2.tex" 1773663978.02003 11251 073067b4f4b4c325a828ca4eae545bbb ""
+  "ps2.out" 1775904484.07479 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "ps2.tex" 1773663992.81724 11251 073067b4f4b4c325a828ca4eae545bbb ""
   "tab_params.tex" 1773160432.0523 2534 ad6cdada5f30d428d767b5281100218f ""
   (generated)
   "ps2.aux"
