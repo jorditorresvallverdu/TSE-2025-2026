@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.12.15)  15 APR 2026 14:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.12.15)  15 APR 2026 13:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO_theory/output/report_IO_theory_v3.tex
-(/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO_theory/output/report_IO_theory_v3.tex
+**/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO_theory/output/report_IO_theory_v4.tex
+(/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/IO_theory/output/report_IO_theory_v4.tex
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
 (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/article.cls
@@ -291,8 +291,8 @@ Package: titlesec 2025/01/04 v2.17 Sectioning titles
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count309
 \l__pdf_internal_box=\box56
-) (report_IO_theory_v3.aux)
-\openout1 = `report_IO_theory_v3.aux'.
+) (report_IO_theory_v4.aux)
+\openout1 = `report_IO_theory_v4.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
 LaTeX Font Info:    ... okay on input line 34.
@@ -348,9 +348,9 @@ LaTeX Font Info:    ... okay on input line 34.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 34.
-(report_IO_theory_v3.out) (report_IO_theory_v3.out)
+(report_IO_theory_v4.out) (report_IO_theory_v4.out)
 \@outlinefile=\write3
-\openout3 = `report_IO_theory_v3.out'.
+\openout3 = `report_IO_theory_v4.out'.
 
 LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
  (/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsa.fd
@@ -377,26 +377,26 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [7]
 
-[8] (report_IO_theory_v3.aux)
+[8] (report_IO_theory_v4.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
-Package rerunfilecheck Info: File `report_IO_theory_v3.out' has not changed.
+Package rerunfilecheck Info: File `report_IO_theory_v4.out' has not changed.
 (rerunfilecheck)             Checksum: 610B3A75D85CC1749A5F0F2F2156869C;2214.
  ) 
 Here is how much of TeX's memory you used:
- 10573 strings out of 473682
- 166178 string characters out of 5703553
+ 10570 strings out of 473682
+ 166146 string characters out of 5703553
  569354 words of memory out of 5000000
- 33519 multiletter control sequences out of 15000+600000
- 568555 words of font info for 76 fonts, out of 8000000 for 9000
+ 33518 multiletter control sequences out of 15000+600000
+ 568209 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,79p,1279b,512s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on report_IO_theory_v3.pdf (8 pages, 215305 bytes).
+ 75i,8n,79p,949b,512s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on report_IO_theory_v4.pdf (8 pages, 206728 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 26 named destinations out of 1000 (max. 500000)
+ 178 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
  97 words of extra memory for PDF output out of 10000 (max. 10000000)
 
