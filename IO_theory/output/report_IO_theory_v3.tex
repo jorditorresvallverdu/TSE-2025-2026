@@ -93,34 +93,37 @@ I focus on three limitations which I find more substantial.
 
 The paper thinks of the signal $G$ as what a platform can genuinely set: whether products are shown side by side, which attributes are displayed, how reviews are aggregated. Advertising and brand investment, which act on the prior, are not part of $G$ and are taken as given. Within this scope, two concerns remain.
 
-\begin{itemize}[nosep]
-    \item \textbf{Composite designer.} Even on-platform information is rarely the choice of a single agent. Third-party reviews, comparison sites, and consumer search all feed into the posterior alongside the platform's own display. The $G$ is then the outcome of a game among these sources, not a design choice, and the firm- and consumer-optimal benchmarks are not directly implementable.
-    \item \textbf{Commitment.} The designer is assumed to commit to $G$ before prices are set. This matters asymmetrically for the two benchmarks. The consumer-optimal $G^{**}$ works precisely because it keeps consumers clustered near $x = 0$, which forces firms to compete aggressively. But a platform without commitment would want to reshape information ex post --- as revealing a little more about each near-indifferent consumer lets firms soften competition, increase prices and platforms can recover these gains via fees (I discuss this in the extension).
-\end{itemize}
+
+    \textbf{Composite designer.} Even on-platform information is rarely the choice of a single agent. Third-party reviews, comparison sites, and consumer search all feed into the posterior alongside the platform's own display. The $G$ is then the outcome of a game among these sources, not a design choice, and the firm- and consumer-optimal benchmarks are not directly implementable.
+     \textbf{Commitment.} The designer is assumed to commit to $G$ before prices are set. This matters asymmetrically for the two benchmarks. The consumer-optimal $G^{**}$ works precisely because it keeps consumers clustered near $x = 0$, which forces firms to compete aggressively. But a platform without commitment would want to reshape information ex post --- as revealing a little more about each near-indifferent consumer lets firms soften competition, increase prices and platforms can recover these gains via fees (I discuss this in the extension).
+
 
 \subsection{Symmetric and Exogenous Prior}
 
 The prior over $(v_1, v_2)$ is shaped outside the model --- by advertising, brand investment, product positioning ...etc--- and the paper takes it as symmetric and fixed. Two concerns follow this simplifying assumption.
 
-First, treating the prior as exogenous misses a margin of competition that interacts with signal design. Firms invest in branding ---off-platform--- to shift the prior in their favour, and those incentives depend on the signal structure they anticipate. A consumer-optimal $G$ that pools posteriors leaves little room to compete ex post, so firms have stronger reasons to invest ex ante in brand to secure a durable advantage. Signal design and prior formation act as substitutes for firms, and the paper's policy conclusions can reverse once firms respond off-platform.
+     First, treating the prior as exogenous misses a margin of competition that interacts with signal design. Firms invest in branding ---off-platform--- to shift the prior in their favour, and those incentives depend on the signal structure they anticipate. A consumer-optimal $G$ that pools posteriors leaves little room to compete ex post, so firms have stronger reasons to invest ex ante in brand to secure a durable advantage. Signal design and prior formation act as substitutes for firms, and the paper's policy conclusions can reverse once firms respond off-platform.
+     Second, even holding the prior fixed, symmetry is doing a lot of work. Lemma 2 (symmetric signals dominate) is derived from prior symmetry. With an asymmetric prior, posteriors that bias perception toward the ex ante stronger firm are no longer obviously dominated, and the reduction to symmetric $G$ and symmetric $p$ may break (My second extension touches this). Firms also disagree on what they want: the strong firm prefers signals that exaggerate its lead, the weak firm prefers to pool. The ``industry-profit'' benchmark that underlies the firm-optimal signal becomes ambiguous with competing firms.
 
-Second, even holding the prior fixed, symmetry is doing a lot of work. Lemma 2 (symmetric signals dominate) is derived from prior symmetry. With an asymmetric prior, posteriors that bias perception toward the ex ante stronger firm are no longer obviously dominated, and the reduction to symmetric $G$ and symmetric $p$ may break (My second extension touches this). Firms also disagree on what they want: the strong firm prefers signals that exaggerate its lead, the weak firm prefers to pool. The ``industry-profit'' benchmark that underlies the firm-optimal signal becomes ambiguous with competing firms.
+
+
 
 \subsection{Static Welfare and Dynamic Mismatch}
 
 The consumer-optimal signal introduces mismatch by design: consumers near $x = 0$ buy a product they do not particularly prefer, and the paper treats this as a one-shot efficiency loss, $\delta - \int_{-1}^{0} G(x)\,dx$. In repeated settings, three further channels come up and each goes against the static "consumer" results.
 
-\begin{itemize}[nosep]
-    \item \textbf{Consumer learning.} A consumer who bought at $x \approx 0$ and regretted it will not be moved by the same signal next period. The more effective $G^{**}$ is today, the less it works tomorrow: the consumer-optimal design is dynamically inconsistent, and the platform would eventually have to reveal more to keep consumers engaged.
-    \item \textbf{Public spillover.} Mismatched purchases generate returns and negative reviews, which go into the prior that the next "cohort of consumers" arrives with. Mismatch is not only a private loss but also acts like a negative externality on the information environment. This brings back the previous critique: the prior is not truly exogenous once we let reviews accumulate.
-    \item \textbf{Softer competition through repeat purchase.} Firms that anticipate comeback buyers have weaker incentives to compete aggressively today. This partially undoes the price-pressure gain that made $G^{**}$ consumer-optimal in the first place.
-\end{itemize}
+
+     \textbf{Consumer learning.} A consumer who bought at $x \approx 0$ and regretted it will not be moved by the same signal next period. The more effective $G^{**}$ is today, the less it works tomorrow: the consumer-optimal design is dynamically inconsistent, and the platform would eventually have to reveal more to keep consumers engaged.
+    \textbf{Public spillover.} Mismatched purchases generate returns and negative reviews, which go into the prior that the next "cohort of consumers" arrives with. Mismatch is not only a private loss but also acts like a negative externality on the information environment. This brings back the previous critique: the prior is not truly exogenous once we let reviews accumulate.
+    \textbf{Softer competition through repeat purchase.} Firms that anticipate comeback buyers have weaker incentives to compete aggressively today. This partially undoes the price-pressure gain that made $G^{**}$ consumer-optimal in the first place.
+
 
 
 
 \section{Extensions}
 
 Here I propose two extensions that are continuations to the previous critiques.  First, I propose a sketch on how endogeneizing the decision of the platform would shift the main tension of the paper between match quality/prices and consumers/firms; second, I will sketch some ideas on what happens if we depart from the symmetry assumption on the prior distribution of $x$.
+
 \subsection{Extension 1: Platform as Information Designer}
 
 The natural candidate for an explicit designer is a \textbf{platform} --- Amazon, Booking etc --- that controls how much product information consumers see and monetizes through fees. The question then becomes: which signal would a profit-maximizing platform choose, and how does its fee structure shape that choice?
@@ -131,33 +134,25 @@ Two fee instruments are the interesting cases: a per-unit (transaction) fee char
 
 \textbf{Per-unit fees on consumers.} A per-unit fee is fully passed through, since demand is inelastic and allocation depends only on the price difference. The platform can then extract at most the consumer surplus generated by $G$, so it designs information to maximize $CS(G)$. This is the consumer-optimal problem: the platform implements $G^{**}$, prices are low, mismatch occurs, and consumers end up with zero net surplus --- the fee takes their gross gain away.
 
-\textbf{The Theoretical Wedge: Outside Options and Elastic Participation.}
-The "corner solutions" of the Armstrong--Zhou results are largely driven by the assumption of unit demand and full market coverage. In a more general setting where consumers and firms possess heterogeneous outside options, the platform faces a structural trade-off that necessitates an interior solution and that makes the extension more "juicy":
+\textbf{Outside Options and Elastic Participation (more realistic).}
+The "corner solutions" of the Armstrong--Zhou results are largely driven by the simplifying assumptions of unit demand and full market coverage. In a more general setting where consumers and firms possess heterogeneous outside options, the platform faces a structural trade-off that needs an interior solution and that makes the extension richer:
 
-\begin{itemize}[nosep]
-    \item \textbf{Consumer Exit (The Quantity--Margin Trade-off):} If consumers have an outside option with value $u_0$, they only purchase if $\max_i \{E[v_i|s] - p_i\} \geq u_0$. While the firm-optimal signal $G^*$ maximizes the price $p$, it simultaneously reduces the "net value" to the consumer. In a model with elastic demand, the platform (especially one taking per-unit commissions) would find $G^*$ suboptimal because the gain in margin would be offset by a collapse in transaction volume as consumers retreat to their outside options.
-    \item \textbf{Firm Exit (The Participation Constraint):} The consumer-optimal signal $G^{**}$ is designed to trigger aggressive price competition, potentially driving prices down to marginal cost. However, if firms must pay a listing fee or face operating costs, $G^{**}$ may violate their participation constraint ($PC$). To keep firms on the platform and maintain a tradable set of products, the platform \textit{must} withhold some information to allow firms enough market power to remain viable.
-\end{itemize}
+    \textbf{Consumer Exit (The Quantity--Margin Trade-off):} If consumers have an outside option with value $u_0$, they only purchase if $\max_i \{E[v_i|s] - p_i\} \geq u_0$. While the firm-optimal signal $G^*$ maximizes the price $p$, it simultaneously reduces the "net value" to the consumer. In a model with elastic demand, the platform (especially one taking per-unit commissions) would find $G^*$ suboptimal because the gain in margin would be offset by a collapse in transaction volume as consumers retreat to their outside options\footnote{Maybe this can also be captured by two platforms competing for both consumers and firms}.
+    \textbf{Firm Exit (The Participation Constraint):} The consumer-optimal signal $G^{**}$ is designed to trigger aggressive price competition, potentially driving prices down to marginal cost. However, if firms must pay a listing fee or face operating costs, $G^{**}$ may violate their participation constraint ($PC$). To keep firms on the platform and maintain a "tradeable" set of products, the platform \textit{must} withhold some information to allow firms enough market power to remain viable.
 
 The platform's optimal information design would be thus an interior point on the Pareto frontier: it must reveal enough information to ensure match quality (preventing consumer exit) while maintaining enough "noise" to protect firm margins (preventing firm exit). 
-
-\textbf{Limitations.} The sketch assumes a monopoly platform with full commitment. Competing platforms would compete fees down and dilute the information-design incentive --- I suspect the duopoly case converges to something close to the non-strategic designer of the paper, while the monopoly platform pushes toward firm-best and captures the surplus through fees, but this is a natural next step rather than something I pin down here. 
-
+ 
 \subsection{Extension 2: Asymmetric Prior (Vertical Differentiation)}
 
-The paper's results rest heavily on prior symmetry. In many markets consumers arrive with an asymmetric prior: one product is perceived as better on average, shaped by habit, advertising, or past experience. I want to sketch what changes when the prior itself is tilted.
+The paper's results rest heavily on prior symmetry. In many markets consumers arrive with an asymmetric prior: one product is perceived as better on average, shaped by habit, advertising, or past experience. I want to sketch what changes when the prior itself is asymmetric.
 
-\textbf{Setup.} The cleanest way to formalize asymmetry is a mean shift: I keep the scalar $x = v_1 - v_2$ but now the prior $F$ on $x$ is centered at some $\mu_x > 0$ rather than $0$. Firm 1 is the ex ante "stronger one". Bayesian consistency still imposes that any posterior $G$ is a mean-preserving contraction of $F$:
-\[
-\int_{-1}^{t} G(x)\,dx \;\le\; \int_{-1}^{t} F(x)\,dx \quad \text{for all } t,
-\]
-with equality at the endpoints. So the MPC toolkit of the paper still applies.
+\textbf{Setup.} The cleanest way to formalize asymmetry is a mean shift: I keep the scalar $x = v_1 - v_2$ but now the prior $F$ on $x$ is centered at some $\mu_x > 0$ rather than $0$. Firm 1 is the ex ante "stronger one". Bayesian consistency still imposes that any posterior $G$ is a mean-preserving contraction of $F$, so the MPC toolkit of the paper still applies.
 
 \textbf{Lemma 2 breaks.} Lemma 2 argues that industry profit is maximized by a symmetric $G$: given any asymmetric signal, the ``flipped'' version earns the same profit, and the average dominates. That swap only works because the prior itself is invariant under flipping. Once $\mu_x > 0$, the flipped signal no longer has the same prior and the argument collapses. Biased posteriors that amplify firm 1's lead are no longer automatically dominated.
 
-\textbf{The ``firm-optimal'' benchmark becomes ambiguous.} In the symmetric case, Lemma 2 aligns the two firms: both prefer the same symmetric $G^*$, and ``industry profit'' is a meaningful object. Under an asymmetric prior this alignment breaks. The strong firm wants to exaggerate its lead: a posterior that pushes mass further to the right lets it raise its price while keeping most of the demand. The weak firm wants the opposite: posteriors that bring toward the indifference point, so that price competition remains and it retains positive demand. There is no longer a single ``firm-optimal'' signal --- the platform, or whoever designs information, has to pick whose profit to maximize.
+\textbf{The ``firm-optimal'' benchmark becomes ambiguous.} In the symmetric case, Lemma 2 aligns the two firms: both prefer the same symmetric $G^*$, and ``industry profit'' is a meaningful object. Under an asymmetric prior this alignment breaks. The strong firm wants to exaggerate its lead: a posterior that pushes mass further to the right lets it raise its price while keeping most of the demand. The weak firm wants the opposite: posteriors that bring toward the indifference point, so that price competition remains and it retains positive demand. There is no longer a single ``firm-optimal'' signal --- the platform, or whoever designs information, has to pick whose firm profit to maximize.
 
-\textbf{Why this matters.} A designer (regulator or platform) now faces a richer tradeoff: information that helps matching may benefit consumers through better matches but hurt them by making the dominant firm more dominant. The ``one product is known to be better'' intuition connects directly to the advertising story in my critique: much of what shapes the prior in real markets happens off-platform ---where firms compete fiercely to attract consumers---, which limits how much on-platform information design can achieve in the first place\footnote{I think also this is tractable, tthe MPC toolkit of the paper still applies --- posteriors are still constrained by Bayesian consistency with the (now asymmetric) prior, and the no-deviation bounds are still well-defined. What is lost is the symmetric-price simplification: bounds $L_p$ and $U_p$ become firm-specific. A first pass would be a parametric asymmetric prior (e.g.\ two-point shift) to see whether the qualitative shape of the feasible frontier --- and the ranking of firm- vs.\ consumer-optimal signals --- survives. Maybe it is to complicated to depart from symmetry...}.
+\textbf{Why this matters.} A designer (regulator or platform) now faces a richer tradeoff: information that helps matching may benefit consumers through better matches but hurt them by making the dominant firm more dominant. The ``one product is known to be better'' intuition connects directly to the advertising story in my critique above: much of what shapes the prior in real markets happens off-platform ---where firms compete fiercely to attract consumers---, which limits how much on-platform information design can achieve in the first place\footnote{I think also this is tractable, tthe MPC toolkit of the paper still applies --- posteriors are still constrained by Bayesian consistency with the (now asymmetric) prior, and the no-deviation bounds are still likely well-defined. What is lost is the symmetric-price simplification: bounds $L_p$ and $U_p$ become firm-specific. A first pass would be a parametric asymmetric prior (e.g.\ two-point shift) to see whether the qualitative shape of the feasible frontier --- and the ranking of firm- vs.\ consumer-optimal signals --- survives. Maybe it is to complicated to depart from symmetry, but it would be interesting how simply introducing this assumptions changes the whole results. }.
 
 % =============================================
 % REFERENCES
