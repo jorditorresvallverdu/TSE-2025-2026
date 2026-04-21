@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{parskip}
+
+\title{Feedback on the PS}
+\author{Jordi Torres Vallverd\'u}
+\date{}
+
+\begin{document}
+\maketitle
+
+The course is great. These are just notes that may help the next cohort.
+
+\section*{Match PS papers with lecture papers}
+This is my main point. TH1 worked because it replays the Lecture 1 case: Q5--Q6 is Todd--Wolpin, Q7 is Attanasio--Meghir--Santiago. We had already seen the design vs.\ model contrast, so when we reproduced it in code, it clicked.
+
+TH2 and TH3 don't have that anchor. The lectures cover the methods, but no paper is walked through as a design$\leftrightarrow$model dialogue for matching or for job search. So when the PS asks us to estimate a logit or a Flinn--Heckman, we don't have a mental template.
+
+Suggestion: build each PS on top of the application paper from the same lecture block. If TH2 is Bobba et al.\ on teacher sorting, spend 20 minutes of a class going through how they use the RD to discipline the matching model. Then the PS feels like replication, not a cold start.
+
+\section*{Ask ``why do we need the model?'' explicitly}
+Several of us finished TH2 and TH3 without a clear answer to this. The structural part felt like a second, unrelated exercise.
+
+One short question before the structural block would fix it. Something like: ``what can the RD/DID not tell you about this policy, and which parameters would you need to answer that?'' Forces us to articulate the value-added before we start coding.
+
+\section*{On Q1--Q4 of TH2 and TH3}
+They are repetitive but I would keep them. Running four RD variants (or FE, FD, event study, robust TWFE) and seeing when they agree is the lesson. I'd just add one question at the end: ``which would you report in a paper, and why?''
+
+\section*{TH2 Q8 and TH3 Q8 are the point}
+In TH2, Q8 is where the model earns its keep: it aggregates the local RD effect into a counterfactual match. In TH3, Q8 simulates data from the structural model and re-runs TWFE on it, which is a nice way to check what the reduced-form estimator is actually recovering.
+
+Both are buried at the end and not flagged as the synthesis questions. If the PS signalled that Q8 is the point of the whole exercise, the earlier questions would feel like setup instead of filler.
+
+Small operational note: in TH2 Q8 it was not clear to us which $u_{ij}$ gets recomputed and what is held fixed. A line clarifying this would save time.
+
+\section*{SMM or GMM in one PS}
+All three PS estimate the structural piece by (S)MLE. This hides the Lecture 1 logic: the RCT/RD/DID variation enters only through the likelihood, invisibly.
+
+SMM makes it explicit. The experimental ATE is a moment. You write it down. You match it. Attanasio--Meghir--Santiago basically does this. One PS in this style would teach the course's thesis better than any reflection question.
+
+\section*{Short version}
+\begin{itemize}
+    \item Pair each PS with the application paper from its lecture. TH1 already does this and it works.
+    \item Add one ``why do we need the model'' question before the structural block.
+    \item Keep the repetitive estimator blocks, but end them with a ``which would you report'' question.
+    \item Clarify TH2 Q8 operationally, and signal that the Q8s are the synthesis.
+    \item Try SMM/GMM in one PS.
+\end{itemize}
+
+\end{document}
