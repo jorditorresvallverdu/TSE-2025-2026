@@ -5,15 +5,15 @@
 \setstretch{1.2}
 
 \title{Referee Report: ``Multiproduct Intermediaries'' \\ \small Rhodes, Watanabe, and Zhou (2021)}
-\author{}
-\date{}
+\author{Jordi Torres Vallverdú}
+\date{\today}
 
 \begin{document}
 \maketitle
 \vspace{-2em}
 
 \section*{Summary}
-
+\textbf{TO ADD: Add here some intuition given in the slides I used before}
 This paper asks why multiproduct intermediaries are profitable even when they do not reduce search costs or offer lower prices. The answer is assortment choice: by stocking high consumer-surplus products exclusively, the intermediary attracts visits, and then profits from selling other high-margin products to consumers who are already in the store. The paper characterizes the optimal product range and applies the framework to shopping malls and direct-to-consumer (DTC) sales.
 
 \section*{Model}
@@ -22,31 +22,31 @@ A continuum of manufacturers (measure one) each produce a different product $i$ 
 \[
 \pi_i = (p_i^m - c_i)\, Q_i(p_i^m), \qquad v_i = \int_{p_i^m}^{\infty} Q_i(p)\, dp,
 \]
-where $p_i^m$ is the monopoly price. Since consumers do not observe prices before searching, all sellers charge $p_i^m$ (Diamond, 1971). The intermediary makes take-it-or-leave-it two-part tariff offers to manufacturers with wholesale price $\tau_i = c_i$ and lump-sum $T_i = \pi_i F(v_i)$ (the manufacturer's outside option from direct sales), and can request exclusivity. The key reduction: each product is fully described by $(\pi_i, v_i)$ in a product space $\Omega \subset \mathbb{R}_+^2$ with joint distribution $G$.
+where $p_i^m$ is the monopoly price. Since consumers do not observe prices before searching, all sellers charge $p_i^m$\footnote{This is the classic hold-up problem studied in (Diamond, 1971).}. The intermediary makes take-it-or-leave-it two-part tariff offers to manufacturers with wholesale price $\tau_i = c_i$ and lump-sum $T_i = \pi_i F(v_i)$ (the manufacturer's outside option from direct sales), and can request exclusivity. The key reduction: each product is fully described by $(\pi_i, v_i)$ in a product space $\Omega \subset \mathbb{R}_+^2$ with joint distribution $G$.
 
-\paragraph{Simple case.} Assume all contracts are exclusive, $h(m) = m$ (where $m = \int_A dG$ is the measure of products stocked), and no capacity constraint ($\bar{m} = 1$). Let $A \subseteq \Omega$ be the stocked set. A consumer of type $s$ visits the intermediary iff $s \leq \hat{v}$, where $\hat{v} = \int_A v\, dG / \int_A dG$ is the average consumer surplus across stocked products. The net profit from stocking $(\pi, v)$ is $\pi[F(\hat{v}) - F(v)]$: the intermediary attracts $F(\hat{v})$ consumers but pays the manufacturer $\pi F(v)$. Products with $v < \hat{v}$ are profitable; those with $v > \hat{v}$ generate a loss. With stocking indicator $q(\pi,v) \in \{0,1\}$:
+\paragraph{The simplest case.} Assume all contracts are exclusive, $h(m) = m$ (where $m = \int_A dG$ is the measure of products stocked), and no capacity constraint ($\bar{m} = 1$). Let $A \subseteq \Omega$ be the stocked set. A consumer of type $s$ visits the intermediary iff $s \leq \hat{v}$, where $\hat{v} = \int_A v\, dG / \int_A dG$ is the average consumer surplus across stocked products. 
+
+The main tension of the paper is the following: while the net profit from stocking $(\pi, v)$ is $\pi[F(\hat{v}) - F(v)]$: the intermediary attracts $F(\hat{v})$ consumers but pays the manufacturer $\pi F(v)$. Products with $v < \hat{v}$ are profitable; those with $v > \hat{v}$ generate a loss. With stocking indicator $q(\pi,v) \in \{0,1\}$, the problem of the manufacturer becomes:
 \[
 \max_{q} \int_\Omega q(\pi,v)\, \pi [F(\hat{v}) - F(v)]\, dG \qquad \text{s.t.} \quad \hat{v} = \frac{\int_\Omega q\, v\, dG}{\int_\Omega q\, dG}.
 \]
-Using a Lagrange multiplier $\lambda > 0$, the value of stocking $(\pi, v)$ decomposes into a \emph{direct effect} $\pi[F(\hat{v}) - F(v)]$ and an \emph{indirect effect} $\lambda(v - \hat{v})$, capturing how the product changes average surplus and thus the visiting mass. These have opposite signs. The optimal assortment has two negatively correlated regions: high-$v$, low-$\pi$ (traffic generators) and low-$v$, high-$\pi$ (profit generators).
+Using a Lagrange multiplier $\lambda > 0$, the value of stocking $(\pi, v)$ decomposes into a \emph{direct effect} $\pi[F(\hat{v}) - F(v)]$ and an \emph{indirect effect} $\lambda(v - \hat{v})$, capturing how the product changes average surplus and thus the visiting mass. These have opposite signs. The optimal assortment has then two negatively correlated regions: of those products of high-$v$, the manufacturer will select those with low-$\pi$ (traffic generators), while for those of low-$v$, the manufacturer will select the high-$\pi$ (profit generators). 
 
-\paragraph{General case.} Allow non-exclusive contracts, a general search technology $h(m)$ (cost of visiting the intermediary is $h(m) \times s$ when it stocks $m$ products), and a capacity constraint $m \leq \bar{m}$. The core trade-off carries over. High-$v$ products are stocked exclusively to attract consumers; low-$v$, high-$\pi$ products generate profit. With economies of search ($h'(m) < 1$), all high-$v$ products are stocked; with diseconomies ($h'(m) > 1$), only the low-$\pi$ ones among them. Larger capacity leads to more products stocked but a smaller exclusive share.
+The mechanism rests on an asymmetry in search costs. Buying from manufacturers costs $s$ \emph{per firm} visited ($n$ firms $= n \times s$), but visiting the intermediary costs a \emph{single} $h(m) \times s$ that gives access to all $m$ products. Even when $h(m) = m$, the consumer makes one visit decision that opens the full assortment. This is what lets the intermediary bundle traffic generators with profit generators: a consumer who would never search for a low-$v$, high-$\pi$ product on its own will buy it once already inside the store. Without this one-stop-shopping structure, cross-product externalities vanish and the intermediary cannot profitably exist.
 
-\paragraph{The fundamental assumption.} The mechanism rests on an asymmetry in search costs. Buying from manufacturers costs $s$ \emph{per firm} visited ($n$ firms $= n \times s$), but visiting the intermediary costs a \emph{single} $h(m) \times s$ that gives access to all $m$ products. Even when $h(m) = m$, the consumer makes one visit decision that opens the full assortment. This is what lets the intermediary bundle traffic generators with profit generators: a consumer who would never search for a low-$v$, high-$\pi$ product on its own will buy it once already inside the store. Without this one-stop-shopping structure, cross-product externalities vanish and the intermediary cannot profitably exist.
+\paragraph{In the general case.} Allow non-exclusive contracts, a general search technology $h(m)$ (cost of visiting the intermediary is $h(m) \times s$ when it stocks $m$ products), and a capacity constraint $m \leq \bar{m}$. The core trade-off carries over. High-$v$ products are stocked exclusively to attract consumers; low-$v$, high-$\pi$ products generate profit. With economies of search ($h'(m) < 1$), all high-$v$ products are stocked; with diseconomies ($h'(m) > 1$), only the low-$\pi$ ones among them. Larger capacity leads to more products stocked but a smaller exclusive share.
 
 \section*{Applications}
 
-\textbf{Shopping malls.} The mall is a platform that does not set prices itself. High-$v$ stores play the role of ``anchor stores'' and are subsidized to attract foot traffic; low-$v$, high-$\pi$ stores pay rent. The $(\pi, v)$ framework applies directly.
+\textbf{Shopping malls.} The mall is a platform that does not set prices itself. High-$v$ stores play the role of ``anchor stores'' and are subsidized to attract foot traffic; low-$v$, high-$\pi$ stores pay rent. The $(\pi, v)$ framework applies directly and leads to similar predictions.
 
 \textbf{DTC expansion.} When direct sales become easier (parameterized by $\theta > 0$ reducing the consumer's search cost for manufacturers), the manufacturer's outside option rises to $\pi F(v/\theta)$. The intermediary responds by carrying fewer products, stocking a larger share of them exclusively, and its selection becomes more polarized in $(\pi, v)$ space. Its profit falls.
 
 \section*{Assessment}
-
+\textbf{Refine this a bit}
 The $(\pi, v)$ reduction is the main contribution. It turns a complicated combinatorial assortment problem into a tractable two-dimensional one, and the direct/indirect effect decomposition gives clear intuition for why the intermediary stocks what it stocks. The applications to malls and DTC are natural and informative.
 
-Several points deserve discussion:
-
-\textit{Monopoly pricing.} The whole analysis rests on Diamond (1971): consumers do not observe prices before search, so every seller charges the monopoly price $p_i^m$. This rules out price competition entirely. The authors argue what matters is that all sellers of a given product charge the same price, not the level itself. Fair enough, but when the intermediary stocks a product non-exclusively it does compete with the manufacturer in reality, and prices should react. Checking robustness to price responses would strengthen the paper.
+However, as argued in class, several points deserve discussion:
 
 \textit{Single intermediary.} There is one intermediary with all bargaining power, so it fully extracts the traffic-generation rents. With competing intermediaries, high-$v$ manufacturers would have outside options beyond direct sales -- they could threaten to join a rival. This should erode intermediary profits and change assortment composition. The paper acknowledges this as future work and notes the $(\pi, v)$ approach may not extend directly. I sketch one direction below.
 
@@ -63,5 +63,7 @@ Consider two symmetric platforms $j \in \{1, 2\}$ bidding simultaneously for pro
 \textbf{What breaks:} the $(\pi, v)$ representation gets harder, because a consumer now chooses \emph{between} two intermediaries. The threshold $\hat{v}_j$ depends on $A_{-j}$ -- a consumer may skip platform $j$ not because $s$ is high, but because the rival offers better surplus. This interdependence makes the stocking problem non-separable across products. Existence of a pure-strategy equilibrium in assortments is not obvious.
 
 \textbf{Conjecture:} each platform stocks fewer high-$v$ exclusives (they cost more to acquire), platform profits fall, and welfare likely increases as competition curbs excessive exclusivity.
+
+\textbf{revise}
 
 \end{document}
