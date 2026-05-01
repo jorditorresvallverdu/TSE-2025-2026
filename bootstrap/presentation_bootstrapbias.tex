@@ -1,0 +1,1006 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% ===== Theme =====
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer}
+
+% ===== Slide numbering =====
+\setbeamertemplate{frame numbering}{\insertframenumber/\inserttotalframenumber}
+
+% ===== Packages =====
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,arrows.meta}
+\usepackage{booktabs}
+\usepackage{xcolor}
+
+% ===== Colors =====
+\definecolor{accent}{HTML}{B85042}    % terracotta
+\definecolor{accentlight}{HTML}{E7E8D1} % sand
+\definecolor{accentmuted}{HTML}{A7BEAE} % sage
+\definecolor{darkbg}{HTML}{2D2D2D}
+\definecolor{alertcol}{HTML}{C0392B}
+
+\setbeamercolor{alerted text}{fg=accent}
+\setbeamercolor{block title}{bg=accent, fg=white}
+\setbeamercolor{block body}{bg=accentlight, fg=black}
+
+% ===== Theorem environments =====
+\theoremstyle{plain}
+\newtheorem{assumption}{Assumption}
+
+% ===== Macros =====
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\PR}{\mathbb{P}}
+\newcommand{\Pstar}{P^{*}}
+\newcommand{\Pstst}{P^{**}}
+\newcommand{\dto}{\xrightarrow{d}}
+\newcommand{\pto}{\xrightarrow{p}}
+\newcommand{\dstarto}{\xrightarrow{d^{*}}}
+\newcommand{\dstarstarto}{\xrightarrow{d^{**}}}
+\newcommand{\Tn}{T_{n}}
+\newcommand{\Tns}{T_{n}^{*}}
+\newcommand{\Tnss}{T_{n}^{**}}
+\newcommand{\Bn}{B_{n}}
+\newcommand{\Bnh}{\hat{B}_{n}}
+\newcommand{\Bnhs}{\hat{B}_{n}^{*}}
+\newcommand{\thn}{\hat{\theta}_{n}}
+\newcommand{\thns}{\hat{\theta}_{n}^{*}}
+\newcommand{\pnh}{\hat{p}_{n}}
+\newcommand{\pnhs}{\hat{p}_{n}^{*}}
+\newcommand{\pnt}{\tilde{p}_{n}}
+\newcommand{\Hnh}{\hat{H}_{n}}
+\newcommand{\Lnh}{\hat{L}_{n}}
+\newcommand{\Dn}{D_{n}}
+\newcommand{\Dns}{D_{n}^{*}}
+\newcommand{\Dnss}{D_{n}^{**}}
+
+% ===== Title =====
+\title{Bootstrap Inference in the Presence of Bias}
+\subtitle{Cavaliere, Gon\c{c}alves, Nielsen \& Zanelli\\ \footnotesize\textit{Journal of the American Statistical Association}, 2024}
+\author{Presented by Jordi Torres}
+\institute{Toulouse School of Economics --- Econometrics Reading Group}
+\date{\today}
+
+\begin{document}
+
+% ============================================================
+% TITLE
+% ============================================================
+
+{
+\setbeamercolor{background canvas}{bg=darkbg}
+\setbeamercolor{normal text}{fg=white}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{subtitle}{fg=accentlight}
+\setbeamercolor{author}{fg=accentlight}
+\setbeamercolor{institute}{fg=accentmuted}
+\setbeamercolor{date}{fg=accentmuted}
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+}
+
+% ============================================================
+% ROADMAP
+% ============================================================
+
+\begin{frame}{Roadmap}
+  \begin{enumerate}
+    \setlength{\itemsep}{12pt}
+    \item \textbf{Introduction} --- the bootstrap's third role
+    \item \textbf{Motivating examples} --- model averaging, ridge, nonparametric regression
+    \item \textbf{General theory} --- Theorem~3.1 and prepivoting
+    \item \textbf{Examples revisited} --- implementing the fix
+    \item \textbf{Wrap-up}
+  \end{enumerate}
+\end{frame}
+
+% ============================================================
+\section{Introduction}
+% ============================================================
+
+\begin{frame}{The bootstrap so far in this reading group}
+
+  \textbf{Two established roles:}
+
+  \medskip
+
+  \begin{description}
+    \item[Variance estimation] When the asymptotic variance is unknown or hard to compute,
+      the bootstrap provides a simulation-based approximation to the sampling distribution.
+    \item[Asymptotic refinements] When first-order asymptotics are available, the bootstrap can
+      improve accuracy --- reducing size distortion from $O(n^{-1/2})$ to $O(n^{-1})$ (Beran 1987, Hall 1992).
+  \end{description}
+
+  \bigskip
+
+  \begin{alertblock}{Today: a third role}
+    Use the bootstrap to \textbf{transform an invalid $p$-value into a valid one},
+    even when the estimator has a non-estimable asymptotic bias.
+  \end{alertblock}
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{The general problem}
+
+  Scalar parameter $\theta$, estimator $\thn$, normalised statistic:
+  \[
+    \Tn := g(n)(\thn - \theta) \;\dto\; B + \xi_1
+  \tag{1.1}
+  \]
+
+  \begin{itemize}
+    \setlength{\itemsep}{6pt}
+    \item $g(n) \to \infty$: convergence rate (e.g.\ $\sqrt{n}$, $(nh)^{1/2}$).
+    \item $\xi_1$: centred noise with continuous cdf $G$.
+    \item $B$: asymptotic bias --- \alert{cannot be consistently estimated}.
+  \end{itemize}
+
+  \bigskip
+
+  Bootstrap statistic $\Tns := g(n)(\thns - \thn)$ satisfies:
+  \[
+    \Tns - \Bnh \;\dstarto_p\; \xi_1 \tag{1.2}
+  \]
+  where $\Bnh$ is the \alert{implicit bootstrap bias} (not a deliberate estimator --- it is what the bootstrap DGP produces automatically).
+
+  \bigskip
+
+  But the bootstrap bias does not match the true bias:
+  \[
+    \Bnh - B \;\dto\; \xi_2 \neq 0 \tag{1.3}
+  \]
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Reading (1.1)--(1.3): the logical chain}
+
+  \begin{center}
+  \begin{tikzpicture}[
+    box/.style={draw, rounded corners, fill=accentlight, minimum width=6.5cm,
+                minimum height=1.0cm, align=center, font=\small},
+    arr/.style={-{Stealth[length=3mm]}, thick, accent}
+  ]
+    \node[box] (a) at (0,0) {(1.1): $\Tn$ has asymptotic bias $\Bn$};
+    \node[box] (b) at (0,-1.8) {(1.2): bootstrap captures noise $\xi_1$ correctly};
+    \node[box] (c) at (0,-3.6) {(1.3): bootstrap bias $\Bnh \neq \Bn$ --- gap is $\xi_2$};
+    \node[box, fill=accent!20] (d) at (0,-5.4) {$\Longrightarrow$ bootstrap $p$-value is \textbf{not uniform}};
+    \draw[arr] (a) -- (b);
+    \draw[arr] (b) -- (c);
+    \draw[arr] (c) -- (d);
+  \end{tikzpicture}
+  \end{center}
+
+  \medskip
+
+  \footnotesize
+  If instead $\Bnh - \Bn = o_p(1)$ (consistency), then $\xi_2 = 0$ a.s.\ and the
+  bootstrap is valid in the standard sense.
+  The paper addresses the case where this fails.
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{How bad is the distortion?}
+
+  In all three examples, the bootstrap $p$-value satisfies
+  $\pnh \dto \Phi(m^{-1}\Phi^{-1}(U))$ for some $m \neq 1$.
+
+  \bigskip
+
+  If you reject at nominal level $\alpha$, the \alert{actual rejection probability} is
+  $\Phi(m\,\Phi^{-1}(\alpha))$:
+
+  \bigskip
+
+  \begin{center}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    & $m = 1$ & $m = 1.2$ & $m = 0.8$ & $m = 0.5$ \\
+    \midrule
+    Nominal $\alpha = 5\%$  & $5.0\%$ & $3.1\%$ & $7.8\%$ & \alert{$16.4\%$} \\
+    Nominal $\alpha = 10\%$ & $10.0\%$ & $7.1\%$ & $13.6\%$ & \alert{$26.4\%$} \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+
+  \bigskip
+
+  A ``5\% test'' can reject \alert{three times too often}.
+
+  \medskip
+
+  \footnotesize
+  Monte Carlo evidence (Table B.1, supplement): standard bootstrap at nominal 5\% rejects
+  at $\approx 10\%$; the corrected $\pnt$ is near-perfectly sized.
+
+\end{frame}
+
+% ============================================================
+\section{Motivating Examples}
+% ============================================================
+
+\begin{frame}{Common structure across examples}
+
+  All three examples share the same pattern:
+  \begin{enumerate}
+    \setlength{\itemsep}{8pt}
+    \item An estimator with asymptotic bias $\Bn$ that converges to a nonzero $B$.
+    \item The bootstrap generates an implicit bias $\Bnh$ that differs from $\Bn$ by $\xi_2 \neq 0$.
+    \item The source: an \alert{inestimable quantity} at the $n^{-1/2}$ boundary.
+  \end{enumerate}
+
+  \bigskip
+
+  \begin{center}
+  \footnotesize
+  \begin{tabular}{@{}lccc@{}}
+    \toprule
+    & Model Averaging & Ridge & Nonparametric \\
+    \midrule
+    Rate $g(n)$ & $n^{1/2}$ & $n^{1/2}$ & $(nh)^{1/2} \approx n^{2/5}$ \\
+    Bias source & omitted variables & shrinkage to zero & smoothing curvature \\
+    Inestimable & $\delta$ (local to zero) & $\delta$ (local to zero) & $\beta''(x)$ (impractical) \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Example 1: Model averaging}
+
+  \textbf{Model:} $y = x\beta + Z\delta + \varepsilon$, \;$\varepsilon|W \sim \text{iid}(0,\sigma^2)$.
+
+  \smallskip
+
+  Fit $M$ submodels with controls $Z_m$, average: $\tilde{\beta}_n = \sum_m \omega_m \tilde{\beta}_{m,n}$.
+
+  Using $\tilde{\beta}_n = \beta + Q_n\delta + A_n\varepsilon$:
+  \[
+    \Tn = n^{1/2}(\tilde{\beta}_n - \beta)
+        = \underbrace{Q_n\, n^{1/2}\delta}_{\Bn}
+        + \underbrace{\bar{d}'_{M,n}\, n^{1/2}S_{W\varepsilon}}_{\xi_{1,n}\;\dto\; N(0,v^2)}
+  \]
+
+  \textbf{Local-to-zero:} $\delta = cn^{-1/2}$ $\;\Rightarrow\;$ $\Bn \to Qc = B \neq 0$.
+
+  \medskip
+
+  \textbf{Why local-to-zero?}
+  If $\delta$ is fixed $\Rightarrow$ $\Bn$ diverges (too pessimistic).
+  If $\delta = 0$ $\Rightarrow$ no bias (too optimistic).
+  The rate $n^{-1/2}$ is the \alert{boundary} where bias and noise are the same order
+  --- the interesting regime for model averaging.
+
+  \medskip
+
+  \footnotesize
+  $Q_n := \sum_m \omega_m S_{xx.Z_m}^{-1}S_{xZ.Z_m}$; \;
+  $\bar{d}'_{M,n} := \sum_m \omega_m S_{xx.Z_m}^{-1}(1, -S_{xZ_m}S_{Z_mZ_m}^{-1}R'_m)$.
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Example 1: Why the bootstrap fails}
+
+  \textbf{FRB:} generate $y^* = x\hat{\beta}_n + Z\hat{\delta}_n + \varepsilon^*$,
+  compute $\Tns = \Bnh + n^{1/2}A_n\varepsilon^*$.
+
+  \smallskip
+
+  \textbf{(1.2) holds:} $\Tns - \Bnh = n^{1/2}A_n\varepsilon^* \dstarto_p N(0,v^2)$. \;\checkmark
+
+  \medskip
+
+  \textbf{(1.3) --- the gap:}
+  \[
+    \Bnh - \Bn = Q_n\, n^{1/2}(\hat{\delta}_n - \delta)
+               = \bar{b}'_{M,n}\, n^{1/2}S_{W\varepsilon}
+               \;\dto\; \xi_2 \sim N(0, v_{22})
+  \]
+
+  with $v_{22} > 0$ because $n^{1/2}(\hat{\delta}_n - \delta) = O_p(1)$, \alert{not} $o_p(1)$.
+
+  \bigskip
+
+  \textbf{Key insight:} both $\xi_{1,n}$ and $\Bnh - \Bn$ are
+  \alert{linear in the same score} $n^{1/2}S_{W\varepsilon}$,
+  just with different loadings $\bar{d}'_M$ vs.\ $\bar{b}'_M$.
+  They are jointly normal and correlated.
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Example 2: Ridge regression --- setup}
+
+  $y_t = \theta'x_t + \varepsilon_t$, \;$\varepsilon_t \sim \text{iid}(0,\sigma^2)$.
+  Test $H_0: g'\theta = r$.
+
+  \medskip
+
+  Ridge estimator: $\;\tilde{\theta}_n = \tilde{S}_{xx}^{-1}S_{xy}$,
+  \;$\tilde{S}_{xx} := S_{xx} + n^{-1}c_n I_p$.
+
+  \medskip
+
+  \textbf{Decomposition} (using $\tilde{S}_{xx}^{-1}S_{xx} - I = -\tfrac{c_n}{n}\tilde{S}_{xx}^{-1}$):
+  \[
+    \Tn = n^{1/2}(g'\tilde{\theta}_n - r)
+        = \underbrace{-\tfrac{c_n}{n}\,g'\tilde{S}_{xx}^{-1}\,\delta}_{\Bn}
+        + \underbrace{g'\tilde{S}_{xx}^{-1}\,\tfrac{X'\varepsilon}{n^{1/2}}}_{\xi_{1,n}\;\dto\;N(0,v^2)}
+  \]
+
+  With $\theta = \delta n^{-1/2}$ and $c_n/n \to c_0 > 0$:
+  $\;\Bn \to B = -c_0\,g'\tilde{\Sigma}_{xx}^{-1}\delta \neq 0$.
+
+  \medskip
+
+  Variance: $v^2 = \sigma^2\, g'\tilde{\Sigma}_{xx}^{-1}\Sigma_{xx}\tilde{\Sigma}_{xx}^{-1}g$.
+
+  \medskip
+
+  \footnotesize
+  The rates $\theta \sim n^{-1/2}$ and $c_n \sim n$ are calibrated so
+  that $\tfrac{c_n}{n}\cdot n^{1/2}\theta = c_0\delta = O(1)$ --- bias and noise at the same order.
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Example 2: Ridge --- bootstrap failure}
+
+  \textbf{Pairs bootstrap:} resample $(y_t^*, x_t^*)$, compute
+  $\Tns = n^{1/2}g'(\tilde{\theta}_n^* - \hat{\theta}_n)$.
+
+  \smallskip
+
+  \footnotesize
+  (Centre at OLS $\hat{\theta}_n$, not ridge $\tilde{\theta}_n$, to preserve
+  $E^*[x_t^*\varepsilon_t^*] = 0$ --- same principle as GMM bootstrap.)
+
+  \normalsize
+  \medskip
+
+  \textbf{(1.2) holds:} $\Tns - \Bnh \dstarto_p N(0,v^2)$
+  with $\Bnh = -\tfrac{c_n}{n}g'\tilde{S}_{xx}^{-1}n^{1/2}\hat{\theta}_n$. \;\checkmark
+
+  \medskip
+
+  \textbf{(1.3) --- the gap:}
+  \[
+    \Bnh - \Bn
+    = -\tfrac{c_n}{n}\,g'\tilde{S}_{xx}^{-1}\,n^{1/2}(\hat{\theta}_n - \theta)
+    \;\dto\; \xi_2 \sim N(0,v_{22}),\quad v_{22} > 0
+  \]
+
+  Again: $n^{1/2}(\hat{\theta}_n - \theta) = O_p(1)$, not $o_p(1)$.
+
+  \bigskip
+
+  Both statistics are \alert{linear in the same score} $n^{1/2}S_{x\varepsilon}$:
+  \[
+    \begin{pmatrix}\Tn - \Bn \\ \Bnh - \Bn\end{pmatrix}
+    = \begin{pmatrix}g'\tilde{S}_{xx}^{-1} \\ -c_nn^{-1}g'\tilde{S}_{xx}^{-1}S_{xx}^{-1}\end{pmatrix}
+      n^{1/2}S_{x\varepsilon}
+    \;\dto\; N(0, V)
+  \]
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Example 3: Nonparametric regression}
+
+  $y_t = \beta(x_t) + \varepsilon_t$, fixed design $x_t = t/n$.
+  \;Nadaraya--Watson with $h = cn^{-1/5}$:
+  \[
+    \Tn = (nh)^{1/2}(\hat{\beta}_h(x) - \beta(x))
+        = \underbrace{(nh)^{1/2}\bigl[\tfrac{1}{nh}\textstyle\sum k_t\beta(x_t) - \beta(x)\bigr]}_{\Bn}
+        + \underbrace{(nh)^{-1/2}\textstyle\sum k_t\varepsilon_t}_{\xi_{1,n}}
+  \]
+
+  Taylor expansion: $\Bn \to B = \tfrac{c^{5/2}}{2}\beta''(x)\kappa_2 \neq 0$.
+
+  \medskip
+
+  \textbf{Bootstrap:} $y_t^* = \hat{\beta}_h(x_t) + \varepsilon_t^*$, centre at $\hat{\beta}_h(x)$.
+
+  \smallskip
+
+  $\Bnh$ replaces $\beta(\cdot)$ by $\hat{\beta}_h(\cdot)$ --- the bootstrap re-smooths an
+  already-smoothed curve. The curvature $\hat{\beta}_h''(x)$ differs from $\beta''(x)$
+  by $O_p((nh)^{-1/2})$, which is of the \alert{same order as the bias itself} at the
+  MSE-optimal bandwidth. Hence $\Bnh - \Bn \dto \xi_2 \neq 0$.
+
+  \bigskip
+
+  \footnotesize
+  Unlike ridge and model averaging, $\beta''(x)$ \textit{can} be estimated consistently
+  --- but doing so well enough to correct the bias requires a second bandwidth and performs
+  poorly in finite samples (Calonico, Cattaneo, Farrell 2018).
+
+\end{frame}
+
+% ============================================================
+\section{General Results}
+% ============================================================
+
+\begin{frame}{Assumption 1 --- the original statistic}
+
+  \begin{assumption}[1]
+    $\Tn - \Bn \dto \xi_1$, where $\xi_1$ is centred at zero with cdf
+    \[
+      G(u) := \PR(\xi_1 \le u)
+    \]
+    that is \alert{continuous and strictly increasing} on its support.
+  \end{assumption}
+
+  \bigskip
+
+  \textbf{Why these conditions on $G$?}
+  \begin{itemize}
+    \setlength{\itemsep}{6pt}
+    \item \textbf{Continuous:} needed for Polya's theorem
+      (pointwise $\Rightarrow$ uniform convergence of cdfs).
+    \item \textbf{Strictly increasing:} ensures $G^{-1}$ is well-defined, which we need
+      for the probability integral transform $G(\xi_1) \sim U[0,1]$.
+    \item Not restricted to Gaussian --- covers stable distributions, etc.
+  \end{itemize}
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Assumption 2 --- the bootstrap side}
+
+  \begin{assumption}[2]
+    There exists $\Dn$-measurable $\Bnh$ such that:
+    \begin{enumerate}
+      \item[(i)] $\Tns - \Bnh \;\dstarto_p\; \xi_1$
+      \item[(ii)] $\displaystyle \begin{pmatrix}\Tn - \Bn \\ \Bnh - \Bn\end{pmatrix}
+                  \dto \begin{pmatrix}\xi_1 \\ \xi_2\end{pmatrix}$, \;with
+                  $F(u) := \PR(\xi_1 - \xi_2 \le u)$ continuous.
+    \end{enumerate}
+  \end{assumption}
+
+  \bigskip
+
+  \begin{itemize}
+    \setlength{\itemsep}{6pt}
+    \item $\Bnh$ is \alert{not} a deliberate estimator of $\Bn$ --- it is whatever bias the
+      bootstrap DGP \textit{implicitly generates}.
+    \item Part (i): the bootstrap captures the noise correctly.
+    \item Part (ii): joint convergence; \alert{$\xi_2$ quantifies the bias estimation failure}.
+    \item $F$ must be continuous (but not necessarily strictly increasing) so that $H = F \circ G^{-1}$ is continuous.
+  \end{itemize}
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Benchmark: what if $\Bnh$ \textit{were} consistent?}
+
+  Suppose $\Bnh - \Bn = o_p(1)$, i.e.\ $\xi_2 = 0$ a.s. Then $F = G$ and:
+
+  \bigskip
+
+  \begin{align*}
+    \pnh &= \Pstar(\Tns \le \Tn)
+         = \Pstar(\Tns - \Bnh \le \Tn - \Bnh) \\[4pt]
+    &= G(\Tn - \Bnh) + o_p(1)
+    \qquad\text{\footnotesize(Assumption 2(i) + Polya)} \\[4pt]
+    &\dto G(\xi_1)
+    \qquad\text{\footnotesize(since $\Tn - \Bnh = \Tn - \Bn + o_p(1) \dto \xi_1$)} \\[4pt]
+    &\sim U[0,1]
+    \qquad\text{\footnotesize(probability integral transform, using $F = G$)}
+  \end{align*}
+
+  \bigskip
+
+  \begin{alertblock}{But when $\xi_2 \neq 0$\ldots}
+    $\Tn - \Bnh \dto \xi_1 - \xi_2 \sim F \neq G$
+    $\;\;\Longrightarrow\;\;$
+    $\pnh \dto G(F^{-1}(U)) \neq U$.
+  \end{alertblock}
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Theorem 3.1 --- the limit of $\pnh$}
+
+  \begin{block}{Theorem 3.1 (Cavaliere et al.\ 2024)}
+    Under Assumptions 1 and 2,
+    \[
+      \pnh \;\dto\; G\bigl(F^{-1}(U_{[0,1]})\bigr).
+    \]
+  \end{block}
+
+  \bigskip
+
+  \textbf{Implications:}
+  \begin{itemize}
+    \setlength{\itemsep}{6pt}
+    \item $\pnh$ is \textbf{not uniform} unless $G = F$ (i.e.\ $\xi_2 = 0$).
+    \item The cdf of $\pnh$ converges to $H(u) = F(G^{-1}(u))$, which is
+      \alert{continuous} (because $G^{-1}$ continuous + $F$ continuous).
+    \item $H$ does \alert{not depend on $B$} --- the unknown bias cancels.
+      This is what makes the correction feasible.
+  \end{itemize}
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Theorem 3.1 --- proof}
+
+  \textbf{Step 1.} Rewrite, subtracting $\Bnh$ (constant under $\Pstar$):
+  \[
+    \pnh = \Pstar(\Tns - \Bnh \le \Tn - \Bnh)
+  \]
+  By Assumption 2(i), $\Pstar(\Tns - \Bnh \le u) \to G(u)$ \textit{uniformly} (Polya). Hence:
+  \[
+    \pnh = G(\Tn - \Bnh) + o_p(1)
+  \]
+
+  \textbf{Step 2.} Decompose $\Tn - \Bnh = (\Tn - \Bn) - (\Bnh - \Bn)$.
+  By Assumption 2(ii) and the continuous mapping theorem:
+  \[
+    \Tn - \Bnh \;\dto\; \xi_1 - \xi_2
+  \]
+
+  \textbf{Step 3.} By continuity of $G$ and continuous mapping:
+  $\;G(\Tn - \Bnh) \dto G(\xi_1 - \xi_2)$.
+
+  \medskip
+
+  \textbf{Step 4.} Since $\xi_1 - \xi_2$ has continuous cdf $F$, the probability integral transform
+  gives $\xi_1 - \xi_2 \overset{d}{=} F^{-1}(U)$. Substitute:
+  \[
+    \pnh \;\dto\; G(F^{-1}(U_{[0,1]})) \qquad\square
+  \]
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Three remarks}
+
+  \begin{alertblock}{Remark 3.1 --- the most important}
+    Some bootstrap schemes give $\Bnh \pto 0$, so $\xi_2 = -B$ (a constant).
+    Then $\pnh \dto G(G^{-1}(U) + B)$ --- the distortion \alert{depends on $B$}.
+
+    \medskip
+
+    This is \textbf{worse} than $\xi_2$ random: with random $\xi_2$, $H$ is free of $B$
+    and prepivoting works; with $\xi_2 = -B$, it doesn't.
+
+    \medskip
+
+    \footnotesize
+    Lesson: prefer bootstrap schemes that \textit{attempt} to capture the bias
+    (even noisily) over those that structurally ignore it.
+  \end{alertblock}
+
+  \bigskip
+
+  \begin{itemize}
+    \item \textbf{Remark 3.2.} Confidence intervals are similarly invalid:
+      $P(\theta_0 \in CI^{1-\alpha}_n) = P(\pnh \le 1-\alpha) \neq 1-\alpha$.
+    \item \textbf{Remark 3.3.} When $\xi_2$ is nondegenerate, the bootstrap conditional
+      distribution $\Lnh$ is \textit{random in the limit}: $\Lnh(u) \to G(u - B - \xi_2)$.
+  \end{itemize}
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Corollary 3.1 --- prepivoting restores validity}
+
+  Theorem 3.1 showed $\pnh$ has asymptotic cdf $H(u) = F(G^{-1}(u))$, which is
+  \alert{continuous}.
+
+  \bigskip
+
+  \begin{block}{Corollary 3.1}
+    Under the conditions of Theorem 3.1, $\;H(\pnh) \dto U_{[0,1]}$.
+  \end{block}
+
+  \medskip
+
+  \textit{Proof:} probability integral transform applied to $\pnh$
+  with continuous cdf $H$. \;$\square$
+
+  \bigskip
+
+  \textbf{The idea (Beran 1987, 1988):}
+  \begin{itemize}
+    \item Apply $H$ to $\pnh$ to ``unwarp'' the distorted distribution back to uniform.
+    \item Beran used this for \textit{refinements}; this paper uses it to
+      \alert{rescue a broken bootstrap}.
+  \end{itemize}
+
+  \bigskip
+
+  But $H$ is unknown $\Longrightarrow$ need to estimate it.
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Approach A: Plug-in}
+
+  Suppose $H(u) = H_\gamma(u)$ depends on finite-dimensional $\gamma$,
+  and $\hat{\gamma}_n \pto \gamma$.
+
+  \bigskip
+
+  \begin{block}{Corollary 3.2}
+    If $H_\gamma(u)$ is continuous in $(\gamma, u)$ and $\hat{\gamma}_n \pto \gamma$, then
+    \[
+      \pnt := H_{\hat{\gamma}_n}(\pnh) \;\dto\; U_{[0,1]}.
+    \]
+  \end{block}
+
+  \medskip
+
+  \textit{Proof:}
+  $\;|\pnt - H(\pnh)| = |H_{\hat{\gamma}_n}(\pnh) - H_\gamma(\pnh)|
+  \le \sup_u |H_{\hat{\gamma}_n}(u) - H_\gamma(u)| \pto 0$
+  by continuity in $\gamma$. Then Slutsky + Corollary 3.1. \;$\square$
+
+  \bigskip
+
+  \textbf{Key point:} we never estimate $B$.
+  In the Gaussian case $H(u) = \Phi(m^{-1}\Phi^{-1}(u))$ with
+  $m^2 = v_d^2/v^2$, a \alert{ratio of variances} --- no $B$ appears.
+
+  \medskip
+
+  \footnotesize
+  Cheap: one standard bootstrap + one formula. But requires case-specific work to find $H_\gamma$.
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Approach B: Double bootstrap}
+
+  Estimate $H$ nonparametrically by resampling \textit{from the bootstrap data}.
+
+  \medskip
+
+  \textbf{Construction:}
+  \begin{enumerate}
+    \setlength{\itemsep}{4pt}
+    \item From each bootstrap sample $\Dns$, draw a second-level sample $\Dnss$.
+    \item Compute $\Tnss$ and the second-level $p$-value
+      $\;\pnhs := \Pstst(\Tnss \le \Tns)$.
+    \item Estimate $H$ by $\;\Hnh(u) := \Pstar(\pnhs \le u)$.
+    \item Modified $p$-value: $\;\pnt := \Hnh(\pnh) = \Pstar(\pnhs \le \pnh)$.
+  \end{enumerate}
+
+  \bigskip
+
+  \textbf{Assumption 3} ensures the double bootstrap replicates the distortion:
+  \begin{itemize}
+    \item[(i)] $\Tnss - \Bnhs \dstarstarto_{p^*} \xi_1$ (noise replicated at level 2)
+    \item[(ii)] $\Tns - \Bnhs \dstarto_p \xi_1 - \xi_2$ (bias gap replicated)
+  \end{itemize}
+
+  \medskip
+
+  \begin{block}{Theorem 3.2}
+    Under Assumptions 1, 2, 3: $\;\pnt = \Hnh(\pnh) \dto U_{[0,1]}$.
+  \end{block}
+
+  \footnotesize
+  Idea: (ii) ensures $\pnhs$ has the same asymptotic distribution as $\pnh$
+  $\;\Rightarrow\;$ $\Hnh \to H$ uniformly $\;\Rightarrow\;$ Corollary 3.1 applies.
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Corollary 3.3 --- the practical shortcut}
+
+  \begin{block}{Corollary 3.3}
+    Under Assumptions 1, 2, 3:
+    \[
+      \pnt = \Pstar(\Tns - \Bnhs \;\le\; \Tn - \Bnh) + o_p(1).
+    \]
+  \end{block}
+
+  \bigskip
+
+  \textbf{Translation:} the double bootstrap modified $p$-value is asymptotically equivalent to a
+  \alert{single-level bootstrap} applied to the bias-corrected statistic $\Tn - \Bnh$.
+
+  \bigskip
+
+  \textbf{Practical recipe:}
+  \begin{enumerate}
+    \setlength{\itemsep}{4pt}
+    \item Compute $\Bnh$ from the original data (available in closed form for ridge, model averaging).
+    \item Compute $\Bnhs$ from each bootstrap sample.
+    \item Bootstrap $p$-value: $\Pstar(\Tns - \Bnhs \le \Tn - \Bnh)$.
+  \end{enumerate}
+
+  \medskip
+
+  No double bootstrap needed when $\Bnh$, $\Bnhs$ are analytically available.
+
+  \medskip
+
+  \footnotesize
+  Note: $\Bnh$ does \textit{not} need to be consistent for $\Bn$ --- the method works
+  regardless.
+
+\end{frame}
+
+% ============================================================
+\section{Examples Revisited}
+% ============================================================
+
+\begin{frame}{Model averaging --- the fix}
+
+  Gaussian limit: $(\xi_1, \xi_2)' \sim N(0, V)$ with $V$ continuous in
+  $\omega$, $\sigma^2$, $\Sigma_{WW}$ --- all estimable.
+
+  \[
+    H(u) = \Phi(m^{-1}\Phi^{-1}(u)), \quad m^2 = v_d^2/v^2
+  \]
+
+  \textbf{Plug-in:} estimate $\hat{m}_n$ from sample analogues, then:
+  \[
+    \pnt = \Phi(\hat{m}_n^{-1}\,\Phi^{-1}(\pnh)) \;\dto\; U_{[0,1]}
+  \]
+
+  \textbf{Double bootstrap:} also valid (Lemmas 4.1--4.2 verify Assumption 3).
+
+  \bigskip
+
+  \textbf{Pairs bootstrap:} extra complication ---
+  $\Tns - \Bnh \dstarto_p N(0, v^2 + \kappa^2)$ with $\kappa^2 > 0$
+  (bootstrap resamples regressors, adding variance). Requires the
+  generalised Assumption~4 (Section~3.5), but the plug-in and double bootstrap
+  still deliver valid $\pnt$.
+
+  \medskip
+
+  \footnotesize
+  Local power against $\beta_0 = \bar\beta + an^{-1/2}$:
+  same as the full-model OLS test --- no power loss.
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Ridge regression --- the fix}
+
+  Same Gaussian structure. The distortion parameter simplifies to:
+  \[
+    m^2 = \frac{g'\Sigma_{xx}^{-1}g}{g'\tilde{\Sigma}_{xx}^{-1}\Sigma_{xx}\tilde{\Sigma}_{xx}^{-1}g}
+  \]
+
+  \footnotesize
+  (Derived using $\Sigma_{xx} + 2c_0 I + c_0^2\Sigma_{xx}^{-1}
+  = \tilde{\Sigma}_{xx}\Sigma_{xx}^{-1}\tilde{\Sigma}_{xx}$.)
+
+  \normalsize
+  \medskip
+
+  \textbf{Plug-in:} replace population quantities by sample analogues:
+  \[
+    \hat{m}_n^2 = \frac{g'S_{xx}^{-1}g}{g'\tilde{S}_{xx}^{-1}S_{xx}\tilde{S}_{xx}^{-1}g},
+    \qquad
+    \pnt = \Phi(\hat{m}_n^{-1}\,\Phi^{-1}(\pnh))
+  \]
+
+  \textbf{Double bootstrap:} also valid (Lemma 4.5).
+
+  \bigskip
+
+  Valid \textit{irrespective} of whether $\theta$ is local-to-zero or fixed.
+  When $c_0 = 0$: $m = 1$, no correction needed (ridge $=$ OLS).
+
+\end{frame}
+
+% ============================================================
+
+\begin{frame}{Nonparametric regression --- the fix}
+
+  \textbf{Remarkable feature:} the distortion $m$ depends \alert{only on the kernel $K$}:
+  \[
+    m^2 = 4 + \frac{\int\!\bigl(\int K(s{-}u)K(s)\,ds\bigr)^2 du
+    - 4\!\int\! K(u)\!\int\! K(u{-}s)K(s)\,ds\,du}{\int K(u)^2\,du}
+  \]
+
+  \medskip
+
+  $\sigma^2$ cancels in the ratio $m^2 = v_d^2/v^2$;
+  $\beta''(x)$ never enters.
+
+  \bigskip
+
+  \textbf{Plug-in:} compute $m$ once from $K$ (a number), then:
+  \[
+    \pnt = \Phi(m^{-1}\Phi^{-1}(\pnh))
+  \]
+  No estimation needed. No second bandwidth.
+
+  \bigskip
+
+  \textbf{Comparison with alternatives:}
+  \begin{itemize}
+    \item \textit{Undersmoothing} ($nh^5 \to 0$): removes bias, but kills power against
+      $\beta_0(x) = \bar\beta + an^{-2/5}$.
+    \item \textit{Robust bias correction} (Calonico--Cattaneo--Farrell): estimates $\beta''$
+      with second bandwidth. This paper avoids that entirely.
+  \end{itemize}
+
+\end{frame}
+
+% ============================================================
+\section{Conclusion}
+% ============================================================
+
+\begin{frame}{Take-aways}
+
+  \begin{enumerate}
+    \setlength{\itemsep}{8pt}
+    \item The standard bootstrap is \alert{first-order invalid} under non-estimable bias
+      (model averaging, ridge, nonparametric regression, heavy tails, panel FE\ldots).
+    \item The asymptotic distribution of $\pnh$ is non-uniform but
+      \alert{free of $B$}: $\;\pnh \dto G(F^{-1}(U))$.
+    \item Apply \textbf{prepivoting} --- transform $\pnh$ by $H$ ---
+      to recover uniformity.
+    \item Two implementations:
+      \textbf{plug-in} (when $H_\gamma$ is tractable) and
+      \textbf{double bootstrap} (automatic).
+    \item Shortcut (Corollary 3.3): bootstrap $\Tn - \Bnh$ directly when $\Bnh$ is
+      available in closed form.
+    \item No power loss; near-nominal size in finite samples (Table B.1).
+  \end{enumerate}
+
+  \bigskip
+
+  \footnotesize
+  The supplement contains two additional examples: a heavy-tailed location model
+  (non-Gaussian $\xi_1$, unknown convergence rate) and dynamic panel data with
+  incidental parameter bias (where the double bootstrap \textit{fails} because
+  $\Bnh = 0$).
+
+\end{frame}
+
+% ============================================================
+
+{
+\setbeamercolor{background canvas}{bg=darkbg}
+\setbeamercolor{normal text}{fg=white}
+\begin{frame}[plain,c]
+  \centering
+  {\Large\bfseries Thank you}
+
+  \bigskip
+
+  {\large Questions?}
+
+  \bigskip\bigskip
+
+  \footnotesize\color{accentmuted}
+  Cavaliere, Gon\c{c}alves, Nielsen \& Zanelli (2024)\\
+  \textit{Bootstrap Inference in the Presence of Bias}\\
+  JASA, 119(548), 2908--2918
+\end{frame}
+}
+
+% ============================================================
+\appendix
+% ============================================================
+
+\begin{frame}[noframenumbering]{Appendix: Gaussian special case}
+
+  When $\xi_1 \sim N(0,v^2)$ and $(\xi_1,\xi_2) \sim N(0,V)$:
+  \[
+    G(u) = \Phi(u/v), \quad F(u) = \Phi(u/v_d),
+    \quad v_d^2 = v_{11} + v_{22} - 2v_{12}
+  \]
+  \[
+    H(u) = \Phi(m^{-1}\Phi^{-1}(u)), \quad m = v_d/v
+  \]
+
+  Modified $p$-value: $\pnt = \Phi(\hat{m}_n^{-1}\Phi^{-1}(\pnh))$.
+
+  \medskip
+
+  \footnotesize
+  Covers Examples 1--3 and Example 5 (panel). Example 4 (heavy tails)
+  uses $G(u) = \Psi_\alpha(\omega^{-1}u)$ with $\Psi_\alpha$ the stable cdf.
+
+\end{frame}
+
+\begin{frame}[noframenumbering]{Appendix: Section 3.5 --- random centering (pairs bootstrap)}
+
+  Some bootstrap schemes (e.g.\ pairs in model averaging) give
+  $\Tns - B_n^* \dstarto_p \xi_1$ where $B_n^*$ depends on bootstrap data.
+
+  \medskip
+
+  Assumption 4 replaces 2(i): $\Tns - \Bnh \dstarto_p \zeta_1$ with cdf $J \neq G$.
+
+  \medskip
+
+  Theorem 3.4: $\pnh \dto J(F^{-1}(U))$ and $H(u) = F(J^{-1}(u))$.
+
+  \medskip
+
+  Plug-in and double bootstrap go through with $J$ replacing $G$.
+
+  \bigskip
+
+  \alert{Caution:} the plug-in formula for $m$ is bootstrap-scheme-specific.
+  If you derived $m$ for FRB and applied it to pairs, you'd get the wrong correction.
+  The double bootstrap handles this automatically.
+
+\end{frame}
+
+\begin{frame}[noframenumbering]{Appendix: Power (Theorem 3.3)}
+
+  Test $H_0: \theta = \bar\theta$ vs.\ $H_1: \theta < \bar\theta$.
+
+  \medskip
+
+  Under local alternatives $\theta_0 = \bar\theta + a/g(n)$ with $a < 0$:
+  \[
+    P(H(\pnh(\bar\theta)) \le \alpha) \;\to\; F(F^{-1}(\alpha) - a)
+  \]
+
+  \begin{itemize}
+    \item Fixed alternatives ($a \to -\infty$): test is consistent.
+    \item Local alternatives: power depends on $F$ only, not $G$.
+    \item Same power as an oracle test that knows $B$.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[noframenumbering]{Appendix: Supplement examples}
+
+  \textbf{Example 4 --- Heavy tails:} $y_t = \theta + \varepsilon_t$ with
+  $\varepsilon_t \sim S(\alpha)$, $\alpha \in (1,2)$ (infinite variance).
+  \begin{itemize}
+    \item Non-Gaussian $\xi_1$, unknown convergence rate $n^{1-1/\alpha}$.
+    \item Plug-in works: $H(u) = \Psi_\alpha(\omega\Psi_\alpha^{-1}(u))$.
+    \item $m$-out-of-$n$ bootstrap fails (zeros out bias $\Rightarrow$ Remark 3.1 applies).
+  \end{itemize}
+
+  \bigskip
+
+  \textbf{Example 5 --- Dynamic panel:} Fixed effects MLE with incidental parameter bias.
+  \begin{itemize}
+    \item Cross-sectional pairs bootstrap gives $\Bnh = 0$
+      $\;\Rightarrow\;$ distortion depends on $B$ (Remark 3.1).
+    \item But $B$ \textit{can} be estimated consistently here (Hahn--Kuersteiner 2011).
+    \item Plug-in works; \alert{double bootstrap fails}
+      (Remark B.4: both levels zero out the bias).
+  \end{itemize}
+
+\end{frame}
+
+\end{document}
+
