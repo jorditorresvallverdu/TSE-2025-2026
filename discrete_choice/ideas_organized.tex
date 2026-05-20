@@ -1,0 +1,386 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{enumitem}
+\geometry{margin=1in}
+
+\title{Notes on the proposal: connecting papers, data, and the search for the
+fundamental tension}
+\author{Companion notes to \texttt{proposal\_eee\_draft.tex}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\paragraph{What these notes are.}  Suggestions to organize the ideas already in
+\texttt{proposal\_eee\_draft.tex} based on (i) the five papers in
+\texttt{papers/} and (ii) the empirical evidence already in
+\texttt{context/}. The goal is to help you find (a) the fundamental tension
+that makes the paper revealing, (b) the CF that exploits that tension, and (c)
+concrete answers to the four modelling questions you flagged: unobserved
+heterogeneity, learning with discrete signals, the school's role in a
+Stackelberg game, and equilibrium.
+
+\section{The fundamental tension and what it should buy you}
+
+\paragraph{Where the proposal currently sits.}  The current draft mixes two
+ideas: (1) students learn about ability from grades and recommendations, (2)
+schools may distort recommendations strategically. Each is interesting, but
+neither alone is a top-5 contribution: (1) is well-mapped by AAMR (2025) and
+Pastorino (2024), and (2) without a sharp identification argument is
+indistinguishable from descriptive school heterogeneity.
+
+\paragraph{The tension that the data already gives you.}  The
+\texttt{update\_april\_2026} memo identifies it without naming it: \emph{the
+incentive of a school to use its informational advantage strategically depends
+on whether the school keeps the student}. Cycle-1-only schools (41\% of the
+sample) lose the student mechanically at the end of grade 2. Cycle-1+2+3
+schools keep the student and face capacity constraints, pass-rate concerns,
+and track-composition incentives. Within the same students-types pool, the
+recommendation behaviour of these two school architectures should differ
+\emph{only because of incentives}. This is the Pastorino (2024) ``differential
+informativeness of jobs'' argument relabeled for schools, and it is the cleanest
+identification source you have.
+
+\paragraph{Sharpening it.}  In \texttt{update\_08\_12} the descriptive evidence
+shows that, conditional on standardized exam grades, IQ, and effort, teachers
+still rely heavily on \emph{relative class rank} when issuing horizontal
+(STEM/non-STEM) advice. Relative rank is exactly the object that a strategic
+school manipulates if it is capacity-constrained. So the tension is not just
+``schools may be biased'': it is that \emph{the very statistic teachers use
+(class rank) is endogenous to the school's allocation problem}, and this
+distorts the signal value of the recommendation for the student's posterior
+about her own track-specific ability.
+
+\paragraph{The revealing CF.}  Once that tension is the engine of the model,
+the natural CF is not ``ban tracking'' (Fu--Mehta) or ``move test cutoffs''
+(Larroucau--Rios). It is:
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Information policy:} replace the school-issued recommendation
+  with a centrally-issued, capacity-free signal of equal informativeness about
+  $\theta$ (e.g., a standardized tracking score). What share of mismatch
+  (downstream switching/dropout/HE field of choice) is due to schools'
+  strategic distortion, vs.\ to genuine informational frictions in the
+  student's own learning?
+
+  \item \textbf{Decoupling supply from advice:} hold school capacities fixed
+  but require schools to issue advice as if they had no retention incentive
+  (the ``cycle-1 benchmark'').  This isolates the welfare cost of the
+  Stackelberg leadership of the school.
+
+  \item \textbf{Stackes-of-information rebalancing:} make recommendations
+  binding (as B/C certificates already are) vs.\ purely advisory, and study
+  who gains and who loses by SES, ability and gender. This connects to
+  Larroucau--Rios's mechanism-design CFs in a way that uses your strategic
+  sender as the policy lever rather than the application algorithm.
+\end{enumerate}
+Of these, (1) is the \emph{revealing} one because it directly decomposes the
+welfare effect of recommendations into ``information'' and ``strategic
+distortion'' components. The other two are robustness/design exercises.
+
+\paragraph{Why this would be top-5.}  It is the first paper that estimates a
+Bayesian-persuasion-style information design model in a real schooling
+setting, with continuous and discrete signals jointly, with a credible
+identification of the strategic margin (cycle-length variation), and where the
+counterfactual answers a question that none of the related papers can: what is
+the welfare value of \emph{the strategic component} of teacher advice? Fu--Mehta
+quantify the value of tracking, Pastorino quantifies the value of learning,
+AAMR quantifies the value of imperfect information; you would quantify the
+value of \emph{strategic} information provision in education.
+
+\section{Operationalizing unobserved heterogeneity ($\theta^k, \theta^u$)}
+
+\paragraph{What you can identify from your measurement system.}  Your data is
+unusually rich. Following AAMR (2025) and Cunha--Heckman--Schennach (2010), a
+factor model in baseline measurements pins down the joint distribution of the
+\emph{initially-known} types $\theta^k$:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Cognitive:} Verbal IQ, Numeric IQ, Spatial IQ at start grade 1
+  $\Rightarrow$ at least two factors $(\theta^k_{\text{num}},
+  \theta^k_{\text{verb}})$ identified from intra-test correlations.
+  \item \textbf{Non-cognitive:} performance motivation, test anxiety,
+  conscientiousness, agreeableness, extraversion (Big-5 already estimable
+  from the well-being/self-concept battery) $\Rightarrow$ a non-cog factor
+  $\theta^k_{\text{noncog}}$ (your update\_08\_12 already shows
+  conscientiousness is independently predictive of advice).
+  \item \textbf{Parental press / SES:} the parental questionnaire (education,
+  occupational situation, educational climate) $\Rightarrow$ a fourth factor
+  $\theta^k_{\text{parental}}$ that the descriptive evidence shows matters
+  for sorting at grade 1 but is largely absorbed by school FE for advice ---
+  i.e., its main role is in the \emph{first-stage} school choice, not in
+  recommendation.
+\end{itemize}
+Three points that follow:
+\begin{enumerate}[leftmargin=*]
+  \item Your draft says ``$\theta^k$ has 4 elements''. The data supports
+  4--5: numeric, verbal, non-cog, parental press, and arguably a separate
+  motivation/anxiety dimension. Test the rank of the measurement system before
+  fixing the dimension.
+  \item Initial sorting $F(\theta^k\mid s)$ is non-trivial
+  (\texttt{update\_april\_2026}). You have two clean handles for it: (a)
+  recover $\theta^k$ from baseline measurements, condition on it; (b) use
+  distance-to-school as an excluded shifter in a joint first-stage school
+  choice model. Your memo proposes both. I would do (a) for the working paper
+  and add (b) as a robustness exercise: distance is exogenous to the
+  recommendation rule conditional on $\theta^k$, but residential location is
+  endogenous in the long run, so combining the two makes the argument
+  airtight.
+  \item \textbf{What is $\theta^u$ here?} In AAMR/Pastorino it is fundamental
+  ability. In your setting the natural object is \emph{track-specific match
+  quality}: the realization the student would experience if assigned to ASO
+  vs.\ TSO vs.\ BSO, and within ASO/TSO to STEM vs.\ non-STEM. The student
+  has a prior over the vector of match qualities; grades update beliefs
+  about each component (because cognitive skills predict track-specific
+  outcomes differently); recommendations add discrete information. This is
+  the AAMR multivariate correlated-learning structure applied to your tracks.
+\end{enumerate}
+
+\paragraph{Practical recipe.}  Build the measurement system at $t=1$ to
+recover $F(\theta^k)$ via mixtures-of-normals (Bunting--Diegert--Maurel 2025
+allows you to do this without elicited beliefs and without assuming the
+measurements are selection-free, which is convenient because your tests
+\emph{are} given to all students). Use a low number of discrete types $I=3$ or
+$I=4$ (Pastorino) for tractability if a continuous factor model is too
+expensive in the dynamic estimation. You then treat $\theta^k$ as known to
+agent and school but unknown to the econometrician, and let the unknown
+$\theta^u$ enter only through track-specific match quality, where learning
+operates.
+
+\section{Modelling learning with discrete signals}
+
+\paragraph{Continuous + discrete signal structure.}  At each end-of-year
+$t \in \{1,2,4,6\}$ you observe two continuous signals (Math and Dutch test
+scores) and two discrete signals (the teacher's choice advice, and at grades
+2/4/6 the A/B/C certificate). Following AAMR/BDM, write
+\[
+  G_{ijt} = \mu_j(\theta^k_i, X_{it}) + \lambda_j \theta^u_{ij} + \varepsilon_{ijt},
+  \qquad j \in \{\text{Math, Dutch}\}, \quad
+  \theta^u_i \sim \mathcal{N}(0,\Sigma_u),
+\]
+with $\Sigma_u$ allowed to be non-diagonal (correlated learning across track
+dimensions, as in AAMR). Posterior on $\theta^u$ is Gaussian conjugate.
+
+\paragraph{Adding the discrete recommendation.}  The recommendation
+$R_{it}\in\mathcal{R}$ that the school issues is informative about $\theta^u$
+\emph{only} insofar as the school uses additional information (its own
+observations of effort, peer comparisons, knowledge of the cohort
+distribution).  Two options for the student's updating, in increasing order
+of complexity:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Reduced-form signal extraction.}  Treat the recommendation as
+  a noisy categorical signal of $\theta^u$ with school-type-specific
+  informativeness $\alpha_s, \beta_s$ (Pastorino's $\alpha_{jk},\beta_{jk}$).
+  The student's posterior depends on the school-type-specific likelihood
+  $\Pr(R_{it}=r\mid \theta^u, s)$.  Since the student observes $s$, she
+  knows the likelihood she should use. \emph{This is where strategic
+  scepticism enters:} a Bayesian student facing a school she suspects is
+  strategic uses a flatter (less informative) likelihood. Heterogeneity in
+  trust can be modelled as random coefficient in $\alpha_s$.
+
+  \item \textbf{Structural signal extraction with strategic school.}  The
+  student knows the school's recommendation rule
+  $R_{it} = \rho_s(\theta^k, G_{it}, \text{cohort rank}, \text{capacity})$ and
+  inverts it.  Then $R_{it}$ is informative about $\theta^u$ both directly
+  (because the school sees more) and indirectly (because the school's
+  own decision rule reflects what the school's information was). This is
+  the Bayesian-persuasion / strategic-sender layer.
+\end{itemize}
+The first is enough for a first paper. The second is the version that
+delivers the ``strategic information design'' contribution. I would estimate
+both and use the difference as the main quantitative result.
+
+\paragraph{Identification of the discrete-signal channel.}  Critical
+observation: in your data there are cases where Math grade and Dutch grade
+disagree (high Math, low Dutch or vice versa) and the recommendation
+sometimes goes one way, sometimes the other. This within-student variation
+in the alignment of continuous signals identifies how the school weights
+each signal and, residually, what \emph{additional} information the school is
+using (effort, behaviour, capacity, family pressure). The \texttt{update\_08\_12}
+finding that ``even after conditioning on IQ, std grades and effort, teachers
+still use relative class rank'' is directly this residual: it isolates the
+school's private information component, which is the input to the strategic
+distortion.
+
+\paragraph{Pastorino-style update formula.}  The expression in your draft,
+\[
+  P^{s}\mid \theta = \frac{p(\theta)\, p(r\mid \theta)}{\sum_{r\notin R}p(r\mid \theta)},
+\]
+should be rewritten as a Bayesian update of the joint posterior on
+$(\theta^u_{\text{ASO}}, \theta^u_{\text{TSO}}, \theta^u_{\text{BSO}},
+\theta^u_{\text{STEM}}, \theta^u_{\text{nSTEM}})$:
+\[
+  f(\theta^u\mid G_t, R_t, s) \propto f(\theta^u\mid G_t)\cdot
+  \Pr(R_t\mid \theta^u, s),
+\]
+with the first factor coming from the Gaussian update on grades and the second
+the discrete-signal likelihood. The school index $s$ enters the second factor
+because the recommendation rule is school-type-specific.  This makes
+explicit that grades and recommendation are \emph{correlated} signals, and the
+identification of $\Sigma_u$ comes from the joint distribution of grades and
+recommendations across years.
+
+\section{The school's problem and the Stackelberg game}
+
+\paragraph{Schools as Fu--Mehta with information design.}  Fu--Mehta (2017)
+gives you the right scaffolding: schools choose a tracking regime (in your
+case, recommendation policy) and effort, parents (or students) respond. The
+piece you add is that in your setting the school's lever is not (only) effort
+or assignment but the \emph{informativeness} of a discrete signal that
+students use to update beliefs.
+
+A workable specification:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{State of the school:} cohort distribution of types
+  $G_s(\theta^k)$ inherited from sorting at grade 1; capacity constraints
+  $\bar{n}_{\text{ASO-stem}}, \bar{n}_{\text{ASO-nstem}}, \dots$
+  (cycle-length and supply-driven --- you observe which subtracks each school
+  offers).
+  \item \textbf{Action:} a recommendation rule
+  $\rho_s : (\theta^k, G_t, \text{rank}, \text{effort}) \mapsto \Delta(\mathcal{R})$
+  --- a (possibly mixed) mapping from observables to a probability
+  distribution over recommendations $\mathcal{R} = \{\text{ASO-stem,
+  ASO-nstem, TSO-stem, TSO-nstem, BSO, repeat (B), fail (C)}\}$.
+  \item \textbf{Objective:} weighted sum of (a) student average final
+  outcome (test scores at grade 6, HE entry, labour-market outcome),
+  (b) share of students above proficiency (the A-certificate share is
+  observable in your data and is the natural Fu--Mehta proficiency target),
+  (c) cost of having to repeat / over-stretch capacity. Cycle-1-only schools
+  put weight $\approx 0$ on (b) and (c) for grades $\geq 3$ because the
+  student leaves --- this is the source of identification.
+  \item \textbf{Constraint:} capacity constraints; centrally-set rules for
+  who can be assigned to which track (B/C certificate rules).
+\end{itemize}
+
+\paragraph{Timing (Stackelberg).}
+\begin{enumerate}[leftmargin=*,label=Stage \arabic*.]
+  \item School commits to recommendation rule $\rho_s$ (chosen once per
+  cohort, plausibly stable across cohorts within a school --- testable using
+  the multiple cohorts in LOSO).
+  \item Students observe school type $s$ and choose school at grade 1,
+  knowing distance, peers, $\rho_s$ (or only the school type, if you take
+  the empirical finding that A-certificate rates do not predict choice as
+  evidence of myopic enrollment --- this is the simpler benchmark).
+  \item Period-by-period: student exerts effort, receives grade, school
+  observes everything and issues recommendation according to $\rho_s$,
+  student updates beliefs.
+  \item At grade 2 (the binding moment): school issues certificate +
+  recommendation; student chooses track conditional on it.
+  \item Continue dynamically until grade 6 / HE entry / LM entry.
+\end{enumerate}
+
+\paragraph{Equilibrium.}  An equilibrium is a tuple
+$\big(\rho_s^*\big)_{s \in \mathcal{S}},\ \pi^*\big)$ where:
+\begin{enumerate}[leftmargin=*]
+  \item For each school type $s$, $\rho_s^*$ maximizes the school's objective
+  given the induced student best-response $\pi^*$.
+  \item For each student type, $\pi^*(\theta^k, s, G_t, R_t)$ is the
+  Bayesian-Nash dynamic discrete choice over tracks and effort, given
+  posterior beliefs over $\theta^u$ that are computed using $\rho_s^*$ as
+  the likelihood of the recommendation signal.
+  \item The cohort-level distribution of types and outcomes implied by
+  $(\rho_s^*, \pi^*)$ is consistent with the capacity constraints and
+  proficiency objective fed back into the school's problem.
+\end{enumerate}
+This is a perfect Bayesian equilibrium of an information-design game with
+a population of receivers, in the spirit of Kamenica--Gentzkow with
+heterogeneous priors and an outside option.
+
+\paragraph{Static vs.\ dynamic.}  Your draft asks ``static or dynamic''. My
+recommendation: \emph{static for the school, dynamic for the student}. A
+school's recommendation rule is plausibly committed for the cohort and stable
+across cohorts (you can test this with cross-cohort variation). A student is
+genuinely forward-looking: choosing ASO-stem at grade 3 has option value over
+HE STEM. So model the student as a finite-horizon dynamic discrete choice
+agent (AAMR-style) and the school as a one-shot designer of the
+recommendation rule. This is much more tractable than a fully dynamic
+school problem and probably loses very little.
+
+\section{Identification: where each ingredient comes from}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{$F(\theta^k)$ and $F(\theta^k\mid s)$:} factor model on
+  baseline measurements (BDM 2025, Cunha--Heckman--Schennach 2010).
+  Initial sorting is a separate object, identified using distance.
+
+  \item \textbf{Grade equation parameters and $\Sigma_u$:} BDM/AAMR semiparametric ID
+  from the panel of grades and choices. You do not need elicited beliefs
+  because BDM (2025) shows the model is identified without them under
+  normality. This is the strongest part of your data.
+
+  \item \textbf{Recommendation rule $\rho_s$:} reduced-form multinomial logit
+  on observables, with school-type fixed effects, gives you the descriptive
+  $\rho_s$. The structural piece needs the equilibrium condition that the
+  school is optimizing given student best-response. The cycle-1 vs.\
+  cycle-1+2+3 contrast plays the role of an excluded variation that shifts
+  the school's incentives but not the student's primitives.
+
+  \item \textbf{Student trust / strategic scepticism:} identified from
+  the gap between how strongly students react to a recommendation in
+  cycle-1 schools (where the school is presumed truthful) vs.\ in
+  cycle-1+2+3 schools (where the school is suspected of distortion),
+  conditional on $\theta^k$. Heterogeneity in trust by SES is identified
+  from the same source.
+
+  \item \textbf{Welfare and CFs:} once $\rho_s^*$ is identified for each
+  school type, simulate the student dynamic problem under (a) the actual
+  $\rho_s^*$, (b) the cycle-1 (presumed truthful) $\rho_s^*$ applied
+  uniformly, (c) a centrally-set, common, capacity-free signal of the same
+  Blackwell informativeness as the actual recommendations, and compute
+  outcome distributions.
+\end{itemize}
+
+\section{Concrete edits I would suggest to the proposal}
+
+\begin{enumerate}[leftmargin=*]
+  \item Frame the contribution as ``estimating a strategic-information
+  design model in education'' rather than ``adding a learning model with
+  schools''. Cite Kamenica--Gentzkow, Bergemann--Morris, and frame
+  schools as senders in the spirit of Pastorino's two-sided learning.
+
+  \item Replace the open ``static vs.\ dynamic'' question by the explicit
+  static-school / dynamic-student split.
+
+  \item Make the cycle-1 vs.\ cycle-1+2+3 contrast the central
+  identification source for the strategic margin, and announce it in the
+  introduction. This is what makes the paper feel ``revealing'' rather
+  than descriptive.
+
+  \item Promote the multivariate correlated-learning structure (one
+  $\theta^u$ per track-subtrack combination) explicitly. AAMR is the
+  template; your tracks are 5, theirs are also 5.
+
+  \item Drop peer effects from the model.  They are interesting but the
+  capacity-constraint argument already captures the main supply-side
+  force, and adding peer effects on top will create an
+  endogeneity/identification problem that is not central.
+
+  \item Drop effort as a separate model object on the student side. As you
+  rightly note in the draft, it is captured in learning. Keep effort only
+  as an input the school observes (it is in your data) so that the
+  recommendation rule can depend on it. This matches \texttt{update\_08\_12}
+  which finds effort matters for vertical (A/B/C) but not horizontal advice.
+
+  \item In the CF section, lead with the centrally-issued signal (CF 1
+  above) as the main result, and use the other CFs as robustness.
+\end{enumerate}
+
+\section{Risks and open questions}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Are cycle-1 schools really non-strategic?}  They have no
+  retention incentive but they may still care about reputation
+  (placement of their students into good cycle-2 schools). Test by looking
+  at whether cycle-1 schools whose graduates feed into specific cycle-2
+  schools have systematically different recommendations.
+  \item \textbf{Identification of $\theta^u$ vs.\ time-varying shocks.}
+  AAMR/BDM both impose normality. Verify that mixture-of-normals fits the
+  empirical distribution of grades by track at $t=1$ before locking in.
+  \item \textbf{Stability of $\rho_s$ across cohorts.}  The model's
+  Stackelberg structure assumes school commits.  Test using LOSO's
+  multi-cohort follow-ups whether $\rho_s$ moves with cohort
+  composition.  If it does, you may need a school problem with state
+  rather than a one-shot design.
+\end{itemize}
+
+\end{document}

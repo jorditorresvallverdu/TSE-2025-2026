@@ -1,0 +1,1154 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{remark}{Remark}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+
+\definecolor{accent}{HTML}{1F3A68}
+\definecolor{warn}{HTML}{8B2A2A}
+\definecolor{soft}{HTML}{E8EEF5}
+
+\hypersetup{colorlinks=true, linkcolor=accent, urlcolor=accent}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{accent}}{}{0em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Speaker script --- Bootstrap Inference in the Presence of Bias}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+% ===== Macros =====
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\PR}{\mathbb{P}}
+\newcommand{\Pstar}{P^{*}}
+\newcommand{\Pstst}{P^{**}}
+\newcommand{\dto}{\xrightarrow{d}}
+\newcommand{\pto}{\xrightarrow{p}}
+\newcommand{\dstarto}{\xrightarrow{d^{*}}}
+\newcommand{\dstarstarto}{\xrightarrow{d^{**}}}
+\newcommand{\Tn}{T_{n}}
+\newcommand{\Tns}{T_{n}^{*}}
+\newcommand{\Tnss}{T_{n}^{**}}
+\newcommand{\Bn}{B_{n}}
+\newcommand{\Bnh}{\hat{B}_{n}}
+\newcommand{\Bnhs}{\hat{B}_{n}^{*}}
+\newcommand{\thn}{\hat{\theta}_{n}}
+\newcommand{\thns}{\hat{\theta}_{n}^{*}}
+\newcommand{\pnh}{\hat{p}_{n}}
+\newcommand{\pnhs}{\hat{p}_{n}^{*}}
+\newcommand{\pnt}{\tilde{p}_{n}}
+\newcommand{\Hnh}{\hat{H}_{n}}
+\newcommand{\Lnh}{\hat{L}_{n}}
+\newcommand{\Dn}{D_{n}}
+\newcommand{\Dns}{D_{n}^{*}}
+\newcommand{\Dnss}{D_{n}^{**}}
+
+\newcommand{\slide}[2]{%
+  \medskip
+  \noindent\colorbox{soft}{\parbox{\linewidth}{\textbf{Slide #1.} \textit{#2}}}
+  \medskip
+}
+\newcommand{\say}[1]{\textbf{Say:} #1}
+\newcommand{\why}[1]{\textbf{Why this slide:} #1}
+\newcommand{\trans}[1]{\textbf{Transition:} #1}
+\newcommand{\Q}[2]{\noindent\textcolor{warn}{\textbf{Q:}} #1\\ \textcolor{accent}{\textbf{A:}} #2\par\smallskip}
+
+\title{\color{accent}\bfseries Speaker Script\\
+\large Bootstrap Inference in the Presence of Bias\\
+\normalsize\mdseries Cavaliere, Gonçalves, Nielsen \& Zanelli (JASA, 2024)}
+\author{Jordi Torres --- TSE Econometrics Reading Group}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent\textit{This document is a slide-by-slide companion to
+\texttt{presentation\_bootstrapbias.tex}. For each slide it contains:
+(i) a tight script, (ii) the notation introduced, (iii) the transition into
+the next slide, and (iv) anticipated aggressive questions with prepared answers.
+A target of $\sim$45 minutes implies roughly 1--1.5 minutes per slide.}
+
+\bigskip
+\hrule
+\bigskip
+
+% ====================================================================
+\section{Master cheat-sheet of notation}
+
+Define each symbol \emph{once} below and use it throughout. After the relevant
+slide introduces it, do \emph{not} re-define.
+
+\subsection*{Population / data}
+\begin{description}[leftmargin=2.6cm,style=nextline]
+  \item[$\theta\in\R$] scalar parameter of interest.
+  \item[$\Dn$] original sample of size $n$.
+  \item[$\Dns$] bootstrap sample drawn from a bootstrap DGP \emph{conditional} on $\Dn$.
+\end{description}
+
+\subsection*{Statistics}
+\begin{description}[leftmargin=2.6cm,style=nextline]
+  \item[$\thn$] estimator of $\theta$ based on $\Dn$.
+  \item[$\thns$] bootstrap version of $\thn$, computed from $\Dns$.
+  \item[$g(n)$] convergence rate ($n^{1/2}$, $(nh)^{1/2}$, etc.).
+  \item[$\Tn$] $:= g(n)(\thn-\theta)$, the centred and rescaled statistic.
+  \item[$\Tns$] $:= g(n)(\thns-\thn)$, the bootstrap version
+    (note centring at $\thn$, not $\theta$).
+\end{description}
+
+\subsection*{Bias terms (the heart of the paper)}
+\begin{description}[leftmargin=2.6cm,style=nextline]
+  \item[$\Bn$] deterministic asymptotic bias sequence: $\Bn\to B$.
+  \item[$B$] limiting bias of $\Tn$ (constant; \emph{may not be consistently estimable}).
+  \item[$\Bnh$] \emph{implicit} bootstrap bias --- $\Dn$-measurable, defined so that
+    $\Tns-\Bnh$ has the same asymptotic noise as $\Tn-\Bn$. Crucially \emph{not} an estimator the researcher chooses; it is whatever bias the bootstrap DGP produces.
+  \item[$\Bnhs$] second-level analogue used in the double bootstrap.
+\end{description}
+
+\subsection*{Limit objects}
+\begin{description}[leftmargin=2.6cm,style=nextline]
+  \item[$\xi_1$] limit of $\Tn-\Bn$, centred at zero, cdf $G$ continuous.
+  \item[$\xi_2$] limit of $\Bnh-\Bn$, centred at zero. \emph{Nonzero $\xi_2$ is the failure.}
+  \item[$G$] cdf of $\xi_1$.
+  \item[$F$] cdf of $\xi_1-\xi_2$ (continuous by assumption).
+  \item[$H$] $:= F\circ G^{-1}$, asymptotic cdf of $\pnh$. Continuous, free of $B$.
+\end{description}
+
+\subsection*{Bootstrap p-values}
+\begin{description}[leftmargin=2.6cm,style=nextline]
+  \item[$\pnh$] $:= \Pstar(\Tns\le \Tn)$, standard bootstrap $p$-value.
+  \item[$\pnhs$] second-level $p$-value $\Pstst(\Tnss\le\Tns)$ for the double bootstrap.
+  \item[$\Hnh$] estimator of $H$ (plug-in or double bootstrap).
+  \item[$\pnt$] $:= \Hnh(\pnh)$, the prepivoted (modified) $p$-value.
+\end{description}
+
+\subsection*{Modes of convergence}
+\begin{description}[leftmargin=2.6cm,style=nextline]
+  \item[$\pto$] convergence in probability under $P$.
+  \item[$\dto$] convergence in distribution under $P$.
+  \item[$\Pstar$] $\!:=P(\cdot\mid\Dn)$, bootstrap probability measure (random in $\Dn$).
+  \item[$\pto_p$ \,(written $\xrightarrow{p^{*}}_{p}$)] $Y_n^*\pto_p 0$ means
+    $\Pstar(|Y_n^*|>\varepsilon)\pto 0$ for every $\varepsilon>0$. (Convergence to $0$
+    in bootstrap probability \emph{in probability under $P$}.)
+  \item[$\dstarto_p$] $Y_n^*\dstarto_p\xi$ means
+    $\Pstar(Y_n^*\le u)\pto P(\xi\le u)$ at every continuity point.
+\end{description}
+
+\textbf{Read aloud only when first introduced.} After the bootstrap-statistic slide,
+just say ``in bootstrap probability'' or ``conditionally on the data.''
+
+\bigskip
+\hrule
+\bigskip
+
+% ====================================================================
+\section{Part 1 --- Introduction (slides 1--8)}
+
+\slide{1}{Title slide.}
+\say{Today I am presenting Cavaliere, Gonçalves, Nielsen \& Zanelli, JASA 2024.
+The paper is about how to do valid bootstrap inference when the estimator has an
+asymptotic bias the bootstrap cannot replicate. Before going into details, let
+me place the paper in our reading group.}
+
+\trans{Move to the roadmap.}
+
+% ----------------
+\slide{2}{Roadmap.}
+\say{Five blocks: a short \emph{introduction} that fixes notation and states the
+problem; three \emph{motivating examples}; the \emph{general theory} ---
+Theorem~3.1 and prepivoting --- which is the core of the talk; the
+\emph{examples revisited} where I show how the fix is implemented; and a
+short \emph{wrap-up}.}
+
+\trans{Begin with the framing slide.}
+
+% ----------------
+\slide{3}{Placing the paper in the reading group.}
+\say{In the reading group so far we have seen two roles for the bootstrap.
+First, computing variances and full sampling distributions when analytical
+formulas are unavailable. Second, asymptotic refinements --- Beran 1987 and
+Hall 1992 --- where the bootstrap can be more accurate than the first-order
+normal approximation.
+
+Today's paper is different. It asks: what if the estimator has an asymptotic
+bias $B$ that the bootstrap simply cannot replicate? Then the standard
+bootstrap is invalid, even asymptotically. Cavaliere et al.\ show that valid
+inference can be restored \emph{without estimating the bias} by a transformation
+of the bootstrap $p$-value, the prepivoting idea of Beran 1987, 1988.}
+
+\why{This is the only narrative slide in the deck. From here on we go technical.}
+
+\trans{Now I make the setup precise.}
+
+\textbf{Anticipated questions:}
+\Q{Why is bias different from variance? Cant we just bootstrap the bias?}
+{Variance is a property of the sampling distribution that the bootstrap
+mimics by construction. Bias is the gap between the population parameter and
+the limit of the estimator; the bootstrap replicates the law of $\Tns$ \emph{around
+$\thn$}, not the law of $\Tn$ around $\theta$, so bias does not transfer.}
+\Q{Is this related to the failure of the bootstrap under the null in
+unit-root or moment-condition problems?}
+{Conceptually yes --- in all those cases the bootstrap measure is random
+in the limit. The unifying language here is condition (1.3) ahead.}
+
+% ----------------
+\slide{4}{Setup --- the original statistic (1.1).}
+\say{Let $\theta\in\R$ be a scalar parameter, $\thn$ an estimator with rate
+$g(n)\to\infty$. Define $\Tn:=g(n)(\thn-\theta)$. Equation (1.1) says
+$\Tn\dto B+\xi_1$, with $\xi_1$ centred at zero and continuous cdf $G$.
+
+The point: $B$ is an \emph{asymptotic bias}. In every example we will see, $B$
+is \emph{not} consistently estimable. The typical setting is $g(n)=n^{1/2}$ and
+$\xi_1$ Gaussian, but the paper allows non-Gaussian $\xi_1$.
+
+Why does classical inference fail? Because using quantiles of $\xi_1$ to build
+confidence intervals or tests \emph{ignores} $B$, so coverage is wrong.
+
+Why not just bias-correct analytically? Either $B$ cannot be estimated (model
+averaging, ridge with local-to-zero parameter), or it can be estimated but only
+poorly (nonparametric regression: $\beta''(x)$ requires a second bandwidth).
+And as the box notes, the bootstrap also \emph{cannot} solve the bias problem on
+its own when $B$ is not estimable.}
+
+\textbf{Notation introduced:} $\theta,\thn,\Tn,\Bn,B,\xi_1,G,g(n)$.
+
+\trans{Now, what does the bootstrap give us?}
+
+\textbf{Anticipated questions:}
+\Q{What is ``not consistently estimable'' precisely? Lots of biases are slow but estimable.}
+{Take model averaging: bias is $Q\cdot c$ where $\delta=cn^{-1/2}$. The
+parameter $c$ is unidentified --- $\hat\delta_n=O_p(n^{-1/2})$ converges in
+\emph{distribution}, not in probability, when scaled by $n^{1/2}$. So no estimator
+can be consistent for $c$. Same logic for ridge.}
+\Q{Doesnt Hall (1992) handle this with Edgeworth refinements?}
+{No --- those refinements assume the bootstrap is first-order correct and then
+chase higher-order terms. Here it fails at first order.}
+
+% ----------------
+\slide{5}{Setup --- the bootstrap statistic (1.2).}
+\say{$\Tns:=g(n)(\thns-\thn)$ --- centred at $\thn$ because, in the bootstrap
+world, $\thn$ plays the role of the ``true'' parameter (the only feasible
+choice; $\theta$ is unknown). Equation (1.2): $\Tns-\Bnh\dstarto_p\xi_1$
+--- the bootstrap reproduces the noise $\xi_1$ correctly.
+
+Critically, $\Bnh$ is \emph{implicit}: it is whatever asymptotic bias the
+bootstrap DGP \emph{produces}, not something the researcher chooses or estimates.
+You can think of $\Bnh$ as ``the bootstrap's own implicit estimator of $B$ ---
+even though no one wrote it down.''
+
+If $\Bnh-B=o_p(1)$ --- i.e.\ the implicit estimator is consistent --- the
+bootstrap is valid in the usual sense. The whole question of the paper is:
+what happens when no such consistent implicit estimator can exist?
+
+The notation block on the right defines two modes of bootstrap convergence I
+will use repeatedly.}
+
+\textbf{Notation introduced:} $\Tns,\Bnh,\Dn,\Dns,\Pstar,\dstarto_p,\pto_p$.
+
+\trans{Now I state the failure mode.}
+
+\textbf{Anticipated questions:}
+\Q{What does ``implicit'' mean? Where is $\Bnh$ defined operationally?}
+{Operationally $\Bnh$ is whatever sequence makes (1.2) hold --- it is a
+property of the bootstrap DGP, not a choice. In the model averaging FRB
+example we will see $\Bnh = Q_n\, n^{1/2}\hat\delta_n$.}
+\Q{Why centre $\Tns$ at $\thn$ rather than $\theta$?}
+{Because $\theta$ is unknown; centring at $\thn$ is the only feasible choice.
+This is also why the bootstrap distribution is conditional on $\Dn$.}
+
+% ----------------
+\slide{6}{The failure mode (1.3).}
+\say{Condition (1.3): $\Bnh-B\dto\xi_2\not\equiv 0$, jointly with (1.1).
+This is the failure mode --- and the key idea worth dwelling on.
+
+\emph{Why does this happen?} $\Bnh$ is built from the data, and in the
+problems we care about, the data noise sits at the \emph{same rate} as
+the bias $B$. So no estimator of $B$ from this data can be consistent ---
+it inherits an irreducible $O_p(1)$ noise of the same order as the thing
+it is trying to estimate. The bootstrap's implicit $\Bnh$ is no exception.
+
+\emph{Two noises, not one.} $\xi_1$ is the sampling noise in $\Tn$ ---
+the bootstrap reproduces this. $\xi_2$ is the bootstrap's failure to
+pin down the bias --- this is an \emph{extra} source of randomness that
+the bootstrap cannot subtract out, because it \emph{is} the bootstrap's
+own error.
+
+\emph{Consequences.} The bootstrap distribution of $\Tns$ conditional on
+$\Dn$ is itself \emph{random in the limit} --- it sits at a random shift
+$\Bnh$, and that randomness $\xi_2$ never washes out. So $\Tns$ and $\Tn$
+have \emph{different} asymptotic laws (one centred at $\Bnh$, the other at
+$\Bn$, differing by $\xi_2$). Hence $\pnh:=\Pstar(\Tns\le\Tn)$ is \emph{not}
+asymptotically uniform, and a nominal 5\% test can reject at, say, 15\%.
+
+\emph{Counterfactual to keep in mind:} if $\Bnh-\Bn=o_p(1)$ (so $\xi_2=0$),
+then $\Tns$ and $\Tn$ would have the same asymptotic law and $\pnh$ would
+be uniform --- standard story. (1.3) is exactly the obstruction.
+
+The goal of the paper: restore valid inference without trying to estimate
+$B$ --- by working with the bootstrap $p$-value $\pnh$ directly.}
+
+\textbf{Notation introduced:} $\xi_2,\,\pnh$.
+
+\trans{The fix is on the next slide.}
+
+\textbf{Anticipated questions:}
+\Q{Random in the limit --- is this related to Cavaliere--Georgiev (2020) or to
+random measures?}
+{Yes, exactly. CG 2020 showed randomness of the bootstrap measure does not by
+itself prevent validity. Here it does, because the asymptotic bias is also random.}
+\Q{Could we just use a bigger bootstrap, $m$-out-of-$n$, to fix this?}
+{Often $m$-out-of-$n$ \emph{kills} the bias in the bootstrap world, giving
+$\Bnh\pto 0$ and $\xi_2=-B$ --- a constant. By Remark 3.1 ahead, that case
+is \emph{worse}, not better: the distortion now depends on $B$, so prepivoting
+no longer works either.}
+
+% ----------------
+\slide{7}{A way out --- prepivoting.}
+\say{Beran's idea, 1987--88. Even though $\pnh$ is not uniform, its
+asymptotic cdf $H$ is going to be \emph{continuous} and, more importantly,
+\emph{free of the unknown bias $B$}. If so, the probability integral transform
+gives $H(\pnh)\dto U[0,1]$. Replace $\pnh$ by $\pnt:=\Hnh(\pnh)$, with $\Hnh$
+uniformly consistent for $H$.
+
+Two implementations: \emph{plug-in} when $H$ depends on a finite-dimensional
+parameter, and \emph{double bootstrap} when it does not. Beran proposed this
+for refinements; here it rescues a broken bootstrap.}
+
+\textbf{Notation introduced:} $H,\Hnh,\pnt$.
+
+\trans{Three motivating examples.}
+
+\textbf{Anticipated questions:}
+\Q{Why should $H$ be free of $B$ in general?}
+{This is the content of Theorem~3.1, which I will prove. The reason is that
+both numerator and denominator in $H=F\circ G^{-1}$ are cdfs of \emph{centred}
+limits $\xi_1$ and $\xi_1-\xi_2$, and $B$ is the centring that has been
+removed by definition.}
+\Q{Is prepivoting a refinement or a fix?}
+{Beran used it for refinements --- improving second-order accuracy. Here it
+fixes a first-order failure. Mechanically the operation is the same.}
+
+% ====================================================================
+\section{Part 2 --- Motivating examples (slides 9--14)}
+
+\slide{9}{Three motivating examples (lead-in).}
+\say{For each example I will check four things in order: the model and
+parameter; whether (1.1) holds; whether (1.2) holds; and whether (1.3) holds.
+The third one --- (1.3) --- is the key to understanding why the bootstrap
+fails.}
+
+\trans{Example 1, model averaging.}
+
+% ----------------
+\slide{10}{Example 1 --- Ridge regression, setup.}
+\say{Linear regression with $p$ regressors. Test a linear restriction
+$g'\theta=r$. Ridge estimator with shrinkage $c_n$ added to the diagonal
+of $S_{xx}$. The local-to-zero device is $\theta=\delta n^{-1/2}$ and
+$c_n/n\to c_0>0$. As before, this is the regime where shrinkage bias
+matters.}
+
+\textbf{Anticipated questions:}
+\Q{$c_n\sim n$ is a strong tuning. Is that standard?}
+{It is the regime studied by Fu and Knight (2000) and Hjort and
+Claeskens (2003). The point is to keep shrinkage at the same order as noise.
+Other rates lead to either no shrinkage in the limit or to $\theta=0$ being
+imposed asymptotically.}
+
+% ----------------
+\slide{11}{Example 1 --- Why (1.1)--(1.3) hold.}
+\say{(1.1) --- bias survives in the limit. From
+$\tilde S_{xx}^{-1}S_{xx}-I=-(c_n/n)\tilde S_{xx}^{-1}$,
+$\Tn$ splits into a shrinkage piece (limit $B \propto c_0\,\delta$) and a
+Gaussian noise piece (limit $\xi_1\sim N(0,v^2)$). The bias depends on the
+local-to-zero $\delta$, which is \emph{not consistently estimable} because
+$n^{1/2}\hat\theta_n=\delta+O_p(1)$ converges in \emph{distribution}, not in
+probability.
+
+(1.2) --- bootstrap captures the noise. Pairs bootstrap, \emph{centred at OLS},
+not at ridge. Reason: the bootstrap world's ``true parameter'' must satisfy
+the score condition $E^*[x_t^*\varepsilon_t^*]=0$; OLS does, ridge does not.
+Same recentring trick as in the GMM bootstrap (Horowitz, Hall--Horowitz).
+
+(1.3) --- and here is the key point. The implicit bootstrap bias is
+$\Bnh = -(c_n/n)g'\tilde S_{xx}^{-1}\,n^{1/2}\hat\theta_n$. Subtracting
+$\Bn$:
+\[
+  \Bnh-\Bn = -\tfrac{c_n}{n}g'\tilde S_{xx}^{-1}\,n^{1/2}(\hat\theta_n-\theta).
+\]
+$c_n/n\to c_0>0$ and $n^{1/2}(\hat\theta_n-\theta) = O_p(1)$ \emph{not}
+$o_p(1)$ --- OLS is only $n^{1/2}$-consistent, so its noise does not vanish at
+the relevant scale. Multiplying $O_p(1)$ noise by a non-degenerate matrix
+gives $O_p(1)$. Hence $\xi_2\neq 0$.
+
+\emph{Tie to the general story:} the bootstrap is implicitly trying to
+estimate $B$ via $\Bnh$, and $\Bnh$ inherits the OLS noise --- which is the
+\emph{same order} as the bias itself. That is exactly why the bias is
+``random in the limit'' in this example.}
+
+\trans{Example 2, nonparametric.}
+
+\textbf{Anticipated questions:}
+\Q{Why pairs and not residual bootstrap?}
+{Residual bootstrap requires homoskedasticity and a correctly specified mean
+function. Pairs is robust. The recentring at OLS is the technical price.}
+\Q{Wouldnt this also fail under wild bootstrap?}
+{Yes. The failure is again about $\hat\theta_n-\theta$ being only
+$n^{1/2}$-consistent, not $o(n^{-1/2})$.}
+
+% ----------------
+\slide{12}{Example 2 --- Nonparametric regression, setup.}
+\say{Nonparametric regression with smooth $\beta(\cdot)$, fixed design.
+Nadaraya--Watson with MSE-optimal bandwidth $h\sim n^{-1/5}$.
+
+The MSE-optimal $h$ balances squared bias against variance. At this rate,
+\emph{the bias does not vanish faster than the noise}; in fact it shows up in
+the limit. That is the source of (1.1).}
+
+\textbf{Anticipated questions:}
+\Q{Why not undersmooth?}
+{Undersmoothing kills bias asymptotically but at the cost of larger variance
+and lower power against local alternatives. CCF 2018 document this trade-off.}
+
+% ----------------
+\slide{13}{Example 2 --- Why (1.1)--(1.3) hold.}
+\say{(1.1) --- bias survives in the limit. Taylor-expand the kernel smoother:
+limit bias $B \propto \beta''(x)$, limit noise $\xi_1\sim N(0,v^2)$. The
+$\beta''(x)$ is estimable in principle, but only with a second bandwidth ---
+unreliable in finite samples (CCF 2018). \emph{Effectively inestimable in
+practice.}
+
+(1.2) --- bootstrap captures the noise. Parametric bootstrap with
+$y_t^*=\hat\beta_h(x_t)+\varepsilon_t^*$, $\varepsilon_t^*\sim N(0,\hat\sigma_n^2)$.
+
+(1.3) --- here is the key point, with a \emph{different mechanism but the same
+moral}. The bootstrap bias replaces $\beta(\cdot)$ with $\hat\beta_h(\cdot)$,
+so it depends on $\hat\beta_h''(x)$ instead of $\beta''(x)$. The estimation
+error is
+\[
+  \hat\beta_h''(x)-\beta''(x) = O_p\bigl((nh)^{-1/2}\bigr),
+\]
+\emph{exactly the same order as the bias itself} at the MSE-optimal bandwidth
+(that is what ``MSE-optimal'' means: bias and noise rates are balanced).
+Hence $\Bnh-\Bn$ does not vanish, and the bootstrap's implicit estimate of
+$B$ inherits irreducible $O_p(1)$ noise.
+
+\emph{Tie to the general story:} same as ridge --- $\Bnh$ is built from data
+whose noise sits at the same rate as $B$. The mechanism is different ($O_p(1)$
+OLS noise in ridge vs.\ MSE-optimal smoothing here), but the conclusion is
+identical: the bootstrap's bias is \emph{random in the limit}.
+
+Cross-example punchline: \textbf{whenever bias and noise are at the same
+rate, no estimator of $B$ from the data can be consistent --- the bootstrap
+inherits this and (1.3) bites.}}
+
+\trans{Recap, then theory.}
+
+\textbf{Anticipated questions:}
+\Q{Couldnt one use a higher-order kernel to remove $B$?}
+{Yes, in principle, but at higher variance and at the cost of negative weights
+and finite-sample instability. Standard MSE-optimal kernels are second order.}
+
+% ----------------
+\slide{14}{Examples --- recap.}
+\say{Same diagnostic in both: rate, source of bias, the inestimable
+quantity that makes (1.3) bite, the bootstrap scheme. Different mechanisms
+($O_p(1)$ nuisance vs.\ MSE-optimal smoothing) but same conclusion. Now we
+step back and develop a unified theory.}
+
+\trans{Section 3 of the paper.}
+
+% ====================================================================
+\section{Part 3 --- General results (slides 15--24)}
+
+\slide{15}{Recap of notation.}
+\say{Quick refresher of the symbols I will use throughout this section. The
+bottom block is the most important: $\dstarto_p$ means convergence in
+distribution conditional on the data, in probability.
+
+$G$, $F$, $H$ will appear constantly: $G$ is the limit cdf of $\Tn-\Bn$;
+$F$ is the limit cdf of $\Tn-\Bnh$, which equals the cdf of $\xi_1-\xi_2$;
+$H=F\circ G^{-1}$ will be the asymptotic cdf of $\pnh$.}
+
+\trans{The two assumptions.}
+
+% ----------------
+\slide{16}{Assumption 1 --- the original statistic.}
+\say{Assumption 1 is just (1.1) restated, plus regularity on $G$:
+continuous and strictly increasing on its support.
+
+Continuous, because Polya's theorem upgrades pointwise to uniform convergence
+of cdfs --- I will use that in the proof of Theorem 3.1.
+
+Strictly increasing, because we need $G^{-1}$ well-defined to apply the
+probability integral transform.
+
+Importantly, $G$ does \emph{not} need to be Gaussian. Stable distributions are
+allowed.}
+
+\textbf{Anticipated questions:}
+\Q{What if $G$ is discontinuous --- discrete data?}
+{Then the framework needs randomisation as in Romano (1990). Out of scope here.}
+
+% ----------------
+\slide{17}{Assumption 2 --- the bootstrap side.}
+\say{Two parts. (i) is (1.2): the bootstrap captures the noise correctly. (ii)
+is the joint convergence of $(\Tn-\Bn,\Bnh-\Bn)$ to $(\xi_1,\xi_2)$, with
+$F$ continuous.
+
+Two things to flag. First, $\Bnh$ is again \emph{not} a chosen estimator. It
+is whatever the bootstrap DGP produces. Second, $F$ only needs to be
+continuous --- not strictly increasing.}
+
+\textbf{Anticipated questions:}
+\Q{Joint convergence is strong --- when does it fail?}
+{It can fail under non-stationary or near-unit-root settings; see Cavaliere--
+Georgiev for examples. In all five examples in the paper, joint convergence
+is straightforward because everything is linear in the same score.}
+
+% ----------------
+\slide{18}{Benchmark: what if $\Bnh$ \emph{were} consistent?}
+\say{Useful warm-up: assume $\Bnh-\Bn=o_p(1)$, so $\xi_2=0$ and $F=G$. Then
+$\pnh=\Pstar(\Tns-\Bnh\le\Tn-\Bnh)\to G(\Tn-\Bnh)+o_p(1)\dto G(\xi_1)\sim U[0,1]$.
+
+So when $\xi_2=0$ the bootstrap is uniform: the standard story. The
+\emph{non-trivial} case is $\xi_2\neq 0$, where $F\neq G$ and the limit is
+$G(F^{-1}(U))\neq U$. That is exactly Theorem~3.1.}
+
+\trans{State and prove Theorem 3.1.}
+
+% ----------------
+\slide{19}{Theorem 3.1.}
+\say{Under Assumptions 1--2, $\pnh\dto G(F^{-1}(U))$. Three implications.
+$\pnh$ is not uniform unless $G=F$. The asymptotic cdf is $H=F\circ G^{-1}$.
+And $H$ does not depend on $B$ --- the bias has been subtracted away in both
+$F$ and $G$. \emph{This is the algebraic miracle that makes the fix feasible.}}
+
+\textbf{Anticipated questions:}
+\Q{Why doesnt $B$ appear in $H$?}
+{Both $F$ and $G$ are cdfs of \emph{centred} variables ($\xi_1$ and
+$\xi_1-\xi_2$ respectively). Centring removes $B$ by construction. The
+information about $B$ is in the location of $\Tn$ itself, not in $H$.}
+
+% ----------------
+\slide{20}{Theorem 3.1 --- proof.}
+\say{Four steps. \emph{Step 1.} Subtract $\Bnh$ from both sides inside $\Pstar$;
+$\Bnh$ is constant under $\Pstar$ since it is $\Dn$-measurable. By Assumption
+2(i) and Polya, $\Pstar(\Tns-\Bnh\le u)\to G(u)$ uniformly. So
+$\pnh=G(\Tn-\Bnh)+o_p(1)$.
+
+\emph{Step 2.} Decompose $\Tn-\Bnh=(\Tn-\Bn)-(\Bnh-\Bn)$. By Assumption 2(ii)
+and CMT, this converges jointly to $\xi_1-\xi_2$.
+
+\emph{Step 3.} $G$ is continuous, so $G(\Tn-\Bnh)\dto G(\xi_1-\xi_2)$.
+
+\emph{Step 4.} $\xi_1-\xi_2$ has continuous cdf $F$, so by the probability
+integral transform $\xi_1-\xi_2$ has the same distribution as $F^{-1}(U)$.
+Plugging in gives $\pnh\dto G(F^{-1}(U))$. Done.}
+
+\textbf{Anticipated questions:}
+\Q{Why is Polya needed?}
+{To upgrade pointwise convergence of $\Pstar(\Tns-\Bnh\le u)$ to uniform.
+We then evaluate at the random argument $\Tn-\Bnh$ and use Slutsky.
+Without continuity of $G$, the substitution does not go through.}
+\Q{Where do you actually use joint convergence of (1.1) and (1.3)?}
+{In Step 2: the CMT applied to the difference requires joint distributional
+convergence, not just marginal.}
+
+% ----------------
+\slide{21}{Three remarks.}
+\say{Remark 3.1 is the most important. Some bootstrap schemes set $\Bnh\pto 0$ ---
+they structurally remove the bias in the bootstrap world. Then $\xi_2=-B$, a
+constant. The distortion of $\pnh$ now \emph{depends on $B$}. So
+prepivoting cannot fix it: $H$ would depend on the unknown $B$, and you cannot
+estimate it. \emph{Lesson: prefer bootstrap schemes that try to capture the bias,
+even noisily.}
+
+Remarks 3.2 and 3.3 are corollaries: confidence intervals are similarly
+invalid, and the bootstrap conditional distribution is random in the limit.}
+
+\trans{Now use Theorem 3.1 to fix the problem --- Corollary 3.1.}
+
+\textbf{Anticipated questions:}
+\Q{Concretely, which schemes give $\Bnh=0$?}
+{The $m$-out-of-$n$ bootstrap for heavy tails (paper's Example 4); the
+cross-sectional pairs bootstrap for dynamic panels (Example 5). Both are
+discussed in the supplement.}
+
+% ----------------
+\slide{22}{Corollary 3.1.}
+\say{$H(\pnh)\dto U[0,1]$. Proof: by Theorem 3.1, $\pnh\dto V$ where
+$V=G(F^{-1}(U))$. Apply $H=F\circ G^{-1}$ to $V$: the inner $G$s cancel,
+leaving $F\circ F^{-1}(U)=U$. By CMT, $H(\pnh)\dto U$.
+
+The reading is that applying $H$ \emph{unwarps} the distorted $\pnh$ back to
+uniform --- exactly what we wanted. Of course, $H$ is unknown, so we need
+$\Hnh$.}
+
+\trans{Two ways to estimate $H$: plug-in, then double bootstrap.}
+
+% ----------------
+\slide{23}{Approach A --- Plug-in (Corollary 3.2).}
+\say{Assume $H=H_\gamma$ for some finite-dimensional $\gamma$, with $\hat\gamma_n
+\pto\gamma$. Corollary 3.2: if $H_\gamma(u)$ is jointly continuous in $(\gamma,u)$,
+then $\pnt:=H_{\hat\gamma_n}(\pnh)\dto U[0,1]$.
+
+The proof is two pieces. First, by joint continuity in $\gamma$,
+$\sup_u|H_{\hat\gamma_n}(u)-H_\gamma(u)|\pto 0$, so $\pnt-H(\pnh)\pto 0$.
+Second, $H(\pnh)\dto U[0,1]$ by Corollary 3.1. Slutsky combines them.
+
+The plug-in approach is cheap --- one bootstrap plus one formula --- but
+requires deriving $H_\gamma$ in closed form. In the Gaussian case, which
+covers our examples, $H$ takes a simple shape; that is the next slide.}
+
+\trans{Gaussian case --- the variance-ratio correction.}
+
+\textbf{Anticipated questions:}
+\Q{If $\hat\gamma_n$ is only $n^{1/2}$-consistent, do we need any rate of convergence?}
+{No, only consistency in probability. The proof goes through Slutsky;
+no rate is required.}
+
+% ----------------
+\slide{24}{Gaussian plug-in --- the correction $m$.}
+\say{Suppose $\xi_1\sim N(0,v^2)$ and $(\xi_1,\xi_2)$ are jointly normal. Write
+$\xi_1-\xi_2\sim N(0,v_d^2)$. Then $G(u)=\Phi(u/v)$, $F(u)=\Phi(u/v_d)$, and
+\[
+  H(u) \;=\; \Phi\bigl(m^{-1}\Phi^{-1}(u)\bigr),
+  \qquad m \;=\; v_d/v.
+\]
+\emph{Reading.} Without (1.3), $\Tn-\Bnh\dto N(0,v^2)$ --- the bootstrap spread
+is $v^2$. Under (1.3), the actual spread is $v_d^2 \neq v^2$. The correction
+$\pnt=\Phi(m^{-1}\Phi^{-1}(\pnh))$ rescales the $p$-value as if the spread had
+always been $v_d^2$. \emph{$B$ drops out completely} --- only standard deviations
+appear.
+
+In our two examples: ridge has $m^2$ depending on $\Sigma_{xx}$ and $c_0$, but
+\emph{not} on the unknown local-to-zero $\delta$ --- so $m$ is estimable.
+Nonparametric is even better: $\sigma^2$ cancels and $m$ depends \emph{only on
+the kernel $K$} --- a known constant, no estimation at all.}
+
+\textbf{Anticipated questions:}
+\Q{Why does $\sigma^2$ cancel only in nonparametric?}
+{In the nonparametric case both $v$ and $v_d$ scale linearly with $\sigma^2$,
+so the ratio is dimensionless in $\sigma$. In ridge the correlation between
+$\xi_1$ and $\xi_2$ is different and $\sigma^2$ does not cancel out.}
+\Q{Is $m$ always less than 1, or always greater?}
+{Generally $m\ge 1$ in these examples: $\xi_1-\xi_2$ has more spread than
+$\xi_1$ because of the extra randomness from $\xi_2$. So the correction
+shrinks $\Phi^{-1}(\pnh)$ toward zero, making the test more conservative.}
+\Q{Why is this a ``ratio of standard deviations'' rather than something with $B$?}
+{Because both $G$ and $F$ are cdfs of \emph{centred} variables; $B$ has been
+subtracted away by definition. So $H$ depends only on the variance structure
+of $(\xi_1,\xi_2)$, not on the bias.}
+
+% ----------------
+\slide{25}{Approach B --- Double bootstrap.}
+\say{If you cannot find $H_\gamma$ analytically, use a double bootstrap. From
+each first-level sample $\Dns$, draw a second-level $\Dnss$. Compute the
+second-level $p$-value $\pnhs$. Estimate $H$ by the bootstrap cdf of $\pnhs$.
+$\pnt$ is then $\Pstar(\pnhs\le\pnh)$ --- the fraction of second-level
+$p$-values below the original.
+
+Theorem 3.2 says this works under Assumptions 1--3. Assumption 3 just says the
+double bootstrap replicates both the noise (at level 2) and the bias gap.}
+
+\trans{Corollary 3.3 gives a much cheaper alternative.}
+
+\textbf{Anticipated questions:}
+\Q{Computational cost?}
+{$B^2$ where $B$ is the bootstrap size --- typically prohibitive. That is why
+Corollary 3.3 matters.}
+
+% ----------------
+\slide{26}{Corollary 3.3 --- the practical shortcut.}
+\say{The double bootstrap modified $p$-value is \emph{asymptotically equivalent}
+to a single-level bootstrap applied to the bias-corrected statistic
+$\Tn-\Bnh$. So if $\Bnh$ is available in closed form (model averaging, ridge),
+no double bootstrap is needed: just bootstrap the bias-corrected statistic.
+
+Note: $\Bnh$ does \emph{not} need to be a consistent estimator of $\Bn$.
+We are not estimating bias --- we are using whatever the bootstrap provides
+as the centring device.}
+
+\trans{Examples revisited.}
+
+\textbf{Anticipated questions:}
+\Q{Doesnt this look like just bias-correcting?}
+{No. We are not bias-correcting in the sense of plugging in an estimator
+of $B$. We are using $\Bnh$ as a centring; $\Bnh$ is biased for $\Bn$ in
+general (that is the whole point). The validity comes from Theorem 3.2,
+not from $\Bnh\to B$.}
+
+% ====================================================================
+\section{Part 4 --- Examples revisited (slides 27--28)}
+
+\slide{27}{Ridge --- implementing the fix.}
+\say{Same recipe. The variance ratio simplifies to a ratio involving
+$\Sigma_{xx}$ and the regularised version $\tilde\Sigma_{xx}$.
+Sanity check: when $c_0=0$ (no shrinkage), $m=1$ and there is no correction ---
+ridge collapses to OLS, which is unbiased.}
+
+% ----------------
+\slide{28}{Nonparametric --- implementing the fix.}
+\say{The cleanest case: $m$ depends \emph{only on the kernel}, no estimation
+needed. Compute $\hat\beta_h(x)$ at the MSE-optimal bandwidth, run the
+parametric bootstrap, look up $m$ from the kernel, report
+$\pnt=\Phi(m^{-1}\Phi^{-1}(\pnh))$.
+
+Compare to existing approaches. Undersmoothing kills the bias but at the cost
+of power. Robust bias correction (CCF 2018) needs a second bandwidth. This
+paper: keep the MSE-optimal $h$, one-line correction, no estimation of
+$\beta''(x)$. Cleaner and finite-sample friendly.}
+
+\trans{Wrap-up.}
+
+\textbf{Anticipated questions:}
+\Q{Why does the paper not include simulations?}
+{They are in the supplement.}
+
+% ====================================================================
+\section{Part 5 --- Wrap-up}
+
+\slide{29}{Summary.}
+\say{Four bullets.
+
+\emph{Problem.} Asymptotic bias $B$ that the bootstrap cannot replicate
+makes $\pnh$ non-uniform.
+
+\emph{Diagnosis.} The bootstrap bias $\Bnh$ misses $B$ by a non-vanishing random
+$\xi_2$. Source: an inestimable quantity at the $n^{-1/2}$ boundary.
+
+\emph{Fix.} The asymptotic cdf $H=F\circ G^{-1}$ of $\pnh$ is continuous and
+free of $B$. So $\pnt=\Hnh(\pnh)\dto U[0,1]$.
+
+\emph{Two routes.} Plug-in (Gaussian: variance ratio $m=v_d/v$) or double
+bootstrap. Corollary 3.3 reduces the latter to a single bootstrap of
+$\Tn-\Bnh$.
+
+The bigger picture for the reading group: a third role for the bootstrap.
+Not variance, not refinement, but \emph{rescuing inference} when the
+first-order bootstrap is invalid --- without ever estimating the bias.}
+
+\trans{Questions.}
+
+% ====================================================================
+\section{Catch-all questions to be ready for}
+
+\Q{Why not just do uniform inference using subsampling (Politis--Romano)?}
+{Subsampling is consistent under weaker conditions, but it can be very
+imprecise in finite samples and choosing the subsample size $b$ is delicate.
+Prepivoting requires stronger assumptions but, when applicable, gives a
+clean closed-form correction (especially in the Gaussian case).}
+
+\Q{Is this the same as Andrews--Guggenberger size-correction?}
+{Both target asymptotic non-uniformity, but the mechanisms differ.
+Andrews--Guggenberger correct for non-uniform convergence over the
+parameter space; Cavaliere et al.\ correct for a random bootstrap distribution
+in the limit at a single parameter value.}
+
+\Q{What happens under heteroskedasticity / dependence?}
+{Use a bootstrap that handles it (wild, block) and re-derive Assumption 2.
+The framework does not change; only the verification of (1.2) and (1.3).}
+
+\Q{Could $H$ depend on a nuisance parameter that is itself not consistently estimable?}
+{Yes, in principle. The plug-in approach then fails, but the double bootstrap
+can still work --- it estimates $H$ nonparametrically. This is exactly the
+selling point of double bootstrap.}
+
+\Q{Why prepivoting and not simply bootstrap-of-bootstrap on the studentised statistic?}
+{Studentisation only fixes scale, not bias. The non-uniformity here is
+location-driven (random $\Bnh-B$). Studentisation does not address that.}
+
+\Q{If $\Bnh$ is implicit, how do we even compute the correction in practice?}
+{For Gaussian limits we never compute $\Bnh$ directly; we estimate the
+\emph{variances} $v^2$ and $v_d^2$. For Corollary 3.3 we do need a closed
+form for $\Bnh$, which the paper provides for ridge and model averaging.}
+
+\Q{How robust is the prepivoted test to misspecification?}
+{Same robustness as the underlying bootstrap. Prepivoting is a transformation;
+it does not strengthen distributional assumptions but inherits them.}
+
+
+
+
+% ============================================================
+\section{Modes of Convergence Used in the Paper}
+% ============================================================
+ 
+\subsection{Standard convergence}
+ 
+\begin{definition}[Convergence in probability]
+  $Y_n \xrightarrow{p} \xi$ means: for every $\varepsilon > 0$,
+  \[
+    P(|Y_n - \xi| > \varepsilon) \to 0 \quad\text{as } n \to \infty.
+  \]
+  The random variable $Y_n$ gets arbitrarily close to $\xi$ with
+  probability approaching~1. When $\xi = c$ is a constant, this is the
+  usual consistency statement (e.g.\ $\hat\sigma^2_n \xrightarrow{p} \sigma^2$).
+\end{definition}
+ 
+\begin{definition}[Convergence in distribution]
+  $Y_n \xrightarrow{d} \xi$ means: for every continuity point $u$ of
+  the cdf of $\xi$,
+  \[
+    P(Y_n \le u) \to P(\xi \le u).
+  \]
+  This is weaker than convergence in probability: $Y_n$ and $\xi$ need not
+  be close in any single realisation; only their \textit{distributions}
+  converge. The CLT is the canonical example:
+  $\sqrt{n}(\bar X_n - \mu)/\sigma \xrightarrow{d} N(0,1)$.
+\end{definition}
+ 
+% ============================================================
+\subsection{Bootstrap convergence}
+ 
+\begin{definition}[Bootstrap weak convergence in probability: $\xrightarrow{d^*}_p$]
+  $Y_n^* \xrightarrow{d^*}_p \xi$ means: for every continuity point $u$ of
+  the cdf $G(u) = P(\xi \le u)$,
+  \[
+    P^*(Y_n^* \le u) - G(u) \xrightarrow{p} 0.
+  \]
+  Here $P^*(\cdot) = P(\cdot \mid D_n)$ is the \textbf{conditional}
+  probability given the original data~$D_n$. The quantity
+  $P^*(Y_n^* \le u)$ is itself a random variable (it depends on which
+  $D_n$ was observed). The statement says: this random cdf converges
+  \textit{in probability} (over realisations of $D_n$) to the
+  deterministic cdf $G$.
+ 
+  \medskip
+ 
+  \textbf{Why ``in probability''?}
+  Different realisations of $D_n$ give different bootstrap distributions.
+  For most datasets the bootstrap cdf will be close to $G$, but for some
+  pathological datasets it might not be. The ``in probability'' qualifier
+  says the set of bad datasets has vanishing probability.
+ 
+  \medskip
+ 
+  \textbf{Equivalently:} $Y_n^* = o_{p^*}(1)$ means
+  $P^*(|Y_n^*| > \varepsilon) \xrightarrow{p} 0$ for all $\varepsilon > 0$.
+\end{definition}
+ 
+\begin{definition}[Double bootstrap convergence: $\xrightarrow{d^{**}}_{p^*}$, in probability]
+  $Y_n^{**} \xrightarrow{d^{**}}_{p^*} \xi$, in probability, means: for
+  every continuity point $u$ of $G$,
+  \[
+    P^{**}(Y_n^{**} \le u) - G(u) \xrightarrow{p^*}_p 0.
+  \]
+  Now $P^{**}(\cdot) = P(\cdot \mid D_n^*, D_n)$ is conditional on both
+  the first-level bootstrap data $D_n^*$ and the original data $D_n$.
+  The convergence $\xrightarrow{p^*}_p 0$ means: the $P^*$-probability
+  that $|P^{**}(Y_n^{**} \le u) - G(u)|$ exceeds~$\varepsilon$ converges
+  to zero in $P$-probability.
+ 
+  \medskip
+ 
+  In plain language: for most original datasets $D_n$, and for most
+  first-level bootstrap datasets $D_n^*$ drawn from $D_n$, the
+  second-level bootstrap cdf is close to $G$.
+\end{definition}
+ 
+% ============================================================
+\subsection{How they relate in the paper}
+ 
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+  \toprule
+  Statement & What's random & Conditioned on \\
+  \midrule
+  $T_n - B_n \xrightarrow{d} \xi_1$
+    & $T_n$ (through $D_n$)
+    & nothing \\[4pt]
+  $T_n^* - \hat B_n \xrightarrow{d^*}_p \xi_1$
+    & $T_n^*$ (through bootstrap variates)
+    & $D_n$ \\[4pt]
+  $T_n^{**} - \hat B_n^* \xrightarrow{d^{**}}_{p^*} \xi_1$
+    & $T_n^{**}$ (through level-2 variates)
+    & $D_n^*$ and $D_n$ \\
+  \bottomrule
+\end{tabular}
+\end{center}
+ 
+Each level adds one layer of conditioning. The ``in probability''
+qualifiers handle the fact that the conditioning set is itself random.
+ 
+% ============================================================
+\section{Two Key Theorems Used in the Proofs}
+% ============================================================
+ 
+\subsection{Polya's theorem}
+ 
+\begin{remark}[Polya's theorem]
+  If $F_n(u) \to F(u)$ pointwise and $F$ is \textbf{continuous}, then
+  the convergence is \textbf{uniform}:
+  \[
+    \sup_{u \in \R} |F_n(u) - F(u)| \to 0.
+  \]
+\end{remark}
+ 
+\textbf{Why the paper needs this.}
+In the proof of Theorem~3.1, we have
+$P^*(T_n^* - \hat B_n \le u) \to G(u)$ pointwise (from Assumption~2(i)).
+We then evaluate this at the \textit{random} point $u = T_n - \hat B_n$.
+Pointwise convergence alone does not let you plug in a random argument ---
+the error could be large exactly where the random point lands.
+Uniform convergence (via Polya, using continuity of $G$) guarantees the
+error is small \textit{everywhere simultaneously}, so plugging in a
+random point is safe:
+\[
+  |\hat p_n - G(T_n - \hat B_n)|
+  \le \sup_u |P^*(T_n^* - \hat B_n \le u) - G(u)|
+  \xrightarrow{p} 0.
+\]
+ 
+\textbf{This is why Assumption~1 requires $G$ continuous.}
+Without continuity, Polya does not apply, uniform convergence fails,
+and the proof breaks at Step~1.
+ 
+\subsection{The probability integral transform (PIT)}
+ 
+\begin{remark}[PIT]
+  If $X$ has continuous cdf $F$, then $F(X) \sim U[0,1]$.
+\end{remark}
+ 
+\textit{Proof in one line:}
+$P(F(X) \le u) = P(X \le F^{-1}(u)) = F(F^{-1}(u)) = u$.
+ 
+\medskip
+ 
+The paper uses the PIT twice:
+\begin{enumerate}[label=(\arabic*)]
+  \item In the \textbf{benchmark} (consistency case):
+    $G(\xi_1) \sim U[0,1]$ because $\xi_1$ has cdf $G$.
+  \item In \textbf{Corollary~3.1}:
+    $H(\hat p_n) \xrightarrow{d} U[0,1]$ because $\hat p_n$ has
+    asymptotic cdf $H$.
+\end{enumerate}
+ 
+\textbf{This is why $G$ must be strictly increasing} (for use~1: ensures
+$G^{-1}$ exists cleanly) and \textbf{$H$ must be continuous} (for use~2:
+ensures the transform works for the $p$-value).
+ 
+% ============================================================
+\section{Ridge Regression Example --- Full Walkthrough}
+% ============================================================
+ 
+\subsection{Why ridge? Where is it used?}
+ 
+Ridge regression (and penalised estimation more broadly: LASSO, elastic
+net) is the standard tool when you have many regressors with limited
+individual explanatory power. You shrink coefficients toward zero to
+reduce variance at the cost of some bias. This is now ubiquitous in
+applied econometrics --- high-dimensional controls in causal inference,
+machine learning for prediction, regularised IV, etc.
+ 
+\subsection{The model}
+ 
+Linear regression $y_t = \theta'x_t + \varepsilon_t$, $t = 1,\ldots,n$,
+where $x_t$ is a $p \times 1$ non-stochastic vector and
+$\varepsilon_t \sim \text{iid}(0,\sigma^2)$.
+ 
+\medskip
+ 
+Interest is in testing $H_0 : g'\theta = r$ for a known vector $g$
+(e.g.\ $g = e_j$ tests the $j$-th coefficient).
+ 
+\subsection{The ridge estimator}
+ 
+The ridge estimator minimises the penalised least squares criterion:
+\[
+  \frac{1}{n}\|y - X\theta\|^2 + \frac{c_n}{n}\|\theta\|^2
+\]
+giving the closed-form solution:
+\[
+  \tilde\theta_n
+  = \Bigl(S_{xx} + \frac{c_n}{n}I_p\Bigr)^{-1} S_{xy}
+  =: \tilde S_{xx}^{-1} S_{xy}
+\]
+where $S_{xx} = X'X/n$ and $S_{xy} = X'y/n$.
+ 
+\medskip
+ 
+\textbf{What does ridge do mechanically?}
+OLS inverts $S_{xx}$; ridge inverts $S_{xx} + \frac{c_n}{n}I_p$, a
+\textit{larger} matrix (in the positive-definite sense). Inverting a
+larger matrix gives smaller coefficients --- ridge systematically pulls
+$\tilde\theta_n$ toward zero. When $\theta \ne 0$, this pull is bias.
+ 
+\subsection{The source of bias}
+ 
+The key algebraic identity:
+\[
+  \tilde S_{xx}^{-1} S_{xx} - I_p = -\frac{c_n}{n}\tilde S_{xx}^{-1}
+\]
+This follows from $S_{xx} = \tilde S_{xx} - \frac{c_n}{n}I$, so
+$\tilde S_{xx}^{-1} S_{xx} = I - \frac{c_n}{n}\tilde S_{xx}^{-1}$.
+ 
+\medskip
+ 
+Using $S_{xy} = S_{xx}\theta + X'\varepsilon/n$:
+\[
+  \tilde\theta_n - \theta
+  = \underbrace{-\frac{c_n}{n}\tilde S_{xx}^{-1}\theta}_{\text{bias (shrinkage)}}
+  + \underbrace{\tilde S_{xx}^{-1}\frac{X'\varepsilon}{n}}_{\text{noise}}
+\]
+ 
+The bias is proportional to $\frac{c_n}{n}$ (penalty strength) times
+$\tilde S_{xx}^{-1}\theta$ (shrinkage direction). This is entirely
+mechanical --- ridge pulls $\tilde\theta_n$ toward zero, and the amount
+of pull depends on how large $\theta$ is and how strong the penalty is.
+ 
+\subsection{The local-to-zero framework}
+ 
+Set $\theta = \delta n^{-1/2}$ and $c_n/n \to c_0 > 0$.
+ 
+\medskip
+ 
+\textbf{Why this parametrisation?}
+\begin{itemize}
+  \item If $\theta$ is fixed: the normalised bias
+    $n^{1/2} \cdot \frac{c_n}{n}\tilde S_{xx}^{-1}\theta \to \infty$.
+    Ridge is terrible. Not interesting.
+  \item If $\theta = 0$: no bias. Ridge $=$ OLS asymptotically.
+    Not interesting either.
+  \item If $\theta = \delta n^{-1/2}$: the normalised bias
+    $\frac{c_n}{n}\tilde S_{xx}^{-1}\delta \to c_0\tilde\Sigma_{xx}^{-1}\delta$,
+    a nonzero constant. \textit{This is the boundary where bias and noise
+    are the same asymptotic order} --- the regime where shrinkage
+    genuinely helps but also genuinely distorts inference.
+\end{itemize}
+ 
+\subsection{The test statistic and (1.1)}
+ 
+Multiply by $n^{1/2}$ and apply $g'$:
+\[
+  T_n := n^{1/2}(g'\tilde\theta_n - r)
+  = \underbrace{-\frac{c_n}{n}g'\tilde S_{xx}^{-1}\delta}_{B_n \;\to\; B \,=\, -c_0 g'\tilde\Sigma_{xx}^{-1}\delta}
+  + \underbrace{g'\tilde S_{xx}^{-1}\frac{X'\varepsilon}{n^{1/2}}}_{\xi_{1,n} \;\xrightarrow{d}\; N(0, v^2)}
+\]
+where $v^2 = \sigma^2 g'\tilde\Sigma_{xx}^{-1}\Sigma_{xx}\tilde\Sigma_{xx}^{-1}g$.
+ 
+\medskip
+ 
+This confirms (1.1): $T_n - B_n \xrightarrow{d} \xi_1 \sim N(0,v^2)$
+with $B = -c_0 g'\tilde\Sigma_{xx}^{-1}\delta \ne 0$.
+ 
+\subsection{Why $B$ cannot be consistently estimated}
+ 
+To estimate $B = -c_0 g'\tilde\Sigma_{xx}^{-1}\delta$, we can estimate
+$c_0$, $\tilde\Sigma_{xx}$, and $g$ consistently. But $\delta$ requires:
+\[
+  n^{1/2}\hat\theta_n = n^{1/2}\theta + n^{1/2}(\hat\theta_n - \theta)
+  = \delta + O_p(1).
+\]
+The $O_p(1)$ noise never vanishes --- we observe $\delta$ plus
+irreducible noise, and no amount of data can separate them.
+ 
+\subsection{The bootstrap and (1.2)}
+ 
+Pairs bootstrap: resample $(y_t^*, x_t^*)$ iid from $(y_t, x_t)$.
+Compute $\tilde\theta_n^* = \tilde S_{x^*x^*}^{-1}S_{x^*y^*}$ and
+\[
+  T_n^* = n^{1/2}g'(\tilde\theta_n^* - \hat\theta_n).
+\]
+ 
+\textbf{Why centre at $\hat\theta_n$ (OLS), not $\tilde\theta_n$ (ridge)?}
+In the bootstrap world, the ``true parameter'' is whatever makes
+bootstrap errors uncorrelated with regressors. OLS satisfies
+$\sum x_t(y_t - x_t'\hat\theta_n) = 0$, so
+$E^*[x_t^*\varepsilon_t^*] = 0$. Ridge does not satisfy this first-order
+condition --- centring at $\tilde\theta_n$ would create spurious
+correlation. Same principle as GMM bootstrap (Horowitz).
+ 
+\medskip
+ 
+The implicit bootstrap bias is
+$\hat B_n = -\frac{c_n}{n}g'\tilde S_{xx}^{-1}n^{1/2}\hat\theta_n$
+(using $\tilde S_{x^*x^*}^{-1} - \tilde S_{xx}^{-1} = o_{p^*}(1)$).
+Then:
+\[
+  T_n^* - \hat B_n \xrightarrow{d^*}_p N(0, v^2).
+\]
+This confirms (1.2): the bootstrap captures the noise correctly.
+ 
+\subsection{The failure: (1.3)}
+ 
+\[
+  \hat B_n - B_n
+  = -\frac{c_n}{n}g'\tilde S_{xx}^{-1} \cdot n^{1/2}(\hat\theta_n - \theta)
+  \xrightarrow{d} \xi_2 \sim N(0, v_{22}), \quad v_{22} > 0.
+\]
+This holds because $n^{1/2}(\hat\theta_n - \theta) = O_p(1)$, not
+$o_p(1)$. The bootstrap bias $\hat B_n$ tracks $B_n$ with irreducible
+noise of the same order as $B_n$ itself.
+ 
+\medskip
+ 
+\textbf{Key structural insight:} both $T_n - B_n$ and $\hat B_n - B_n$
+are linear in the same score $n^{1/2}S_{x\varepsilon}$:
+\[
+  \begin{pmatrix}T_n - B_n \\ \hat B_n - B_n\end{pmatrix}
+  = \begin{pmatrix}g'\tilde S_{xx}^{-1} \\
+    -c_n n^{-1}g'\tilde S_{xx}^{-1}S_{xx}^{-1}\end{pmatrix}
+  n^{1/2}S_{x\varepsilon}
+  \xrightarrow{d} N(0, V)
+\]
+They are jointly normal and correlated because they share the same
+source of randomness.
+ 
+\subsection{The fix}
+ 
+Lemma~4.4 verifies Assumptions~1 and 2 with $(\xi_1, \xi_2) \sim N(0,V)$.
+The distortion parameter simplifies to:
+\[
+  m^2 = \frac{g'\Sigma_{xx}^{-1}g}
+             {g'\tilde\Sigma_{xx}^{-1}\Sigma_{xx}\tilde\Sigma_{xx}^{-1}g}
+\]
+using the algebraic identity
+$\Sigma_{xx} + 2c_0 I + c_0^2\Sigma_{xx}^{-1}
+= \tilde\Sigma_{xx}\Sigma_{xx}^{-1}\tilde\Sigma_{xx}$.
+ 
+\medskip
+ 
+\textbf{Plug-in recipe:}
+\begin{enumerate}
+  \item Compute ridge $\tilde\theta_n$ and
+    $T_n = n^{1/2}(g'\tilde\theta_n - r)$.
+  \item Run pairs bootstrap: resample $(y_t^*, x_t^*)$, centre at OLS:
+    $T_n^{*(b)} = n^{1/2}g'(\tilde\theta_n^{*(b)} - \hat\theta_n)$.
+    Compute $\hat p_n = B^{-1}\sum_b \mathbf{1}\{T_n^{*(b)} \le T_n\}$.
+  \item Estimate $m$ from sample moments:
+    $\hat m_n^2 = (g'S_{xx}^{-1}g) / (g'\tilde S_{xx}^{-1}S_{xx}\tilde S_{xx}^{-1}g)$.
+  \item Report $\tilde p_n = \Phi(\hat m_n^{-1}\Phi^{-1}(\hat p_n))$.
+\end{enumerate}
+ 
+\medskip
+ 
+\textbf{Sanity checks:}
+\begin{itemize}
+  \item $c_0 = 0 \Rightarrow \tilde\Sigma_{xx} = \Sigma_{xx}
+    \Rightarrow m = 1$: no correction needed (ridge $=$ OLS).
+  \item $m$ depends on $\Sigma_{xx}$ and $c_0$ (estimable), \textit{not}
+    on $\delta$ (inestimable). The unknown bias $B$ drops out completely.
+  \item $\hat m_n \xrightarrow{p} m$ because $S_{xx} \to \Sigma_{xx}$ and
+    $\tilde S_{xx} \to \tilde\Sigma_{xx}$.
+\end{itemize}
+ 
+Lemma~4.5 verifies Assumption~3, so the double bootstrap is also valid.
+ 
+
+\end{document}

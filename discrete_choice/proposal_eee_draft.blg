@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: proposal_eee_draft.aux
+Reallocating 'name_of_file' (item size: 1) to 8 items.
+The style file: apalike.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+Warning--I didn't find a database entry for "hu2008instrumental"
+Warning--empty journal in bunting2024heterogeneity
+You've used 19 entries,
+            1935 wiz_defined-function locations,
+            593 strings with 7180 characters,
+and the built_in function-call counts, 7256 in all, are:
+= -- 730
+> -- 251
+< -- 14
++ -- 88
+- -- 80
+* -- 612
+:= -- 1267
+add.period$ -- 58
+call.type$ -- 19
+change.case$ -- 134
+chr.to.int$ -- 19
+cite$ -- 20
+duplicate$ -- 267
+empty$ -- 522
+format.name$ -- 113
+if$ -- 1408
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 18
+newline$ -- 99
+num.names$ -- 57
+pop$ -- 95
+preamble$ -- 1
+purify$ -- 135
+quote$ -- 0
+skip$ -- 211
+stack$ -- 0
+substring$ -- 587
+swap$ -- 25
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 112
+warning$ -- 1
+while$ -- 64
+width$ -- 0
+write$ -- 247
+(There were 2 warnings)
