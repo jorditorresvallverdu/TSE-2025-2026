@@ -234,6 +234,11 @@ A useful difference from \citet{arcidiacono2025college} is that $G_{ibt}$ are st
 \end{equation}
 The balanced grade panel sharply identifies $(\Lambda_b, \sigma_b^2, \Sigma_0)$ via cross-individual covariances, without the joint outcome-and-choice likelihood \citet{arcidiacono2025college} require. 
 
+
+\subsection{Production function, outcomes}
+
+\textcolor{blue}{\textbf{PENDING: it is crucial here to show that outcomes are well identified-- that we can handle selection into treatment vs potential outcomes. Here I can lay down a bunch of outcomes we may be interested in; that we observe etc. }}
+
 \subsection{School's information set and the DGP for $Z$}
 
 One of the key assumptions of the paper is that the school observes more than the student In addition to $(\theta^k_i, G_{it}, X_{it})$, it observes
@@ -287,6 +292,50 @@ $\theta^u$ is unobserved by everyone, so the rule cannot condition on it directl
 
 \paragraph{Assumption A6 (cycle-architecture).} The equilibrium rule depends on schools only through $\tau(s)$. Testable by comparing within-$\tau$ to between-$\tau$ variation in $\hat\rho_s$. If within-$\tau$ heterogeneity is large, the CF in \S\ref{sec:cf} is reinterpreted as replacing C123 rules with the C1-average rule.
 
+
+\subsection{Alternative school rule}
+Now suppose we want to model the decision of the school. One of the main issues is that we don't observe capacity constraints at the subtrack level. Those are likely less severe, no? what matters is the official track and then the system allows certain freedom to students and their choice seems unrestricted...In a given school why not all students can do stem? the thing is that some of them don't want to. Can we assume it is sort of unconstrained. Well...given the data, a more reasonable way to model the recommendation of the school is the following: 
+
+Suppose school $s$ gives recommendation $R_{it}$. This recommendation is at two levels; that is: $R_{it}= \{R_{it}^{\text{track}} \cap  R_{it}^{\text{subtrack}}\}$. First, schools rank students based on their overall academic index for each track $I_{itj}$. Where: \(I_{itj}= \alpha_{s} + W_{ijt}'\beta_{\tau} + \eta_{ijt}\), then they allocate the advice based on per track capacity $j$, which we can define as= \(x_{j}^{s}=(1+b_{s})\frac{K_{jt}^{s}}{K_{t}^{s}}\), where $b_{s}$ is a buffer that differs at the school level: some schools may increase some seats wrt to our baseline measure. So we can model this as: 
+
+
+Second, conditional on $R_{it}^{\text{track}}$ schools recommend students to STEM/non-STEM based on their comparative advantage. Here there are no capacity constraints. Schools rank students on a STEM nonSTEM index and recommend based on: \(R_{sit}=\text{STEM} \iff I_{sit}>I_{nsit}\) where \(I_{sit}= W_{sit}'\beta_{\text{stem} + \eta_{sit}}\). Issue here is that here  $W_{sit}$ is different than bfore? I assume stem nonstem margins seems more naturally affected by the Z ranking...as we saw in the descriptives. But how to justify the two models? I think because of the capacity constraints. 
+
+This is for each $t$, but then schools anticipate responses of the students given Rit, so why is not the following the problem they are solving?
+
+School $S$ generates the following index for each student: \(I_{ijt}= W_{it}'\beta_{j\tau} - \lambda_{jt}\), where $W_{it} \in \mathcal{I}_{it}^{s}$ and $\lambda_{jt}$ are just capacity constraints --- this I need to check better the literatur--- but I understand it all boils down to ordered logit with this constraint going in the opposite direction. Then: \(R_{it}= \arg \max_{j} I_{ijt}\)???? I don't think this is the case... and then:
+
+\[
+R_{it}= \arg \max \mathbf{E}\left[V_{school}\right]
+\]
+
+Where \(V_{school}= \sum_{t}\sum_{i}\mathbf{P}(D_{ij}=d_{ij})* V_{ij}\)
+
+Another possibility, just to understand the nature of the fixed point and the stackelberg game. Here the point is that schools commit to a rule, but this rule takes into account the response of the students. This makes it fixed point and stackelberg bites. Let's suppose again that schools give advice according to the rule:
+
+\[
+R_{it}(\beta_{tau})= \arg \max_{j}\{\alpha_{t} + I_{ijt}- \alpha_{jt}\}
+\]
+
+Where $I_{ijt}= W_{ijt}'\beta_{\tau} + \eta_{ijt}$, here $W_{ijt}$ it is whatever is in the information set of the school (rank etc), $\eta_{ijt}$ is EV type 1. Here $\alpha_{jt}$ are the capacity constraints. Does this implicitly captures the ranking idea? I think so. Unsure however if this ensures what we need. We can add a period $\alpha_{t}$ to capture that the rule may vary across time? The idea is that this rule is applied every year. Also, here schools only vary at the constraints? this rule should be computed per school? Should I ADD subscript for school; they vary at the capacity constraints... pull students, etc. 
+
+Then schools solve:
+
+\[
+\max_{\beta_{\tau}} \sum_{i} \sum_{t}  \mathbf{P}(D_{it}= d_{it}| R_{it}(\beta_{\tau}, X, \theta_{k})) V_{i}^{\text{school}}
+\]
+s.t the following constraints: 
+\begin{enumerate}
+  \item \(V_{i}=\int_{i} \sum_{j}\sum_{t}\left[y_{jit} + \omega \mathbf{1}\{y_{jit}>y^{*}\}\right]\)
+  \item Capacity
+  \item $ \mathbf{P}(D_{it}= d_{it}| R_{it}(\beta_{\tau}))$
+  \item 
+\end{enumerate}
+
+
+\subsubsection{Equilibrium}
+
+\textcolor{blue}{\textbf{PENDING: question is if BPE is enough or we are in a setting of bayesian persuasion etc and we are completing too much to define what and equilibrium is and to find conditions under which it is unique...}}
 \subsection{Student's beliefs and Bayesian updating}
 \label{sec:beliefs}
 

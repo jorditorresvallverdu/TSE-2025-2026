@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.12.15)  9 MAY 2026 21:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.12.15)  27 MAY 2026 13:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -805,11 +805,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [5]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 237.
+(hyperref)                removing `math shift' on input line 242.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 237.
+(hyperref)                removing `math shift' on input line 242.
 
 
 
@@ -820,46 +820,51 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [8]
 
 [9]
-Underfull \hbox (badness 2426) in paragraph at lines 452--452
-[]|\OT1/cmr/m/n/10 Big Five sub-scales (Eind-vra-gen-li-jst,
- []
-
-
-Package natbib Warning: Citation `hu2008instrumental' on page 10 undefined on input line 466.
+Overfull \vbox (1.63263pt too high) has occurred while \output is active []
 
 
 
 [10]
+Underfull \hbox (badness 2426) in paragraph at lines 501--501
+[]|\OT1/cmr/m/n/10 Big Five sub-scales (Eind-vra-gen-li-jst,
+ []
 
-[11
+
+Package natbib Warning: Citation `hu2008instrumental' on page 11 undefined on input line 515.
+
+
+
+[11]
+
+[12
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.504 
-      ] (proposal_eee_draft.bbl
+l.542 \end{equation*}
+                     ] (proposal_eee_draft.bbl
 
-[12])
+[13])
 
 Package natbib Warning: There were undefined citations.
 
 
 
-[13] (proposal_eee_draft.aux)
+[14] (proposal_eee_draft.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
 Package rerunfilecheck Info: File `proposal_eee_draft.out' has not changed.
-(rerunfilecheck)             Checksum: 1E04BF2ABCF67E5B318C1F963AD90CCA;2707.
+(rerunfilecheck)             Checksum: 0D9F09DA6E8708FAA0EF798D39D105C9;3220.
  ) 
 Here is how much of TeX's memory you used:
- 24809 strings out of 473682
- 499891 string characters out of 5703553
- 881972 words of memory out of 5000000
- 47358 multiletter control sequences out of 15000+600000
- 567006 words of font info for 70 fonts, out of 8000000 for 9000
+ 24831 strings out of 473682
+ 500207 string characters out of 5703553
+ 881982 words of memory out of 5000000
+ 47369 multiletter control sequences out of 15000+600000
+ 567937 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,16n,107p,1361b,567s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,16n,107p,1361b,563s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not exist, replaced by a fixed one
 
@@ -900,9 +905,9 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
  </Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm0800.pk> </Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi5.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr6.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy5.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti8.pfb></Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on proposal_eee_draft.pdf (13 pages, 399035 bytes).
+Output written on proposal_eee_draft.pdf (14 pages, 413085 bytes).
 PDF statistics:
- 488 PDF objects out of 1000 (max. 8388607)
- 118 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 509 PDF objects out of 1000 (max. 8388607)
+ 126 named destinations out of 1000 (max. 500000)
+ 157 words of extra memory for PDF output out of 10000 (max. 10000000)
 
