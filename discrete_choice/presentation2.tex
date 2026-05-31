@@ -1,0 +1,228 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+\usetheme{metropolis}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,fit,backgrounds}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+
+\hypersetup{colorlinks=true,linkcolor=blue!70!black,urlcolor=blue!70!black}
+
+\title{Optimal Tracking and Teacher Discretion}
+\subtitle{Update --- May 2026}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{New descriptives}
+
+\begin{frame}{Who follows the recommendation?}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{6pt}
+
+\textbf{Alignment between teacher advice and student track choice (G2 $\to$ G3)}
+
+\bigskip
+
+\begin{tabular}{lccc}
+\toprule
+ & Follow advice & Deviate UP & Deviate DOWN \\
+\midrule
+\textbf{All students} & 58\% & 31\% & 11\% \\
+\midrule
+\multicolumn{4}{l}{\textit{By SES}} \\
+\quad Low SES & 58\% & 29\% & 13\% \\
+\quad High SES & 56\% & 37\% & 7\% \\
+\midrule
+\multicolumn{4}{l}{\textit{By gender}} \\
+\quad Female & 60\% & 35\% & 6\% \\
+\quad Male & 55\% & 27\% & 18\% \\
+\midrule
+\multicolumn{4}{l}{\textit{By cycle architecture}} \\
+\quad C1 (cycle-1 only) & 60\% & 29\% & 11\% \\
+\quad C123 (full cycle) & 55\% & 32\% & 12\% \\
+\bottomrule
+\end{tabular}
+
+\bigskip
+\flushleft
+\footnotesize
+$N = 4{,}438$. ``UP'' = student chooses a higher track than advised (e.g.\ advised TSO, chooses ASO). ``DOWN'' = opposite.
+\end{frame}
+
+\begin{frame}{Summarized:}
+\small
+
+\begin{itemize}\setlength\itemsep{4pt}
+  \item \textbf{Schools recommend conservatively.} Deviations are 3:1 upward vs.\ downward. Students are systematically more ambitious than schools advise.
+  \item \textbf{High-SES students override upward more} (37\% vs.\ 29\%) \textbf{and deviate down less} (7\% vs.\ 13\%). They have the confidence and information to correct conservative advice.
+  \item \textbf{Low-SES students comply more with downward advice.} The recommendation disproportionately binds for low-SES students --- not through differential treatment, but through differential compliance.
+  \item \textbf{C123 schools are more conservative than C1.} Lower compliance (55\% vs.\ 60\%), more upward deviation (32\% vs.\ 29\%). Consistent with retention incentives generating strategic conservatism.
+  \item \textbf{Boys deviate down much more than girls} (18\% vs.\ 6\%) --- likely choosing vocational/technical paths even when school advises academic. 
+  \item \textbf{Note:} it can also be that some groups receive more conservative (or biased) advice on average (i.e women not being recommended to stem all else equal)
+\end{itemize}
+
+\bigskip
+\end{frame}
+
+
+
+\section{Student's choice problem}
+
+
+\begin{frame}{Timing}
+    \begin{itemize}
+        \item \textbf{$t=0$ (Baseline):} Initial measurements taken and school enrollment realized.
+        \item \textbf{$t \in \{1, 2\}$ (Cycle 1):} End-of-year standardized exams administered and school recommendations delivered.
+        \item \textbf{$t=3$ (Track-subtrack Choice):} Binding initial track choice made between ASO, TSO, and BSO and stem nonstem.
+        \item \textbf{$t \ge 4$ (Cycles 2 \& 3):} Potentially repeat 3 for each cycle 2-3 for each cycle.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Sources of heterogeneity}
+    \begin{enumerate}
+        \item \textbf{Known Type ($\theta^k_i$):} Discrete profile capturing cognitive, verbal, non-cognitive, and family traits. Known to agents but latent to us; identified via baseline measurements.
+        \item \textbf{Unknown Match Quality ($\theta^u_i$):} A 5-dimensional vector of track-specific match qualities. Unknown at $t=0$ and learned over time.
+        \item \textbf{Observed Covariates ($X_{it}$):} Exogenous controls like gender, age, and grade level.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Production function}
+    Standardized grades $G_{ibt}$ in Math and Dutch ($b$) provide public signals about $\theta^u_i$:
+    
+    $$G_{ibt} = \mu_b(\theta^k_i, X_{it}) + \Lambda_b^\top \theta^u_i + \epsilon_{ibt}$$
+    
+    \begin{itemize}
+        \item $\epsilon_{ibt}$ is independent Gaussian noise.
+        \item $\Lambda_b^\top$ maps test subjects to track and STEM/Non-STEM comparative advantages.
+        \item \textbf{Key advantage:} The balanced panel of standardized exams is observed for all students regardless of track, allowing selection-free identification of learning parameters.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Learning}
+    Students update their beliefs about $\theta^u_i$ sequentially within each period:
+    
+    \begin{itemize}
+        \item \textbf{Stage 1 (Grades):} Standard Bayesian updating yields a closed-form Gaussian posterior.
+        \item \textbf{Stage 2 (Recommendations):} given grades, the discrete school advice forces an update via an ordered probit likelihood, creating a mixture-of-truncated-normals. Solved via Density Filtering (in progress)
+        \item \textbf{Intuition:} recommendations are informative beyond grades, as we also observe in the data. Can shift up or down the beliefs of the student's fit for each track-subtrack. 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Choice problem}
+    Students maximize expected lifetime utility over track paths, where flow utility depends directly on their subjective belief means (which advice affects). 
+    
+    \begin{itemize}
+        \item \textbf{Standard DDC:} Standard forward-looking maximization over available tracking actions.
+        \item \textbf{Finite Dependence/absorbing state:} we can use dropout or BSO as absorbing state to simplify CCP inversion.  
+        \item \textbf{When is the last period?} Interested in HE too or not?
+    \end{itemize}
+\end{frame}
+
+\section{School's recommendation problem}
+
+\begin{frame}{Two-stage decomposition}
+\small
+
+\bigskip
+
+\textbf{Stage 1: Track recommendation (capacity-constrained).}
+\begin{itemize}\setlength\itemsep{2pt}
+  \item School constructs academic index per track: $I_{ij}^{\mathrm{track}} = W_{it}^\top \alpha_{j,\tau} + \nu_{ijt}$
+  \item Ranks students, recommends top $x_j^s = (1+b_s) \cdot K_{jt}^s / N_s$ to each track
+  \item Vertical ordering: ASO $>$ TSO $>$ BSO on academic ability
+  \item Estimated how? \(max_{j}\{I_{ij}^{\mathrm{track}} - \kappa_{j}\}\) where $\kappa_{j}$ are implicit cutoffs.
+\end{itemize}
+
+\bigskip
+
+\textbf{Stage 2: Subtrack recommendation (unconstrained).}
+\begin{itemize}\setlength\itemsep{2pt}
+  \item Conditional on track, school assesses STEM vs.\ nonSTEM comparative advantage
+  \item $R_i^{\mathrm{sub}} = \text{STEM} \iff W_{it}^\top \gamma_{\text{S},\tau} > W_{it}^\top \gamma_{\text{N},\tau} + \omega$
+  \item Key covariates: relative math rank vs.\ relative Dutch rank ($Z$ rankings)
+  \item No capacity constraint --- estimated as binary logit within track
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Stackelberg structure}
+\small
+
+The school doesn't pick $\alpha_{j,\tau}$ arbitrarily --- it anticipates student responses.
+
+\bigskip
+
+\textbf{School's per-period problem:}
+\[
+\max_{\alpha_\tau, \gamma_\tau} \sum_{i} \sum_{j} P\!\big(d_{it} = j \,\big|\, R_{it}(\alpha, \gamma),\, s_{it}\big) \cdot \pi_{ij\tau}
+\]
+subject to track-level capacity: $\sum_i P(R_i^{\text{track}} = j) = x_j^s$
+
+\bigskip
+
+\textbf{Components:}
+\begin{itemize}\setlength\itemsep{3pt}
+  \item $P(d_{it} = j \mid R_{it}, s_{it})$: student's choice probability from estimated dynamic model (beliefs updated via grades + recommendation)
+  \item $\pi_{ij\tau}$: school's payoff $= E^{school}[G_{ij,t+1}] + \omega_\tau \cdot P(\text{pass})$.
+  \item $\omega_\tau$: weight on pass rates. $\omega_{C123} > \omega_{C1}$ generates conservative recommendations at C123 schools
+\end{itemize}
+
+\bigskip
+
+\textbf{Fixed point:} changing $\alpha$ $\to$ changes $R$ $\to$ changes beliefs (moment-matching) $\to$ changes $P(d=j)$ $\to$ school must anticipate this chain.
+
+\end{frame}
+
+\begin{frame}{The core tension}
+\small
+
+The recommendation is \textbf{simultaneously informative and distorted}:
+
+\bigskip
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textbf{Information value}
+\begin{itemize}\setlength\itemsep{3pt}
+  \item School observes $Z$ (relative rank, effort) --- private info students lack
+  \item Recommendation helps students match to right track
+  \item Especially valuable for low-SES students with weak priors
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{Strategic distortion}
+\begin{itemize}\setlength\itemsep{3pt}
+  \item C123 schools push marginal students down to protect pass rates and manage capacity
+  \item High-SES students override $\Rightarrow$ unharmed
+  \item Low-SES students comply $\Rightarrow$ locked into lower tracks
+  \item But: some pushed-down students would have \emph{failed} in ASO --- distortion also protects
+\end{itemize}
+\end{column}
+\end{columns}
+
+\bigskip
+
+\textbf{Net effect is ambiguous} 
+
+\end{frame}
+
+\begin{frame}{Questions for discussion}
+\small
+
+\begin{enumerate}\setlength\itemsep{6pt}
+  \item \textbf{Two-stage decomposition:} is it right that capacity binds at the track level only? At least that is the only element we observe in our dataset.
+  \item \textbf{Embedding the A/B/C certificate} (pending checking the data with capacity if mechanical, if not $\rightarrow$ add another step)
+  \item \textbf{It is feasible to impose Stackelberg structure?} the fixed point requires iterating between the school's rule and student responses ($R_{it}$ affects beliefs, CCPs etc)...student's problem in this case is dynamic.
+  \item \textbf{School's objective:} is next-period grades + pass rate bonus the right specification? Or do we need longer-run outcomes (HE entry, retention)?
+  \item \textbf{Production function / potential outcomes:} balanced grade panel identifies $\theta^u$ without selection correction. Is this sufficient for the welfare evaluation, or do we need HE outcomes too?
+\end{enumerate}
+\end{frame}
+
+\end{document}

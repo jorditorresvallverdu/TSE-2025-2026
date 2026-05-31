@@ -1,0 +1,3 @@
+\beamer@sectionintoc {1}{New descriptives}{2}{0}{1}
+\beamer@sectionintoc {2}{Student's choice problem}{5}{0}{2}
+\beamer@sectionintoc {3}{School's recommendation problem}{11}{0}{3}

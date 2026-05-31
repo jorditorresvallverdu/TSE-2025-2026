@@ -1,0 +1,579 @@
+% =====================================================================
+%  Literature review: Teacher/school recommendations, asymmetric
+%  information, and student choice.
+%  Compiled as a reading list. Each \entry has a commented \note{}
+%  slot right after it -- uncomment and fill in as you re-read.
+%  Compile with: pdflatex litreview.tex
+% =====================================================================
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.1cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+% ---- colors ----
+\definecolor{dark}{HTML}{1A2A40}
+\definecolor{accent}{HTML}{3A5A78}
+\definecolor{tagcol}{HTML}{3A5A78}
+\definecolor{notecol}{HTML}{8A5A00}
+\definecolor{grey}{HTML}{5B6770}
+
+% ---- section formatting ----
+\titleformat{\section}{\large\bfseries\color{dark}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{14pt}{2pt}
+\titleformat{\subsection}{\normalsize\bfseries\color{accent}}{}{0pt}{}
+
+% ---- helper macros ----
+% \entry{citation}{summary}{TAG}
+\newcommand{\entry}[3]{%
+  \par\medskip\noindent\textbf{#1}\par
+  \nopagebreak #2\hspace{0.35em}{\small\color{tagcol}[#3]}\par}
+% annotation slot: uncomment and fill
+\newcommand{\note}[1]{\par\smallskip\noindent\hangindent=1.3em
+  \textcolor{notecol}{\footnotesize$\hookrightarrow$~\textit{#1}}}
+% short section intro
+\newcommand{\secintro}[1]{\par\smallskip\noindent\textcolor{grey}{\small #1}\par
+  \vspace{2pt}\hrule height0.4pt\vspace{4pt}}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% =====================================================================
+\begin{center}
+{\LARGE\bfseries\color{dark} Teacher and School Recommendations,\\[2pt]
+Asymmetric Information, and Student Choice}\\[6pt]
+{\color{grey}\itshape A panoramic, annotated reading list --- emphasis on empirical /
+reduced-form work, with key structural and theory anchors flagged.}\\[2pt]
+{\color{grey}\small Project on track recommendations in the Belgian (LOSO) setting.}
+\end{center}
+\vspace{4pt}
+\hrule
+\vspace{8pt}
+
+\noindent\textbf{How to read / annotate this.} Organised around four questions:
+(A) do schools/teachers hold information students and parents lack;
+(B) why recommendations should be useful (causal / predictive / matching value);
+(C) how schools form recommendations (determinants, bias, statistical discrimination);
+(D) how students/parents respond. Sections E--I add the class-rank channel, the
+belief-formation framework, the statistical-discrimination toolkit, tracking
+foundations, and reviews, for context. \emph{Tags:}
+\textbf{RF} reduced-form empirical; \textbf{EXP} field/lab/survey experiment;
+\textbf{STR} structural; \textbf{THY} theory; \textbf{REV} review.
+After each entry there is a commented \verb|% \note{}| line in the source ---
+uncomment it and type your annotation; it renders as a brown indented note.
+A few venues are flagged \emph{(verify)} where the published outlet/year should be
+double-checked before citing.
+
+% =====================================================================
+\section{A. Do schools and teachers know more than students and parents?}
+\secintro{Evidence that subjective teacher assessments carry information beyond
+test scores, and that parents/students hold inaccurate beliefs an institution
+could (or does) move.}
+
+\entry{Jackson, C. K. (2018). What Do Test Scores Miss? The Importance of Teacher
+Effects on Non--Test Score Outcomes. \textit{Journal of Political Economy}
+126(5).}
+{Teacher effects on behaviours (absences, suspensions, course grades, grade
+progression) are only weakly correlated with their effects on test scores, yet
+predict high-school completion and other long-run outcomes more strongly. Core
+evidence that what teachers observe/affect beyond scores is outcome-relevant ---
+the premise behind a school ``information set''.}{RF}
+% \note{}
+
+\entry{Kinsler, J., and Pavan, R. (2016). Parental Beliefs and Investment in
+Children: The Distortionary Impact of Schools. HCEO Working Paper 2016-029,
+Univ.\ of Chicago.}
+{Parents' beliefs about their child's skill relative to same-age peers are
+distorted by the child's rank \emph{within their own school} (big-fish-little-pond):
+parents in high-achieving schools underestimate, those in low-achieving schools
+overestimate, and this feeds investment (homework help, tutoring). The
+``Kinsler/Pavan'' reference --- schools shaping the information households act on.}{RF / STR}
+% \note{}
+
+\entry{Dizon-Ross, R. (2019). Parents' Beliefs about Their Children's Academic
+Ability: Implications for Educational Investments. \textit{American Economic
+Review} 109(8): 2728--65.}
+{Field experiment in Malawi: parents' baseline beliefs are often wrong and
+information frictions are worse for the poor. Clear, digestible performance
+information shifts beliefs and reallocates investment toward better-matched inputs.
+Clean causal evidence that an institution holding accurate performance information
+changes household decisions.}{EXP}
+% \note{}
+
+\entry{Boneva, T., and Rauh, C. (2018). Parental Beliefs about Returns to
+Educational Investments --- The Later the Better? \textit{Journal of the European
+Economic Association} 16(6): 1669--1711.}
+{Elicits parents' beliefs about the \emph{technology} mapping investments to child
+outcomes; beliefs vary widely, predict actual investment, and differ by SES (lower-SES
+parents perceive lower returns). Directly supports modelling SES-graded priors over
+the skill-to-outcome mapping.}{EXP / survey}
+% \note{}
+
+\entry{Murphy, R., and Wyness, G. (2020). Minority Report: The Impact of Predicted
+Grades on University Admissions (and related work on teacher-predicted grades, UK).}
+{UK students apply with teacher-predicted exam grades; predictions are informative
+but systematically inaccurate and group-skewed (high-achieving low-SES students
+under-predicted). Useful for the noise/bias structure of a school-issued forecast.
+Verify exact outlet/year.}{RF (verify)}
+% \note{}
+
+\entry{[Dutch predictive-validity studies] e.g.\ ``The predictive power of track
+recommendations in Dutch secondary education'' and ``Does the teacher beat the test?
+The value of the teacher's assessment in predicting student ability''.}
+{Dutch micro-data finding the subjective teacher assessment is roughly twice as
+predictive as primary-school cognitive scores for initial track placement, and more
+predictive of later allocation than scores. Strong ``teachers know more'' evidence,
+but confounds prediction with self-fulfilment. Confirm authors/venue.}{RF (verify)}
+% \note{}
+
+\entry{[German comportment-grades study] Assessing Knowledge or Classroom
+Behaviour? Evidence of Teachers' Grading Bias (working paper / EER-type outlet).}
+{Exploits staggered introduction of conduct grades across German states to estimate
+causal effects on school-to-work transitions and non-cognitive skills, and documents
+that subject grades themselves encode behaviour. Speaks to the soft (non-test) content
+teachers fold into evaluations. Verify authorship.}{RF (verify)}
+% \note{}
+
+% =====================================================================
+\section{B. Why should recommendations be useful? Causal and matching value}
+\secintro{Whether teacher expectations/recommendations causally improve (or distort)
+outcomes, whether discretion adds value as a matching device, and how a teacher mark
+signals within the system.}
+
+\entry{Papageorge, N. W., Gershenson, S., and Kang, K. M. (2020). Teacher
+Expectations Matter. \textit{Review of Economics and Statistics} 102(2): 234--251.}
+{Two teachers reported expectations for the same student; their disagreement (a
+measurement-error design) identifies a causal effect. Teacher expectations raise the
+probability of college completion (elasticity $\approx 0.12$); teachers are on average
+over-optimistic, with biases acting like self-fulfilling prophecies. The key
+``expectations are causal'' paper.}{RF}
+% \note{}
+
+\entry{Gershenson, S., Holt, S. B., and Papageorge, N. W. (2016). Who Believes in
+Me? The Effect of Student--Teacher Demographic Match on Teacher Expectations.
+\textit{Economics of Education Review} 52.}
+{Two teachers' differing expectations for the same student reveal systematic
+demographic-match effects (e.g.\ non-Black teachers hold lower expectations for Black
+students). Underpins the idea that recommendations embed the evaluator's identity/
+priors, not just the student's signal.}{RF}
+% \note{}
+
+\entry{Diamond, R., and Persson, P. (2016). The Long-term Consequences of Teacher
+Discretion in Grading of High-stakes Tests. NBER Working Paper 22207.}
+{Bunching in Swedish math-test distributions shows teachers ``bump up'' students who
+had a bad test day (no gender/immigrant discrimination here). A Wald estimator shows a
+higher discretionary grade raises later grades, graduation, college entry, and earnings
+--- even though grades don't raise human capital directly. Interprets grades as a signal
+\emph{within} the education system, with effort/perceived-ability complementarities.
+Close to your recommendation-as-signal mechanism.}{RF}
+% \note{}
+
+\entry{Mulhern, C. (2022). Beyond Teachers: Estimating Individual Guidance
+Counselors' Effects on Educational Attainment. EdWorkingPaper 22-632 (Annenberg/Brown).}
+{Uses quasi-random assignment of students to counsellors in Massachusetts; counsellors
+vary substantially in their effect on graduation, college attendance, selectivity, and
+persistence. Direct evidence that an advisor holding information/guidance moves
+attainment. Verify published version.}{RF (verify)}
+% \note{}
+
+\entry{Ichino, A., Mealli, F., and Viviens, J. (2025). Do Test Scores Help Teachers
+Give Better Track Advice to Students? A Principal Stratification Analysis. Working
+paper (arXiv 2511.05128 / CRENoS).}
+{Dutch quasi-randomised cutoff lets teachers revise recommendations upward when scores
+beat expectations; allowing upgrades raises successful placement in demanding tracks by
+$\geq$6\% while misplacing $\approx$7\% of weaker students, with a welfare analysis over
+short- vs long-term losses. Directly on the value of combining discretion with objective
+signals.}{RF}
+% \note{}
+
+% =====================================================================
+\section{C. How do schools form recommendations? Determinants, bias, discrimination}
+\secintro{The empirical core on what drives recommendations/grades and whether they are
+biased by gender, ethnicity, or SES --- including blind-vs-non-blind designs built to
+isolate bias.}
+
+\entry{Carlana, M. (2019). Implicit Stereotypes: Evidence from Teachers' Gender
+Bias. \textit{Quarterly Journal of Economics} 134(3): 1163--1224.}
+{Exploiting near-random assignment of students to teachers with different Gender-Science
+IAT scores: teacher stereotypes widen the math gender gap and push girls toward less
+demanding high schools, \emph{following the teacher's track recommendation}, partly via
+lowered female self-confidence in math. The model paper for bias working through
+recommendations and beliefs.}{RF}
+% \note{}
+
+\entry{Carlana, M., La Ferrara, E., and Pinotti, P. (2022). Implicit Stereotypes in
+Teachers' Track Recommendations. \textit{AEA Papers and Proceedings} 112: 409--414.}
+{Track-recommendation-specific companion to Carlana (2019): teacher implicit bias maps
+into the recommendations minority/immigrant students receive.}{RF}
+% \note{}
+
+\entry{Alesina, A., Carlana, M., La Ferrara, E., and Pinotti, P. (2018/2024).
+Revealing Stereotypes: Evidence from Immigrants in Schools. NBER WP 25333; published
+version in a top journal (verify outlet/year).}
+{Teachers give lower grades to immigrant-origin students relative to blindly scored
+tests, consistent with stereotypes; informing teachers of their IAT scores reduces the
+gap. Connects grading bias to malleable evaluator beliefs.}{RF / EXP}
+% \note{}
+
+\entry{Botelho, F., Madeira, R. A., and Rangel, M. A. (2015). Racial Discrimination
+in Grading: Evidence from Brazil. \textit{American Economic Journal: Applied Economics}
+7(4): 37--52.}
+{Holding blindly scored proficiency and behaviour constant, Black students receive lower
+teacher-assigned math grades than white classmates; heterogeneity is consistent with
+statistical discrimination. A clean blind-vs-subjective design.}{RF}
+% \note{}
+
+\entry{Lavy, V. (2008). Do Gender Stereotypes Reduce Girls' or Boys' Human Capital
+Outcomes? Evidence from a Natural Experiment. \textit{Journal of Public Economics}
+92(10--11): 2083--2105.}
+{Compares blind (external) and non-blind (teacher) exam scores for the same students to
+recover grading bias; finds bias against boys in this setting. Foundational
+quasi-experimental template for detecting evaluator bias.}{RF}
+% \note{}
+
+\entry{Lavy, V., and Sand, E. (2018). On the Origins of Gender Gaps in Human Capital:
+Short- and Long-Term Consequences of Teachers' Biases. \textit{Journal of Public
+Economics} 167: 263--279.}
+{Early-grade teacher grading bias has lasting effects on later course choices and
+achievement, tracing a long-run channel from biased evaluation to specialization.
+Directly relevant to STEM/non-STEM sorting.}{RF}
+% \note{}
+
+\entry{Terrier, C. (2020). Boys Lag Behind: How Teachers' Gender Biases Affect
+Student Achievement. \textit{Economics of Education Review}.}
+{Within-student blind vs.\ non-blind comparisons: teacher gender bias in grading affects
+subsequent achievement, with boys disadvantaged in this context. Complements Lavy on
+direction and magnitude.}{RF}
+% \note{}
+
+\entry{Burgess, S., and Greaves, E. (2013). Test Scores, Subjective Assessment, and
+Stereotyping of Ethnic Minorities. \textit{Journal of Labor Economics} 31(3): 535--576.}
+{Compares teachers' subjective assessments with external test scores by ethnicity,
+finding systematic gaps consistent with stereotyping in subjective evaluation. Key
+reference on subjective-vs-objective divergence.}{RF}
+% \note{}
+
+\entry{Hanna, R. N., and Linden, L. L. (2012). Discrimination in Grading.
+\textit{American Economic Journal: Economic Policy} 4(4).}
+{Field experiment in India randomly assigning child characteristics to identical exams;
+lower-caste children receive lower scores. Experimental proof that evaluator-side
+perception moves grades.}{EXP}
+% \note{}
+
+\entry{van Huizen, T., and Jacobs, M. (2024). Teacher Bias or Measurement Error?
+Working paper (arXiv 2401.04200).}
+{In Dutch administrative data, measurement error in true ability explains $\approx$35--43\%
+of the conditional SES gap in track recommendations --- observational ``bias'' estimates
+conflate discrimination with attenuation. Essential methodological caveat for any
+descriptive of ``schools base advice on relative skills''.}{RF}
+% \note{}
+
+\entry{Geven, S. (2025). Tracking Procedures and Criteria and the SES Bias in Teacher
+Track Recommendations. \textit{American Educational Research Journal} (verify issue).}
+{Survey experiment with Dutch teachers: those interpreting school procedure as weighting
+a student's home environment show stronger SES bias in recommendations. Points to
+institutional procedure as a moderator of bias.}{EXP}
+% \note{}
+
+\entry{[Experimental teacher-discrimination studies] e.g.\ ethnic/social-class bias in
+essay evaluation (Germany); track-recommendation vs.\ grading experiments (Hungary,
+\textit{European Sociological Review} 2025).}
+{Factorial vignette experiments varying names/SES/gender often find little bias in
+grading but discrimination in expectations/recommendations, conditional on ambiguity ---
+read as support for situational/statistical accounts over pure taste-based ones.}{EXP}
+% \note{}
+
+% =====================================================================
+\section{D. How do students and parents respond to recommendations?}
+\secintro{Compliance, the effect of making recommendations binding vs.\ advisory, and
+SES heterogeneity --- mostly reform-based natural experiments.}
+
+\entry{Bach, M. (2023). Heterogeneous Responses to School Track Choice: Evidence from
+the Repeal of Binding Track Recommendations. \textit{Economics of Education Review}.}
+{Exploits German states' repeal of binding recommendations (free choice). Free choice
+does not widen the SES gap in academic-track enrolment, because previously-eligible
+low-SES students also move up; a key mechanism is preferences over the intermediate
+track. The cleanest design for separating the binding/authority arm from the
+informational arm.}{RF}
+% \note{}
+
+\entry{Bach, M., and Fischer, M. (2020/2021). Understanding the Response to High-Stakes
+Incentives in Primary Education / binding recommendations and achievement. ZEW WPs.}
+{Binding-recommendation regimes raise measured achievement but also stress, and parents
+send children to higher tracks than recommended once recommendations become non-binding.
+Useful on compliance and parental override.}{RF}
+% \note{}
+
+\entry{Piopiunik, M. (2014). The Effects of Early Tracking on Student Performance:
+Evidence from a School Reform in Bavaria. \textit{Economics of Education Review} 42:
+12--33.}
+{Reform-based evidence on how track placement (in a recommendation-driven system)
+affects performance. Background on the stakes of the placement recommendations steer.}{RF}
+% \note{}
+
+\entry{[Dutch test-cutoff designs] High-Stakes Testing and Educational Careers (J.\
+Research on Educational Effectiveness, 2023); ``The quality of school track assignment
+decisions by teachers'' (working paper, arXiv 2304.10636).}
+{Use discontinuities in test-based recommendation cutoffs (and differences across test
+providers) to instrument for first-year track, estimating how marginal recommendation
+upgrades change educational careers. Direct evidence on compliance at the margin.}{RF}
+% \note{}
+
+% =====================================================================
+\section{E. Ordinal rank and relative-standing signals (the class-rank channel)}
+\secintro{Directly relevant because your school signal $Z$ is class-relative rank in
+grades/effort: how relative-position signals move confidence, beliefs, and subject choice
+independently of absolute ability.}
+
+\entry{Murphy, R., and Weinhardt, F. (2020). Top of the Class: The Importance of
+Ordinal Rank. \textit{Review of Economic Studies} 87(6): 2777--2826.}
+{Using the universe of English students and variation in achievement distributions across
+primary classes, ordinal rank has lasting effects on secondary-school test scores,
+confidence, and subject choice --- independent of underlying ability, and even though
+later peers/teachers don't know the prior rank. Effects are larger for boys and feed the
+math-course gender gap. Central to the class-rank mechanism.}{RF}
+% \note{}
+
+\entry{Elsner, B., and Isphording, I. E. (2017). A Big Fish in a Small Pond: Ability
+Rank and Human Capital Investment. \textit{Journal of Labor Economics} 35(3): 787--828.}
+{Comparing cohorts within the same school, a higher ordinal rank (holding ability fixed)
+raises later educational attainment and expectations. Reinforces that relative standing,
+not just absolute skill, shapes choices.}{RF}
+% \note{}
+
+\entry{Denning, J. T., Murphy, R., and Weinhardt, F. (2023). Class Rank and Long-Run
+Outcomes. \textit{American Economic Journal: Applied Economics} (NBER WP 27468; verify
+issue).}
+{Extends the rank literature to long-run outcomes (earnings, attainment), confirming that
+early relative standing has persistent consequences.}{RF}
+% \note{}
+
+\entry{Goulas, S., and Megalokonomou, R. (2021). Knowing Who You Actually Are: The
+Effect of Feedback on Short- and Longer-Term Outcomes. \textit{Journal of Economic
+Behavior \& Organization}.}
+{Studies how giving students feedback on their relative performance (rank information)
+changes effort and subsequent outcomes. A direct empirical analog of disclosing the kind
+of relative-standing information embedded in $Z$ --- relevant to your CF1.}{RF}
+% \note{}
+
+% =====================================================================
+\section{F. Belief formation and information frictions in educational choice}
+\secintro{The framework for how a signal (grade, recommendation, disclosed information)
+shifts beliefs and choices --- awareness, ambiguity, learning about comparative advantage,
+information experiments. Some are structural; flagged.}
+
+\entry{Giustinelli, P., and Pavoni, N. (2017). The Evolution of Awareness and Belief
+Ambiguity in the Process of High School Track Choice. \textit{Review of Economic
+Dynamics} 25: 93--120.}
+{Repeated survey of Italian 8th-graders: students are only partially aware of available
+tracks and hold ambiguous beliefs about completing each, with disadvantaged students
+acquiring information more slowly. Direct evidence on the belief object a recommendation
+acts on, and on SES heterogeneity in updating.}{RF / survey}
+% \note{}
+
+\entry{Giustinelli, P. (2016). Group Decision Making with Uncertain Outcomes: Unpacking
+Child--Parent Choice of the High School Track. \textit{International Economic Review}.}
+{Models and estimates the joint child--parent track decision using elicited subjective
+expectations, quantifying how information/sensitization campaigns would shift the track
+distribution. Relevant if parental influence matters in your setting.}{STR / RF}
+% \note{}
+
+\entry{Wiswall, M., and Zafar, B. (2015). Determinants of College Major Choice:
+Identification Using an Information Experiment. \textit{Review of Economic Studies}
+82(2): 791--824.}
+{Provides students true population information on major-specific outcomes, generating
+experimental belief variation; students revise logically and choices respond, though
+tastes dominate. The template for treating an external signal as a belief shifter about
+returns.}{EXP}
+% \note{}
+
+\entry{Wiswall, M., and Zafar, B. (2015). How Do College Students Respond to Public
+Information about Earnings? \textit{Journal of Human Capital} 9(2).}
+{Companion: most students are non-Bayesian updaters, and assuming Bayesian processing
+substantially overstates the welfare gains from information. Important caution for any
+moment-matching/Bayesian-updating assumption about how students absorb advice.}{EXP}
+% \note{}
+
+\entry{Hastings, J., Neilson, C., and Zimmerman, S. (2015). The Effects of Earnings
+Disclosure on College Enrollment Decisions. NBER WP; and Hastings, Neilson, and Zimmerman
+(2013) on returns to majors.}
+{Field experiment disclosing program-level earnings: muted average enrolment effects, but
+low-SES applicants shift toward higher-net-return degrees. Real-world analog of an
+informed party moving disadvantaged students' choices.}{EXP / RF}
+% \note{}
+
+\entry{Li, H., and Xia, X. (2024). Grades as Signals of Comparative Advantage: How
+Letter Grades Affect Major Choices. \textit{Journal of Economic Behavior \& Organization}
+227: 106717.}
+{Regression discontinuity at letter-grade cutoffs in intro courses: students just above a
+cutoff are more likely to major in that field --- they learn comparative advantage from a
+noisy grade signal. Direct causal evidence for the signal-to-belief-to-choice chain.}{RF}
+% \note{}
+
+\entry{Aucejo, E., and James, J. (2021). The Path to College Education: The Role of Math
+and Verbal Skills. \textit{Journal of Political Economy} 129(10): 2905--2946.}
+{Shows relative (math vs.\ verbal) comparative advantage shapes the path into college and
+field, beyond absolute skill. Useful microfoundation for STEM/non-STEM sorting on
+comparative advantage --- the dimension your subtrack recommendation encodes.}{STR / RF}
+% \note{}
+
+\entry{Kinsler, J., and Pavan, R. (2015). The Specificity of General Human Capital:
+Evidence from College Major Choice. \textit{Journal of Labor Economics} 33(4): 933--972.}
+{Structural model of major choice with skill uncertainty and comparative advantage;
+quantifies mismatch costs. Background for modelling STEM/non-STEM match quality and
+learning.}{STR}
+% \note{}
+
+\entry{Stinebrickner, T., and Stinebrickner, R. (2012; 2014). Learning about Academic
+Ability and the College Dropout Decision / Academic Performance and College Dropout.
+\textit{Journal of Labor Economics} 30(4) and 32(3): 601--644.}
+{Foundational learning models using longitudinal expectations data: students update
+Bayesianly about ability from grades and revise enrolment. The canonical ``learning about
+own ability from signals'' framework the recommendation extends.}{STR}
+% \note{}
+
+\entry{Arcidiacono, P., Aucejo, E., Maurel, A., and Ransom, T. (2025). College Attrition
+and the Dynamics of Information Revelation. \textit{Journal of Political Economy} 133(1):
+53--110.}
+{State-of-the-art dynamic model in which students learn about match quality from signals
+while choosing majors and attrition. The structural backbone many recommendation models
+build on (signals arrive exogenously here --- the gap a strategic-school model fills).}{STR}
+% \note{}
+
+% =====================================================================
+\section{G. Statistical discrimination and ability revelation: interpretive tools}
+\secintro{Mostly theory/experiment plus labor-market evidence, included because they give
+precise language for ``is the recommendation accurate, inaccurate, or taste-based?'' and
+for how discrimination fades as ability is revealed.}
+
+\entry{Bohren, J. A., Haggag, K., Imas, A., and Pope, D. G. (2025). Inaccurate
+Statistical Discrimination: An Identification Problem. \textit{Review of Economics and
+Statistics} 107(3): 605--620.}
+{Inaccurate beliefs are a third source of discrimination beyond taste-based and accurate
+statistical; when unaccounted for, they get misclassified as taste-based. Proposes three
+identification routes --- varying signals, eliciting beliefs, correcting beliefs --- all
+with analogs in rich tracking data with subjective-belief measures. The linchpin for
+separating your channels.}{THY / EXP}
+% \note{}
+
+\entry{Bohren, J. A., Imas, A., and Rosenberg, M. (2019). The Dynamics of
+Discrimination: Theory and Evidence. \textit{American Economic Review} 109(10).}
+{Models and tests how discrimination evolves as evaluators learn, with feedback that can
+entrench gaps. Useful for the self-fulfilling channel when recommendations affect later
+skill accumulation.}{THY / EXP}
+% \note{}
+
+\entry{Bordalo, P., Coffman, K., Gennaioli, N., and Shleifer, A. (2016). Stereotypes.
+\textit{Quarterly Journal of Economics} 131(4): 1753--1794.}
+{Representativeness-based model of beliefs: group stereotypes carry a ``kernel of truth''
+but are exaggerated. A disciplined way to parametrize how a school's group-conditioned
+beliefs depart from accuracy.}{THY / EXP}
+% \note{}
+
+\entry{Altonji, J. G., and Pierret, C. R. (2001). Employer Learning and Statistical
+Discrimination. \textit{Quarterly Journal of Economics} 116(1): 313--350.}
+{Canonical employer-learning model and test: when firms statistically discriminate on an
+easily observed trait (e.g.\ education) early on, its wage weight falls as harder-to-observe
+productivity is revealed. The template for ``signals matter more when true ability is
+hidden'' --- relevant to why recommendations carry weight early in the tracking process.}{RF / THY}
+% \note{}
+
+\entry{Arcidiacono, P., Bayer, P., and Hizmo, A. (2010). Beyond Signaling and Human
+Capital: Education and the Revelation of Ability. \textit{American Economic Journal:
+Applied Economics} 2(4): 76--104.}
+{Ability is revealed quickly for college graduates but slowly for high-school workers,
+so employers statistically discriminate (e.g.\ by race) in the high-school market but not
+the college market. A concrete instance of an institution's signal substituting for, and
+then being displaced by, revealed ability.}{RF / STR}
+% \note{}
+
+\entry{Phelps, E. (1972), \textit{AER}; Arrow, K. (1973), ``The Theory of
+Discrimination''; Aigner, D., and Cain, G. (1977), \textit{ILR Review} 30(2).}
+{Classical statistical-discrimination foundations: group averages as the optimal response
+to noisy individual signals (Phelps/Aigner--Cain) and self-fulfilling equilibria (Arrow).
+Background for why conditioning a recommendation on group can be ``rational'' yet costly.}{THY}
+% \note{}
+
+% =====================================================================
+\section{H. Tracking: foundational reduced-form context}
+\secintro{The broader tracking literature situating why placement matters and what is at
+stake in the recommendation.}
+
+\entry{Card, D., and Giuliano, L. (2016). Can Tracking Raise the Test Scores of
+High-Ability Minority Students? \textit{American Economic Review} 106(10): 2783--2816.}
+{Ability tracking/placement can raise outcomes for high-ability minority students,
+highlighting that who is placed where (and how it is decided) has real consequences.}{RF}
+% \note{}
+
+\entry{Dustmann, C., Puhani, P. A., and Sch\"onberg, U. (2017). The Long-Term Effects of
+Early Track Choice. \textit{The Economic Journal} 127.}
+{Estimates long-run labour-market and attainment effects of early between-school tracking,
+with attention to track mobility. Motivates the stakes and irreversibility of the age-14
+decision.}{RF}
+% \note{}
+
+\entry{Hanushek, E. A., and Woessmann, L. (2006). Does Educational Tracking Affect
+Performance and Inequality? Differences-in-Differences Evidence Across Countries.
+\textit{The Economic Journal} 116(510): C63--C76.}
+{Cross-country diff-in-diff: early tracking tends to increase inequality without clear
+average gains. Canonical macro evidence on tracking and inequality.}{RF}
+% \note{}
+
+\entry{De Groote, O. (2025). Dynamic Effort Choice in High School: Costs and Benefits of
+an Academic Track. \textit{Journal of Labor Economics} 43(2): 467--502.}
+{Structural treatment of the same Belgian/LOSO setting (effort, track, performance
+dynamics). The natural in-house anchor for data and institutional detail.}{STR}
+% \note{}
+
+\entry{Betts, J. R. (2011). The Economics of Tracking in Education. In \textit{Handbook
+of the Economics of Education}, vol.\ 3: 341--381.}
+{Survey of tracking designs, identification challenges, and findings. Good orienting
+reference for the tracking literature as a whole.}{REV}
+% \note{}
+
+% =====================================================================
+\section{I. Reviews and surveys}
+
+\entry{Geven, S., and co-authors (2022). Are Tracking Recommendations Biased? A Review of
+Teachers' Role in the Creation of Inequalities in Tracking Decisions. \textit{Teaching
+and Teacher Education}.}
+{Systematic review of $\sim$27 studies: recommendations are biased against low-SES
+students; ethnic-bias evidence is mixed; observed characteristics don't account for the
+bias, pointing to institutional moderators. Best single entry point to the bias
+literature.}{REV}
+% \note{}
+
+\entry{Zanga and De Gioannis (2023). Discrimination in Grading: A Scoping Review.
+\textit{Studies in Educational Evaluation}.}
+{Catalogues 37 grading-discrimination studies by method (experiments; blind-vs-non-blind)
+and by characteristic (gender, race/ethnicity, migration, SES). Handy map of designs and
+findings.}{REV}
+% \note{}
+
+\entry{Wenz, S., and Hoenig, K. (2020). Ethnic and Social Class Discrimination in
+Education: Experimental Evidence (review/overview; verify outlet).}
+{Frequently-cited overview distinguishing grading vs.\ expectation/recommendation bias and
+the conditions under which each appears. Verify exact venue/year.}{REV (verify)}
+% \note{}
+
+% =====================================================================
+\vspace{6pt}
+\hrule
+\vspace{6pt}
+\noindent\textcolor{grey}{\small \textbf{Notes on use.} Most on-theme empirical anchors:
+schools-know-more --- Jackson (2018), Kinsler--Pavan (2016), Dizon-Ross (2019), Boneva--Rauh
+(2018); recommendations as causal --- Papageorge--Gershenson--Kang (2020), Diamond--Persson
+(2016), Mulhern (2022); the class-rank channel for $Z$ --- Murphy--Weinhardt (2020),
+Elsner--Isphording (2017); bias/discrimination in how schools decide --- Carlana (2019) and
+the blind-vs-non-blind designs (Botelho et al.\ 2015; Lavy 2008; Lavy--Sand 2018); how
+students respond --- Bach (2023) and the Dutch cutoff designs; interpretive toolkit ---
+Bohren et al.\ (2025), Altonji--Pierret (2001), Arcidiacono--Bayer--Hizmo (2010). Items
+tagged STR/THY are for panorama and framing rather than reduced-form templates. Confirm any
+venue marked \emph{(verify)} before citing.}
+
+\end{document}s

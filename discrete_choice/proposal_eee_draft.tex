@@ -235,9 +235,6 @@ A useful difference from \citet{arcidiacono2025college} is that $G_{ibt}$ are st
 The balanced grade panel sharply identifies $(\Lambda_b, \sigma_b^2, \Sigma_0)$ via cross-individual covariances, without the joint outcome-and-choice likelihood \citet{arcidiacono2025college} require. 
 
 
-\subsection{Production function, outcomes}
-
-\textcolor{blue}{\textbf{PENDING: it is crucial here to show that outcomes are well identified-- that we can handle selection into treatment vs potential outcomes. Here I can lay down a bunch of outcomes we may be interested in; that we observe etc. }}
 
 \subsection{School's information set and the DGP for $Z$}
 
@@ -294,48 +291,68 @@ $\theta^u$ is unobserved by everyone, so the rule cannot condition on it directl
 
 
 \subsection{Alternative school rule}
-Now suppose we want to model the decision of the school. One of the main issues is that we don't observe capacity constraints at the subtrack level. Those are likely less severe, no? what matters is the official track and then the system allows certain freedom to students and their choice seems unrestricted...In a given school why not all students can do stem? the thing is that some of them don't want to. Can we assume it is sort of unconstrained. Well...given the data, a more reasonable way to model the recommendation of the school is the following: 
+The school issues a recommendation $R_{it} \in \mathcal{R}$ to each student at the end of each period $t$. I decompose this into two stages, motivated by the data: capacity constraints bind at the track level (ASO/TSO/BSO), where I observe seats per track, but not at the subtrack level (STEM/nonSTEM), where student preferences appear to be the binding margin.
 
-Suppose school $s$ gives recommendation $R_{it}$. This recommendation is at two levels; that is: $R_{it}= \{R_{it}^{\text{track}} \cap  R_{it}^{\text{subtrack}}\}$. First, schools rank students based on their overall academic index for each track $I_{itj}$. Where: \(I_{itj}= \alpha_{s} + W_{ijt}'\beta_{\tau} + \eta_{ijt}\), then they allocate the advice based on per track capacity $j$, which we can define as= \(x_{j}^{s}=(1+b_{s})\frac{K_{jt}^{s}}{K_{t}^{s}}\), where $b_{s}$ is a buffer that differs at the school level: some schools may increase some seats wrt to our baseline measure. So we can model this as: 
+\subsubsection{Stage 1: Track recommendation (capacity-constrained)}
+
+For each student $i$ and track $j \in \{ASO, TSO, BSO\}$, the school constructs a track-specific academic index:
+\begin{equation}
+  I_{ij}^{\mathrm{track}} = W_{it}^\top \alpha_{j,\tau} + \nu_{ijt}, \qquad \nu_{ijt} \sim \text{T1EV},
+  \label{eq:track_index}
+\end{equation}
+where $W_{it} = (\theta^k_i, G_{it}, Z_{it}, X_{it})$ is the school's full information set and $\alpha_{j,\tau}$ are track- and cycle-architecture-specific index weights. The school ranks all students on these indices and recommends the top $x_j^s$ fraction to each track, where
+\begin{equation}
+  x_j^s = (1 + b_s) \cdot \frac{K_{jt}^s}{N_s},
+  \label{eq:capacity_share}
+\end{equation}
+$K_{jt}^s$ is the observed capacity for track $j$ at school $s$, and $b_s$ is a school-specific compliance buffer reflecting that not all students follow the recommendation or that capacity can be expanded in a given school exceptionally.
+
+The track recommendation is:
+\begin{equation}
+  R_i^{\mathrm{track}} = \arg\max_{j \in \{ASO, TSO, BSO\}} \left\{  I_{ij}^{\mathrm{track}} - c_{jst} \right\},
+  \label{eq:track_rec}
+\end{equation}
+where $c_{jst}$ is an endogenous cutoff pinned down by the capacity-clearing condition: the expected share of students recommended to track $j$ must equal $x_j^s$. \textbf{Doubt, how to formalize this... how to identify the cutoff exactly. How to estimate. I think this captures the idea of the ranking... because it is all relative.}
 
 
-Second, conditional on $R_{it}^{\text{track}}$ schools recommend students to STEM/non-STEM based on their comparative advantage. Here there are no capacity constraints. Schools rank students on a STEM nonSTEM index and recommend based on: \(R_{sit}=\text{STEM} \iff I_{sit}>I_{nsit}\) where \(I_{sit}= W_{sit}'\beta_{\text{stem} + \eta_{sit}}\). Issue here is that here  $W_{sit}$ is different than bfore? I assume stem nonstem margins seems more naturally affected by the Z ranking...as we saw in the descriptives. But how to justify the two models? I think because of the capacity constraints. 
+\textcolor{blue}{\textbf{//! to complete}} also pending to check A/B/C certificate how enters the decision first. Need to check if A/B/C are captured by capacity directly.
 
-This is for each $t$, but then schools anticipate responses of the students given Rit, so why is not the following the problem they are solving?
+\subsubsection{Stage 2: Subtrack recommendation (unconstained)}
 
-School $S$ generates the following index for each student: \(I_{ijt}= W_{it}'\beta_{j\tau} - \lambda_{jt}\), where $W_{it} \in \mathcal{I}_{it}^{s}$ and $\lambda_{jt}$ are just capacity constraints --- this I need to check better the literatur--- but I understand it all boils down to ordered logit with this constraint going in the opposite direction. Then: \(R_{it}= \arg \max_{j} I_{ijt}\)???? I don't think this is the case... and then:
+Conditional on $R_i^{\mathrm{track}} = j$ for $j \in \{ASO, TSO\}$, the school assesses comparative advantage along the STEM/nonSTEM dimension:
+\begin{equation}
+  R_i^{\mathrm{sub}} = \text{STEM} \iff W_{it}^\top \gamma_{\text{S},\tau} + \omega_{it} > W_{it}^\top \gamma_{\text{N},\tau} + \omega'_{it},
+  \label{eq:sub_rec}
+\end{equation}
+where $\omega, \omega'$ are T1EV. No capacity constraint enters this stage. The key covariates are the $Z$ rankings: relative math rank drives STEM recommendations, relative Dutch rank drives nonSTEM, consistent with the empirical finding that schools recommend on comparative advantage at the subtrack level.
 
-\[
-R_{it}= \arg \max \mathbf{E}\left[V_{school}\right]
-\]
+\subsubsection{The school's objective (Stackelberg)}
+\textcolor{blue}{\textbf{//! to complete, still shacky}}
 
-Where \(V_{school}= \sum_{t}\sum_{i}\mathbf{P}(D_{ij}=d_{ij})* V_{ij}\)
+Potentially, the index weights $(\alpha_{j,\tau}, \gamma_\tau)$ are not arbitrary --- they are the school's optimal choice, anticipating how students will respond. The school solves a per-period problem:
+\begin{equation}
+  \max_{\alpha_\tau, \gamma_\tau} \sum_{i=1}^{N_s} \sum_{j \in \mathcal{J}} P\!\big(d_{it} = j \,\big|\, R_{it}(\alpha, \gamma),\, s_{it}\big) \cdot \pi_{ij\tau},
+  \label{eq:school_obj}
+\end{equation}
+subject to:
+\begin{equation}
+  \sum_{i} P\!\big(R_i^{\mathrm{track}} = j \,\big|\, \alpha_\tau\big) = x_j^s \qquad \forall\, j \in \{ASO, TSO, BSO\}.
+  \label{eq:cap_constraint}
+\end{equation}
 
-Another possibility, just to understand the nature of the fixed point and the stackelberg game. Here the point is that schools commit to a rule, but this rule takes into account the response of the students. This makes it fixed point and stackelberg bites. Let's suppose again that schools give advice according to the rule:
+The student's choice probability $P(d_{it} = j \mid R_{it}, s_{it})$ comes from the estimated dynamic model (\S\ref{sec:beliefs}--\ref{eq:ccp}). The school takes this response function as given\footnote{The issue in CF is if we change the policy, this changes CCPs etc... I don't know how hard the whole thing becomes.}. Changing $\alpha_\tau$ changes the recommendation, which changes the student's posterior beliefs (through the moment-matching update in \S\ref{sec:beliefs}), which changes the student's track choice, the grades etc.
 
-\[
-R_{it}(\beta_{tau})= \arg \max_{j}\{\alpha_{t} + I_{ijt}- \alpha_{jt}\}
-\]
-
-Where $I_{ijt}= W_{ijt}'\beta_{\tau} + \eta_{ijt}$, here $W_{ijt}$ it is whatever is in the information set of the school (rank etc), $\eta_{ijt}$ is EV type 1. Here $\alpha_{jt}$ are the capacity constraints. Does this implicitly captures the ranking idea? I think so. Unsure however if this ensures what we need. We can add a period $\alpha_{t}$ to capture that the rule may vary across time? The idea is that this rule is applied every year. Also, here schools only vary at the constraints? this rule should be computed per school? Should I ADD subscript for school; they vary at the capacity constraints... pull students, etc. 
-
-Then schools solve:
-
-\[
-\max_{\beta_{\tau}} \sum_{i} \sum_{t}  \mathbf{P}(D_{it}= d_{it}| R_{it}(\beta_{\tau}, X, \theta_{k})) V_{i}^{\text{school}}
-\]
-s.t the following constraints: 
-\begin{enumerate}
-  \item \(V_{i}=\int_{i} \sum_{j}\sum_{t}\left[y_{jit} + \omega \mathbf{1}\{y_{jit}>y^{*}\}\right]\)
-  \item Capacity
-  \item $ \mathbf{P}(D_{it}= d_{it}| R_{it}(\beta_{\tau}))$
-  \item 
-\end{enumerate}
+The school's per-student payoff adapts \citet{fu_mehta}:
+\begin{equation}
+  \pi_{ij\tau} = \mathbb{E}^{school}\!\big[G_{ij,t+1} \,\big|\, \theta^k_i, G_{it}, Z_{it}\big] + \omega_\tau \cdot P\!\big(G_{ij,t+1} > y^* \,\big|\, \theta^k_i, G_{it}, Z_{it}\big),
+  \label{eq:school_payoff}
+\end{equation}
+where the expectation is under the school's posterior (which conditions on $Z$, unlike the student's). Here schools may only care about next period results... but ofc that depends on the expected ability per track they think students have... this needs to be more precise
 
 
 \subsubsection{Equilibrium}
+\textcolor{blue}{\textbf{//! to complete}}
 
-\textcolor{blue}{\textbf{PENDING: question is if BPE is enough or we are in a setting of bayesian persuasion etc and we are completing too much to define what and equilibrium is and to find conditions under which it is unique...}}
 \subsection{Student's beliefs and Bayesian updating}
 \label{sec:beliefs}
 
@@ -352,7 +369,7 @@ with
   m^G_{it} &\ =\ \Sigma^G_{it}\!\left[\big(\Sigma^H_{i,t-1}\big)^{-1} m^H_{i,t-1} + \sum_b \frac{\Lambda_b\big(G_{ibt} - \mu_b(\theta^k_i, X_{it})\big)}{\sigma_b^2}\right]. \label{eq:m_grade}
 \end{align}
 
-This is a standard result in the literature \citet{arcidiacono2025college, bunting2024heterogeneity}. Now, the second stage is slightly more tricky ---given the nonGaussianity---, I propose the following steps, although this is still preliminary: 
+This is a standard result in the literature \citet{arcidiacono2025college, bunting2024heterogeneity}. Now, the second stage is slightly more tricky ---given the discrete nature of the recommendations---, I propose the following steps, although this is still preliminary: 
 
 
 \paragraph{Stage 2: posterior after recommendation.} Given the post-grade 
@@ -376,7 +393,7 @@ finite over the ordered-probit cells.
 
 \paragraph{Assumption A8 (Gaussian moment-matching).} The post-recommendation
 posterior is approximated as Gaussian by matching the first two moments of
-the exact mixture-of-truncated-Gaussians posterior. This is the assumed-density-filtering step of \citet{minka2001expectation}; \citet{sarkka2013bayesian} gives the textbook treatment in the filtering literature:
+the exact mixture-of-truncated-Gaussians posterior. This is the assumed-density-filtering step of \citet{minka2001expectation}; \citet{sarkka2013bayesian} gives the textbook treatment in the filtering literature\footnote{Work in progress... approximation error should be low, but need to go step by step. This should be feasible and computationally very simple.}:
 \begin{equation}
   \theta^u_i \mid \mathcal{H}_{i,t-1}, G_{it}, R_{it} 
   \stackrel{\mathrm{approx}}{\sim} \mathcal{N}(m^R_{it}, \Sigma^R_{it}),
@@ -393,8 +410,7 @@ mean and variance of $\theta^u$ given $\{Z = m\}$ (closed form via inverse-Mills
 ratios for doubly-truncated Gaussians), and $\Pr_m$ are the marginal cell 
 probabilities under the post-grade prior. Full derivations in Appendix A.
 
-\paragraph{Intuition behind this result:} The student doesn't see $Z$, but they see $R$, the 
-school's discrete summary of it. When a student receives ASO-STEM, they reason 
+\paragraph{Intuition behind this result:} The student doesn't see $Z$, but they see $R$, the school's discrete summary of it. When a student receives ASO-STEM, they reason 
 backward: the school must have seen $Z$ values consistent with that recommendation, 
 given the student's grades. That backward inference is what shifts beliefs.
 
@@ -448,7 +464,9 @@ Choice probabilities:
   \label{eq:ccp}
 \end{equation}
 
-\paragraph{Assumption A11 (finite dependence).} The downgrade-only dynamics with absorbing BSO yield finite dependence: from any current track $a$, a path of length $K = T - t$ ending in BSO has identical conditional state distribution as the reference path "drop to BSO immediately" after $K$ periods, \citet{arcidiacono_miller_2011, arcidiacono2025college} inversion then expresses differenced FV terms in terms of CCPs on the post-recommendation belief state, computed flexibly in Stage 3 of estimation. This avoids backward recursion and full solution methods.
+\textcolor{blue}{\textbf{//! to complete, revise inclusion of delta}}
+
+\paragraph{Assumption A11 (finite dependence).} The downgrade-only dynamics with absorbing BSO yield finite dependence\footnote{Or dropout, more precisely}: from any current track $a$, a path of length $K = T - t$ ending in BSO has identical conditional state distribution as the reference path "drop to BSO immediately" after $K$ periods, \citet{arcidiacono_miller_2011, arcidiacono2025college} inversion then expresses differenced FV terms in terms of CCPs on the post-recommendation belief state, computed flexibly in Stage 3 of estimation. This avoids backward recursion and full solution methods on the dynamic model. 
 
 
 \subsection{Counterfactuals}
