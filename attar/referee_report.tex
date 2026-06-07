@@ -21,75 +21,72 @@
 \newcommand{\Ug}{U_g}
 \newcommand{\Um}{U_m}
 
-\title{\textbf{Referee Report / Extended Commentary}\\[0.4em]
+\title{\textbf{Report}\\[0.4em]
 \large Jean Tirole (2012), \emph{Overcoming Adverse Selection: How Public
 Intervention Can Restore Market Functioning}, \emph{American Economic Review}
 102(1): 29--59}
-\author{Jordi Torres Vallverd\'u \\ \small MRes -- Mechanism Design}
+\author{Jordi Torres Vallverd\'u \\ \small MRes}
 \date{\today}
 
 \begin{document}
 \maketitle
 
 %==================================================================
-\section{The key idea}
+\section{Introduction}
 %==================================================================
 
-Tirole asks a question that the 2007--09 crisis made urgent: when a market
-freezes because of adverse selection, can a government \emph{jump-start} it, and
-if so, how? The answer is built on a single twist relative to standard
+Tirole asks a question that the 2007--09 crisis made important: when a market
+freezes because of adverse selection, can a government jump-start it, and
+if so, how? The answer is built on a single ``twist'' relative to standard
 mechanism design. The textbook designer (a monopolist screening a buyer, a
-regulator facing a firm) takes each agent's \emph{reservation utility} as a
+regulator facing a firm) takes each agent's reservation utility as a
 primitive: the agent always has a fixed outside option, and the participation
 constraint is $U(\theta)\ge U_0(\theta)$ with $U_0$ exogenous. Tirole's point is
 that when the designer is a government acting before a private market reopens,
 this is no longer true. The outside option of a firm that declines the
-government's offer is what it can get \emph{in the market}, and the market
-outcome depends on \emph{who} declined---that is, on the mechanism itself.
-Reservation utilities are therefore \emph{endogenous to the mechanism}. This
+government's offer is what it can get in the market, and, importantly, the market
+outcome depends on who declined---that is, on the mechanism itself.
+Reservation utilities are therefore endogenous to the mechanism. This
 two-way feedback between mechanism design and participation constraints is the
-paper's conceptual contribution.
+paper's conceptual core.
 
-The economics that follow are sharp and somewhat counterintuitive. Because the
+The economics that follow are interesting and a bit counterintuitive. Because the
 government moves first and skims off the worst (most ``toxic'') assets, it
-\emph{cleans up} the residual pool and so revives the very private market it is
-competing against---it ``creates its own competition,'' exactly as Coase's
-durable-good monopolist does. Anticipating the rebound, firms with good assets
-hold out for the market, so the government can never substitute fully for it: a
-\emph{non-comprehensive} intervention with market rebound is optimal. Reviving a
+cleans up the residual pool and so revives the very private market it is
+competing against---it ``creates its own competition''. Anticipating the rebound, firms with good assets hold out for the market, so the government can never substitute fully for it: a non-comprehensive intervention with market rebound is optimal. Reviving a
 frozen market is necessarily expensive (the government loses money on every type
-it finances), yet---and this is the elegant result---the mere \emph{existence}
-of the later market imposes \emph{no} welfare cost, in contrast with the Coasian
-intuition that anticipated resale destroys surplus. The framework rationalizes
+it finances), yet---and this is the nice result---the mere existence
+of the later market imposes no welfare cost. The framework rationalizes
 the actual drift of TARP from asset buybacks toward equity injections, and
 delivers a clean public-finance logic for when a freeze should, and should not,
-be cured.
+be undertaken.
 
+In this report I will try to first summarize the key fundamentals of the model, the results and the possible extensions (section~\ref{section1}).  In section~\ref{section2} I will try to connect the paper's contribution along what we have seen in the course. Finally, in section~\ref{section3} I will end with some criticisms or comments of the paper.
 %==================================================================
 \section{The model}
 %==================================================================
-
+\label{section1}
 \subsection{Primitives}
 
-All parties are risk neutral. A \emph{firm} (seller) is cashless, protected by
-limited liability, owns a \emph{legacy asset}, and has a \emph{new project} to
+All parties are risk neutral. A firm (seller) is cashless, protected by
+limited liability, owns a legacy asset, and has a new project to
 finance.
 
 \paragraph{Legacy asset.} The asset pays $R_0$ on success and $0$ on failure.
 The success probability $\theta$ is the seller's private information, drawn from
 a continuous c.d.f.\ $F$ on $[0,1]$ with density $f$. Tirole assumes $F$ is
-\emph{log-concave} (decreasing reverse hazard rate $f(\theta)/F(\theta)$), the
+log-concave (decreasing reverse hazard rate $f(\theta)/F(\theta)$), the
 standard regularity condition that keeps the screening problem well behaved.
 
 \paragraph{New project.} The project costs $I$. If the entrepreneur
-\emph{behaves} it yields verifiable income $R_1$ and private benefit $b>0$; if
-she \emph{misbehaves} it yields no income but a large private benefit $B>b$ and
+behaves it yields verifiable income $R_1$ and private benefit $b>0$; if
+she misbehaves it yields no income but a large private benefit $B>b$ and
 has negative social value ($B<I$). Define the social surplus of the project
 \[
 S \;=\; R_1 + b - I .
 \]
 Behaving requires leaving the entrepreneur a stake $B-b$, so the
-\emph{pledgeable income} is only $R_1-(B-b)$. Three assumptions organize the
+pledgeable income is only $R_1-(B-b)$. Three assumptions organize the
 analysis:
 
 \begin{assumption}[Positive NPV]
@@ -106,10 +103,9 @@ For the best types collateral restores financing under symmetric information:
 $R_0+(S-B)>0$.
 \end{assumption}
 
-The moral-hazard wedge $B$ is what makes the firm \emph{credit-constrained}: it
+The moral-hazard wedge $B$ is what makes the firm credit-constrained: it
 cannot raise $I$ on the project alone and must sell (a stake in) the legacy
-asset, whose quality only it knows. Adverse selection then bites, exactly as in
-Myers and Majluf (1984).
+asset, whose quality only it knows. 
 
 \paragraph{Government and welfare.} The government faces a shadow cost $\lambda$
 of public funds and maximizes expected gross social surplus
@@ -123,14 +119,14 @@ $x(\theta)\in\{0,1\}$ indicate financing,
 W \;=\; (1+\lambda)\,\E[\theta R_0 + x(\theta) S] \;-\; \lambda\,\E[U(\theta)] .
 \]
 The first term is efficiency (assets plus financed surplus); the second is the
-\emph{social cost of the rents} the government must concede, weighted by
-$\lambda$. A government with $\lambda>0$ is reluctant to leave large rents to
+social cost of the rents the government must concede, weighted by
+$\lambda$. Basically, a government with $\lambda>0$ is reluctant to leave large rents to
 firms---this is the tension that drives the whole design problem.
 
 \paragraph{Timing and reservation utility.} (1)~The seller learns $\theta$.
 (2)~The government commits to a mechanism $C_g(\cdot)$. (3)~Each seller accepts
 or declines. (4)~Competitive buyers offer menus to the remaining sellers.
-(5)~Sellers choose. (6)~Payoffs realize. \emph{Laissez-faire} simply deletes
+(5)~Sellers choose. (6)~Payoffs realize. Laissez-faire simply deletes
 stages (2)--(3). For the leading ``fleeting opportunity'' case the autarky
 payoff of a seller who trades with nobody is
 \[
@@ -139,15 +135,15 @@ U_0(\theta) \;=\; \theta R_0 .
 
 \subsection{The stripped-down version (buybacks only)}
 
-To isolate the mechanism, set $R_0=1$, suppose the entire project return accrues
+To isolate the mechanism, set $R_0=1$, suppose the entire project return belongs
 to the firm (no pledgeability), and take $\theta\sim U[\gamma,1]$ with
-$\gamma>0$. A seller of type $\theta$ who sells the asset at price $p$ and
+$\gamma>0$\footnote{The author will relax these assumptions and show that results mostly pass through and are general. I will discuss this in next subsection.}. A seller of type $\theta$ who sells the asset at price $p$ and
 finances the project obtains $p+S$; keeping the asset (autarky) is worth
-$\theta$. Hence \emph{low} types sell and high types keep:
+$\theta$. Hence low types sell and high types keep:
 \[
 \text{seller sells} \iff \theta < p+S \;=:\; \theta^\ast .
 \]
-Competitive buyers break even at the \emph{truncated mean} of what they buy:
+Competitive buyers break even at the truncated mean of what they buy:
 \[
 p \;=\; \E[\theta \mid \theta<p+S]
    \;=\; \tfrac12\big(\gamma + p + S\big)
@@ -161,47 +157,46 @@ a freeze:
   trade};
   \item If $\gamma+S\ge I$, all types $\theta<\gamma+2S$ trade at $p=\gamma+S$.
 \end{itemize}
-With $S<I$ and $\gamma=0$ the market \emph{fully} collapses; a small piece of
+With $S<I$ and $\gamma=0$ the market fully collapses; a small piece of
 good news (a rise in $\gamma$) can ``restart'' it. Conversely, a small piece of
-\emph{bad} news pushes $\gamma$ below $I-S$ and freezes a previously active
-market---a \emph{discontinuous} response to a marginal shock.
+bad news pushes $\gamma$ below $I-S$ and freezes a previously active
+market---thus, there is discontinuous response to a marginal shock.
 
 \paragraph{Adding the government.} Suppose the government posts a price $p>I$.
 Were there no private market, all types $\theta<p+S$ would sell to it. But once
 those types are gone, the residual pool is better, so a private market reopens at
-a \emph{higher} price---and anticipating this, the low types would rather
-\emph{hold out}. The equilibrium reconciles the two: government and market prices
+a higher price---and anticipating this, the low types would rather
+hold out. The equilibrium reconciles the two: government and market prices
 are equated at $p$, types $\theta<p-S$ sell to the government, and an interval of
 intermediate types trades in the rebounding private market. The government loses
-money; private buyers break even. This is the ``creates its own competition''
-mechanism in its barest form.
+money\footnote{The idea is that it overpays low types and offers them the market price to prevent them for holding up initially.}; private buyers break even. This is the ``creates its own competition''
+mechanism in its simplest form.
 
 \paragraph{When does the government intervene?} With cutoff $\theta^\ast$ and
 shadow cost $\lambda$, intervening to finance the marginal type is worthwhile
 only if the efficiency gain beats the extra inframarginal rents:
 \[
-\lambda\,F(\theta^\ast) \;>\; (1+\lambda)\,f(\theta^\ast)\,S
+\lambda\,F(\theta^\ast) \;<\; (1+\lambda)\,f(\theta^\ast)\,S
 \quad\Longleftrightarrow\quad \lambda<1 \ \ (\text{uniform case}).
 \]
-So on an \emph{active} market a government with $\lambda>1$ stays out. But if the
-market \emph{freezes} ($\gamma$ falls below $I-S$), it is optimal to let it
+So on an active market a government with $\lambda>1$ stays out. But if the
+market freezes ($\gamma$ falls below $I-S$), it is optimal to let it
 rebound to its minimum volume provided
 \[
 (1+\lambda)\,S \;>\; \lambda\,\tfrac{I+S-\gamma}{2},
 \]
 i.e.\ provided $I-\gamma$ is not too far above $S$. The same government switches
-from \emph{laissez-faire} to \emph{intervention} precisely when bad news tips the
-market over the freezing cliff.
+from laissez-faire to intervention precisely when bad news tips the
+market over the ``bad cliff''.
 
 \subsection{The general model and its main insights}
-
-The general model relaxes uniformity, allows partial pledgeability (so the
-designer can take a \emph{stake} in the project or the asset, not just post a
-price), and lets contracts be partial. One then works with
+The general model relaxes uniformity ---but not log-concavity---, allows partial pledgeability (so the
+designer can take a stake in the project or the asset, not just post a
+price), and lets contracts be partial\footnote{Here contracts can condition payments on the legacy asset's success, i.e. specify a stake $y$ the firm retains.}. One then works with
 incentive-compatible contracts and the utilities they generate: let
 $\Ug(\theta)$ be type $\theta$'s rent in the government mechanism and
 $\Um(\theta;\Theta_m)$ her rent in the market when the holdout set is
-$\Theta_m\subseteq\Theta$. An \emph{endogenous-participation equilibrium}
+$\Theta_m\subseteq\Theta$. An endogenous-participation equilibrium
 partitions types into those who join the government, $\Theta_g$, and the market,
 $\Theta_m=\Theta\setminus\Theta_g$, with
 \[
@@ -210,63 +205,62 @@ $\Theta_m=\Theta\setminus\Theta_g$, with
 \Um(\theta;\Theta_m) > \Ug(\theta)\Rightarrow \theta\in\Theta_m .
 \]
 The government chooses an IC mechanism, hence a rent profile $\Ug(\cdot)$, to
-maximize $W$ subject to the \emph{collated} allocation being the (ideally unique)
-equilibrium of this fixed-point problem. The fixed point---$\Ug$ shapes
+maximize $W$ subject to the allocation being the (ideally unique)
+equilibrium of this fixed-point problem. The fixed point is the same idea as before---$\Ug$ shapes
 $\Theta_m$, which shapes the market rent $\Um$, which is the outside option in
-the constraint on $\Ug$---is exactly the endogenous participation constraint.
+the constraint on $\Ug$.
 
-The optimal intervention is characterized by six insights:
+The optimal intervention is then characterized by six insights:
 
 \begin{enumerate}[label=(\roman*),leftmargin=2.2em]
-  \item \textbf{Pecking order.} The government \emph{buys back} the weakest
-  assets outright, \emph{recapitalizes} (leaves on the balance sheet) intermediate
-  assets, and leaves the strongest to the market.
+  \item \textbf{Pecking order.} The government buys back the weakest
+  assets outright, recapitalizes (leaves on the balance sheet) intermediate
+  assets, and leaves the strongest to the market. Because the government can now ask the firm to keep a stake (``skin in the game'') rather than buy outright, screening is easier and the optimal intervention is more extensive than under buybacks.
   \item \textbf{Non-comprehensive intervention / rebound.} Short of the
   prohibitively costly policy of buying everything, the market always rebounds;
-  the government reduces adverse selection \emph{enough} to let it restart, but
-  \emph{not too much}, to cap the fiscal cost.
+  the government reduces adverse selection enough to let it restart, but
+  not too much, to limit the fiscal cost.
   \item \textbf{Costly intervention.} The market already prices firms'
   willingness to fire-sell, so rejuvenation is necessarily expensive: the
-  government loses money on \emph{every} financed type.
+  government loses money on every financed type, just like before.
   \item \textbf{No desire to shut the market down.} If the law forbids
   expropriation (firms get at least $U_0(\theta)=\theta R_0$), the voluntary-
-  participation constraint can be made \emph{costless}: the government would gain
+  participation constraint can be made costless: the government would gain
   nothing from the power to ban the market, though the market deeply shapes
-  \emph{how} it intervenes.
+  how it intervenes.
   \item \textbf{When is intervention desirable?} A market failure does not by
   itself justify a bailout; the budgetary cost $\lambda$ makes the government
   reluctant. Small bad news, however, can flip the optimum from laissez-faire to
-  intervention.
-  \item \textbf{Intervention creates moral hazard.} The \emph{prospect} of a
-  bailout dulls ex-ante incentives to originate high-quality assets.
+  intervention, as gains from intervening increase.
+  \item \textbf{Intervention creates moral hazard.} The prospect of a
+  bailout decreases ex-ante incentives to originate high-quality assets.
 \end{enumerate}
 
-A theoretically pretty by-product (Section III) connects to the
-Rothschild--Stiglitz tradition: the \emph{constrained-efficient} allocation---the
+A theoretical by-product (Section III) connects to the
+Rothschild--Stiglitz tradition: the constrained-efficient allocation---the
 one maximizing surplus subject to seller IC and buyer break-even---is an
-equilibrium of the laissez-faire market game, and the \emph{unique} one
+equilibrium of the laissez-faire market game, and the unique one
 surviving a ``robust choice'' refinement. The market, left alone, already
 implements the best incentive-feasible allocation; the government's role is
 purely to relax the adverse-selection constraint at a fiscal cost.
 
 %==================================================================
-\section{Extensions (sketched)}
+\subsection{Extensions}
 %==================================================================
 
-Tirole gestures at several extensions; I summarize them as sketches rather than
-re-deriving them.
+Tirole proposes then several extensions; I summarize them:
 \begin{itemize}[leftmargin=1.4em]
   \item \emph{Ex-ante asset quality.} Endogenizing $\theta$ via costly effort
   confirms insight (vi): the anticipated rescue lowers the marginal return to
-  originating good assets, so intervention breeds moral hazard. With commitment
+  originating good assets, so the intervention naturally creates moral hazard. With commitment
   the optimal scheme would also internalize this effort margin.
   \item \emph{Fungibility (Myers--Majluf).} If legacy and project payoffs cannot
   be told apart, contracts reward one vs.\ two successes; the flat bottom of the
-  constrained optimum tilts upward but the logic is unchanged.
+  constrained optimum (figure 4 in the paper) tilts upward but the logic is mostly unchanged.
   \item \emph{Two-sided adverse selection.} Private information on the new
-  project too makes screening two-dimensional and hard, but under perfect
-  correlation it collapses to one dimension and the analysis goes through.
-  \item \emph{A small cost of intervention} pins down a \emph{unique}
+  project too (i.e $S(\theta)$) makes screening two-dimensional and hard, but under perfect
+  correlation it collapses to one dimension and the analysis goes through\footnote{A doubt however is what happens if $S(\theta)$ is exponentialy increasing in its argument}.
+  \item \emph{A small cost of intervention} pins down a unique
   implementation: the government rescues the bottom $[\underline\theta,\theta_g]$
   and leaves $[\theta_g,\theta^\ast]$ to the market, maximizing the size of the
   free market by clearing out the worst types.
@@ -275,29 +269,29 @@ re-deriving them.
 %==================================================================
 \section{Placement in the course}
 %==================================================================
+\label{section2}
 
-The paper sits squarely at the intersection of the four blocks we covered, and
-reading it is a good way to see how they fit together.
+The paper sits mostly at the intersection of the four blocks we covered in class. Reading it was a good way to see how they fit together. I will try to connect them by parts:
 
 \paragraph{Revelation principle and the informed-principal logic (Myerson 1982).}
 The government's problem is a mechanism-design problem, and the revelation
 principle lets us restrict attention to direct, incentive-compatible mechanisms
 $(\Ug(\cdot),C_g(\cdot))$---this is what licenses working with rent profiles
 rather than arbitrary contracts. What the paper changes is the
-\emph{participation} side. In the canonical formulation the individual-rationality
+participation side. In the canonical formulation the individual-rationality
 constraint is $U(\theta)\ge U_0(\theta)$ with $U_0$ fixed; here it becomes
 $\Ug(\theta)\ge \Um(\theta;\Theta_m)$ with the right-hand side a
-\emph{function of the mechanism}. The clean separation of IC and IR that we used
+function of the mechanism. The clean separation of IC and IR that we used
 throughout breaks down, and the designer's problem becomes a fixed point. This is
 the single most important ``twist on the basics'' in the paper.
 
-\paragraph{Adverse selection and market breakdown (Akerlof lecture).} The
-stripped-down model \emph{is} the Akerlof common-values market: a seller's payoff
+\paragraph{Adverse selection and market breakdown.} The
+stripped-down model is the Akerlof common-values market: a seller's payoff
 depends on the type of whoever ends up holding the asset, the break-even price is
 a truncated mean, and incentive compatibility acts as a quantity/sorting
 constraint that generates a cross-type externality---precisely the externality
 that, under common values, can break decentralization (the Prescott--Townsend /
-Rothschild--Stiglitz theme from the Akerlof slides). Tirole's Section III result,
+Rothschild--Stiglitz theme from the Akerlof lecture). Tirole's Section III result,
 that the constrained-efficient allocation is the unique refined market
 equilibrium, is the positive counterpart to that lecture's existence and
 decentralization discussion.
@@ -305,42 +299,42 @@ decentralization discussion.
 \paragraph{Competing mechanisms / multiple principals.} The government and the
 market are two principals contracting with the same population, so the paper
 belongs to the competing-mechanisms world of the course (Myerson 1982 competing
-hierarchies; Attar--Mariotti--Salani\'e on non-exclusive competition for lemons).
-But the placement is instructive precisely through a \emph{contrast}: that
-literature has the principals move \emph{simultaneously}, which is exactly why
-reservation utilities there are \emph{not} mechanism-dependent and can be treated
-as exogenous. Tirole's \emph{sequential} (Stackelberg) timing is what makes the
+hierarchies; Attar--Mariotti--Salani\'e  on non-exclusive competition for lemons).
+But the placement is instructive precisely through a contrast: that
+literature has the principals move simultaneously, which is exactly why
+reservation utilities there are not mechanism-dependent and can be treated
+as exogenous. Tirole's sequential (Stackelberg) timing is what makes the
 outside option respond to the leader's mechanism. So the paper can be read as the
 ``competing-mechanisms'' problem with the one ingredient the standard models
-assume away. The link to Attar--Mariotti--Salani\'e is doubly relevant: their
+assume away. The link to Attar--Mariotti--Salani\'e is quite relevant: their
 result that non-exclusive competition reproduces the Akerlof outcome is what
 underwrites treating the rebounding market as a competitive Akerlof market in the
 first place.
 
-\paragraph{Moral hazard (MH lecture).} Adverse selection is not the whole story:
+\paragraph{Moral hazard.} Adverse selection is not the whole story:
 the credit constraint that forces the firm to sell its asset comes from a
-\emph{moral-hazard} wedge $B-b$ on the new project (Assumption 2), and the
+moral-hazard wedge $B-b$ on the new project (Assumption 2), and the
 limited pledgeability $R_1-(B-b)$ is straight out of the Holmstr\"om--Tirole
-``skin in the game'' logic of the moral-hazard block. Insight (vi)---intervention
-distorting ex-ante origination---is itself a moral-hazard result layered on top
-of the screening problem.
-
+``skin in the game'' logic of the moral-hazard part of the course. Insight (vi)---intervention
+distorting ex-ante origination---is itself a moral-hazard result put on top
+of the screening problem. The main results of the pape,  however, focus on the adverse selection problem, which is far more important in the application.
 %==================================================================
 \section{Critical comments}
 %==================================================================
-
-These are reader's comments rather than a referee's line-by-line; the paper is
-deservedly influential and most of these are about scope.
-
+\label{section3}
+In the end, I annotate some comments and doubts about the paper:
 \begin{enumerate}[leftmargin=1.6em]
-  \item \textbf{Adverse selection as \emph{the} cause of the freeze.} The whole
+  \item \textbf{Adverse selection as the cause of the freeze.} The whole
   apparatus traces freezes to asymmetric information about asset quality. Tirole
-  is candid (Section V) that 2007--09 also reflected fire-sale / cash-in-the-market
+  is honest (Section V) that 2007--09 also reflected fire-sale / cash-in-the-market
   pricing, funding runs, regulatory forbearance, counterparty risk and ambiguity
   aversion. A model with no leverage, no rollover risk and no interconnectedness
   cannot speak to the run dynamics that arguably mattered most for Lehman/Bear.
-  The paper's value is conditional: \emph{if} the binding friction is adverse
-  selection, here is the optimal response.
+  The paper's value is conditional: if the binding friction is adverse
+  selection, here is the optimal response. That said, the real contribution seems also
+  methodological---endogenous, mechanism-dependent participation constraints---and
+  this carries over to any sequential, multi-principal setting under adverse
+  selection, well beyond the bailout story. That is what makes the paper matter beyond this critique.
 
   \item \textbf{Commitment.} The government is assumed to commit, before stage 4,
   to a scheme it will not renegotiate. Bailouts are famously time-inconsistent
@@ -348,37 +342,30 @@ deservedly influential and most of these are about scope.
   commitment take-up falls and sellers wait for better offers, as in the drawn-out
   Japanese recapitalizations. Since the no-commitment case can overturn the
   ``costless participation constraint'' result, the commitment assumption is doing
-  real work and deserves to be flagged as such.
-
-  \item \textbf{Binary asset payoff.} The $\{R_0,0\}$ structure is what makes the
-  algebra so clean, but it is knife-edge: it cannot distinguish among interventions
-  that leave the asset on the balance sheet (debt guarantees vs.\ equity
-  injections). Philippon--Skreta (2012), with a continuum of returns and monotone
-  contracts, find debt guarantees strictly optimal---a distinction Tirole's model
-  is, by construction, blind to.
+  a lot of work. Relaxing it, however, seems work for the future.
 
   \item \textbf{Specification of the outside option.} Several headline results,
   especially ``no desire to shut down the market,'' lean on the autarky payoff
   $U_0(\theta)=\theta R_0$ (fleeting opportunity) and on the no-expropriation legal
-  constraint. With a different reservation specification---e.g.\ a delayed but not
-  forgone opportunity---the costlessness of the participation constraint need not
-  survive. The result is elegant but not robust to the timing primitive.
+  constraint. Tirole argues (footnote~12) that the broad analysis still goes
+  through with a less urgent need; but the specific claim that the participation
+  constraint is costless leans on the fleeting-opportunity case. So the result is ensitive to how the outside option is set up.
 
   \item \textbf{Statics and homogeneity.} The model is static with a single
   cohort and a known type distribution $F$; there is no aggregate uncertainty
-  about \emph{where} $F$ sits, no learning, and no recovery dynamics. Yet the
+  about where $F$ sits, no learning, and no recovery dynamics. Yet the
   policy question (``is this freeze the kind that will rebound?'') is largely about
   that aggregate uncertainty.
 
   \item \textbf{On the positive side---and worth saying.} The pecking-order
-  prediction (buy the worst, recapitalize the middle, leave the best) actually
-  rationalizes the observed drift of TARP from outright toxic-asset purchases to
-  equity injections, and the ``government must overpay'' conclusion gives a
-  coherent, if politically awkward, answer to the contemporaneous debate (Bebchuk,
-  Krugman, Sachs vs.\ the ``assets are undervalued, we might even profit'' view).
-  The model articulates exactly why the optimistic view was wrong: a successful
-  purge raises residual asset prices and makes good firms hold out, so the scheme
-  \emph{must} lose money. That is a genuine and durable insight.
+  prediction (buy the worst, recapitalize the middle, leave the best) rationalizes
+  the observed drift of TARP from outright toxic-asset purchases toward
+  recapitalization (e.g.\ equity injections), and the ``government must overpay''
+  conclusion gives a coherent, if politically awkward, answer to the contemporaneous
+  debate (Bebchuk, Krugman, Sachs vs.\ the ``assets are undervalued, we might even
+  profit'' view). The model articulates exactly why the optimistic view was wrong:
+  a successful purge raises residual asset prices and makes good firms hold out, so
+  the scheme must lose money. That is a counterintuitive but durable insight.
 \end{enumerate}
 
 %==================================================================
