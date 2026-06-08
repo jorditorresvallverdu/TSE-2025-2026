@@ -135,10 +135,10 @@ INPUT ./referee_report_auctions.out
 INPUT ./referee_report_auctions.out
 INPUT referee_report_auctions.out
 INPUT referee_report_auctions.out
+OUTPUT referee_report_auctions.pdf
 INPUT ./referee_report_auctions.out
 INPUT ./referee_report_auctions.out
 OUTPUT referee_report_auctions.out
-OUTPUT referee_report_auctions.pdf
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmr17.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmr12.tfm
 INPUT /Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmr8.tfm

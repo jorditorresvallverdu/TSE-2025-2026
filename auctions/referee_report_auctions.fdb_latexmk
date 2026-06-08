@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1780422962.28384 "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/auctions/referee_report_auctions.tex" "referee_report_auctions.pdf" "referee_report_auctions" 1780422962.77358 0
-  "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/auctions/referee_report_auctions.tex" 1780422961.61649 14198 4cdd7049a5086aafe66de953b4142154 ""
+["pdflatex"] 1780863996.73601 "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/auctions/referee_report_auctions.tex" "referee_report_auctions.pdf" "referee_report_auctions" 1780863997.20714 0
+  "/Users/jorditorresvallverdu/Documents/GitHub/TSE-2025-2026/auctions/referee_report_auctions.tex" 1780863996.36788 15323 2ba7338841ff45851e7d57bb1666426e ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map" 1777654226.75689 339971 a0f6282cb8d7554e74ae479a7475da24 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1734277941.08881 12002472 b582eb731daf2b623c3d30845607ef6c ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1725915917.94285 1004 54797486969f23fa377b128694d548df ""
@@ -103,9 +103,9 @@
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tools/longtable.sty" 1734275015.87609 15900 3cb191e576c7a313634d2813c55d4bf1 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tools/tabularx.sty" 1734275015.87488 7243 e5dac1240636811edb77568b81818372 ""
   "/Users/jorditorresvallverdu/Library/Application Support/MiKTeX/texmfs/install/tex/latex/url/url.sty" 1725915934.0507 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "referee_report_auctions.aux" 1780422962.6642 698 5cb9e8173826f660bb2dca65224b70b1 "pdflatex"
-  "referee_report_auctions.out" 1780422962.63431 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "referee_report_auctions.tex" 1780422961.61649 14198 4cdd7049a5086aafe66de953b4142154 ""
+  "referee_report_auctions.aux" 1780863997.10073 1290 db9a534bc1811f3a672f9852c2d1b86d "pdflatex"
+  "referee_report_auctions.out" 1780863997.10136 583 ac0523357d87e6c6c582ba5e54efe8fe "pdflatex"
+  "referee_report_auctions.tex" 1780863996.36788 15323 2ba7338841ff45851e7d57bb1666426e ""
   (generated)
   "referee_report_auctions.aux"
   "referee_report_auctions.log"
