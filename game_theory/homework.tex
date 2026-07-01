@@ -1,0 +1,108 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{parskip}
+
+\title{Game Theory, Mres\\Homework}
+\author{Jordi Torres-Vallverdú}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{1}
+\subsection*{1.1}
+\paragraph{Proof.}
+Suppose it is. Then by the definition of properness there is a sequence of
+totally mixed profiles $\sigma^n \to (A,V)$ and reals $\varepsilon_n \to 0$,
+$\varepsilon_n > 0$, such that for each player $i$ and every pair of pure
+strategies $s,s'$ of that player,
+\begin{equation}\tag{$\ast$}
+u_i(s,\sigma^n_{-i}) < u_i(s',\sigma^n_{-i})
+\quad\Longrightarrow\quad
+\sigma^n_i(s) \le \varepsilon_n\,\sigma^n_i(s').
+\end{equation}
+I  write player 1's tremble weights as
+$(a_n,b_n,c_n,d_n) = \big(\sigma^n_1(A),\sigma^n_1(B),\sigma^n_1(C),\sigma^n_1(D)\big)$
+and player 2's as
+$(v_n,w_n,x_n,y_n,z_n) = \big(\sigma^n_2(V),\dots,\sigma^n_2(Z)\big)$.
+Being totally mixed, all of these are strictly positive; and
+$\sigma^n \to (A,V)$ means $a_n,v_n \to 1$ while the other six weights
+$\to 0$.
+ 
+The idea is to use the two player's constraints against each
+other. I do it in three steps.
+ 
+\medskip
+\textbf{1.}
+Against player 1's trembles, player 2's payoffs from $W$, $X$ and $Y$ are
+\[
+u_2(W,\sigma^n_1) = a_n + d_n,\qquad
+u_2(X,\sigma^n_1) = a_n + c_n,\qquad
+u_2(Y,\sigma^n_1) = 0,
+\]
+because column $Y$ gives player 2 zero in every row, while $W$ and $X$ each
+give him a $1$ in row $A$. Since $a_n \to 1$, for $n$ large both $a_n+d_n$ and
+$a_n+c_n$ are strictly positive, so $Y$ is strictly worse than $W$ and than $X$.
+By $(\ast)$,
+\[
+y_n \le \varepsilon_n\, w_n
+\qquad\text{and}\qquad
+y_n \le \varepsilon_n\, x_n .
+\]
+In particular $y_n < w_n$ and $y_n < x_n$ for $n$ large (eventually
+$\varepsilon_n < 1$).
+ 
+\textbf{2.}
+For player 1, against player 2's trembles\footnote{I suppres the superscript $n$ for
+readability}:
+\[
+u_1(B) = v+2w+2x+z,\quad
+u_1(C) = v+w+2x+y+z,\quad
+u_1(D) = v+2w+x+y+z,
+\]
+so, cancelling, the only columns that survive are $W,X,Y$ and
+\[
+u_1(B) - u_1(C) = w_n - y_n,\qquad
+u_1(B) - u_1(D) = x_n - y_n .
+\]
+By Step 1 both differences are strictly positive for $n$ large, so $C$ and $D$
+are each strictly worse than $B$. Applying $(\ast)$ to player 1,
+\[
+c_n \le \varepsilon_n\, b_n,\qquad
+d_n \le \varepsilon_n\, b_n,
+\qquad\text{hence}\qquad
+c_n + d_n \le 2\varepsilon_n\, b_n < b_n
+\]
+once $\varepsilon_n < \tfrac12$.
+
+\textbf{3}
+Finally, step 3: 
+
+Now we compare columns $V$ and $Z$ for player 2:
+\[
+u_2(V,\sigma^n_1) = a_n + b_n + c_n + d_n = 1,
+\qquad
+u_2(Z,\sigma^n_1) = a_n + 2b_n,
+\]
+so
+\[
+u_2(V,\sigma^n_1) - u_2(Z,\sigma^n_1) = (c_n + d_n) - b_n < 0
+\]
+for $n$ large, by 2. Thus $V$ is strictly worse than $Z$, and $(\ast)$
+gives
+\[
+v_n \le \varepsilon_n\, z_n \le \varepsilon_n \to 0 .
+\]
+But $\sigma^n \to (A,V)$ forces $v_n \to 1$. Contradiction. \qquad$\blacksquare$
+ 
+\subsection*{1.2}
+Basically I need to show that is Sequential Equilibria, but making sure the proof or the argument is applicable to any extensive form game that we may draw. 
+\section*{2}
+
+
+\section*{3}
+
+
+\end{document}
