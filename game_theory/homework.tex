@@ -99,6 +99,56 @@ But $\sigma^n \to (A,V)$ forces $v_n \to 1$. Contradiction. \qquad$\blacksquare$
  
 \subsection*{1.2}
 Basically I need to show that is Sequential Equilibria, but making sure the proof or the argument is applicable to any extensive form game that we may draw. 
+
+Suppose player 2 plays $V$, so by (a) player 1 gets $1$ no matter which row she ends up
+playing. Hence at every information set of player 1, every continuation --- $A$
+included --- yields $1$, so $A$ is (weakly) optimal there under whatever beliefs
+she holds. Nothing about $\Gamma$ entered this; player 1's sequential rationality
+is automatic in any tree.
+
+By the first half of (b), $V$ yields a constant $1$ at any information set,
+whatever the belief $\mu$. So the only way $V$ could fail to be optimal is if some
+other column beats $1$. Writing the belief's marginal over player 1's row as
+$(\mu_A,\mu_B,\mu_C,\mu_D)$,
+\[
+u_2(V) = 1,\quad u_2(W)=\mu_A+\mu_D\le 1,\quad u_2(X)=\mu_A+\mu_C\le 1,\quad
+u_2(Y)=0,\quad u_2(Z)=\mu_A+2\mu_B .
+\]
+Only $Z$ can exceed $1$, and $u_2(Z) = \mu_A + 2\mu_B > 1$ exactly when
+$\mu_B > \mu_C + \mu_D$. So $V$ is a best reply at an information set as soon as
+\[
+\mu_B \;\le\; \mu_C + \mu_D,
+\]
+i.e.\ as long as the belief doesn't put more weight on the $B$-node than on $C$
+and $D$ together.
+
+
+On the path, player 1 plays $A$ with probability $1$, so Bayes forces $\mu_A = 1$
+(hence $\mu_B = 0$) at every on-path information set of player 2 --- and there $V$
+is optimal, tying $Z$ at $1$. Off the path we have freedom, subject to $\mu$ being
+a limit of Bayes-updates from totally mixed trembles. Take any sequence
+$\sigma^n \to (A,V)$ of totally mixed profiles in which player 1's tremble onto
+$B$ is of higher order than his trembles onto $C$ and $D$ --- say
+$\sigma^n_1(B) = o\big(\sigma^n_1(C)\big)$ and $\sigma^n_1(B) = o\big(\sigma^n_1(D)\big)$.
+Then at every information set the conditional weight on the $B$-node vanishes, so
+in the limit $\mu_B = 0 \le \mu_C + \mu_D$, and $V$ is optimal everywhere by the
+line above. This recipe never mentioned the shape of $\Gamma$, so it produces a
+consistent, sequentially rational $(\sigma,\mu)$ in every tree.
+
+\paragraph{Conclusion.}
+$(\sigma,\mu)$ is a sequential equilibrium of $\Gamma$ with $\sigma = (A,V)$, and
+$\Gamma$ was an arbitrary extensive form with this normal form. So $(A,V)$ is part
+of a sequential equilibrium in every such extensive form.
+
+Putting the two halves together: $(A,V)$ lies in the intersection of the
+sequential-equilibrium profiles taken over all extensive forms, yet (Part~1) it is
+not proper. Hence
+\[
+\text{proper} \;\subsetneq\; \bigcap_{\Gamma}\ \text{sequential eq.\ of }\Gamma,
+\]
+which is the strict inclusion the notes were pointing at.
+
+\textbf{I think intuition is correct, but proof needs to be finished and more formal.}
 \section*{2}
 
 
