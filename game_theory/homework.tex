@@ -2,7 +2,9 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath, amssymb}
 \usepackage{parskip}
-
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
 \title{Game Theory, Mres\\Homework}
 \author{Jordi Torres-Vallverdú}
 \date{\today}
@@ -14,25 +16,21 @@
 \section*{1}
 \subsection*{1.1}
 \paragraph{Proof.}
-Suppose it is. Then by the definition of properness there is a sequence of
-totally mixed profiles $\sigma^n \to (A,V)$ and reals $\varepsilon_n \to 0$,
-$\varepsilon_n > 0$, such that for each player $i$ and every pair of pure
-strategies $s,s'$ of that player,
+Suppose it is. Then by the definition of properness there is a sequence of totally mixed profiles $\sigma^n \to (A,V)$ and  $\varepsilon_n \to 0$, $\varepsilon_n > 0$, s.t for each player $i$ and every pair of pure strategies $s,s'$ of that player,
 \begin{equation}\tag{$\ast$}
 u_i(s,\sigma^n_{-i}) < u_i(s',\sigma^n_{-i})
 \quad\Longrightarrow\quad
 \sigma^n_i(s) \le \varepsilon_n\,\sigma^n_i(s').
 \end{equation}
 I  write player 1's tremble weights as
-$(a_n,b_n,c_n,d_n) = \big(\sigma^n_1(A),\sigma^n_1(B),\sigma^n_1(C),\sigma^n_1(D)\big)$
+$(a_n,b_n,c_n,d_n) = \big(\sigma^n_1(A),\sigma^n_1(B),\sigma^n_(C),\sigma^n_1(D)\big)$
 and player 2's as
 $(v_n,w_n,x_n,y_n,z_n) = \big(\sigma^n_2(V),\dots,\sigma^n_2(Z)\big)$.
 Being totally mixed, all of these are strictly positive; and
 $\sigma^n \to (A,V)$ means $a_n,v_n \to 1$ while the other six weights
 $\to 0$.
  
-The idea is to use the two player's constraints against each
-other. I do it in three steps.
+The idea is to use the two player's constraints against each other. I do it in three steps.
  
 \medskip
 \textbf{1.}
@@ -42,17 +40,13 @@ u_2(W,\sigma^n_1) = a_n + d_n,\qquad
 u_2(X,\sigma^n_1) = a_n + c_n,\qquad
 u_2(Y,\sigma^n_1) = 0,
 \]
-because column $Y$ gives player 2 zero in every row, while $W$ and $X$ each
-give him a $1$ in row $A$. Since $a_n \to 1$, for $n$ large both $a_n+d_n$ and
-$a_n+c_n$ are strictly positive, so $Y$ is strictly worse than $W$ and than $X$.
-By $(\ast)$,
+because column $Y$ gives player 2 zero in every row, while $W$ and $X$ each give him a $1$ in row $A$. Since $a_n \to 1$, for $n$ large both $a_n+d_n$ and $a_n+c_n$ are strictly positive, so $Y$ is strictly worse than $W$ and than $X$. By $(\ast)$ ,
 \[
 y_n \le \varepsilon_n\, w_n
 \qquad\text{and}\qquad
 y_n \le \varepsilon_n\, x_n .
 \]
-In particular $y_n < w_n$ and $y_n < x_n$ for $n$ large (eventually
-$\varepsilon_n < 1$).
+In particular $y_n < w_n$ and $y_n < x_n$ for $n$ large (eventually $\varepsilon_n < 1$).
  
 \textbf{2.}
 For player 1, against player 2's trembles\footnote{I suppres the superscript $n$ for
@@ -67,8 +61,7 @@ so, cancelling, the only columns that survive are $W,X,Y$ and
 u_1(B) - u_1(C) = w_n - y_n,\qquad
 u_1(B) - u_1(D) = x_n - y_n .
 \]
-By Step 1 both differences are strictly positive for $n$ large, so $C$ and $D$
-are each strictly worse than $B$. Applying $(\ast)$ to player 1,
+By Step 1 both differences are strictly positive for $n$ large, so $C$ and $D$ are each strictly worse than $B$. Applying $(\ast)$ to player 1,
 \[
 c_n \le \varepsilon_n\, b_n,\qquad
 d_n \le \varepsilon_n\, b_n,
@@ -96,63 +89,277 @@ gives
 v_n \le \varepsilon_n\, z_n \le \varepsilon_n \to 0 .
 \]
 But $\sigma^n \to (A,V)$ forces $v_n \to 1$. Contradiction. \qquad$\blacksquare$
- 
-\subsection*{1.2}
-Basically I need to show that is Sequential Equilibria, but making sure the proof or the argument is applicable to any extensive form game that we may draw. 
+
+ \subsection*{1.2}
+First, to solve this we need to note two key facts about the matrix of the game:
+\begin{itemize}
+\item[(a)] column $V$ pays player 1 a $1$ in every row (and so does $Z$ --- in fact
+$V$ and $Z$ give player 1 identical payoffs, a constant $1$);
+\item[(b)] column $V$ pays player 2 a $1$ in every row, and no other column ever pays
+player 2 more than $1$, except $Z$, which pays $2$ and only in row $B$.
+\end{itemize}
+I used this above and I will use it here too. 
+
+Fix any extensive form $\Gamma$ with this reduced normal form. I suppose there ios an assessment
+$(\sigma,\mu)$ with $\sigma=(A,V)$ that is sequentially rational and consistent; since
+$\Gamma$ is arbitrary, this shows $(A,V)$ is part of a sequential equilibrium in every
+such tree.
 
 Suppose player 2 plays $V$, so by (a) player 1 gets $1$ no matter which row she ends up
 playing. Hence at every information set of player 1, every continuation --- $A$
-included --- yields $1$, so $A$ is (weakly) optimal there under whatever beliefs
-she holds. Nothing about $\Gamma$ entered this; player 1's sequential rationality
-is automatic in any tree.
+included --- yields $1$, so $A$ is (weakly) optimal there under whatever beliefs she
+holds. Nothing about $\Gamma$ entered this; player 1's sequential rationality is
+automatic in any tree.
 
-By the first half of (b), $V$ yields a constant $1$ at any information set,
-whatever the belief $\mu$. So the only way $V$ could fail to be optimal is if some
-other column beats $1$. Writing the belief's marginal over player 1's row as
-$(\mu_A,\mu_B,\mu_C,\mu_D)$,
+By (b), $V$ yields a constant $1$ at any information set of player 2, whatever the belief $\mu$. So the only way $V$ could fail to be optimal is if some other column beats $1$.
+
+Writing the belief's marginal over player 1's row as $(\mu_A,\mu_B,\mu_C,\mu_D)$,
 \[
 u_2(V) = 1,\quad u_2(W)=\mu_A+\mu_D\le 1,\quad u_2(X)=\mu_A+\mu_C\le 1,\quad
 u_2(Y)=0,\quad u_2(Z)=\mu_A+2\mu_B .
 \]
-Only $Z$ can exceed $1$, and $u_2(Z) = \mu_A + 2\mu_B > 1$ exactly when
-$\mu_B > \mu_C + \mu_D$. So $V$ is a best reply at an information set as soon as
+Only $Z$ can exceed $1$, and $u_2(Z)>1$ exactly when $\mu_B>\mu_C+\mu_D$. So $V$ is a best reply at an information set as
 \[
-\mu_B \;\le\; \mu_C + \mu_D,
+\mu_B \;\le\; \mu_C+\mu_D .
 \]
-i.e.\ as long as the belief doesn't put more weight on the $B$-node than on $C$
-and $D$ together.
 
+On path, player 1 plays $A$ with probability $1$, so Bayes forces $\mu_A=1$ (thus
+$\mu_B=0$) at every on-path information set of player 2 --- and there $V$ is optimal,
+tying $Z$ at $1$. Off path I need beliefs that are limits of Bayes updates from
+totally mixed trembles. Take any $\sigma^n\to(A,V)$ in which player 1's tremble onto $B$
+is of higher order than onto $C$ and $D$, say $\sigma^n_1(B)=o(\sigma^n_1(C))$ and
+$\sigma^n_1(B)=o(\sigma^n_1(D))$. At any information set $h$ of player 2 and node
+$x\in h$, Bayes gives $\mu^n(x)=P_{\sigma^n}(x)/P_{\sigma^n}(h)$, so the weight of a
+$B$-node relative to any $A$-, $C$- or $D$-node in $h$ is a ratio $\sigma^n_1(B)/\sigma^n_1(\cdot)$, which $\to 0$ (against $A$ because $a_n\to1$; against
+$C,D$ by the choice of orders). Hence in the limit $\mu_B=0\le\mu_C+\mu_D$ at every such
+$h$, and $V$ is optimal there.
 
-On the path, player 1 plays $A$ with probability $1$, so Bayes forces $\mu_A = 1$
-(hence $\mu_B = 0$) at every on-path information set of player 2 --- and there $V$
-is optimal, tying $Z$ at $1$. Off the path we have freedom, subject to $\mu$ being
-a limit of Bayes-updates from totally mixed trembles. Take any sequence
-$\sigma^n \to (A,V)$ of totally mixed profiles in which player 1's tremble onto
-$B$ is of higher order than his trembles onto $C$ and $D$ --- say
-$\sigma^n_1(B) = o\big(\sigma^n_1(C)\big)$ and $\sigma^n_1(B) = o\big(\sigma^n_1(D)\big)$.
-Then at every information set the conditional weight on the $B$-node vanishes, so
-in the limit $\mu_B = 0 \le \mu_C + \mu_D$, and $V$ is optimal everywhere by the
-line above. This recipe never mentioned the shape of $\Gamma$, so it produces a
-consistent, sequentially rational $(\sigma,\mu)$ in every tree.
+The one case this misses is an information set of player 2 containing only $B$-nodes: there $\mu_B=1$ is forced, and since $u_2(Z)=2>1=u_2(V)$, $V$ would not be optimal. But such a set cannot arise in a tree with this normal form. If player 2 had a payoff-relevant move reached only after $B$, he could vary it while holding the rest of his behaviour fixed; the result agrees with $V$ against $A,C,D$ but reaches $Z$'s outcome against $B$, i.e.\ it is a column equal to $V$ in rows $A,C,D$ and to $Z$ in row $B$ --- giving player 2 $(1,2,1,1)$. That is none of $V,\dots,Z$, so it would enlarge the reduced normal form. Since the reduced normal form is exactly the five given columns, no such $B$-only choice exists: every information set of player 2 that contains a $B$-node also contains an $A$-, $C$- or $D$-node, and the previous paragraph applies. (If some $B$-only set existed with no payoff-relevant choice, any action --- $V$'s included --- is optimal there anyway.)
 
-\paragraph{Conclusion.}
-$(\sigma,\mu)$ is a sequential equilibrium of $\Gamma$ with $\sigma = (A,V)$, and
-$\Gamma$ was an arbitrary extensive form with this normal form. So $(A,V)$ is part
-of a sequential equilibrium in every such extensive form.
+This argument never used the shape of $\Gamma$, so $(\sigma,\mu)$ is a sequential
+equilibrium with $\sigma=(A,V)$ in every extensive form with this normal form.
 
-Putting the two halves together: $(A,V)$ lies in the intersection of the
-sequential-equilibrium profiles taken over all extensive forms, yet (Part~1) it is
-not proper. Hence
+Putting the two halves together: $(A,V)$ is sequential in every such tree, yet (Part 1)
+it is not proper. Hence
 \[
 \text{proper} \;\subsetneq\; \bigcap_{\Gamma}\ \text{sequential eq.\ of }\Gamma,
 \]
 which is the strict inclusion the notes were pointing at.
 
-\textbf{I think intuition is correct, but proof needs to be finished and more formal.}
 \section*{2}
+ 
+\textbf{Setting.}
+We define the russian roulette game in the following game, following what we did in class: we have one player, six chambers, one bullet placed uniformly at
+random. The player may pull the trigger up to twice. Quitting (at any point)
+pays $0$; being hit pays $-8$; surviving both pulls pays $10$. 
+ 
+\textbf{Two representations of the same game.}
+Importantly, there are two natural ways to write the extensive form. This is the key tension of the problem:
 
+\begin{itemize}
+    \item Representation A: Nature moves once, at the start, choosing the loaded
+chamber (probability $1/6$ each); the player never observes this. Then every
+decision node of the player pools the chamber positions he cannot
+distinguish: his first node is an information set over six positions, and the
+node after a survived pull is an information set over the five remaining
+positions. The only proper subgame is the game itself, so subgame perfection
+has no bite and one needs beliefs.
+    \item Representation B: the player moves first, and Nature resolves the risk pull
+by pull, publicly: the first pull hits with probability $1/6$; conditional on
+surviving, the second hits with probability $1/5$ (one bullet, five chambers
+left). Now every node is a singleton, every continuation is a proper
+subgame, and the game is solved by backward induction.
+\end{itemize}
+ 
+
+ In the following figure I represent both cases: 
+\begin{center}
+\begin{tikzpicture}[scale=0.85, every node/.style={font=\small}]
+% Panel A
+\node at (2.1,6.3) {\textbf{A: Nature first}};
+\node[circle,draw,inner sep=1.5pt] (na) at (2.1,5.6) {};
+\node at (3.4,5.6) {Nature};
+\node[circle,draw,inner sep=1.5pt] (a1) at (0.9,4.4) {};
+\node[circle,draw,inner sep=1.5pt] (a2) at (3.3,4.4) {};
+\draw (na) -- (a1) node[midway,left] {ch.\,1};
+\draw (na) -- (a2) node[midway,right] {ch.\,6};
+\node at (2.1,4.7) {$\cdots$};
+\draw[dashed] (a1) -- (a2);
+\node at (2.1,3.9) {pull / quit};
+\node[circle,draw,inner sep=1.5pt] (b1) at (0.9,3.1) {};
+\node[circle,draw,inner sep=1.5pt] (b2) at (3.3,3.1) {};
+\draw (a1) -- (b1); \draw (a2) -- (b2);
+\draw[dashed] (b1) -- (b2);
+\node at (2.1,2.6) {pull / quit};
+\node at (2.1,1.8) {one subgame: the game};
+% Panel B
+\node at (8.6,6.3) {\textbf{B: Nature reveals pull by pull}};
+\node[circle,draw,inner sep=1.5pt] (p1) at (8.6,5.6) {};
+\node at (10.2,5.6) {player: pull/quit};
+\node[circle,draw,inner sep=1.5pt] (n1) at (8.6,4.6) {};
+\draw (p1) -- (n1);
+\node at (10.6,4.6) {Nature: hit $\tfrac16$ ($-8$)};
+\node[circle,draw,inner sep=1.5pt] (p2) at (8.6,3.6) {};
+\draw (n1) -- (p2) node[midway,left] {survive $\tfrac56$};
+\node at (10.2,3.6) {player: pull/quit};
+\node[circle,draw,inner sep=1.5pt] (n2) at (8.6,2.6) {};
+\draw (p2) -- (n2);
+\node at (10.6,2.6) {Nature: hit $\tfrac15$ ($-8$)};
+\node at (8.6,1.8) {survive $\tfrac45$: payoff $10$};
+\draw (n2) -- (8.6,2.1);
+\node at (8.6,1.2) {all singletons: subgames everywhere};
+\end{tikzpicture}
+\end{center}
+
+\textbf{Solution}
+ 
+\begin{itemize}
+    \item \textbf{The backward-induction solution (representation B).}
+At the second node, pulling gives $\tfrac45(10) + \tfrac15(-8) = 8 - 1.6 =
+6.4 > 0$, so the player pulls. At the first node, pulling gives
+$\tfrac56(6.4) + \tfrac16(-8) = \tfrac{16}{3} - \tfrac43 = 4 > 0$, so he
+pulls. The unique solution is pull--pull, with value $4$. Note the
+conditional probabilities $1/6$ and $1/5$ are part of the tree: at the second
+node the hazard is a fact, not a belief.
+    \item \textbf{PBE is too permissive (representation A).}
+Now lets try and solve representation A with weak perfect Bayesian equilibrium: beliefs
+over the chamber at each information set, Bayes' rule on the path, no
+restriction off the path. I claim the strategy ``quit immediately'' is a weak
+PBE, even though backward induction rejects it. 
+\end{itemize}
+
+To see why:
+
+Take the strategy (quit at the first node; quit at the second), and the belief, at the second information set, that the bullet sits in the next chamber for sure. The second information set is reached only if the player deviates and pulls, so it is off the path and this belief is allowed. Given the belief, pulling at the second node yields $-8$ for sure, against $0$ from quitting, so quitting there is sequentially rational. Given that continuation, deviating to pull at the first node is worth $\tfrac56(0) + \tfrac16(-8) = -\tfrac43 < 0$, so quitting at the start is optimal too. On the path there is nothing for Bayes to check. So (quit, quit) is a weak PBE with value $0$ --- the player talks himself out of a game worth $4$ by adopting, after his own deviation, a belief about the chamber that nothing in his information justifies. 
+ 
+In representation B this profile is simply not subgame perfect: at the second node the probability is $1/5$ by construction, pulling is worth $6.4 > 0$, and backward induction gives the quit strategy. So the two representations of the same game disagree under (subgame perfection, weak PBE) --- weak PBE is strictly too permissive, which is the point of the exercise.
+ 
+\textbf{The concept that survives re-representation.}
+What kills the spurious equilibrium is pinning down the belief. The player's own deviation carries no information about where the bullet is: the chamber was drawn by Nature, independently of anything the player does. So conditional on having survived one pull, the only reasonable belief is uniform over the five remaining chambers --- prob $1/5$ --- exactly the number representation B hardwires into the tree. Sequential equilibrium delivers precisely this: consistency requires beliefs to be limits of Bayes updates under totally mixed strategies, and since the player's trembles are independent of Nature's draw, the limit belief at the second information set must be the uniform conditional, whatever the equilibrium strategy is. With that belief the
+second pull is worth $6.4$, the first is worth $4$, and the unique sequential equilibrium of representation A is pull-pull --- the backward-induction solution of representation B. For this class of games (beliefs are about Nature only), the same argument applies in any representation, so sequential equilibrium is the concept whose strategy prediction is representation-independent.
+
+\textbf{So...which finite games with Nature admit such a representation.}
+The construction that turns A into B is: delay Nature's move, split it into conditional pieces, and reveal each piece publicly at the moment it first matters (here: chamber drawn once, unobserved, becomes hit-or-miss taken each time with probs $1/6, 1/5, \dots$). This works whenever two conditions hold:
+
+First, no player is privately informed about Nature: if some player observed the draw and another did not (types), the uninformed player would have to move without knowing it in every representation, and a nontrivial information set survives. 
+
+Second, the personal players themselves have perfect information (no simultaneous moves among them), since an information set created by another player's unobserved move cannot be removed by re-timing Nature. 
+
+Under these two conditions --- all uncertainty is common uncertainty about Nature, and players otherwise see everything --- Nature's draws can be postponed and resolved in public step by step, every information set becomes a singleton, and subgame perfection (backward induction) is the natural solution concept. 
 
 \section*{3}
 
+\textbf{Setting.}
+I use the seller-offer game with two periods and $\delta = \tfrac12$. The
+seller's cost is $0$. In period 1 the seller sets $p_1$; buyers accept or
+reject; in period 2 the seller sets $p_2$ to whoever has not bought. A
+value-$w$ agent who buys at price $p$ in period $t$ gets
+$\delta^{t-1}(w-p)$, and $0$ if it never buys; the seller collects the
+discounted prices paid. We allow two versions 
+
+\begin{enumerate}
+    \item one buyer, value $v \sim U[0,1]$,
+privately known. 
+    \item a unit mass of buyers $i \in [0,1]$, buyer $i$
+has value $i$, common knowledge
+
+\end{enumerate}
+
+A buyer-side strategy is the same object in both --- a map $\beta(w,h)$ giving the probability that the agent of value $w$ accepts at history $h$, read as ``what type $w$ does'' in (i) and ``what buyer $i = w$ does'' in (ii) --- and the seller's strategy is a price after each history. So it makes sense to ask whether the two solution concepts select the same pairs $(\beta,\pi)$.
+ 
+The tree of version (i) looks as follows (two representative values drawn;
+the dashed line is the seller's information set, the reason beliefs are
+needed). Version (ii) is the same picture with Nature's move deleted: each
+value is a separate buyer at her own node, so there is no dashed line and
+every continuation is a subgame.
+ 
+\begin{center}
+\begin{tikzpicture}[scale=0.9, every node/.style={font=\small}]
+\node (N) at (5,6) {Nature: $v \sim U[0,1]$};
+\node[circle,draw,inner sep=1.5pt] (n) at (5,5.5) {};
+\node[circle,draw,inner sep=1.5pt] (s1) at (2.5,4.3) {};
+\node[circle,draw,inner sep=1.5pt] (s2) at (7.5,4.3) {};
+\draw (n) -- (s1) node[midway,above left] {$v$ low};
+\draw (n) -- (s2) node[midway,above right] {$v$ high};
+\draw[dashed] (s1) -- (s2) node[midway,above] {seller: $p_1$};
+\node[circle,draw,inner sep=1.5pt] (b1) at (2.5,3.1) {};
+\node[circle,draw,inner sep=1.5pt] (b2) at (7.5,3.1) {};
+\draw (s1) -- (b1); \draw (s2) -- (b2);
+\node at (5,2.9) {buyer: accept ($v - p_1$) or reject};
+\node[circle,draw,inner sep=1.5pt] (t1) at (2.5,1.7) {};
+\node[circle,draw,inner sep=1.5pt] (t2) at (7.5,1.7) {};
+\draw (b1) -- (t1); \draw (b2) -- (t2);
+\draw[dashed] (t1) -- (t2) node[midway,above] {seller: $p_2$ (after reject)};
+\node at (5,1) {buyer: accept ($\delta(v - p_2)$) or reject ($0$)};
+\end{tikzpicture}
+\end{center}
+
+
+\textbf{Solution/prediction} 
+First solve version (ii) by backward induction. If the leftover population is
+$[0,\kappa)$, the seller's last-period revenue from $p_2$ is $p_2(\kappa - p_2)$, maximised at $p_2 = \kappa/2$. Anticipating this, the period-1 cutoff type is indifferent: $\kappa - p_1 = \delta(\kappa - \kappa/2) = \kappa/4$, so $\kappa = \tfrac43 p_1$. The seller then chooses $p_1$ to maximise $p_1(1 - \tfrac43 p_1) + \tfrac12 \cdot \tfrac{2p_1}{3}\cdot \tfrac{2p_1}{3} = p_1 - \tfrac{10}{9}p_1^2$, giving
+\[ p_1 = 0.45, \qquad \kappa = 0.6, \qquad p_2 = 0.3, \qquad
+\text{revenue } 0.225.
+\]
+Since the residual after any $p_1$ --- including off-path prices --- is the
+determinate set $[0, \tfrac43 p_1)$ and the continuation is pinned at every
+node, this is the unique SPE outcome.
+ 
+In version (i), on the equilibrium path, the same numbers come out and it is
+interesting seeing why. After $p_1 = 0.45$ is rejected, Bayes rule gives the seller
+the posterior $U[0, 0.6)$, and his problem is $\max_{p_2} p_2\,\frac{0.6 - p_2}{0.6}$, which is the continuum's problem $\max_{p_2} p_2(0.6 - p_2)$ divided by the constant $0.6$: integrating over a uniform type is averaging over a uniform population, so the maximiser is the same $p_2 = 0.3$. The buyer side needs no assumption at all, and this is the genuinely ``Harsanyi part'': a single agent cannot move the leftover set --- in
+(ii) because she has measure zero, in (i) because the seller responds to the
+signal ``reject'' through the strategy $\beta$, so a lone deviating type just
+pools with the equilibrium rejectors --- hence every value faces the identical
+problem ``take $v - p_1$ now or $\delta(v - p_2)$ tomorrow'' in both games.
+ 
+
+\textbf{Off-Path.}
+So the two concepts can only disagree off the path, and this is the substance of the problem as posed.
+
+Consider the following profile in version (i): the seller sets $p_1 =
+\tfrac12$; after the on-path rejection, Bayes gives $U[0, \tfrac23)$ and the
+seller sets $p_2 = \tfrac13$ (types accept by the cutoff rule; the
+indifferent type is $\tfrac23 - \tfrac12 = \tfrac12(\tfrac23 - \tfrac13)$,
+which checks). Off the path: if the seller ever sets $p_1' \ne \tfrac12$,
+let his belief after the subsequent rejection be the point mass at $v = 0$,
+and let set quote $p_2 = 0$. This is sequentially rational: against the belief
+$v = 0$ every price earns zero, so setting $0$ is (weakly) optimal. Buyers
+best respond to the actual continuation: anticipating a price of $0$ tomorrow,
+a value $v$ accepts $p_1'$ only if $v - p_1' \ge \delta v$, i.e.\ $v \ge
+2p_1'$, so a deviation earns the seller at most $\max_{p_1'} p_1'(1 - 2p_1')
+= \tfrac18$. The path earns $\tfrac12 \cdot \tfrac13 + \tfrac12 \cdot
+\tfrac13 \cdot \tfrac13 = \tfrac29 \approx 0.222 > \tfrac18$, so no deviation
+is profitable and this is a weak PBE. (Nothing special about $\tfrac12$: the
+same ``surrender'' threat supports a whole interval of first-period prices.)
+ 
+The identified profile is not an SPE of version (ii). There, after the
+deviation $p_1'$, the leftover population is the fact $[0, 2p_1')$, and
+against it $p_2 = 0$ earns zero while $p_2 = p_1'$ earns $p_1'^2 > 0$: the
+surrender threat is not credible when the seller knows who is still in the
+market. The whole trick in (i) was the belief --- the seller ``threatens
+himself'' by adopting, after his own deviation, a posterior ($v = 0$) that his
+information does not justify: the buyer has done nothing new, so there is
+nothing to update on. The gap between the two equilibrium sets is exactly the
+set of profiles produced by such beliefs.
+ 
+\textbf{Proposed solution}
+The fix is therefore a single restriction on the beliefs of version (i):
+\begin{quote}
+(B) at every history, on or off the path, the seller's posterior is the Bayes
+update of the prior given the buyer's strategy $\beta$; in particular it does
+not move in response to the seller's own prices.
+\end{quote}
+This is the ``no signalling what you don't know'' condition of
+Fudenberg-Tirole: $v$ is independent of the seller's actions, so only the
+buyer's accept/reject record is informative. Since a rejection is consistent
+with all low values, the conditioning event always has positive probability
+and (B) pins the posterior uniquely --- it is the truncated uniform
+$U[0,\theta)$, i.e.\ precisely the residual population of version (ii) at the
+same history. Under (B) the surrender belief is illegal, the seller's problem
+at every node --- not just on the path --- coincides with the continuum's up
+to a positive constant, and the buyer side coincided already; hence the
+equilibrium strategy pairs of the two versions are the same, and the example
+above shows (B) cannot be dropped. 
 
 \end{document}
