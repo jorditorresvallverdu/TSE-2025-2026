@@ -167,17 +167,22 @@ I present the sketch of the model. First, I define the timing and the players. S
   \item $t \in \{1, 2\}$: cycle 1. End-of-year standardized exams $G_{it}$ administered; school-issued recommendation $R_{it}$ delivered after grades.
   \item $t = 3$: binding initial track choice $d_{i3}$ at start of cycle 2.
   \item $t =4, 5$: cycle 2 and 3. Annual track-refinement decisions $d_{it}$ allowed within a downgrade trajectory. Again $R_{it}$, $G_{it}$ are realized.
-  \item $t = T$: terminal outcome $Y^{\mathrm{post}}_i$ (HE entry / labour-market signal).
+  \item $t = T$: terminal outcome $Y^{\mathrm{post}}_i$ (HE entry / labour-market signal etc).\footnote{We could also model higher education entry and STEM degree choice as in \citet{de_groote_dynamic_2025}} is realized.
 \end{itemize}
-Track movements are restricted: BSO is absorbing\footnote{Justified by the low rate of upgrades from BSO in the data.}, and within-cycle moves follow the downgrade order ASO $\to$ TSO $\to$ BSO. Upgrades are not feasible, but movements on the STEM/non-STEM margin are allowed.
 
-\paragraph{Players.} Students $i = 1, \ldots, N$; schools $s \in \mathcal{S}$, indexed by cycle-architecture type $\tau(s) \in \{\mathrm{C1}, \mathrm{C123}\}$ (cycle-1-only vs.\ full cycle). Track set is defined as:
+Track movements are restricted: BSO is absorbing\footnote{Justified by the low rate of upgrades from BSO in the data.}, and within-cycle moves follow the downgrade order ASO $\to$ TSO $\to$ BSO. Upgrades are not feasible, but movements on the STEM/non-STEM margin are allowed ---one could also justify movements from nonSTEM to STEM to be blocked (it is also a rare event in the data).
+
+\paragraph{Players.} Students $i = 1, \ldots, N$; schools $s \in \mathcal{S}$, indexed by cycle-architecture type $\tau(s) \in \{\mathrm{C1}, \mathrm{C123}\}$ (cycle-1-only vs.\ full cycle) and type. Track set is defined as:
 \begin{equation}
   \mathcal{J} = \{\mathrm{ASO\text{-}S},\ \mathrm{ASO\text{-}N},\ \mathrm{TSO\text{-}S},\ \mathrm{TSO\text{-}N},\ \mathrm{BSO}\}, \qquad |\mathcal{J}| = 5.
   \label{eq:tracks}
 \end{equation}
 
-\subsection{Sources of heterogeneity}
+
+
+\subsection{Student's problem}
+
+\subsubsection{Sources of heterogeneity}
 
 The model has three sources of unobserved heterogeneity: $\theta^k_i$, a discrete type known to student and school but not to the econometrician; $\theta^u_i$, a track-specific match quality unknown to all agents at $t=0$; and the different idiosyncratic shocks $\varepsilon_{it}$. This setting takes mostly as reference the notation and setting developed in \citet{arcidiacono2025college, bunting2024heterogeneity}.
 
@@ -200,7 +205,9 @@ Conditional on $\theta^k$, the prior on $\theta^u$ is Gaussian:
   \theta^u_i \mid \theta^k_i = k \ \sim\ \mathcal{N}\big(m_0(k),\ \Sigma_0\big),
   \label{eq:prior_thetau}
 \end{equation}
-with $\Sigma_0$ positive definite and \emph{not} restricted to be diagonal (correlated learning across tracks, as in AAMR). The mean $m_0(k)$ is type-specific\footnote{Potentially, it can also be $s$ specific, as students may enter with different confidence in each school.}.
+with $\Sigma_0$ positive definite and not restricted to be diagonal (correlated learning across tracks, as in AAMR). The mean $m_0(k)$ is type-specific\footnote{Potentially, it can also be $s$ specific, as students may enter with different confidence in each school.}.
+
+\textbf{This I probably need to change? unsure?}
 
 \paragraph{Observed covariates.} $X_{it}$ are exogenous observables (gender, age, grade level).
 
@@ -213,8 +220,11 @@ Here I outline the two main assumptions on the initial distribution of skills:
 
 \paragraph{Assumption A2 (Gaussian conjugacy on grades).} Grade noise is Gaussian and i.i.d.\ across $t$, conditional on $(\theta^k, \theta^u, X)$. This delivers closed-form Gaussian posteriors after grade signals; recommendation updating requires an additional approximation (A8 below). This is a standard assumption in the learning literature \citep{bunting2024heterogeneity}.
 
-\subsection{Grade equation}
+
+\subsubsection{Production function}
 The production function is described next.
+
+\textbf{This I need to update with the new specification. I need to add outcome instead of grade, no? cause there are multiple outcomes we may care about.}
 
 For $t \in \{1, 2, 3, 4\}$ and subject $b \in \{\mathrm{Math}, \mathrm{Dutch}\}$ we define:
 \begin{equation}
@@ -227,12 +237,28 @@ For $t \in \{1, 2, 3, 4\}$ and subject $b \in \{\mathrm{Math}, \mathrm{Dutch}\}$
   \item $\Lambda_b \in \mathbb{R}^{5}$: loading vector. Math grades load on STEM components, Dutch on non-STEM. Normalize one entry of $\Lambda_b$ per subject for scale.
 \end{itemize}
 
+\textbf{On grades, it is true this remains:}
+
 A useful difference from \citet{arcidiacono2025college} is that $G_{ibt}$ are standardized exams observed for every student at every $t$, regardless of school or future track. Their grade likelihood requires participation indicators because they only observe grades for the major chosen. Our case does not:
 \begin{equation}
   L^G_i \ =\ \prod_{t=1}^4 \prod_{b \in \{\mathrm{Math}, \mathrm{Dutch}\}} \phi\!\big(G_{ibt};\, \mu_b(\theta^k_i, X_{it}) + \Lambda_b^\top \theta^u_i,\, \sigma_b^2\big).
   \label{eq:grade_lik}
 \end{equation}
 The balanced grade panel sharply identifies $(\Lambda_b, \sigma_b^2, \Sigma_0)$ via cross-individual covariances, without the joint outcome-and-choice likelihood \citet{arcidiacono2025college} require. 
+
+
+\subsection{Student's problem}
+
+\subsubsection{School choice}
+The students enter High school and face subset X if schools, They choose school. Then initial ability is conditional on that. We 
+
+static reduced form?
+
+\subsection{Track choice}
+
+This is the dynamic
+
+
 
 
 
